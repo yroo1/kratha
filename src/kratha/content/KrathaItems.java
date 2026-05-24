@@ -11,7 +11,7 @@ public class KrathaItems{
     public static final Seq<Item> krathaItems = new Seq<>();
 
     public static void load(){
-        krathite = new Item("krathite", KrathaPal.kratha){{
+        krathite = new Item("krathite", KrathaPal.krathite){{
             hardness = 1;
             cost = 0.3f;
         }};

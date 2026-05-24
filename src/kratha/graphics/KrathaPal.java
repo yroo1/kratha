@@ -1,8 +1,8 @@
-package kratha;
+package kratha.graphics;
 
 import arc.graphics.Color;
 
-public class GenesisPal{
+public class KrathaPal{
     public static Color
     krathiteDark = Color.valueOf("51436B"),
     krathite = Color.valueOf("897090"),

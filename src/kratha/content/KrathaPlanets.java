@@ -25,7 +25,7 @@ public class KrathaPlanets{
             ryii,njii,khethar,hitroi,
 
     //planets
-    deearth,kasei,kratha,
+    deearth,kratha;
 
     public static void load(){
         // regions stars
@@ -142,18 +142,6 @@ public class KrathaPlanets{
             );
             cloudMeshLoader = () -> new MultiMesh(
                 new HexSkyMesh(this, 11, 2.7f, 0.1f, 5, Color.valueOf("BAD1D4").a(0.4f), 7, 0.4f, 2f, 0.43f)             
-            );
-        }};
-        kasei = new Planet("kasei", njii, 0.8f, 2){{
-            accessible = false;
-            hasAtmosphere = true;
-            orbitSpacing = 1;
-            iconColor = atmosphereColor = Color.valueOf("FFFA84");
-            solarSystem = ryii;
-            alwaysUnlocked = false;
-            generator = new KaseiPlanetGenerator();
-            meshLoader = () -> new MultiMesh(
-                new HexMesh(this, 6)
             );
         }};
     }

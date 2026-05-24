@@ -6,7 +6,7 @@ import mindustry.game.EventType.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 import kratha.content.blocks.KrathaBlocks;
-import kratha.content.KrathaItems;
+import kratha.content.*;
 
 public class KrathaMod extends Mod{
 
@@ -32,6 +32,7 @@ public class KrathaMod extends Mod{
     @Override
     public void loadContent(){
         KrathaItems.load();
+        KrathaUnitTypes.load();
         KrathaBlocks.load();
     }
 

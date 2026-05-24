@@ -1,4 +1,4 @@
-package kratha.content.kratha;
+package kratha.content;
 
 import arc.graphics.*;
 import arc.struct.*;

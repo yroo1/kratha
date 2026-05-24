@@ -23,7 +23,7 @@ public class DeearthPlanetGenerator extends PlanetGenerator {
 
     @Override
     public void getColor(Vec3 position, Color out) {
-        Block block = rawHeight(position) < 0.35f ? Blocks.deepWater : rawHeight(position) < 0.45f ? Blocks.water : rawHeight(position) < 0.5f ? Blocks.grass : rawHeight(position) < 0.55f ? Blocks.basalt : Blocks.stone;
+        Block block = rawHeight(position) < 0.35f ? Blocks.water : rawHeight(position) < 0.45f ? Blocks.water : rawHeight(position) < 0.5f ? Blocks.grass : rawHeight(position) < 0.55f ? Blocks.basalt : Blocks.stone;
 
         out.set(block.mapColor).a(1f - block.albedo);
     }

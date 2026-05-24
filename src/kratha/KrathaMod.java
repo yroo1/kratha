@@ -1,4 +1,4 @@
-package example;
+package kratha;
 
 import arc.*;
 import arc.util.*;
@@ -6,11 +6,12 @@ import mindustry.game.EventType.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 
-public class ExampleJavaMod extends Mod{
+public class KrathaMod extends Mod{
 
-    public ExampleJavaMod(){
-        Log.info("Loaded ExampleJavaMod constructor.");
+    public KrathaMod(){
+        Log.info("Loaded KrathaMod constructor.");
 
+        /*
         //listen for game load event
         Events.on(ClientLoadEvent.class, e -> {
             //show dialog upon startup
@@ -23,11 +24,13 @@ public class ExampleJavaMod extends Mod{
                 dialog.show();
             });
         });
+        */
     }
 
     @Override
     public void loadContent(){
-        Log.info("Loading some example content.");
+        KrathaItems.load();
+        KrathaBlocks.load();
     }
 
 }

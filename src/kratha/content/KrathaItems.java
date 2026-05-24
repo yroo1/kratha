@@ -3,6 +3,7 @@ package kratha.content.kratha;
 import arc.graphics.*;
 import arc.struct.*;
 import mindustry.type.*;
+import kratha.graphics.KrathaPal;
 
 public class KrathaItems{
     public static Item
@@ -10,7 +11,7 @@ public class KrathaItems{
     public static final Seq<Item> krathaItems = new Seq<>();
 
     public static void load(){
-        krathite = new Item("krathite", Color.valueOf("808480")){{
+        krathite = new Item("krathite", KrathaPal.kratha){{
             hardness = 1;
             cost = 0.3f;
         }};

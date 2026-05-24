@@ -1,4 +1,4 @@
-package arg.planet;
+package kratha.planet;
 
 import arc.graphics.*;
 import arc.math.*;

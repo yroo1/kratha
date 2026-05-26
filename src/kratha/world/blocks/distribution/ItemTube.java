@@ -29,11 +29,6 @@ public class ItemTube extends Conveyor {
         super.load();
         bridgeReplacement = KrathaDistribution.itemOverpass; //i still hate you
         junctionReplacement = null;
-        for (int i=0;i<4;i++){
-            for (int j=0;j<4;j++) {
-                topRegions[i][j]=Core.atlas.find(name+"-top-"+String.valueOf(i)+"-"+String.valueOf(j));
-            }
-        }
         int y = 0;
         for(int cy = 0; cy < 5; cy++, y+=32){
             int x = 0;

@@ -7,7 +7,7 @@ import kratha.graphics.KrathaPal;
 
 public class KrathaItems{
     public static Item
-    krathite;
+    krathite,guartz;
     public static final Seq<Item> krathaItems = new Seq<>();
 
     public static void load(){
@@ -15,9 +15,13 @@ public class KrathaItems{
             hardness = 1;
             cost = 0.3f;
         }};
+        guartz = new Item("guartz", KrathaPal.guartz){{
+            hardness = 2;
+            cost = 1f;
+        }};
         
         krathaItems.addAll(
-        krathite
+        krathite,guartz
         );
     }
 }

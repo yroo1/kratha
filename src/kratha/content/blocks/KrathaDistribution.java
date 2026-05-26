@@ -1,4 +1,4 @@
-package kratha.content.deterra.blocks;
+package kratha.content.blocks;
 
 import arc.graphics.Color;
 import mindustry.world.Block;
@@ -14,7 +14,7 @@ import kratha.content.KrathaItems;
 
 import static mindustry.type.ItemStack.with;
 
-public class DeterraDistribution {
+public class KrathaDistribution {
     public static Block
             itemTube, itemOverpass;
     public static void load() {

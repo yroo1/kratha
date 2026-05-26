@@ -16,11 +16,11 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaStorage {
     public static Block
-            coreAfterpiece;
+            coreRelic;
     public static void load() {
         {
             {
-                coreAfterpiece = new CoreBlock("core-afterpiece"){{
+                coreRelic = new CoreBlock("core-relic"){{
                     requirements(Category.effect, with(KrathaItems.krathite, 700));
                     size = 5;
                     isFirstTier = true;

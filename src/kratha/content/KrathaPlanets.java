@@ -107,7 +107,7 @@ public class KrathaPlanets{
             generator = new KrathaPlanetGenerator();
             alwaysUnlocked = clearSectorOnLose = true;
             allowLaunchLoadout = allowLaunchSchematics = false;
-            defaultCore = KrathaStorage.coreAfterpiece;
+            defaultCore = KrathaStorage.coreRelic;
             ruleSetter = r -> {
               r.fog = true;
               r.staticFog = false;

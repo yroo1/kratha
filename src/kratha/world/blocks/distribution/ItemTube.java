@@ -1,4 +1,4 @@
-package arg.world.blocks.distribution;
+package kratha.world.blocks.distribution;
 
 import arc.Core;
 import arc.graphics.*;
@@ -14,7 +14,7 @@ import mindustry.ui.*;
 import mindustry.world.*;
 import mindustry.world.Tile;
 import mindustry.entities.units.BuildPlan;
-import arg.content.deterra.blocks.DeterraDistribution;
+import kratha.content.blocks.KrathaDistribution;
 
 import static mindustry.Vars.*;
 
@@ -27,7 +27,7 @@ public class ItemTube extends Conveyor {
     @Override
     public void load(){
         super.load();
-        bridgeReplacement = DeterraDistribution.itemOverpass; //i hate you
+        bridgeReplacement = KrathaDistribution.itemOverpass; //i still hate you
         junctionReplacement = null;
         for (int i=0;i<4;i++){
             for (int j=0;j<4;j++) {

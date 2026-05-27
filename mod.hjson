@@ -5,7 +5,12 @@ name: "kratha"
 author: "namaka"
 main: "kratha.KrathaMod"
 description:'''
-A Mindustry Java mod.
+
+An ambitious Mindustry Java mod that add a new campaign that revolves around a neoplasm-inspired substance called the [red[]]Krathaplasm.[[]]
+
+[gray[]]version: 0
+Remake of Astherive: ReGenesis/A:RG (same dev)
+WIP
 '''
 version: 0
 minGameVersion: 154

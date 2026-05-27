@@ -5,6 +5,8 @@ import arc.graphics.Color;
 public class KrathaPal{
     public static Color
     krathaOutline = Color.valueOf("292730"),
+
+    krathagen = Color.valueOf("622C55"),
     
     krathiteDark = Color.valueOf("51436B"),
     krathite = Color.valueOf("897090"),

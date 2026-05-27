@@ -15,7 +15,7 @@ import kratha.content.KrathaLiquids;
 
 import static mindustry.type.ItemStack.with;
 
-public class DeterraEnv {
+public class KrathaEnv {
     public static Block
             krathiteStaticwall,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,
             krathagenFloor,krathagenDeep;

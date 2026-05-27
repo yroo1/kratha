@@ -5,7 +5,7 @@ name: "kratha"
 author: "namaka"
 main: "kratha.KrathaMod"
 description:'''
-To live is to grow
+To live is to grow.
 '''
 version: 0
 minGameVersion: 154

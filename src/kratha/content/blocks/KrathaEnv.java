@@ -25,12 +25,7 @@ public class KrathaEnv {
                 //krathite
                 krathiteStaticwall = new StaticWall("krathite-staticwall");
                 krathiteFloor = new Floor("krathite-floor", 4);
-                krathitePlated = new Floor("eonstone-lightly-eroded-floor", 4);
-                krathiteBoulder = new Prop("eonstone-boulder"){{
-                    variants = 2;
-                    krathiteFloor.asFloor().decoration = this;
-                    krathitePlated.asFloor().decoration = this;
-                }};
+                krathitePlated = new Floor("krathite-plated", 4);
                 krathiteKrathagen = new Floor("krathite-krathagen"){{
                     speedMultiplier = 0.9f;
                     variants = 4;
@@ -38,6 +33,12 @@ public class KrathaEnv {
                     isLiquid = true;
                     cacheLayer = CacheLayer.water;
                     albedo = 0.8f;
+                }};
+                krathiteBoulder = new Prop("krathite-boulder"){{
+                    variants = 2;
+                    krathiteFloor.asFloor().decoration = this;
+                    krathitePlated.asFloor().decoration = this;
+                    krathiteKrathagen.asFloor().decoration = this;
                 }};
                 //krathagen
                 krathagenFloor = new Floor("krathagen-floor"){{

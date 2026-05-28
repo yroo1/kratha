@@ -12,6 +12,7 @@ import mindustry.content.Fx;
 import mindustry.world.meta.*;
 import kratha.content.KrathaItems;
 import kratha.content.KrathaLiquids;
+import kratha.world.blocks.environment.*;
 
 import static mindustry.type.ItemStack.with;
 

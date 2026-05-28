@@ -13,6 +13,8 @@ public class KrathaTree extends TallBlock{
     public TextureRegion branchRegion2;
     public TextureRegion branchRegion1bot;
     public TextureRegion branchRegion2bot;
+    public TextureRegion branchRegion1s;
+    public TextureRegion branchRegion2s;
     
     public int lobesMin = 4, lobesMax = 7;
     public float botAngle = 50f, origin = 0.1f;
@@ -32,6 +34,8 @@ public class KrathaTree extends TallBlock{
       branchRegion2=Core.atlas.find(name+"-branch2");
       branchRegion1bot=Core.atlas.find(name+"-branch1-bot");
       branchRegion2bot=Core.atlas.find(name+"-branch2-bot");
+      branchRegion1s=Core.atlas.find(name+"-branch1-shadow");
+      branchRegion2s=Core.atlas.find(name+"-branch2-shadow");
     }
 
     @Override
@@ -46,7 +50,20 @@ public class KrathaTree extends TallBlock{
             var bReg = (variant>1?branchRegion1:branchRegion2);
             float w = bReg.width * bReg.scl(), h = bReg.height * bReg.scl();
             var region = Angles.angleDist(ba, 225f) <= botAngle ? (variant>1?branchRegion1bot:branchRegion2bot) : (variant>1?branchRegion1:branchRegion2);
-
+            var sRegion = (variant>1?branchRegion1s:branchRegion2s);
+            
+            Draw.color(0f, 0f, 0f, shadowAlpha);
+            if(sRegion!=null){
+                Draw.z(shadowLayer);
+                Draw.rect(sRegion,
+                    tile.worldx() - Angles.trnsx(angle, origin) + w*0.5f, tile.worldy() - Angles.trnsy(angle, origin),
+                    w, h,
+                    origin*4f, h/2f,
+                    angle
+                );    
+            }
+            Draw.color();
+            Draw.z(layer);
             Draw.rect(region,
                 tile.worldx() - Angles.trnsx(angle, origin) + w*0.5f, tile.worldy() - Angles.trnsy(angle, origin),
                 w, h,

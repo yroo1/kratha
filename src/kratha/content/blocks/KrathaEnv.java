@@ -17,12 +17,23 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaEnv {
     public static Block
+            terrasporeTree,terrasporeFern,
             krathiteStaticwall,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,
             terrastoneWall,terrastoneErodedWall,terrastoneFloor,terrastoneEroded,terrastoneErodedBoulder,
             krathagenFloor,krathagenDeep;
     public static void load() {
         {
             {
+                //terraspore
+                terrasporeFern = new SeaBush("terraspore-fern"){{
+                    lobesMin = 4;
+                    lobesMax = 5;
+                    magMin = 5;
+                    magMax = 7;
+                }};
+                terrasporeTree = new KrathaTree("terraspore-tree"){{
+                    variants = 2;
+                }};
                 //krathite
                 krathiteStaticwall = new StaticWall("krathite-staticwall");
                 krathiteFloor = new Floor("krathite-floor", 4);

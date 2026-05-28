@@ -16,7 +16,7 @@ public class KrathaTree extends TallBlock{
     
     public int lobesMin = 2, lobesMax = 4;
     public float botAngle = 60f, origin = 0.1f;
-    public float sclMin = 90f, sclMax = 120f, magMin = 5f, magMax = 15f, timeRange = 40f, spread = 32f;
+    public float sclMin = 300f, sclMax = 360f, magMin = 5f, magMax = 15f, timeRange = 40f, spread = 64f;
 
     static Rand rand = new Rand();
 

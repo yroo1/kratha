@@ -25,7 +25,7 @@ public class KrathaTree extends TallBlock{
         obstructsLight = true;
     }
     @Override void load(){
-      super.load()
+      super.load();
       branchRegion1=Core.atlas.find(name+"-branch1");
       branchRegion2=Core.atlas.find(name+"-branch2");
       branchRegion1bot=Core.atlas.find(name+"-branch1-bot");

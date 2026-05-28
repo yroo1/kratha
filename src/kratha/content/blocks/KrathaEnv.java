@@ -18,6 +18,7 @@ import static mindustry.type.ItemStack.with;
 public class KrathaEnv {
     public static Block
             krathiteStaticwall,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,
+            terrastoneWall,terrastoneErodedWall,terrastoneFloor,terrastoneEroded,terrastoneErodedBoilder,
             krathagenFloor,krathagenDeep;
     public static void load() {
         {
@@ -39,6 +40,15 @@ public class KrathaEnv {
                     krathiteFloor.asFloor().decoration = this;
                     krathitePlated.asFloor().decoration = this;
                     krathiteKrathagen.asFloor().decoration = this;
+                }};
+                //terrastone
+                terrastoneWall = new StaticTree("terrastone-wall"){{variants=5}};
+                terrastoneErodedWall = new StaticWall("terrastone-eroded+wall");
+                terrastoneFloor = new Floor("terrastone-floor", 4);
+                terrastoneEroded = new Floor("terrastone-eroded", 4);
+                terrastoneErodedBoulder = new Prop("terrastone-eroded-boulder"){{
+                    variants = 2;
+                    terrastoneEroded.asFloor().decoration = this;
                 }};
                 //krathagen
                 krathagenFloor = new Floor("krathagen-floor"){{

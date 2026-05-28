@@ -14,8 +14,8 @@ public class KrathaTree extends TallBlock{
     public TextureRegion branchRegion1bot;
     public TextureRegion branchRegion2bot;
     
-    public int lobesMin = 4, lobesMax = 6;
-    public float botAngle = 50f, origin = 32f;
+    public int lobesMin = 4, lobesMax = 7;
+    public float botAngle = 50f, origin = 0.1f;
     public float sclMin = 300f, sclMax = 360f, magMin = 5f, magMax = 15f, timeRange = 40f, spread = 0f;
 
     static Rand rand = new Rand();

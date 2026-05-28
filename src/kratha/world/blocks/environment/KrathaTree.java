@@ -7,6 +7,7 @@ import arc.util.*;
 import mindustry.world.*;
 import mindustry.world.blocks.environment.TallBlock;
 
+//BranchedTree probably would be better
 public class KrathaTree extends TallBlock{
     //why
     public TextureRegion branchRegion1;
@@ -46,6 +47,7 @@ public class KrathaTree extends TallBlock{
         int lobes = rand.random(lobesMin, lobesMax);
         for(int i = 0; i < lobes; i++){
             float ba =  i / (float)lobes * 360f + offset + rand.range(spread), angle = ba + Mathf.sin(Time.time + rand.random(0, timeRange), rand.random(sclMin, sclMax), rand.random(magMin, magMax));
+            //variant 2 of branch will be choosen 2/3 of the time instead of 1/2, intended.
             int variant = rand.random(0, 2);
             var bReg = (variant>1?branchRegion1:branchRegion2);
             float w = bReg.width * bReg.scl(), h = bReg.height * bReg.scl();

@@ -1,11 +1,11 @@
-displayName: "KRATHA"
-subtitle: "Preview"
+displayName: "KRATHA Preview"
+subtitle: "••••••"
 repo: "yroo1/kratha"
 name: "kratha"
 author: "namaka"
 main: "kratha.KrathaMod"
 description:'''
-To live is to grow.
+This version of KRATHA is work in progress.
 '''
 version: 0
 minGameVersion: 154

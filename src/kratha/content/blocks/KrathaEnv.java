@@ -18,7 +18,7 @@ import static mindustry.type.ItemStack.with;
 public class KrathaEnv {
     public static Block
             krathiteStaticwall,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,
-            terrastoneWall,terrastoneErodedWall,terrastoneFloor,terrastoneEroded,terrastoneErodedBoilder,
+            terrastoneWall,terrastoneErodedWall,terrastoneFloor,terrastoneEroded,terrastoneErodedBoulder,
             krathagenFloor,krathagenDeep;
     public static void load() {
         {

@@ -19,10 +19,10 @@ public class KrathaTree extends TallBlock{
 
     static Rand rand = new Rand();
 
-    public SeaBush(String name){
+    public KrathaTree(String name){
         super(name);
-        variants = 0;
-        obstructsLight = false;
+        variants = 2;
+        obstructsLight = true;
     }
     @Override void load(){
       super.load()
@@ -41,7 +41,7 @@ public class KrathaTree extends TallBlock{
         for(int i = 0; i < lobes; i++){
             float ba =  i / (float)lobes * 360f + offset + rand.range(spread), angle = ba + Mathf.sin(Time.time + rand.random(0, timeRange), rand.random(sclMin, sclMax), rand.random(magMin, magMax));
             float w = region.width * region.scl(), h = region.height * region.scl();
-            int variant = rand.random(0, 2)
+            int variant = rand.random(0, 2);
             var region = Angles.angleDist(ba, 225f) <= botAngle ? (variant>1?branchRegion1bot:branchRegion2bot) : (variant>1?branchRegion1:branchRegion2);
 
             Draw.rect(region,

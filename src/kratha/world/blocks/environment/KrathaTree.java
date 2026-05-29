@@ -6,6 +6,7 @@ import arc.math.*;
 import arc.util.*;
 import mindustry.world.*;
 import mindustry.world.blocks.environment.TallBlock;
+import mindustry.Vars;
 
 //BranchedTree probably would be better
 public class KrathaTree extends TallBlock{

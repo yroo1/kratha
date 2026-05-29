@@ -21,6 +21,7 @@ public class KrathaTree extends TallBlock{
     public int lobesMin = 4, lobesMax = 7;
     public float botAngle = 50f, origin = 0.1f;
     public float sclMin = 300f, sclMax = 360f, magMin = 5f, magMax = 15f, timeRange = 40f, spread = 0f;
+    public float fadeDist = 60f;
 
     static Rand rand = new Rand();
 
@@ -67,7 +68,7 @@ public class KrathaTree extends TallBlock{
             }
             float bAlpha=1f;
             if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
-                bAlpha=Mathf.min(50,Mathf.dst(tile.worldx() - Angles.trnsx(angle, origin) + w*0.5f,tile.worldy() - Angles.trnsy(angle, origin),Vars.player.unit().x,Vars.player.unit().y))/50;
+                bAlpha=Math.min(fadeDist,Mathf.dst(tile.worldx() - Angles.trnsx(angle, origin) + w*0.5f,tile.worldy() - Angles.trnsy(angle, origin),Vars.player.unit().x,Vars.player.unit().y))/fadeDist;
             }
             Draw.color(1f,1f,1f,bAlpha);
             Draw.z(layer);
@@ -86,7 +87,7 @@ public class KrathaTree extends TallBlock{
             tile.worldx() + shadowOffset, tile.worldy() + shadowOffset, rot);
         float tAlpha=1f;
         if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
-            tAlpha=Mathf.min(50,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y))/50;
+            tAlpha=Math.min(fadeDist,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y))/fadeDist;
         }
         Draw.color(1f,1f,1f,tAlpha);
 

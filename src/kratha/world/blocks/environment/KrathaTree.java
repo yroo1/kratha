@@ -64,7 +64,11 @@ public class KrathaTree extends TallBlock{
                     angle
                 );    
             }
-            Draw.color();
+            float bAlpha=1f;
+            if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
+                bAlpha=Mathf.min(50,Mathf.dst(tile.worldx() - Angles.trnsx(angle, origin) + w*0.5f,tile.worldy() - Angles.trnsy(angle, origin),Vars.player.unit().x,Vars.player.unit().y))/50
+            }
+            Draw.color(1f,1f,1f,bAlpha);
             Draw.z(layer);
             Draw.rect(region,
                 tile.worldx() - Angles.trnsx(angle, origin) + w*0.5f, tile.worldy() - Angles.trnsy(angle, origin),
@@ -79,8 +83,11 @@ public class KrathaTree extends TallBlock{
         Draw.color(0f, 0f, 0f, shadowAlpha);
         Draw.rect(variants > 0 ? variantShadowRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantShadowRegions.length - 1))] : customShadowRegion,
             tile.worldx() + shadowOffset, tile.worldy() + shadowOffset, rot);
-
-        Draw.color();
+        float tAlpha=1f;
+        if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
+            tAlpha=Mathf.min(50,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y))/50
+        }
+        Draw.color(1f,1f,1f,tAlpha);
 
         Draw.z(layer);
         Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,

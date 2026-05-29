@@ -22,7 +22,8 @@ public class KrathaEnv {
             terrasporeTree,terrasporeTreeLarge,terrasporeFern,terrasporeFernLarge,
             krathiteStaticwall,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,
             terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneBoulder,terrastoneErodedBoulder,
-            krathagenFloor,krathagenDeep,krathagenWall;
+            krathagenFloor,krathagenDeep,krathagenWall,
+            fallenLeaves,pebbles,krathagenOreWall,guartzOre;
     public static void load() {
         {
             {
@@ -100,6 +101,12 @@ public class KrathaEnv {
                     albedo = 0.95f;
                     supportsOverlay = false;
                 }};
+                //overlays
+                fallenLeaves = new OverlayFloor("fallen-leaves");
+                pebbles = new OverlayFloor("pebbles");
+                //ores
+                krathiteOreWall = new StaticWall("krathite-ore-wall");
+                guartzOre = new OreBlock("guartz-ore",KrathiteItems.guartz);
             }
         }
     }

@@ -68,12 +68,12 @@ public class KrathaTree extends TallBlock{
             }
             float bAlpha=1f;
             if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
-                bAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx() - Angles.trnsx(angle, origin) + w*0.5f,tile.worldy() - Angles.trnsy(angle, origin),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
+                bAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx() - Angles.trnsx(angle, origin + w*0.5f),tile.worldy() - Angles.trnsy(angle, origin + h*0.5f),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
             }
             Draw.color(1f,1f,1f,bAlpha);
             Draw.z(layer);
             Draw.rect(region,
-                tile.worldx() - Angles.trnsx(angle, origin+w*0.5f), tile.worldy() - Angles.trnsy(angle, origin),
+                tile.worldx() - Angles.trnsx(angle, origin) + w*0.5f, tile.worldy() - Angles.trnsy(angle, origin),
                 w, h,
                 origin*4f, h/2f,
                 angle

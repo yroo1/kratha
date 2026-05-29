@@ -68,7 +68,7 @@ public class KrathaTree extends TallBlock{
             }
             float bAlpha=1f;
             if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
-                tAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx() - Angles.trnsx(angle, origin) + w*0.5f,tile.worldy() - Angles.trnsy(angle, origin),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo)/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
+                bAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx() - Angles.trnsx(angle, origin) + w*0.5f,tile.worldy() - Angles.trnsy(angle, origin),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
             }
             Draw.color(1f,1f,1f,bAlpha);
             Draw.z(layer);
@@ -87,7 +87,7 @@ public class KrathaTree extends TallBlock{
             tile.worldx() + shadowOffset, tile.worldy() + shadowOffset, rot);
         float tAlpha=1f;
         if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
-            tAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo)/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
+            tAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
         }
         Draw.color(1f,1f,1f,tAlpha);
 

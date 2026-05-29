@@ -23,7 +23,7 @@ public class KrathaEnv {
             krathiteStaticwall,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,
             terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneBoulder,terrastoneErodedBoulder,
             krathagenFloor,krathagenDeep,krathagenWall,
-            fallenLeaves,pebbles,krathagenOreWall,guartzOre;
+            fallenLeaves,pebbles,krathiteOreWall,guartzOre;
     public static void load() {
         {
             {
@@ -106,7 +106,7 @@ public class KrathaEnv {
                 pebbles = new OverlayFloor("pebbles");
                 //ores
                 krathiteOreWall = new StaticWall("krathite-ore-wall");
-                guartzOre = new OreBlock("guartz-ore",KrathiteItems.guartz);
+                guartzOre = new OreBlock("guartz-ore",KrathaItems.guartz);
             }
         }
     }

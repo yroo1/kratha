@@ -19,11 +19,12 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaProduction {
     public static Block
-    thermicDrill;
+    thermicDrill,laserBore;
     public static void load() {
         thermicDrill = new Drill("thermic-drill"){{
             requirements(Category.production, with(KrathaItems.krathite, 10, KrathaItems.guartz, 5));
             consumePower(10/60f);
+            consumeLiquid(Liquids.hydrogen, 0.05f).boost();
             
             drillTime = 400;
             drawRim = true;
@@ -32,6 +33,16 @@ public class KrathaProduction {
             size = 2;
             fogRadius = 0;
             researchCost = with(KrathaItems.krathite, 10, KrathaItems.guartz, 5);
+        }};
+        laserBore = new CliffDrill("laser-bore"){{
+            requirements(Category.production, with(KrathaItems.krathite, 5, KrathaItems.guartz, 10));
+            consumePower(10/60f);
+            consumeLiquid(Liquids.hydrogen, 0.05f).boost();
+
+            drillTime = 380;
+            tier = 3;
+            size = 2;
+            researchCost = with(KrathaItems.krathite, 5, KrathaItems.guartz, 10);
         }};
     }
 }

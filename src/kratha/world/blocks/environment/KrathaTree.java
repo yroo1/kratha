@@ -17,6 +17,7 @@ public class KrathaTree extends TallBlock{
     public TextureRegion branchRegion2bot;
     public TextureRegion branchRegion1s;
     public TextureRegion branchRegion2s;
+    public TextureRegion woodRegion;
     
     public int lobesMin = 4, lobesMax = 7;
     public float botAngle = 50f, origin = 0.1f;
@@ -39,6 +40,7 @@ public class KrathaTree extends TallBlock{
       branchRegion2bot=Core.atlas.find(name+"-branch2-bot");
       branchRegion1s=Core.atlas.find(name+"-branch1-shadow");
       branchRegion2s=Core.atlas.find(name+"-branch2-shadow");
+      woodRegion=Core.atlas.find(name+"-wood");
     }
 
     @Override
@@ -89,6 +91,10 @@ public class KrathaTree extends TallBlock{
         if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
             tAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
         }
+        Draw.color();
+
+        Draw.z(layer);
+        Draw.rect(woodRegion,tile.worldx(), tile.worldy());
         Draw.color(1f,1f,1f,tAlpha);
 
         Draw.z(layer);

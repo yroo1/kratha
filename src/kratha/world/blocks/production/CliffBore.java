@@ -42,7 +42,7 @@ public class CliffDrill extends BeamDrill {
         @Override
         public void draw(){
             Draw.rect(block.region, x, y);
-            Draw.rect((plan.rotation>1?topRegion2:topRegion1), x, y, rotdeg()));
+            Draw.rect((plan.rotation>1?topRegion2:topRegion1), x, y, rotdeg());
 
             if(isPayload()) return;
 

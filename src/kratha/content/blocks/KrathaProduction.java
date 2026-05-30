@@ -25,7 +25,9 @@ public class KrathaProduction {
             requirements(Category.production, with(KrathaItems.krathite, 10, KrathaItems.guartz, 5));
             consumePower(10/60f);
             
-            drillTime = 380;
+            drillTime = 400;
+            drawRim = true;
+            hasPower = true;
             tier = 2;
             size = 2;
             fogRadius = 0;

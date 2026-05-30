@@ -19,9 +19,9 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaProduction {
     public static Block
-    drill;
+    thermicDrill;
     public static void load() {
-        drill = new Drill("drill"){{
+        thermicDrill = new Drill("thermic-drill"){{
             requirements(Category.production, with(KrathaItems.krathite, 10, KrathaItems.guartz, 5));
             consumePower(10/60f);
             

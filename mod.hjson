@@ -5,7 +5,9 @@ name: "kratha"
 author: "namaka"
 main: "kratha.KrathaMod"
 description:'''
-This version of KRATHA is work in progress.
+A Mod about Terraplasm.
+
+[gray[]]This a preview version of KRATHA, meaning it is a WIP and early version of future version.
 '''
 version: 0
 minGameVersion: 154

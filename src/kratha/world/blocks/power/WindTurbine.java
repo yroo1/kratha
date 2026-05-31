@@ -21,7 +21,7 @@ import mindustry.content.Blocks;
 import static mindustry.Vars.*;
 
 public class WindTurbine extends PowerGenerator{
-    public int range = 13;
+    public int range = 14;
     public DrawBlock drawer = new DrawDefault();
     public Color baseColor = Pal.accent;
     public Color obstructionColor = Pal.remove;
@@ -57,7 +57,7 @@ public class WindTurbine extends PowerGenerator{
             for(int ym = -frange+1;ym<=frange;ym++){
                 Tile other = world.tile(ox+xm,oy+ym);
                 if(other!=null&&other.solid()&&
-                  !((xm>-1&&ym>-1)&&(xm<size&&ym<size))
+                  !((xm>-(int)Math.ceil(size/2)&&ym>-(int)Math.ceil(size/2))&&(xm<(int)Math.floor(size/2)+1&&ym<(int)Math.floor(size/2)+1))
                   ) {
                     Drawf.selected(other.x, other.y, Blocks.router, obstructionColor);
                     bcount++;

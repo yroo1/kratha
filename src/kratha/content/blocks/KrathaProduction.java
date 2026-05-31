@@ -33,6 +33,7 @@ public class KrathaProduction {
             tier = 2;
             size = 2;
             fogRadius = 0;
+            squareSprite = false;
             researchCost = with(KrathaItems.krathite, 10, KrathaItems.guartz, 5);
         }};
         laserBore = new CliffDrill("laser-bore"){{
@@ -43,6 +44,7 @@ public class KrathaProduction {
             drillTime = 380;
             tier = 3;
             size = 2;
+            squareSprite = false;
             researchCost = with(KrathaItems.krathite, 5, KrathaItems.guartz, 10);
         }};
     }

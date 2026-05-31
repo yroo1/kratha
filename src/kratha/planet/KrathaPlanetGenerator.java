@@ -8,7 +8,7 @@ import arc.util.noise.*;
 import mindustry.content.Blocks;
 import mindustry.maps.generators.PlanetGenerator;
 import mindustry.world.Block;
-import kratha.content.KrathaEnv;
+import kratha.content.blocks.KrathaEnv;
 
 public class KrathaPlanetGenerator extends PlanetGenerator {
     public float heightScl = 1.2f, octaves = 9, persistence = 0.8f, heightPow = 2.5f, heightMult = 1.1f;

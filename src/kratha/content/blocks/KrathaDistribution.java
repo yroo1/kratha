@@ -16,7 +16,7 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaDistribution {
     public static Block
-            itemTube, itemOverpass;
+            itemTube, itemOverpass, splitter;
     public static void load() {
         {
             {
@@ -31,6 +31,10 @@ public class KrathaDistribution {
                     requirements(Category.distribution, with(KrathaItems.krathite, 6, KrathaItems.guartz, 3));
                     range=4;
                     researchCost = with(KrathaItems.krathite, 50,KrathaItems.guartz,40);
+                }};
+                splitter = new Router("splitter"){{
+                    requirements(Category.distribution, with(KrathaItems.krathite, 5));
+                    researchCost = with(KrathaItems.krathite, 50);
                 }};
             }
         }

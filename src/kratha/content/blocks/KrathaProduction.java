@@ -53,7 +53,7 @@ public class KrathaProduction {
 
             drillTime = 170f;
             size = 2;
-            attribute = Attribute.terrasand;
+            attribute = Attribute.sand;
             output = KrathaItems.terrasand;
             fogRadius = 0;
             researchCost = with(KrathaItems.krathite, 30, KrathaItems.guartz, 25);

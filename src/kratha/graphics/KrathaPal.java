@@ -20,7 +20,7 @@ public class KrathaPal{
     terrasand = Color.valueOf("C2B6A9"),
     terrasandLight = Color.valueOf("FFEAE3"),
 
-    spurstoneDark = Color.valueOf("78725D"),
-    spurstone = Color.valueOf("C2B6A9"),
-    spurstoneLight = Color.valueOf("FFEAE3");
+    spurstoneDark = Color.valueOf("47414A"),
+    spurstone = Color.valueOf("838185"),
+    spurstoneLight = Color.valueOf("BFBEBF");
 }

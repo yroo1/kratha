@@ -7,7 +7,7 @@ import kratha.graphics.KrathaPal;
 
 public class KrathaItems{
     public static Item
-    krathite,guartz;
+    krathite,guartz,terrasand,sppurstone;
     public static final Seq<Item> krathaItems = new Seq<>();
 
     public static void load(){
@@ -19,9 +19,17 @@ public class KrathaItems{
             hardness = 2;
             cost = 1f;
         }};
+        terrasand = new Item("terrasand", KrathaPal.terrasand){{
+            hardness = 1;
+            cost = 0.2f;
+        }};
+        spurstone = new Item("spurstone", KrathaPal.spurstone){{
+            hardness = 3;
+            cost = 1.5f;
+        }};
         
         krathaItems.addAll(
-        krathite,guartz
+        krathite,guartz,terrasand,spurstone
         );
     }
 }

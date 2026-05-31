@@ -1,4 +1,4 @@
-package kratha.content..blocks;
+package kratha.content.blocks;
 
 import mindustry.type.Category;
 import mindustry.world.Block;

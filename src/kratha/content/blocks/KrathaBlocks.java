@@ -5,6 +5,7 @@ public class KrathaBlocks{
         KrathaEnv.load();
         KrathaProduction.load();
         KrathaDistribution.load();
+        KrathaPower.load();
         KrathaStorage.load();
     }
 }

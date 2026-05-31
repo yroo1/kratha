@@ -97,11 +97,11 @@ public class KrathaPlanets{
         }};
 
         // region planets
-        kratha = new Planet("kratha", hitroi, 0.4f, 2){{
+        kratha = new Planet("kratha", hitroi, 1f, 2){{
             accessible = true;
             hasAtmosphere = true;
             orbitSpacing = 1;
-            iconColor = atmosphereColor = Color.valueOf("895397");
+            iconColor = atmosphereColor = Color.valueOf("ED93FF");
             solarSystem = ryii;
             alwaysUnlocked = false;
             generator = new KrathaPlanetGenerator();
@@ -119,7 +119,10 @@ public class KrathaPlanets{
             startSector = 15;
             minZoom = 0.3f;
             meshLoader = () -> new MultiMesh(
-                new HexMesh(this, 6)
+                new HexMesh(this, 7)
+            );
+            cloudMeshLoader = () -> new MultiMesh(
+                new HexSkyMesh(this, 11, 2.7f, 0.1f, 5, Color.valueOf("D696DE").a(0.4f), 7, 0.4f, 2f, 0.43f)             
             );
         }};
         deearth = new Planet("deearth", khethar, 1f, 4){{
@@ -137,7 +140,7 @@ public class KrathaPlanets{
             solarSystem = ryii;
             generator = new DeearthPlanetGenerator();
             meshLoader = () -> new MultiMesh(
-                new HexMesh(this, 7)
+                new HexMesh(this, 6)
             );
             cloudMeshLoader = () -> new MultiMesh(
                 new HexSkyMesh(this, 11, 2.7f, 0.1f, 5, Color.valueOf("BAD1D4").a(0.4f), 7, 0.4f, 2f, 0.43f)             

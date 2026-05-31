@@ -20,7 +20,9 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaProduction {
     public static Block
-    thermicDrill,laserBore,cliffBore;
+    thermicDrill,laserBore,cliffBore,
+
+    spurstoneSmelter;
     public static void load() {
         thermicDrill = new Drill("thermic-drill"){{
             requirements(Category.production, with(KrathaItems.krathite, 10, KrathaItems.guartz, 5));
@@ -59,6 +61,22 @@ public class KrathaProduction {
             researchCost = with(KrathaItems.krathite, 30, KrathaItems.guartz, 25);
             ambientSound = Sounds.loopDrill;
             ambientSoundVolume = 0.04f;
+        }};
+
+        spurstoneSmelter = new GenericCrafter("spurstone-smelter"){{
+            requirements(Category.crafting, with(KrathaItems.krathite, 75, KrathaItems.guartz, 60));
+            craftEffect = Fx.smeltsmoke;
+            outputItem = new ItemStack(KrathaItems.spurstone, 1);
+            craftTime = 40f;
+            size = 3;
+            hasPower = true;
+            hasLiquids = false;
+            drawer = new DrawMulti(new DrawDefault(), new DrawFlame(Color.valueOf("ffef99")));
+            ambientSound = Sounds.loopSmelter;
+            ambientSoundVolume = 0.07f;
+
+            consumeItems(with(KrathaItems.krathite, 2, KrathaItems.terrasand, 3));
+            consumePower(60/60f);
         }};
     }
 }

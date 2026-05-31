@@ -17,13 +17,14 @@ public class KrathaPower{
     relay, windTurbine;
 
     public static void load(){
-        relay = new PowerNode("relay"){{
+        relay = new BeamNode("relay"){{
             requirements(Category.power, with(KrathaItems.guartz, 5));
             health = 20;
-            size = 1;
-            squareSprite = false;
-            laserRange = 10f;
-            maxNodes = 8;
+            consumesPower = outputsPower = true;
+            range = 8;
+            fogRadius = 0;
+            crushFragile = true;
+
             researchCost = with(KrathaItems.guartz,5);
         }};
         windTurbine = new WindTurbine("wind-turbine"){{

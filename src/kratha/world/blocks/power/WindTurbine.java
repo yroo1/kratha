@@ -21,7 +21,7 @@ import mindustry.content.Blocks;
 import static mindustry.Vars.*;
 
 public class WindTurbine extends PowerGenerator{
-    public int range = 14;
+    public int range = 13;
     public DrawBlock drawer = new DrawDefault();
     public Color baseColor = Pal.accent;
     public Color obstructionColor = Pal.remove;

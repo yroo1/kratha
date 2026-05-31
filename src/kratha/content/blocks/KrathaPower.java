@@ -24,6 +24,7 @@ public class KrathaPower{
             range = 8;
             fogRadius = 0;
             crushFragile = true;
+            consumePowerBuffered(5f);
 
             researchCost = with(KrathaItems.guartz,5);
         }};

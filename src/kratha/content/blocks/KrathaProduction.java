@@ -66,16 +66,17 @@ public class KrathaProduction {
         spurstoneSmelter = new GenericCrafter("spurstone-smelter"){{
             requirements(Category.crafting, with(KrathaItems.krathite, 75, KrathaItems.guartz, 60));
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(KrathaItems.spurstone, 1);
-            craftTime = 40f;
+            outputItem = new ItemStack(KrathaItems.spurstone, 2);
+            craftTime = 150f;
             size = 3;
             hasPower = true;
             hasLiquids = false;
+            squareSprite = false;
             drawer = new DrawMulti(new DrawRegion("-bottom"),new DrawDefault(), new DrawGlowRegion(), new DrawArcSmelt());
             ambientSound = Sounds.loopSmelter;
             ambientSoundVolume = 0.07f;
 
-            consumeItems(with(KrathaItems.krathite, 2, KrathaItems.terrasand, 3));
+            consumeItems(with(KrathaItems.krathite, 3, KrathaItems.terrasand, 5));
             consumePower(60/60f);
         }};
     }

@@ -98,7 +98,7 @@ public class KrathaPlanets{
 
         // region planets
         kratha = new Planet("kratha", hitroi, 0.4f, 2){{
-            accessible = false;
+            accessible = true;
             hasAtmosphere = true;
             orbitSpacing = 1;
             iconColor = atmosphereColor = Color.valueOf("895397");
@@ -123,7 +123,7 @@ public class KrathaPlanets{
             );
         }};
         deearth = new Planet("deearth", khethar, 1f, 4){{
-            accessible = true;
+            accessible = false;
             hasAtmosphere = true;
             landCloudColor = Color.valueOf("DBF3FF");
             atmosphereColor = Color.valueOf("9AC0DB");

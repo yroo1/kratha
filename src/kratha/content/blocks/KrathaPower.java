@@ -28,10 +28,10 @@ public class KrathaPower{
         }};
         windTurbine = new WindTurbine("wind-turbine"){{
             requirements(Category.power, with(KrathaItems.krathite, 25, KrathaItems.guartz, 40));
-            size = 2;
+            size = 3;
             squareSprite = false;
-            powerProduction = 40f/60f;
-            drawer = new DrawMulti(new DrawDefault(), new DrawRegion("-rotator", 4, true));
+            powerProduction = 60f/60f;
+            drawer = new DrawMulti(new DrawDefault(), new DrawRegion("-rotator", 2, true));
             researchCost = with(KrathaItems.krathite,25,KrathaItems.guartz,40);
         }};
     }

@@ -7,6 +7,7 @@ import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 import kratha.content.blocks.KrathaBlocks;
 import kratha.content.*;
+import kratha.ui.TeamsUI;
 
 public class KrathaMod extends Mod{
 
@@ -24,9 +25,14 @@ public class KrathaMod extends Mod{
         });
         
     }
-
+    @Override
+    public void init(){
+        super.init();
+        TeamsUI.init();
+    }
     @Override
     public void loadContent(){
+        KrathaTeams.load()
         KrathaItems.load();
         KrathaLiquids.load();
         KrathaUnitTypes.load();

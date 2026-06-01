@@ -13,20 +13,16 @@ public class KrathaMod extends Mod{
     public KrathaMod(){
         Log.info("Loaded KrathaMod constructor.");
 
-        /*
-        //listen for game load event
         Events.on(ClientLoadEvent.class, e -> {
-            //show dialog upon startup
             Time.runTask(10f, () -> {
-                BaseDialog dialog = new BaseDialog("frog");
-                dialog.cont.add("behold").row();
-                //mod sprites are prefixed with the mod name (this mod is called 'example-java-mod' in its config)
-                dialog.cont.image(Core.atlas.find("example-java-mod-frog")).pad(20f).row();
-                dialog.cont.button("I see", dialog::hide).size(100f, 50f);
+                BaseDialog dialog = new BaseDialog("Notice");
+                dialog.cont.add("This is a very early version of KRATHA. Play at your own risk.").row();
+                dialog.cont.image(Core.atlas.find("kratha-signature")).pad(20f).row();
+                dialog.cont.button("alr bro", dialog::hide).size(100f, 50f);
                 dialog.show();
             });
         });
-        */
+        
     }
 
     @Override

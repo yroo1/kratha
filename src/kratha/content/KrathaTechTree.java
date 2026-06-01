@@ -11,9 +11,9 @@ import static kratha.content.KrathaSectorPresets.*;
 import static mindustry.Vars.content;
 import static mindustry.content.TechTree.*;
 
-public class DeterraTechTree {
+public class KrathaTechTree {
     public static void load(){
-        KrathaPlanets.kratha.techTree = nodeRoot("KRATHA", DeterraStorage.coreProtocol, () -> {
+        KrathaPlanets.kratha.techTree = nodeRoot("KRATHA", KrathaStorage.coreRelic, () -> {
             node(KrathaItems.krathite, Seq.with(new Objectives.Produce(KrathaItems.krathite)), () -> {
                 node(KrathaItems.guartz, Seq.with(new Objectives.Produce(KrathaItems.guartz)), () ->{
                     node(KrathaItems.terrasand, Seq.with(new Objectives.Produce(KrathaItems.terrasand)), () ->{

@@ -138,7 +138,6 @@ public class BioBlock extends Block {
             }
         }
         public void updatePulse() {
-            //TODO rework back to this->pulse
             boolean pulseEnd=true;
             int neartileCount=0;
             if (true) {
@@ -146,12 +145,14 @@ public class BioBlock extends Block {
                 for (int i=0;i<4;i++) {
                     Building nearroot = tile.nearbyBuild(i);
                     Tile neartile = tile.nearby(i);
+                    /*
                     if (nearroot instanceof BioTurret.BioTurretBuild nearbuild) {
                         if (!nearbuild.pulsed) {                      
                             nearbuild.biopulse=Math.max(nearbuild.biopulse,biopulse-1);
                             pulseEnd=false;
                         }
                     }
+                    */
                     if (nearroot instanceof BioBuilding nearbuild) {
                         if (!nearbuild.pulsed) {                      
                             nearbuild.biopulse=Math.max(nearbuild.biopulse,biopulse-1);
@@ -176,7 +177,7 @@ public class BioBlock extends Block {
                     }
                 }
                 Random random = new Random();
-                if (isRoot&&possibleGrowDir.size()>0&&biopulse>1&&allowRoot&&(pulseCharge>=pulseToGrowRoot||monarch)){
+                if (isRoot&&possibleGrowDir.size()>0&&biopulse>1&&allowRoot&&(pulseCharge>=pulseToGrowRoot)){
                     pulseCharge=0;
                     growRoot();
                 }
@@ -188,7 +189,6 @@ public class BioBlock extends Block {
             int growDir = possibleGrowDir.get(randomIndex);
             Tile targetTile = tile.nearby(growDir);
             targetTile.setBlock(block,team);
-            if(monarch&&targetTile.build instanceof BioBlock.BioBuilding biobuild)biobuild.monarch=true;
         }
         public void drawPulse(TextureRegion sprite,float scale) {
             scale+=1f+growProgress;
@@ -207,7 +207,7 @@ public class BioBlock extends Block {
             Draw.scl(1,1);
         }
         public void onDestroyed(){
-            splashLiquid(GenesisLiquids.biomass,40*size);
+            splashLiquid(KrathaLiquids.biomass,40*size);
         }
         @Override
         public void write(Writes write){

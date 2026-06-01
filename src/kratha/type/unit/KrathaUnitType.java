@@ -12,6 +12,7 @@ public class KrathaUnitType extends UnitType{
     public KrathaUnitType(String name){
         super(name);
         outlineColor = KrathaPal.krathaOutline;
+        mechLegColor = KrathaPal.krathaBaseDark;
         researchCostMultiplier = 5f;
     }
 }

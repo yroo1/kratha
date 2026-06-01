@@ -112,6 +112,7 @@ public class KrathaPlanets{
               r.fog = true;
               r.staticFog = false;
               r.onlyDepositCore = true;
+              r.waveTeam = KrathaTeams.terraplasm;
             };
             allowLaunchToNumbered = false;
             updateLighting = true;

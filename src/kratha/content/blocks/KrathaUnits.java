@@ -26,6 +26,8 @@ public class KrathaUnits {
                     plans.add(new UnitPlan(KrathaUnitTypes.keris, 14 * 60f, with(KrathaItems.guartz, 15,KrathaItems.spurstone, 10)));
                     consumePower(90/60f);
                     size = 4;
+                    canPickup = false;
+                    buildVisibility = BuildVisibility.sandboxOnly;
                 }};
             }
         }

@@ -19,7 +19,7 @@ public class KrathaPlanetGenerator extends PlanetGenerator {
     }
 
     float rawHeight(Vec3 position) {
-        return Simplex.noise3d(seed, octaves, persistence, 1f / heightScl, 10f + position.x, 10f + position.y, 10f + position.z)-Math.abs(position.y)*0.2f;
+        return Simplex.noise3d(seed+11+18, octaves, persistence, 1f / heightScl, 10f + position.x, 10f + position.y, 10f + position.z)-Math.abs(position.y)*0.2f;
     }
 
     @Override

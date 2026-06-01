@@ -78,6 +78,7 @@ public class KrathaProduction {
 
             consumeItems(with(KrathaItems.krathite, 3, KrathaItems.terrasand, 5));
             consumePower(60/60f);
+            researchCost = with(KrathaItems.krathite, 100, KrathaItems.guartz, 80);
         }};
     }
 }

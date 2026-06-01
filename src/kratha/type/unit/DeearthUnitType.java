@@ -12,6 +12,7 @@ public class DeearthUnitType extends UnitType{
     public DeearthUnitType(String name){
         super(name);
         outlineColor = KrathaPal.deearthOutline;
+        mechLegColor = KrathaPal.deearthBaseDark;
         researchCostMultiplier = 5f;
     }
 }

@@ -1,4 +1,5 @@
 package kratha.content.blocks;
+import kratha.content.terraplasm.Terraplasm;
 
 public class KrathaBlocks{
     public static void load(){
@@ -8,5 +9,6 @@ public class KrathaBlocks{
         KrathaPower.load();
         KrathaUnits.load();
         KrathaStorage.load();
+        Terraplasm.load();
     }
 }

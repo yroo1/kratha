@@ -1,4 +1,4 @@
-package kratha.content;
+package kratha.type;
 
 import mindustry.type.*;
 import mindustry.ctype.*;

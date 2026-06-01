@@ -116,7 +116,7 @@ public class KrathaPlanets{
             allowLaunchToNumbered = false;
             updateLighting = true;
             campaignRuleDefaults.fog = true;
-            startSector = 15;
+            startSector = 569;
             minZoom = 0.3f;
             bloom = true;
             meshLoader = () -> new MultiMesh(

@@ -21,7 +21,7 @@ public class KrathaEnv {
     public static Block
             terrasporeTree,terrasporeTreeLarge,woodWall,terrasporeFern,terrasporeFernLarge,
             krathiteStaticwall,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,
-            terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneBoulder,terrastoneErodedBoulder,
+            terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
             krathagenFloor,krathagenDeep,krathagenWall,
             fallenLeaves,pebbles,krathiteOreWall,guartzOre;
     public static void load() {
@@ -90,6 +90,10 @@ public class KrathaEnv {
                 terrastoneErodedBoulder = new Prop("terrastone-eroded-boulder"){{
                     variants = 2;
                     terrastoneEroded.asFloor().decoration = this;
+                }};
+                terrastoneErodedVent = new SteamVent("terrastone-eroded-vent"){{
+                    parent = blendGroup = terrastoneEroded;
+                    attributes.set(Attribute.steam, 1f);
                 }};
                 //krathagen
                 krathagenWall = new StaticWall("krathagen-wall");

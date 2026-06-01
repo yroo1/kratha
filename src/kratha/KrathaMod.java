@@ -38,6 +38,7 @@ public class KrathaMod extends Mod{
         KrathaUnitTypes.load();
         KrathaBlocks.load();
         KrathaPlanets.load();
+        KrathaSectorPresets.load();
         KrathaTechTree.load();
     }
 

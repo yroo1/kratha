@@ -97,7 +97,7 @@ public class KrathaPlanets{
         }};
 
         // region planets
-        kratha = new Planet("kratha", hitroi, 1f, 2){{
+        kratha = new Planet("kratha", hitroi, 1f, 4){{
             accessible = true;
             hasAtmosphere = true;
             orbitSpacing = 1;

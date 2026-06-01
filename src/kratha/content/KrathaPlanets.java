@@ -12,6 +12,7 @@ import mindustry.graphics.g3d.*;
 import mindustry.maps.planet.AsteroidGenerator;
 import mindustry.maps.planet.ErekirPlanetGenerator;
 import kratha.planet.*;
+import kratha.content.KrathaTeams;
 import mindustry.type.*;
 import mindustry.world.Block;
 import mindustry.world.meta.Env;

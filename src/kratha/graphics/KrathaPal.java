@@ -4,7 +4,7 @@ import arc.graphics.Color;
 
 public class KrathaPal{
     public static Color
-    terraplasmTeam = Color.valueOf(""),
+    terraplasmTeam = Color.valueOf("CBCB92"),
     
     krathaBaseDark = Color.valueOf("47414A"),
     krathaBase = Color.valueOf("838185"),

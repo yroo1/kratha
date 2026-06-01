@@ -4,6 +4,14 @@ import arc.graphics.Color;
 
 public class KrathaPal{
     public static Color
+    krathaBaseDark = Color.valueOf("47414A"),
+    krathaBase = Color.valueOf("838185"),
+    krathaBaseLight = Color.valueOf("BFBEBF"),
+    deearthBaseDark = Color.valueOf("47414A"),
+    deearthBase = Color.valueOf("838185"),
+    deearthBaseLight = Color.valueOf("BFBEBF"),
+
+    
     krathaOutline = Color.valueOf("292730"),
     deearthOutline = Color.valueOf("30312E"),
 

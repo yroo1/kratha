@@ -118,6 +118,7 @@ public class KrathaPlanets{
             campaignRuleDefaults.fog = true;
             startSector = 15;
             minZoom = 0.3f;
+            bloom = true;
             meshLoader = () -> new MultiMesh(
                 new HexMesh(this, 7)
             );

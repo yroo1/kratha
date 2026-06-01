@@ -89,9 +89,8 @@ public class Root extends BioBlock {
         }
         
         public void grow(Block growBlock){
-            if(monarch){
-                tile.setBlock(growBlock,team);
-                if(tile.build instanceof BioBlock.BioBuilding biobuild)biobuild.monarch=true;
+            if(false){
+                //absolutely not
             }else{
                 Building heart=getNearestHeart();
                 if(heart!=null&&heart.items.has(growBlock.requirements)){
@@ -145,7 +144,7 @@ public class Root extends BioBlock {
                 for(int i=0;i<4;i++){
                     Building adj;
                     adj = tile.nearby(Geometry.d4(i).x,Geometry.d4(i).y).build;
-                    if(adj != null && (adj.block instanceof Root || adj.block instanceof BioHeart || adj.block instanceof BioBridge)){
+                    if(adj != null && (adj.block instanceof Root || adj.block instanceof BioHeart)){
                         float dist = Mathf.dst(itemTargetX, itemTargetY, adj.tile.x, adj.tile.y);
                         if(dist<bestDist&&adj.acceptItem(this, lastItem)){
                             target = adj;
@@ -156,10 +155,6 @@ public class Root extends BioBlock {
                 if(target != null && target instanceof BioBuilding && target.acceptItem(this, lastItem)){
                     target.handleItem(this, lastItem);
                     if(target instanceof RootBuild targetbuild){
-                        targetbuild.itemTargetX = itemTargetX;
-                        targetbuild.itemTargetX = itemTargetX;
-                    }
-                    if(target instanceof BioBridge.BioBridgeBuild targetbuild){
                         targetbuild.itemTargetX = itemTargetX;
                         targetbuild.itemTargetX = itemTargetX;
                     }
@@ -182,8 +177,7 @@ public class Root extends BioBlock {
             } else {
                 drawPulse(atlasRegion[3][3],drawPulseScale);
             }
-            Fx.healBlockFull.at(tile.x, tile.y, tile.block().size, GenesisPal.bioGreen, tile.block());
-            if (xyRand(x,y)<0.08f) {
+             if (xyRand(x,y)<0.08f) {
                 Draw.z(Layer.power-1.1f);
             }
             Draw.z(Layer.blockUnder+0.1f);
@@ -194,10 +188,6 @@ public class Root extends BioBlock {
 
         public Building getNearestHeart() {
             return Units.findAllyTile(team, x, y, 1000, b -> b.block instanceof BioHeart);
-        }
-
-        public Building getNearestBridge() {
-            return Units.findAllyTile(team, x, y, 1000, b -> b.block instanceof BioBridge);
         }
 
         //item mechanic

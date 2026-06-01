@@ -33,15 +33,15 @@ public class KrathaUnitTypes{
             hitSize = 9f;
             health = 180;
             weapons.add(new Weapon("kratha-keris-weapon"){{
-                reload = 18f;
+                reload = 70f;
                 x = 6.5f;
                 y = 0f;
                 top = false;
-                ejectEffect = Fx.casing1;
-                bullet = new BasicBulletType(2.5f, 6){{
-                    width = 7f;
-                    height = 9f;
-                    lifetime = 60f;
+                ejectEffect = Fx.none;
+                bullet = new ShrapnelBulletType(){{
+                    length = 24f;
+                    damage = 42f;
+                    toColor = KrathaPal.guartzLight;
                 }};
             }});
             

@@ -23,7 +23,7 @@ public class KrathaUnits {
             {
                 rockboredFactory = new UnitFactory("rockbored-factory"){{
                     requirements(Category.units, with(KrathaItems.guartz, 120, KrathaItems.krathite,100, KrathaItems.spurstone,75));
-                    plans.add(new UnitPlan(KrathaUnitTypes.keris, 15 * 60f, with(KrathaItems.guartz, 15,KrathaItems.spurstone, 10)));
+                    plans.add(new UnitPlan(KrathaUnitTypes.keris, 14 * 60f, with(KrathaItems.guartz, 15,KrathaItems.spurstone, 10)));
                     consumePower(90/60f);
                     size = 4;
                 }};

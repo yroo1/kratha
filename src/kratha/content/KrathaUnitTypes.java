@@ -33,6 +33,7 @@ public class KrathaUnitTypes{
             speed = 0.7f;
             hitSize = 9f;
             health = 180;
+            alwaysUnlocked = true;
             weapons.add(new Weapon("kratha-keris-weapon"){{
                 reload = 70f;
                 x = 6.5f;

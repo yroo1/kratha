@@ -30,6 +30,7 @@ public class KrathaUnits {
                     canPickup = false;
                     buildVisibility = BuildVisibility.sandboxOnly;
                     breakable = false;
+                    targetable = false;
                 }};
             }
         }

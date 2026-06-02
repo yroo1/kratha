@@ -31,7 +31,7 @@ public class KrathaUnits {
                     buildVisibility = BuildVisibility.sandboxOnly;
                     breakable = false;
                     targetable = false;
-                    buildTime = 20260602
+                    buildTime = 20260602;
                 }};
             }
         }

@@ -18,7 +18,6 @@ public class KrathaMod extends Mod{
             Time.runTask(10f, () -> {
                 BaseDialog dialog = new BaseDialog("Notice");
                 dialog.cont.add("This is a very early version of KRATHA. Play at your own risk.").row();
-                dialog.cont.image(Core.atlas.find("kratha-signature")).pad(20f).row();
                 dialog.cont.button("alr bro", dialog::hide).size(100f, 50f);
                 dialog.show();
             });

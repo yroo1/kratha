@@ -8,7 +8,7 @@ public class KrathaTeams {
     public static Team terraplasm;
 
     public static void load() {
-        terraplasm = newTeam(7, "terraplasm", KrathaPal.terraplasmTeam);
+        terraplasm = newTeam(8, "terraplasm", KrathaPal.terraplasmTeam);
     }
 
     //modify any of 256 teams' properties

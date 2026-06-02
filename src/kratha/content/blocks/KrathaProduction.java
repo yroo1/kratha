@@ -43,7 +43,7 @@ public class KrathaProduction {
             consumePower(10/60f);
             consumeLiquid(Liquids.hydrogen, 0.05f).boost();
 
-            drillTime = 380;
+            drillTime = 350;
             tier = 3;
             size = 2;
             squareSprite = false;

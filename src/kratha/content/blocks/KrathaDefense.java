@@ -22,7 +22,7 @@ public class KrathaDefense{
             outlineColor = KrathaPal.krathaOutline;
             fogRadius = 40;
             researchCost = with(KrathaItems.krathite, 100, KrathaItems.guartz, 150, KrathaItems.spurstone, 50);
-
+            customShadow = true;
             consumePower(30/60f);
         }};
     }

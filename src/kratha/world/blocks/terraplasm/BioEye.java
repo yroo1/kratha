@@ -47,6 +47,8 @@ public class BioEye extends BioBlock {
         public float eyeX = 0;
         public float eyeY = 0;
         public float tx = x, ty = y;
+        public float wanderTimer=0;
+        public int wanderX = x, wanderY = y;
         public @Nullable Unit target;
         @Override
         public void updatePulse(){
@@ -59,7 +61,12 @@ public class BioEye extends BioBlock {
             super.updateTile();
             target=Units.closestEnemy(team, x, y, range, u -> true);
             if(wanderTimer<0){
-                wanderTimer=
+                wanderTimer=180+(int)(Math.random()*120);
+                wanderX=(int)(Math.random()*100)-50;
+                wanderY=(int)(Math.random()*100)-50;
+            }else{
+                wanderTimer-=delta();
+            }
             if(target != null){
                 tx = target.x();
                 ty = target.y();

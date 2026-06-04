@@ -72,10 +72,6 @@ public class Root extends BioBlock {
         Random rand=new Random(seed);
         return rand.nextFloat();
     }
-    @Override
-    public TextureRegion[] icons(){
-        return new TextureRegion[]{atlasRegion[3][3]};
-    }
     public class RootBuild extends BioBuilding {
         public int blending;
         public Item lastItem;

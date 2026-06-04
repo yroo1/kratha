@@ -35,7 +35,7 @@ import static mindustry.type.ItemStack.with;
 public class Terraplasm {
     public static Block
             falseCore,
-            heart, root;
+            heart, root, eye;
     public static void load() {
         {
             {
@@ -47,13 +47,17 @@ public class Terraplasm {
                     size = 1;
                 }};
                 heart = new BioHeart("heart"){{
-                    requirements(Category.distribution, with(KrathaItems.krathite, 1));
+                    requirements(Category.distribution, with(KrathaItems.krathite, 10));
                     size = 3;
                     health = 700;
                 }};
                 root = new Root("root"){{
                     requirements(Category.distribution, with(KrathaItems.krathite, 1));
                     health = 10;
+                }};
+                eye = new BioEye("eye"){{
+                    requirements(Category.distribution, with(KrathaItems.guartz, 2));
+                    health = 70;
                 }};
             }
         }

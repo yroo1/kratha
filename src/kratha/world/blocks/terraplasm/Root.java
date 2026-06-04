@@ -127,6 +127,24 @@ public class Root extends BioBlock {
                 }
             }
 
+            //growing drill&eye
+            if(tile != null && tile.drop() != null && allowDrill && clear2){
+                tile.setBlock(Terraplasm.harvester,team);
+            }
+            boolean eyeNearby = false;
+            for(int i=-eyeSpacing;i<eyeSpacing;i++){
+                for(int j=-eyeSpacing;j<eyeSpacing;j++){
+                    Tile adj;
+                    adj = tile.nearby(i,j);
+                    if (adj != null && adj.build!=null && (adj.build.block instanceof BioEye)) {                        
+                        eyeNearby = true;
+                    }
+                }
+            }
+            if(!eyeNearby&&allowEye&&random.nextFloat()<eyeRate){
+                grow(Terraplasm.eye);
+            }
+
             //item movement
             
             if(lastItem == null && items.any()){

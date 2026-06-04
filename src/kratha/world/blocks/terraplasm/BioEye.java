@@ -71,7 +71,7 @@ public class BioEye extends BioBlock {
         public void draw(){
             drawPulse(block.region,drawPulseScale);
             Draw.color(1f,health/maxHealth,health/maxHealth);
-            Draw.rect(eyeRegion,x),y);
+            Draw.rect(eyeRegion,x,y);
             Draw.color(1f,1f,1f);
             Draw.rect(pupilRegion,x+eyeX,y+eyeY);
         }

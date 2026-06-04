@@ -56,8 +56,12 @@ public class Terraplasm {
                     health = 10;
                 }};
                 eye = new BioEye("eye"){{
-                    requirements(Category.distribution, with(KrathaItems.guartz, 2));
+                    requirements(Category.distribution, with(KrathaItems.guartz, 1));
                     health = 70;
+                }};
+                harvester = new BioDrill("harvester"){{
+                    requirements(Category.distribution, with(KrathaItems.krathite, 1));
+                    health = 140;
                 }};
             }
         }

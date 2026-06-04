@@ -62,6 +62,7 @@ public class Terraplasm {
                 harvester = new BioDrill("harvester"){{
                     requirements(Category.distribution, with(KrathaItems.krathite, 1));
                     health = 140;
+                    size = 2;
                 }};
             }
         }

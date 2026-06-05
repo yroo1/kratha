@@ -145,14 +145,12 @@ public class BioBlock extends Block {
                 for (int i=0;i<4;i++) {
                     Building nearroot = tile.nearbyBuild(i);
                     Tile neartile = tile.nearby(i);
-                    /*
                     if (nearroot instanceof BioTurret.BioTurretBuild nearbuild) {
                         if (!nearbuild.pulsed) {                      
                             nearbuild.biopulse=Math.max(nearbuild.biopulse,biopulse-1);
                             pulseEnd=false;
                         }
                     }
-                    */
                     if (nearroot instanceof BioBuilding nearbuild) {
                         if (!nearbuild.pulsed) {                      
                             nearbuild.biopulse=Math.max(nearbuild.biopulse,biopulse-1);

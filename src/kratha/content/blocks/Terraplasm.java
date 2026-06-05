@@ -92,6 +92,7 @@ public class Terraplasm {
                                 progress = PartProgress.warmup;
                                 under = false;
                                 moveRot = -4;
+                                moveX = 4;
                             }}
                         );
                         parts.add(
@@ -99,6 +100,7 @@ public class Terraplasm {
                                 progress = PartProgress.warmup;
                                 under = false;
                                 moveRot = 4;
+                                moveX = -4;
                             }}
                         );
                     }};

@@ -103,7 +103,7 @@ public class Root extends BioBlock {
             //try to grow a block if the same block isn't nearby
             Building sameNear = Units.findAllyTile(team, x, y, 1000, pred);
             Random random = new Random();
-            if(Mathf.dst(x,y,sameNear.x,sameNear.y)>maxDist&&random.nextFloat()<rate){
+            if(sameNear==null||(sameNear!=null&&Mathf.dst(x,y,sameNear.x,sameNear.y)>maxDist*Vars.tilesize)&&random.nextFloat()<rate){
                 grow(growBlock);
             }
         }

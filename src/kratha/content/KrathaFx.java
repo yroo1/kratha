@@ -29,5 +29,5 @@ public class KrathaFx{
         randLenVectors(e.id, 7, 25f * e.finpow(), e.rotation, 50f, (x, y) -> {
             lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fin() * 5f + 2f);
         });
-    }),
+    });
 }

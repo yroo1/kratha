@@ -15,7 +15,7 @@ import mindustry.graphics.*;
 import mindustry.gen.*;
 import mindustry.type.*;
 import kratha.type.unit.*;
-import kratha.graphics.KrathaPal;
+import kratha.graphics.*;
 import mindustry.type.weapons.*;
 
 import static arc.graphics.g2d.Draw.*;
@@ -43,7 +43,9 @@ public class KrathaUnitTypes{
                 bullet = new ShrapnelBulletType(){{
                     length = 24f;
                     damage = 42f;
-                    toColor = KrathaPal.guartzLight;
+                    toColor = KrathaPal.guartz;
+                    serrations = 5;
+                    shootEffect = KrathaFx.kerisShoot;
                 }};
             }});
             

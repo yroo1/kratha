@@ -26,6 +26,7 @@ import java.util.Random;
 import kratha.graphics.*;
 import kratha.content.terraplasm.Terraplasm;
 
+import mindustry.Vars;
 import static mindustry.Vars.*;
 
 //if you're looking for how roots spread and the pattern, go to BioBlock.java

@@ -100,7 +100,7 @@ public class Root extends BioBlock {
         }
         public void passiveGrow(Block growBlock, Build growBuild, float maxDist, float rate){
             //try to grow a block if the same block isn't nearby
-            Building sameNear = Units.findAllyTile(team, x, y, 1000, b -> b.block instanceof growBuild);
+            Building sameNear = Units.findAllyTile(team, x, y, 1000, b -> b.block.isInstance(growBuild));
             Random random = new Random();
             if(Mathf.dst(x,y,sameNear.x,sameNear.y)>maxDist&&random.nextFloat()<rate){
                 grow(growBlock);
@@ -139,7 +139,7 @@ public class Root extends BioBlock {
                 tile.setBlock(Terraplasm.harvester,team);
             }
 
-            if(allowEye)passiveGrow(Terraplasm.eye,BioEye,eyeSpacing,eyeRate);
+            if(allowEye)passiveGrow(Terraplasm.eye,new BioEye(),eyeSpacing,eyeRate);
 
             //item movement
             

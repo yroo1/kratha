@@ -66,7 +66,6 @@ public class Terraplasm {
                 }};
                 skewer = new BioTurret("skewer"){{
                     requirements(Category.turret, with(KrathaItems.guartz, 5));
-                    outlineColor = KrathaPal.terraOutline;
                     reload = 55f;
                     inaccuracy = 2f;
                     size = 3;

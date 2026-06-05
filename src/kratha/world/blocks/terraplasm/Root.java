@@ -27,7 +27,6 @@ import kratha.content.terraplasm.Terraplasm;
 
 import static mindustry.Vars.*;
 
-//second greatest .java file i've written
 //if you're looking for how roots spread and the pattern, go to BioBlock.java
 public class Root extends BioBlock {
     public TextureRegion[][] atlasRegion = new TextureRegion[12][4];
@@ -99,6 +98,13 @@ public class Root extends BioBlock {
                 }
             }
         }
+        public void passiveGrow(Building growBlock, float maxDist, float rate){
+            //try to grow a block if the same block isn't nearby
+            Building sameNear = Units.findAllyTile(team, x, y, 1000, b -> b.block instanceof growBlock);
+            if(Mathf.dist(x,y,sameNear.x,sameNear.y)>maxDist&&random.nextFloat()<rate){
+                grow(growBlock);
+            }
+        }
         
         @Override
         public void updatePulse(){
@@ -127,23 +133,12 @@ public class Root extends BioBlock {
                 }
             }
 
-            //growing drill&eye
+            //growing drill
             if(tile != null && tile.drop() != null && allowDrill && clear2){
                 tile.setBlock(Terraplasm.harvester,team);
             }
-            boolean eyeNearby = false;
-            for(int i=-eyeSpacing;i<eyeSpacing;i++){
-                for(int j=-eyeSpacing;j<eyeSpacing;j++){
-                    Tile adj;
-                    adj = tile.nearby(i,j);
-                    if (adj != null && adj.build!=null && (adj.build.block instanceof BioEye)) {                        
-                        eyeNearby = true;
-                    }
-                }
-            }
-            if(!eyeNearby&&allowEye&&random.nextFloat()<eyeRate){
-                grow(Terraplasm.eye);
-            }
+
+            if(allowEye)passiveGrow(Terraplasm.eye,eyeSpacing,eyeRate);
 
             //item movement
             

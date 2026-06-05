@@ -35,7 +35,7 @@ import static mindustry.type.ItemStack.with;
 public class Terraplasm {
     public static Block
             falseCore,
-            heart, root, eye, harvester;
+            heart, root, eye, harvester, skewer;
     public static void load() {
         {
             {
@@ -63,6 +63,46 @@ public class Terraplasm {
                     requirements(Category.distribution, with(KrathaItems.krathite, 1));
                     health = 140;
                     size = 2;
+                }};
+                skewer = new BioTurret("skewer"){{
+                    requirements(Category.turret, with(KrathaItems.guartz, 5));
+                    outlineColor = KrathaPal.terraOutline;
+                    reload = 55f;
+                    inaccuracy = 2f;
+                    size = 3;
+                    recoil = 7f;
+                    range = 26 * Vars.tilesize;
+                    rotateSpeed = 4f;
+                    squareSprite = false;
+                    minWarmup = 0.8f;
+                    shootWarmupSpeed = 0.07f;
+                    shootY = 2;
+                    
+                    shootType = new BulletType(4.89f, 24f){{
+                        ammoMultiplier = 3f;
+                        hitSize = 7f;
+                        lifetime = 18f;
+                        pierce = true;
+                        despawnEffect = Fx.none;
+                        keepVelocity = false;
+                        hittable = false;
+                    }};
+                    drawer = new DrawTurret(){{
+                        parts.add(
+                            new RegionPart("-side-right"){{
+                                progress = PartProgress.warmup;
+                                under = false;
+                                moveRot = -4;
+                            }}
+                        );
+                        parts.add(
+                            new RegionPart("-side-left"){{
+                                progress = PartProgress.warmup;
+                                under = false;
+                                moveRot = 4;
+                            }}
+                        );
+                    }};
                 }};
             }
         }

@@ -98,10 +98,10 @@ public class Root extends BioBlock {
                 }
             }
         }
-        public void passiveGrow(Building growBlock, float maxDist, float rate){
+        public void passiveGrow(Block growBlock, float maxDist, float rate){
             //try to grow a block if the same block isn't nearby
             Building sameNear = Units.findAllyTile(team, x, y, 1000, b -> b.block instanceof growBlock);
-            if(Mathf.dist(x,y,sameNear.x,sameNear.y)>maxDist&&random.nextFloat()<rate){
+            if(Mathf.dst(x,y,sameNear.x,sameNear.y)>maxDist&&random.nextFloat()<rate){
                 grow(growBlock);
             }
         }

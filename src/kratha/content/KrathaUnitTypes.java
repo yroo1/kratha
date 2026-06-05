@@ -46,7 +46,7 @@ public class KrathaUnitTypes{
                     damage = 42f;
                     toColor = KrathaPal.guartz;
                     serrations = 5;
-                    shootEffect = KrathaFx.kerisShoot;
+                    shootEffect = smokeEffect = KrathaFx.kerisShoot;
                 }};
             }});
             

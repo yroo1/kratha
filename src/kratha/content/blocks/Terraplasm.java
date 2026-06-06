@@ -79,14 +79,31 @@ public class Terraplasm {
 
                     ammoItem = KrathaItems.guartz;
                     maxAmmo = 5;
-                    shootType = new BulletType(4.89f, 24f){{
-                        ammoMultiplier = 3f;
-                        hitSize = 7f;
-                        lifetime = 18f;
-                        pierce = true;
+                    shootType = new ArtilleryBulletType(26f/50f, 50f, "shell"){{
+                        hitEffect = Fx.titanSmoke;
                         despawnEffect = Fx.none;
-                        keepVelocity = false;
-                        hittable = false;
+                        knockback = 2f;
+                        height = 19f;
+                        width = 17f;
+                        splashDamageRadius = 65f;
+                        splashDamage = 350f;
+                        scaledSplashDamage = true;
+                        backColor = hitColor = trailColor = KrathaPal.guartz.lerp(KrathaPal.guartzDark, 0.5f);
+                        frontColor = Color.white;
+                        hitSound = Sounds.explosionTitan;
+
+                        trailLength = 32;
+                        trailWidth = 3.35f;
+                        trailSinScl = 2.5f;
+                        trailSinMag = 0.5f;
+                        trailEffect = Fx.none;
+                        despawnShake = 3f;
+
+                        shootEffect = smokeEffect = KrathaTx.shootSkewer;
+                        trailInterp = v -> Math.max(Mathf.slope(v), 0.8f);
+                        shrinkX = 0.2f;
+                        shrinkY = 0.1f;
+                        buildingDamageMultiplier = 1f;
                     }};
                     drawer = new DrawTurret(){{
                         parts.add(

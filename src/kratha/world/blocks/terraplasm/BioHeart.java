@@ -107,7 +107,7 @@ public class BioHeart extends BioBlock {
                     } else {
                         adj = tile.nearby(Geometry.d4(i).x*2+j,Geometry.d4(i).y*2);
                     }
-                    if(adj!=null&&adj.block!=null&&adj.build!=null&&adj.block instanceof Root r){
+                    if(adj!=null&&adj.block()!=null&&adj.build()!=null&&adj.build instanceof Root.RootBuild r){
                         float dist = Mathf.dst(tile.x,tile.y,adj.x,adj.y);
                         if(dist<bestDist){
                             bestDist=dist;
@@ -116,7 +116,7 @@ public class BioHeart extends BioBlock {
                     }
                 }
             }
-            if(outputTo!=null&&outputTo.acceptItem(this,item)&&outputTo.build instanceof RootBuild r){
+            if(outputTo!=null&&outputTo.acceptItem(this,item)&&outputTo.build instanceof Root.RootBuild r){
                 r.handleItem(this,item);
                 r.itemTargetX=targetX;
                 r.itemTargetY=targetY;

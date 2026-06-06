@@ -96,7 +96,7 @@ public class BioHeart extends BioBlock {
                 }
             }
         }
-        public void send(Item item, int targetX, int targetY){
+        public boolean send(Item item, int targetX, int targetY){
             float bestDist = Float.POSITIVE_INFINITY;
             Building outputTo=null;
             for(int i=0;i<4;i++){
@@ -120,6 +120,9 @@ public class BioHeart extends BioBlock {
                 r.handleItem(this,item);
                 r.itemTargetX=targetX;
                 r.itemTargetY=targetY;
+                return true;
+            }else{
+                return false;
             }
         }
         @Override

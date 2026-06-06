@@ -76,7 +76,7 @@ public class Terraplasm {
                     minWarmup = 0.8f;
                     shootWarmupSpeed = 0.07f;
                     shootY = 2;
-                    shake = 3f
+                    shake = 3f;
 
                     ammoItem = KrathaItems.guartz;
                     maxAmmo = 5;

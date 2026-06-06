@@ -132,14 +132,14 @@ public class BioHeart extends BioBlock {
             Draw.z(Layer.block+0.01f); //the heart must be above even if its just slightly
             drawPulse(block.region,drawPulseScale);
 
-            if(allowRoot||hideDatapatchWarning)return;
+            if(allowRoot||hideDataPatchWarning)return;
             Font font = Fonts.outline;
             GlyphLayout l = Pools.obtain(GlyphLayout.class, GlyphLayout::new);
             boolean ints = font.usesIntegerPositions();
             font.getData().setScale(1 / 4f / Scl.scl(1f));
             font.setUseIntegerPositions(false);
 
-            String text = "Datapatch required";
+            String text = "Datapatch required!";
                 
             l.setText(font, text, Color.white, 90f, Align.left, true);
             float offset = 0f;

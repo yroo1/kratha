@@ -29,5 +29,21 @@ public class KrathaFx{
         randLenVectors(e.id, 7, 25f * e.finpow(), e.rotation, 50f, (x, y) -> {
             lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fin() * 5f + 2f);
         });
+    }),
+    shootSkewer = new Effect(10, e -> {
+        color(KrathaPal.guartzLight, e.color, e.fin());
+        float w = 1.3f + 10 * e.fout();
+        Drawf.tri(e.x, e.y, w, 35f * e.fout(), e.rotation);
+        Drawf.tri(e.x, e.y, w, 6f * e.fout(), e.rotation + 180f);
+    }),
+    shootSmokeSkewer = new Effect(70f, e -> {
+        rand.setSeed(e.id);
+        for(int i = 0; i < 13; i++){
+            v.trns(e.rotation + rand.range(30f), rand.random(e.finpow() * 40f));
+            e.scaled(e.lifetime * rand.random(0.3f, 1f), b -> {
+                color(e.color, Pal.lightishGray, b.fin());
+                Fill.circle(e.x + v.x, e.y + v.y, b.fout() * 3.4f + 0.3f);
+            });
+        }
     });
 }

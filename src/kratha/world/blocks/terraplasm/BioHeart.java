@@ -96,8 +96,8 @@ public class BioHeart extends BioBlock {
                 }
             }
         }
-        public void send(Item item, int x, int y){
-            float minDist = 9999999;
+        public void send(Item item, int targetX, int targetY){
+            float bestDist = 99999999;
             Building outputTo;
             for(int i=0;i<4;i++){
                 for(int j=-1;j<=1;j++){
@@ -109,14 +109,18 @@ public class BioHeart extends BioBlock {
                     }
                     if(adj!=null&&adj.block!=null&&adj.build!=null&&adj.block instanceof Root r){
                         float dist = Mathf.dst(tile.x,tile.y,adj.x,adj.y);
-                        if(dist<minDist){
-                            minDist=dist;
+                        if(dist<bestDist){
+                            bestDist=dist;
                             outputTo = r;
                         }
                     }
                 }
             }
-            if(outputTo.acceptItem(this,item)outputTo.handleItem(this,item);
+            if(outputTo!=null&&outputTo.acceptItem(this,item)&&outputTo.build instanceof RootBuild r){
+                r.handleItem(this,item);
+                r.itemTargetX=targetX;
+                r.itemTargetY=targetY;
+            }
         }
         @Override
         public void draw(){

@@ -173,7 +173,7 @@ public class Root extends BioBlock {
                     target.handleItem(this, lastItem);
                     if(target instanceof RootBuild targetbuild){
                         targetbuild.itemTargetX = itemTargetX;
-                        targetbuild.itemTargetX = itemTargetX;
+                        targetbuild.itemTargetY = itemTargetY;
                     }
                     items.remove(lastItem, 1);
                     lastItem = null;

@@ -151,6 +151,11 @@ public class BioTurret extends Turret{
         }
 
         @Override
+        public boolean acceptItem(Building source, Item item){
+            return true;
+        }
+
+        @Override
         public boolean hasAmmo(){
             //you can always rotate, but never shoot if there's no power
             return true;

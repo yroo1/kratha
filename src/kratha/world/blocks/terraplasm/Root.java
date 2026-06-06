@@ -175,6 +175,13 @@ public class Root extends BioBlock {
                         targetbuild.itemTargetX = itemTargetX;
                         targetbuild.itemTargetY = itemTargetY;
                     }
+                    itemTargetX = -1;
+                    itemTargetY = -1;
+                    items.remove(lastItem, 1);
+                    lastItem = null;
+                }
+                if(target != null && target instanceof BioTurret.BioTurretBuild && target.acceptItem(this, lastItem)){
+                    target.handleItem(this, lastItem);
                     items.remove(lastItem, 1);
                     lastItem = null;
                 }

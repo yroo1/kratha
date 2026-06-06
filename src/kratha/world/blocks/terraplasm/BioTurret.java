@@ -33,10 +33,12 @@ public class BioTurret extends Turret{
     public BulletType shootType;
     public boolean isRoot=false;
     public float pulseScale=0.5f;
+    public Item ammoItem=null;
     
     public BioTurret(String name){
         super(name);
         update=true;
+        hasItems=true;
         rebuildable = false;
         drawTeamOverlay = false;
         outlineColor = KrathaPal.terraOutline;
@@ -146,7 +148,7 @@ public class BioTurret extends Turret{
 
         @Override
         public BulletType useAmmo(){
-            //nothing used directly
+            items.remove(ammoItem,1);
             return shootType;
         }
 

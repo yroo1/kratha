@@ -145,17 +145,23 @@ public class BioTurret extends Turret{
                 default -> super.sense(sensor);
             };
         }
+        
+        @Override
+        public boolean hasAmmo(){
+            items.has(ammoItem,1);
+        }
 
         @Override
         public BulletType useAmmo(){
-            items.remove(ammoItem,1);
+            items.remove(ammoItem,ammoPerShot);
             return shootType;
         }
 
         @Override
         public boolean acceptItem(Building source, Item item){
-            return item==ammoItem;
+            return item==ammoItem&&items.has(ammoItem,maxAmmo);
         }
+        
         @Override
         public void handleItem(Building source, Item item){
             items.add(ammoItem,1)

@@ -207,6 +207,9 @@ public class BioBlock extends Block {
         public void onDestroyed(){
             splashLiquid(KrathaLiquids.biomass,40*size);
         }
+        public Building getNearestHeart() {
+            return Units.findAllyTile(team, x, y, 1000, b -> b.block instanceof BioHeart);
+        }
         @Override
         public void write(Writes write){
             super.write(write);

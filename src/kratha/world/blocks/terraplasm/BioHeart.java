@@ -28,7 +28,7 @@ import static mindustry.Vars.*;
 public class BioHeart extends BioBlock {
     public float heartBpm=80;
     public int heartPower=32;
-    public boolean hideDatapatchWarning=false;
+    public boolean hideDataPatchWarning=false;
     public BioHeart(String name){
         super(name);
         priority = TargetPriority.core;
@@ -132,7 +132,7 @@ public class BioHeart extends BioBlock {
             Draw.z(Layer.block+0.01f); //the heart must be above even if its just slightly
             drawPulse(block.region,drawPulseScale);
 
-            if(!allowRoot||hideDatapatchWarning)return;
+            if(allowRoot||hideDatapatchWarning)return;
             Font font = Fonts.outline;
             GlyphLayout l = Pools.obtain(GlyphLayout.class, GlyphLayout::new);
             boolean ints = font.usesIntegerPositions();
@@ -142,7 +142,7 @@ public class BioHeart extends BioBlock {
             String text = "Datapatch required";
                 
             l.setText(font, text, Color.white, 90f, Align.left, true);
-            float offset = 1f;
+            float offset = 0f;
 
             Draw.color(0f, 0f, 0f, 0.2f);
             Fill.rect(x, y - tilesize/2f - l.height/2f - offset, l.width + offset*2f, l.height + offset*2f);

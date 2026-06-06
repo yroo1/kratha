@@ -34,6 +34,7 @@ public class BioTurret extends Turret{
     public boolean isRoot=false;
     public float pulseScale=0.5f;
     public Item ammoItem=null; //only use single type of ammo
+    public int ammoItemMultiplier=1;
     
     public BioTurret(String name){
         super(name);
@@ -68,6 +69,7 @@ public class BioTurret extends Turret{
         public float growProgress=-1;
         public float drawPulseScale=0;
         public int expectedAmmo=0; //the amount of ammo requested from nearest heart (which is different from actual amount because it sometimes didnt arrive yet)
+        public int ammoToUse=ammoItemMultiplier;
         
         @Override
         public void updateTile(){
@@ -160,7 +162,11 @@ public class BioTurret extends Turret{
 
         @Override
         public BulletType useAmmo(){
-            items.remove(ammoItem,ammoPerShot);
+            ammoToUse--;
+            if(ammoToUse<=0){
+                items.remove(ammoItem,ammoPerShot);
+                ammoToUse=ammoItemMultiplier;
+            }
             expectedAmmo--;
             return shootType;
         }
@@ -183,12 +189,14 @@ public class BioTurret extends Turret{
         public void write(Writes write){
             super.write(write);
             write.i(expectedAmmo);
+            write.i(ammoToUse);
         }
 
         @Override
         public void read(Reads read, byte revision){
             super.read(read, revision);
             expectedAmmo=read.i();
+            ammoToUse=read.i();
         }
     }
               }

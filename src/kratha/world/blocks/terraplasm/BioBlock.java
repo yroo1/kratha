@@ -41,7 +41,7 @@ public class BioBlock extends Block {
     public int eyeSpacing=10;
     public boolean allowSkewer=false;
     public float skewerRate=0.01f;
-    public int skewerSpacing=20;
+    public int skewerSpacing=39;
     public boolean allowBulb=false;
     public float bulbRate=0.01f;
     public int bulbSpacing=22;

@@ -16,6 +16,8 @@ import static arc.graphics.g2d.Lines.*;
 import static arc.math.Angles.randLenVectors;
 
 public class KrathaFx{
+    public static final Rand rand = new Rand();
+    public static final Vec2 v = new Vec2();
     public static final Effect
     bulbPop = new Effect(10f, 80f, e -> {
         color(KrathaPal.guartz, KrathaPal.guartzLight, e.fin());
@@ -43,6 +45,25 @@ public class KrathaFx{
             e.scaled(e.lifetime * rand.random(0.3f, 1f), b -> {
                 color(e.color, Pal.lightishGray, b.fin());
                 Fill.circle(e.x + v.x, e.y + v.y, b.fout() * 3.4f + 0.3f);
+            });
+        }
+    }),
+    skewerSmoke = new Effect(300f, 300f, b -> {
+        float intensity = 1f;
+
+        color(b.color, 0.7f);
+        for(int i = 0; i < 4; i++){
+            rand.setSeed(b.id*2 + i);
+            float lenScl = rand.random(0.5f, 1f);
+            int fi = i;
+            b.scaled(b.lifetime * lenScl, e -> {
+                randLenVectors(e.id + fi - 1, e.fin(Interp.pow10Out), (int)(2.9f * intensity), 22f * intensity, (x, y, in, out) -> {
+                    float fout = e.fout(Interp.pow5Out) * rand.random(0.5f, 1f);
+                    float rad = fout * ((2f + intensity) * 2.35f);
+
+                    Fill.circle(e.x + x, e.y + y, rad);
+                    Drawf.light(e.x + x, e.y + y, rad * 2.5f, b.color, 0.5f);
+                });
             });
         }
     });

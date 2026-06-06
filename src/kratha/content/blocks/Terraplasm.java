@@ -77,7 +77,9 @@ public class Terraplasm {
                     minWarmup = 0.8f;
                     shootWarmupSpeed = 0.07f;
                     shootY = 2;
-                    shake = 3f;
+                    shake = 2f;
+                    newTargetInterval = 40f;
+                    targetAir = false;
 
                     ammoItem = KrathaItems.guartz;
                     maxAmmo = 5;
@@ -99,8 +101,8 @@ public class Terraplasm {
                         trailSinScl = 2.5f;
                         trailSinMag = 0.5f;
                         trailEffect = Fx.none;
-                        despawnShake = 3f;
-
+                        despawnShake = 2f;
+,
                         shootEffect = KrathaFx.shootSkewer;
                         smokeEffect = KrathaFx.shootSmokeSkewer;
                         trailInterp = v -> Math.max(Mathf.slope(v), 0.8f);

@@ -168,12 +168,6 @@ public class BioTurret extends Turret{
         }
 
         @Override
-        public boolean hasAmmo(){
-            //you can always rotate, but never shoot if there's no power
-            return true;
-        }
-
-        @Override
         public BulletType peekAmmo(){
             return shootType;
         }

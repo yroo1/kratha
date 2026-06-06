@@ -76,7 +76,8 @@ public class Terraplasm {
                     minWarmup = 0.8f;
                     shootWarmupSpeed = 0.07f;
                     shootY = 2;
-                    
+
+                    ammoItem = KrathaItems.guartz;
                     shootType = new BulletType(4.89f, 24f){{
                         ammoMultiplier = 3f;
                         hitSize = 7f;

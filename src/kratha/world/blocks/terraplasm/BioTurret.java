@@ -67,6 +67,7 @@ public class BioTurret extends Turret{
         public boolean fullyGrown=false;
         public float growProgress=-1;
         public float drawPulseScale=0;
+        public int expectedAmmo=0; //the amount of ammo requested from nearest heart (which is different from actual amount because it sometimes didnt arrive yet)
         
         @Override
         public void updateTile(){
@@ -90,10 +91,11 @@ public class BioTurret extends Turret{
                     resetPulseTimer=0;
                     pulsed=false;
                     Building heart = getNearestHeart();
-                    if(heart!=null&&heart instanceof BioHeart.BioHeartBuild heartbuild){
+                    if(expectedAmmo<maxAmmo&&heart!=null&&heart instanceof BioHeart.BioHeartBuild heartbuild){
                         if(heartbuild.items.has(ammoItem,1)){
                             heartbuild.send(ammoItem,(int)tile.x,(int)tile.y);
                             heartbuild.items.remove(ammoItem,1);
+                            expectedAmmo++;
                         }
                     }
                 }
@@ -157,6 +159,7 @@ public class BioTurret extends Turret{
         @Override
         public BulletType useAmmo(){
             items.remove(ammoItem,ammoPerShot);
+            expectedAmmo--;
             return shootType;
         }
 
@@ -173,6 +176,17 @@ public class BioTurret extends Turret{
         @Override
         public BulletType peekAmmo(){
             return shootType;
+        }
+        @Override
+        public void write(Writes write){
+            super.write(write);
+            write.i(expectedAmmo);
+        }
+
+        @Override
+        public void read(Reads read, byte revision){
+            super.read(read, revision);
+            expectedAmmo=read.i();
         }
     }
               }

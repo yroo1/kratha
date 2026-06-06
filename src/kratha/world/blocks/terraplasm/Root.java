@@ -203,10 +203,6 @@ public class Root extends BioBlock {
             }
         }
 
-        public Building getNearestHeart() {
-            return Units.findAllyTile(team, x, y, 1000, b -> b.block instanceof BioHeart);
-        }
-
         //item mechanic
 
         @Override

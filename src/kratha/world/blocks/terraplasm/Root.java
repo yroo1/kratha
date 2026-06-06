@@ -164,7 +164,7 @@ public class Root extends BioBlock {
                 lastItem = items.first();
             }
             if(itemTargetX == -1 || itemTargetY == -1){
-                if(extraFloat2>=0){
+                if(unpack(extraFloat2)[0]>0&&unpack(extraFloat2)[1]>0){
                     itemTargetX = unpack(extraFloat2)[0];
                     itemTargetY = unpack(extraFloat2)[1];
                 }

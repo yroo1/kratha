@@ -67,12 +67,12 @@ public class Terraplasm {
                 }};
                 skewer = new BioTurret("skewer"){{
                     requirements(Category.turret, with(KrathaItems.guartz, 5));
-                    reload = 55f;
+                    reload = 85f;
                     inaccuracy = 2f;
                     size = 3;
                     recoil = 7f;
                     range = 26 * Vars.tilesize;
-                    rotateSpeed = 4f;
+                    rotateSpeed = 1f;
                     squareSprite = false;
                     minWarmup = 0.8f;
                     shootWarmupSpeed = 0.07f;
@@ -87,13 +87,11 @@ public class Terraplasm {
                         knockback = 2f;
                         height = 19f;
                         width = 17f;
-                        splashDamageRadius = 65f;
-                        splashDamage = 350f;
+                        splashDamageRadius = 10f;
+                        splashDamage = 60f;
                         scaledSplashDamage = true;
                         backColor = hitColor = trailColor = KrathaPal.guartz.lerp(KrathaPal.guartzDark, 0.5f);
                         frontColor = Color.white;
-                        hitSound = Sounds.explosionTitan;
-
                         trailLength = 32;
                         trailWidth = 3.35f;
                         trailSinScl = 2.5f;

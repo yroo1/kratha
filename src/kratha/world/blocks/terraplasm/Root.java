@@ -181,8 +181,9 @@ public class Root extends BioBlock {
                 float bestDist = Float.POSITIVE_INFINITY; //FEAR THE INFINITE POWER
                 for(int i=0;i<4;i++){
                     Building adj;
+                    Block itemTargetBlock = world.tile(itemTargetX,itemTargetY).build.block;
                     adj = tile.nearby(Geometry.d4(i).x,Geometry.d4(i).y).build;
-                    if(world.tile(itemTargetX,itemTargetY).build.block instanceof BioHeart){
+                    if(itemTargetBlock!=null&&itemTargetBlock instanceof BioHeart){
                         if(adj != null && (adj.block instanceof Root || adj.block instanceof BioHeart)){
                             float dist = Mathf.dst(itemTargetX, itemTargetY, adj.tile.x, adj.tile.y);
                             if(dist<bestDist&&adj.acceptItem(this, lastItem)){
@@ -191,7 +192,7 @@ public class Root extends BioBlock {
                             }
                         }
                     }
-                    if(world.tile(itemTargetX,itemTargetY).build.block instanceof BioTurret){
+                    if(itemTargetBlock!=null&&itemTargetBlock instanceof BioTurret){
                         if(adj != null && (adj.block instanceof Root || adj.block instanceof BioTurret)){
                             float dist = Mathf.dst(itemTargetX, itemTargetY, adj.tile.x, adj.tile.y);
                             if(dist<bestDist&&adj.acceptItem(this, lastItem)){
@@ -199,6 +200,11 @@ public class Root extends BioBlock {
                                 bestDist = dist;
                             }
                         }
+                    }
+                    if(itemTargetBlock==null){
+                        //if the destinated block is destroyed or null -> item is lost -> reset to default destination (nearest heart)
+                        itemTargetX=-1;
+                        itemTargetY=-1;
                     }
                 }
                 if(target != null && target instanceof BioBuilding && target.acceptItem(this, lastItem)){

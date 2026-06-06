@@ -81,8 +81,8 @@ public class Terraplasm {
 
                     ammoItem = KrathaItems.guartz;
                     maxAmmo = 5;
-                    shootType = new ArtilleryBulletType(26f/50f, 50f, "shell"){{
-                        hitEffect = Fx.titanSmoke;
+                    shootType = new ArtilleryBulletType(4.3f, 50f, "shell"){{
+                        hitEffect = Fx.skewerSmoke;
                         despawnEffect = Fx.none;
                         knockback = 2f;
                         height = 19f;

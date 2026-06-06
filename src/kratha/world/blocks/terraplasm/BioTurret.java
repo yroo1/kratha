@@ -89,7 +89,7 @@ public class BioTurret extends Turret{
                     pulsed=false;
                     Building heart = getNearestHeart();
                     if(heart!=null){
-                        heart.send(x,y)
+                        heart.send(KrathaItems.guartz,tile.x,tile.y);
                     }
                 }
             }

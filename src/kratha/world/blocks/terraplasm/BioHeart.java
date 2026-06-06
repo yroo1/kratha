@@ -96,6 +96,28 @@ public class BioHeart extends BioBlock {
                 }
             }
         }
+        public void send(Item item, int x, int y){
+            float minDist = 9999999;
+            Building outputTo;
+            for(int i=0;i<4;i++){
+                for(int j=-1;j<=1;j++){
+                    Tile adj;
+                    if(i==0||i==2){
+                        adj = tile.nearby(Geometry.d4(i).x*2,Geometry.d4(i).y*2+j);
+                    } else {
+                        adj = tile.nearby(Geometry.d4(i).x*2+j,Geometry.d4(i).y*2);
+                    }
+                    if(adj!=null&&adj.block!=null&&adj.build!=null&&adj.block instanceof Root r){
+                        float dist = Mathf.dst(tile.x,tile.y,adj.x,adj.y);
+                        if(dist<minDist){
+                            minDist=dist;
+                            outputTo = r;
+                        }
+                    }
+                }
+            }
+            if(outputTo.acceptItem(this,item)outputTo.handleItem(this,item);
+        }
         @Override
         public void draw(){
             Draw.z(Layer.block+0.01f); //the heart must be above even if its just slightly

@@ -25,6 +25,7 @@ import static arc.graphics.g2d.Lines.*;
 public class KrathaUnitTypes{
     public static UnitType
     keris,
+    rocky,
     settler;
     public static void load(){
         //region special
@@ -53,6 +54,46 @@ public class KrathaUnitTypes{
                 }};
             }});
             
+        }};
+        //region krathian
+        rocky = new KrathianUnitType("rocky"){{
+            speed = 0.85f;
+            drag = 0.3f;
+            hitSize = 12f;
+            rotateSpeed = 4f;
+            health = 280;
+            legCount = 5;
+            legLength = 10f;
+            legForwardScl = 0.8f;
+            legMoveSpace = 1.4f;
+            legBaseOffset = 2f;
+            hovering = true;
+            armor = 10f;
+
+            shadowElevation = 0.3f;
+            groundLayer = Layer.legUnit;
+
+            stepSound = Sounds.walkerStepSmall;
+            stepSoundPitch = 0.7f;
+            stepSoundVolume = 0.35f;
+
+            weapons.add(new Weapon(){{
+                reload = 27f;
+                ejectEffect = Fx.none;
+                rotate = true;
+                shootSound = Sounds.shootSap;
+                mirror = false;
+                bullet = new BulletType(){{
+                    damage = 40;
+                    shootEffect = Fx.shootSmall;
+                    hitColor = color = Color.valueOf("bf92f9");
+                    despawnEffect = Fx.none;
+                    width = 0;
+                    height = 0;
+                    lifetime = 2f;
+                    speed = 10;
+                }};
+            }});
         }};
         //region core
         settler = new KrathaUnitType("settler"){{

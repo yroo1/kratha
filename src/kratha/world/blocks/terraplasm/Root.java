@@ -90,6 +90,7 @@ public class Root extends BioBlock {
         public int blending;
         public Item lastItem;
         public int itemTargetX = -1, itemTargetY = -1;
+        public Building itemFrom=null;
         
         @Override
         public void updateTile(){
@@ -177,11 +178,15 @@ public class Root extends BioBlock {
             extraFloat2 = pack(itemTargetX,itemTargetY);
             if(lastItem != null && itemTargetX != -1 && itemTargetY != -1 && extraFloat1<=0) {
                 Building target = null;
+                Building randomTarget = null;
+                int randomDirI=(int)Math.floor(random.nextFloat()*4);
                 float bestDist = Float.POSITIVE_INFINITY; //FEAR THE INFINITE POWER
                 for(int i=0;i<4;i++){
                     Building adj;
                     Block itemTargetBlock = world.tile(itemTargetX,itemTargetY).build.block;
                     adj = tile.nearby(Geometry.d4(i).x,Geometry.d4(i).y).build;
+                    
+                    if(i==randomDirI)randomTarget=adj;
                     if(itemTargetBlock!=null&&itemTargetBlock instanceof BioHeart){
                         if(adj != null && (adj.block instanceof Root || adj.block instanceof BioHeart)){
                             float dist = Mathf.dst(itemTargetX, itemTargetY, adj.tile.x, adj.tile.y);
@@ -205,6 +210,11 @@ public class Root extends BioBlock {
                         itemTargetX=-1;
                         itemTargetY=-1;
                     }
+                }
+                if(target != null && randomTarget != null && target == itemFrom){
+                    //if the target turns out to be where this item come from, its just looping around and is stuck.
+                    //pick random target and hope to get unstuck
+                    target=randomTarget;
                 }
                 if(target != null && target instanceof BioBuilding && target.acceptItem(this, lastItem)){
                     target.handleItem(this, lastItem);
@@ -265,6 +275,7 @@ public class Root extends BioBlock {
             items.add(item, 1);
             lastItem = item;
             extraFloat1 = 5f;
+            itemFrom = source;
         }
 
         @Override

@@ -12,6 +12,7 @@ import kratha.content.*;
 import mindustry.entities.abilities.*;
 import kratha.content.blocks.*;
 import kratha.world.blocks.environment.*;
+import kratha.graphics.KrathaPal;
 
 public class TerraUnitType extends UnitType{
 

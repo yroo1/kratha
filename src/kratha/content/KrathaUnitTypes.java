@@ -64,9 +64,10 @@ public class KrathaUnitTypes{
             rotateSpeed = 4f;
             health = 280;
             legCount = 5;
-            legLength = 10f;
+            legLength = 25f;
             legForwardScl = 0.8f;
-            legMoveSpace = 1.4f;
+            legMoveSpace = 1f;
+            legGroupSize = 1;
             legBaseOffset = 2f;
             hovering = true;
             armor = 10f;
@@ -80,13 +81,14 @@ public class KrathaUnitTypes{
 
             weapons.add(new Weapon(){{
                 reload = 27f;
+                x = 0;
                 ejectEffect = Fx.none;
                 rotate = true;
                 shootSound = Sounds.shootSap;
                 mirror = false;
                 bullet = new BasicBulletType(){{
                     damage = 40;
-                    shootEffect = Fx.shootSmall;
+                    shootEffect = Fx.none;
                     despawnEffect = Fx.none;
                     width = 0;
                     height = 0;

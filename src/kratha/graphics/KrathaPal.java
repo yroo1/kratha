@@ -22,6 +22,8 @@ public class KrathaPal{
     krathagenDark = Color.valueOf("381932"),
     krathagen = Color.valueOf("622C55"),
     krathagenLight = Color.valueOf("AA6B9D"),
+
+    watra = Color.valueOf("576B68"),
     
     krathiteDark = Color.valueOf("51436B"),
     krathite = Color.valueOf("897090"),

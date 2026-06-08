@@ -20,9 +20,10 @@ import static mindustry.type.ItemStack.with;
 public class KrathaEnv {
     public static Block
             terrasporeTree,terrasporeTreeLarge,woodWall,terrasporeFern,terrasporeFernLarge,
-            krathiteStaticwall,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,
-            terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
+            krathiteStaticwall,krathiteFloor,krathiteRough,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,
+            terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneWatra,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
             krathagenFloor,krathagenDeep,krathagenWall,
+            watraShallow,watraDeep,
             fallenLeaves,pebbles,krathiteOreWall,guartzOre,cobaltOre;
     public static void load() {
         {
@@ -57,6 +58,7 @@ public class KrathaEnv {
                 //krathite
                 krathiteStaticwall = new StaticWall("krathite-staticwall");
                 krathiteFloor = new Floor("krathite-floor", 4);
+                krathiteRough = new Floor("krathite-rough", 4);
                 krathitePlated = new Floor("krathite-plated", 4);
                 krathiteKrathagen = new Floor("krathite-krathagen"){{
                     speedMultiplier = 0.9f;
@@ -110,6 +112,25 @@ public class KrathaEnv {
                     speedMultiplier = 0.6f;
                     variants = 4;
                     liquidDrop = KrathaLiquids.krathagen;
+                    isLiquid = true;
+                    cacheLayer = CacheLayer.water;
+                    albedo = 0.95f;
+                    supportsOverlay = false;
+                }};
+                //watra
+                watraShallow = new Floor("watra-shallow"){{
+                    speedMultiplier = 0.8f;
+                    variants = 4;
+                    liquidDrop = KrathaLiquids.watra;
+                    isLiquid = true;
+                    cacheLayer = CacheLayer.water;
+                    albedo = 0.9f;
+                    supportsOverlay = false;
+                }};
+                watraDeep = new Floor("watra-deep"){{
+                    speedMultiplier = 0.6f;
+                    variants = 4;
+                    liquidDrop = KrathaLiquids.watra;
                     isLiquid = true;
                     cacheLayer = CacheLayer.water;
                     albedo = 0.95f;

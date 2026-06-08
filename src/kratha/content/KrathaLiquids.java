@@ -6,7 +6,7 @@ import mindustry.content.*;
 import kratha.graphics.KrathaPal;
 
 public class KrathaLiquids{
-    public static Liquid krathagen, biomass;
+    public static Liquid krathagen, biomass, watra;
     public static void load(){
 
         krathagen = new Liquid("krathagen", KrathaPal.krathagen){{
@@ -31,6 +31,14 @@ public class KrathaLiquids{
 
             colorFrom = Color.valueOf("524809");
             colorTo = Color.valueOf("D4C98A");
+        }};
+
+        watra = new Liquid("watra", KrathaPal.watra){{
+            heatCapacity = 1f;
+            effect = StatusEffects.wet;
+            boilPoint = 0.9f;
+            gasColor = Color.grays(0.8f);
+            alwaysUnlocked = true;
         }};
     }
 }

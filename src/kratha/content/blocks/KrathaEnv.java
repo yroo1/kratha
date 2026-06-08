@@ -97,6 +97,14 @@ public class KrathaEnv {
                     parent = blendGroup = terrastoneEroded;
                     attributes.set(Attribute.steam, 1f);
                 }};
+                terrastoneWatra = new Floor("terrastone-watra"){{
+                    speedMultiplier = 0.9f;
+                    variants = 4;
+                    liquidDrop = KrathaLiquids.watra;
+                    isLiquid = true;
+                    cacheLayer = CacheLayer.water;
+                    albedo = 0.8f;
+                }};
                 //krathagen
                 krathagenWall = new StaticWall("krathagen-wall");
                 krathagenFloor = new Floor("krathagen-floor"){{
@@ -116,6 +124,7 @@ public class KrathaEnv {
                     cacheLayer = CacheLayer.water;
                     albedo = 0.95f;
                     supportsOverlay = false;
+                    drownTime = 120;
                 }};
                 //watra
                 watraShallow = new Floor("watra-shallow"){{
@@ -124,7 +133,7 @@ public class KrathaEnv {
                     liquidDrop = KrathaLiquids.watra;
                     isLiquid = true;
                     cacheLayer = CacheLayer.water;
-                    albedo = 0.9f;
+                    albedo = 0.95f;
                     supportsOverlay = false;
                 }};
                 watraDeep = new Floor("watra-deep"){{
@@ -133,8 +142,9 @@ public class KrathaEnv {
                     liquidDrop = KrathaLiquids.watra;
                     isLiquid = true;
                     cacheLayer = CacheLayer.water;
-                    albedo = 0.95f;
+                    albedo = 1f;
                     supportsOverlay = false;
+                    drownTime = 120;
                 }};
                 //overlays
                 fallenLeaves = new OverlayFloor("fallen-leaves");

@@ -58,7 +58,7 @@ public class DeterraTurrets {
                     shootY = 1f;
 
                     ammo(
-                        KrathaItems.krathite, new BasicBulletType(3.8f, 39) {{
+                        KrathaItems.krathite, new BasicBulletType(3.8f, 32) {{
                             lifetime = 30f;
                             width = 8f;
                             height = 14f;

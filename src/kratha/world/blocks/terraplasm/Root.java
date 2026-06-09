@@ -119,13 +119,11 @@ public class Root extends BioBlock {
             boolean sameNear = false;
             float maxDistSquared=maxDist*maxDist;
             int ceilDist = (int)Math.ceil(maxDist);
-            for(int i=-ceilDist;i<ceilDist;i++){
-                for(int j=-ceilDist;j<ceilDist;j++){
+            for(int i=-ceilDist;i<=ceilDist;i++){
+                for(int j=-ceilDist;j<=ceilDist;j++){
                     Tile adj;
                     adj = tile.nearby(i,j);
-                    float dx=i-tile.x;
-                    float dy=j-tile.y;
-                    float dist=dx*dx+dy*dy;
+                    float dist=i*i+j*j;
                     if (dist<maxDistSquared&&adj != null && adj.build!=null && (adj.build.block==growBlock)) {                        
                         sameNear = true;
                     }

@@ -62,7 +62,7 @@ public class KrathaUnitTypes{
             drag = 0.3f;
             hitSize = 12f;
             rotateSpeed = 4f;
-            health = 320;
+            health = 290;
             legCount = 5;
             legLength = 25f;
             legForwardScl = 0.8f;

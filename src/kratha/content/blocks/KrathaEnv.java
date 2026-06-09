@@ -30,10 +30,12 @@ public class KrathaEnv {
         {
             {
                 //darkness
-                darkness = new Block("darkness){{
+                darkness = new Block("darkness"){{
                     forceDark = true;
                     targetable = false;
-                }}
+                    solid = false;
+                    update = false;
+                }};
                 //terraspore
                 terrasporeFern = new SeaBush("terraspore-fern"){{
                     lobesMin = 4;

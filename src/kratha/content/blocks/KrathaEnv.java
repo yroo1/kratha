@@ -5,6 +5,7 @@ import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
+import mindustry.world.meta.*;
 import mindustry.content.*;
 import mindustry.graphics.*;
 import mindustry.gen.Sounds.*;
@@ -31,10 +32,15 @@ public class KrathaEnv {
             {
                 //darkness
                 darkness = new Block("darkness"){{
+                    requirements(Category.units, with());
                     forceDark = true;
                     targetable = false;
                     solid = false;
                     update = false;
+                    fillsTile = false;
+                    breakable = false;
+                    drawTeamOverlay = false;
+                    buildVisibility = BuildVisibility.sandboxOnly;
                 }};
                 //terraspore
                 terrasporeFern = new SeaBush("terraspore-fern"){{

@@ -21,7 +21,7 @@ public class KrathaStorage {
         {
             {
                 coreRelic = new CoreBlock("core-relic"){{
-                    requirements(Category.effect, with(KrathaItems.krathite, 700));
+                    requirements(Category.effect, with(KrathaItems.krathite, 700,KrathaItems.guartz, 600,KrathaItems.spurstone, 200));
                     size = 5;
                     isFirstTier = true;
                     squareSprite = false;

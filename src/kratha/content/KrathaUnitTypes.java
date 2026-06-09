@@ -120,7 +120,7 @@ public class KrathaUnitTypes{
             itemCapacity = 30;
             health = 300f;
             hitSize = 9f;
-            fogRadius = -1;
+            fogRadius = 30;
             engineOffset = 6f;
 
             weapons.add(new RepairBeamWeapon(){{

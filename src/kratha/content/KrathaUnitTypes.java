@@ -24,10 +24,43 @@ import static arc.graphics.g2d.Lines.*;
 
 public class KrathaUnitTypes{
     public static UnitType
+    sail,
     keris,
     rocky,
     settler;
     public static void load(){
+        //region naval
+        sail = new KrathaUnitType("sail"){{
+            constructor = UnitWaterMove::create;
+            health = 100;
+            hitSize = 12f;
+            omniMovement = false;
+            rotateSpeed = 3f;
+            targetAir = false;
+            speed = 1.1f;
+            faceTarget = true;
+            
+            trailLength = 25;
+            waveTrailX = 4f;
+            trailScl = 1.8f;
+            
+            moveSoundVolume = 0.45f;
+            moveSound = Sounds.shipMove;
+            
+            weapons.add(new Weapon("kratha-sail-weapon"){{
+                reload = 45f;
+                x = 0f;
+                y = 0f;
+                shootCone = 30f;
+                bullet = new BasicBulletType(3.2f, 28){{
+                    homingPower = 0.19f;
+                    homingDelay = 4f;
+                    width = 7f;
+                    height = 10f;
+                    lifetime = 32f;
+                }};
+            }});
+        }};
         //region special
         //peak name
         keris = new DeearthUnitType("keris"){{

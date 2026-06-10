@@ -21,6 +21,9 @@ public class KrathaTechTree {
                     
                         });
                     });
+                    node(KrathaItems.cobalt, Seq.with(new Objectives.Produce(KrathaItems.cobalt)), () ->{
+                    
+                    });
                 });
             });
             node(KrathaDistribution.itemTube, () -> {
@@ -57,9 +60,19 @@ public class KrathaTechTree {
             node(KrathaDefense.radar, () -> {
                 
             });
+
+            node(KrathaTurrets.impede, Seq.with(Objectives.OnSector(oasis)),() -> {
+                
+            });
             
             node(KrathaSectorPresets.theFountain, () -> {
                 
+            });
+
+            node(KrathaUnits.nauticAssembler, Seq.with(Objectives.OnSector(oasis)),() -> {
+                node(KrathaUnitTypes.sail, () -> {
+                
+                });
             });
 
             node(KrathaUnitTypes.keris, () -> {

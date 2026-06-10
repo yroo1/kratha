@@ -21,7 +21,7 @@ import static mindustry.type.ItemStack.with;
 public class KrathaEnv {
     public static Block
             darkness,
-            terrasporeTree,terrasporeTreeLarge,woodWall,terrasporeFern,terrasporeFernLarge,
+            terrasporeTree,terrasporeTreeLarge,woodWall,woodFloor,terrasporeFern,terrasporeFernLarge,
             krathiteStaticwall,krathiteRough,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,
             terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneWatra,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
             krathagenFloor,krathagenDeep,krathagenWall,
@@ -71,6 +71,7 @@ public class KrathaEnv {
                     clipSize = 9999;
                 }};
                 woodWall = new StaticWall("wood-wall");
+                woodFloor = new Floor("wood-floor", 4);
                 //krathite
                 krathiteStaticwall = new StaticWall("krathite-staticwall");
                 krathiteRough = new Floor("krathite-rough", 4);

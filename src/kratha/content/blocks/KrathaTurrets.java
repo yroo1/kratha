@@ -43,7 +43,7 @@ public class KrathaTurrets {
                     researchCost = with(KrathaItems.krathite, 25, KrathaItems.guartz, 20);
   
                     health = 180;
-                    fogRadius = 0;
+                    fogRadiusMultiplier = 0f;
                     maxAmmo = 5;
                     outlineColor = KrathaPal.krathaOutline;
                     reload = 50f;

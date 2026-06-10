@@ -7,7 +7,7 @@ import mindustry.type.*;
 import kratha.type.*;
 
 /** Holds objective classes. */
-//made this only so that i could use OnSector and SectorComplete with KrathaSectorPreset
+//genuinely why did i made this
 public class KrathaObjectives{
 
     public static class Research implements Objective{

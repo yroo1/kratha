@@ -51,10 +51,10 @@ public class KrathaUnitTypes{
                 reload = 45f;
                 x = 0f;
                 y = 0f;
-                shootCone = 45f;
+                shootCone = 160f;
                 mirror = false;
                 rotate = true;
-                rotationLimit = 45f;
+                rotationLimit = 50f;
                 bullet = new BasicBulletType(4f, 28){{
                     homingPower = 0.3f;
                     homingDelay = 4f;

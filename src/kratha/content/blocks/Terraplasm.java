@@ -40,12 +40,11 @@ public class Terraplasm {
     public static void load() {
         {
             {
-                falseCore = new CoreBlock("false-core"){{
+                falseCore = new FalseCoreBlock("false-core"){{
                     //fake core to imitate attack mode, to be destroyed by wproc
                     targetable = false;
                     forceDark = true;
                     privileged = true;
-                    lightRadius = 0;
                     size = 1;
                 }};
                 heart = new BioHeart("heart"){{

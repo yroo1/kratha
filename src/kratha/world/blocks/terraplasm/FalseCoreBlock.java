@@ -9,10 +9,10 @@ public class FalseCoreBlock extends CoreBlock {
 
     @Override
     public void init(){
+        super.init();
         //i made this entire class so i could set lightRadius to zero
         //anuke, you're evil by hardcoding it in the class, i disgust you.
         lightRadius = 0f;
-        super.init();
     }
     
     public class FalseCoreBuild extends CoreBuild {

@@ -24,6 +24,10 @@ public class KrathaPal{
     krathagen = Color.valueOf("622C55"),
     krathagenLight = Color.valueOf("AA6B9D"),
 
+    biomassDark = Color.valueOf("3E4017"),
+    biomass = Color.valueOf("7F794E"),
+    biomassLight = Color.valueOf("CBCB92"),
+
     watraDark = Color.valueOf("242E2E"),
     watra = Color.valueOf("4C5757"),
     watraLight = Color.valueOf("859997"),

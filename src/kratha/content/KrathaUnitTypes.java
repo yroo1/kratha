@@ -115,6 +115,8 @@ public class KrathaUnitTypes{
             stepSoundPitch = 0.7f;
             stepSoundVolume = 0.35f;
 
+            isEnemy = false; //Rocky is not enemy
+
             weapons.add(new Weapon(){{
                 reload = 27f;
                 x = 0;

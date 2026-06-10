@@ -24,8 +24,8 @@ public class KrathaUnits {
             {
                 nauticAssembler = new UnitFactory("nautic-assembler"){{
                     requirements(Category.units, with(KrathaItems.krathite,75,KrathaItems.guartz,60,KrathaItems.spurstone,30,KrathaItems.cobalt,30));
-                    plans.add(new UnitPlan(KrathaUnitTypes.keris, 15 * 60f, with(KrathaItems.krathite, 15,KrathaItems.cobalt, 10)));
-                    consumePower(90/60f);
+                    plans.add(new UnitPlan(KrathaUnitTypes.sail, 15 * 60f, with(KrathaItems.krathite, 15,KrathaItems.cobalt, 10)));
+                    consumePower(120/60f);
                     size = 3;
                     researchCost = with(KrathaItems.krathite,200,KrathaItems.guartz,180,KrathaItems.spurstone,100,KrathaItems.cobalt,50);
                 }};

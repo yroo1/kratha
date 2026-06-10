@@ -1,4 +1,4 @@
-package mindustry.game;
+package kratha.game;
 
 import arc.*;
 import arc.scene.ui.layout.*;

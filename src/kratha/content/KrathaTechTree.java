@@ -62,18 +62,18 @@ public class KrathaTechTree {
                 
             });
 
-            node(KrathaTurrets.impede, Seq.with(Objectives.OnSector(oasis)),() -> {
+            node(KrathaTurrets.impede, Seq.with(new KrathaObjectives.OnSector(oasis)),() -> {
                 
             });
             
             node(KrathaSectorPresets.theFountain, () -> {
-                node(KrathaSectorPresets.oasis, Seq.with(Objectives.SectorComplete(theFountain)),() -> {
+                node(KrathaSectorPresets.oasis, Seq.with(new KrathaObjectives.SectorComplete(theFountain)),() -> {
                 
                 });
                 
             });
 
-            node(KrathaUnits.nauticAssembler, Seq.with(Objectives.OnSector(oasis)),() -> {
+            node(KrathaUnits.nauticAssembler, Seq.with(new KrathaObjectives.OnSector(firstRiddles)),() -> {
                 node(KrathaUnitTypes.sail, () -> {
                 
                 });

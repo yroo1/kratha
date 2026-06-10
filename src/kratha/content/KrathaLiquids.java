@@ -17,26 +17,34 @@ public class KrathaLiquids{
             alwaysUnlocked = true;
         }};
 
-        biomass = new CellLiquid("biomass", Color.valueOf("98915E")){{
+        biomass = new CellLiquid("biomass", KrathaPal.biomass){{
             heatCapacity = 0.3f;
             temperature = 0.7f;
             viscosity = 0.4f;
             flammability = 0f;
             capPuddles = false;
-            spreadTarget = Liquids.water;
+            spreadTarget = watra;
             moveThroughBlocks = true;
             incinerable = false;
             blockReactive = false;
-            canStayOn.addAll(Liquids.water, Liquids.oil, Liquids.cryofluid);
+            canStayOn.addAll(Liquids.water,muddyWatra,watra, Liquids.oil, Liquids.cryofluid);
 
-            colorFrom = Color.valueOf("524809");
-            colorTo = Color.valueOf("D4C98A");
+            colorFrom = KrathaPal.biomassDark;
+            colorTo = KrathaPal.biomassLight;
         }};
 
         watra = new Liquid("watra", KrathaPal.watra){{
             heatCapacity = 1f;
             effect = StatusEffects.wet;
             boilPoint = 0.9f;
+            gasColor = Color.grays(0.8f);
+            alwaysUnlocked = true;
+        }};
+
+        muddyWatra = new Liquid("muddy-watra", KrathaPal.muddyWatra){{
+            heatCapacity = 0.4f;
+            effect = StatusEffects.wet;
+            boilPoint = 0.8f;
             gasColor = Color.grays(0.8f);
             alwaysUnlocked = true;
         }};

@@ -12,7 +12,7 @@ public class KrathaLiquids{
         krathagen = new Liquid("krathagen", KrathaPal.krathagen){{
             heatCapacity = 0.8f;
             effect = StatusEffects.wet;
-            boilPoint = 0.9f;
+            boilPoint = 1f;
             gasColor = Color.grays(0.9f);
             alwaysUnlocked = true;
         }};
@@ -39,6 +39,7 @@ public class KrathaLiquids{
             boilPoint = 0.9f;
             gasColor = Color.grays(0.8f);
             alwaysUnlocked = true;
+            viscosity = 0.75f;
         }};
 
         muddyWatra = new Liquid("muddy-watra", KrathaPal.muddyWatra){{
@@ -47,6 +48,7 @@ public class KrathaLiquids{
             boilPoint = 0.8f;
             gasColor = Color.grays(0.8f);
             alwaysUnlocked = true;
+            viscosity = 0.3f;
         }};
     }
 }

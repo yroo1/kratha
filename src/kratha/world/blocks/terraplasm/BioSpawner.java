@@ -81,6 +81,13 @@ public class BioSpawner extends BioBlock {
                     expectedItem1++;
                 }
             }
+            if(expectedItem2<requiredItem2&&heart!=null&&heart instanceof BioHeart.BioHeartBuild heartbuild){
+                boolean success = heartbuild.send(inputItem2,(int)tile.x,(int)tile.y);
+                if(success){
+                    heartbuild.items.remove(inputItem2,1);
+                    expectedItem2++;
+                }
+            }
         }
         @Override
         public void draw(){

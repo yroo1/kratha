@@ -36,7 +36,7 @@ public class BioSpawner extends BioBlock {
     public int requiredItem1;
     public Item inputItem2;
     public int requiredItem2;
-    public int excessMultiplier = 2
+    public int excessMultiplier = 2;
     
     public float wscl = 10f, wmag = 1.2f, wtscl = 1f, wmag2 = 1.5f;
     
@@ -105,7 +105,7 @@ public class BioSpawner extends BioBlock {
         public boolean acceptItem(Building source, Item item){
             if(item==inputItem1&&!this.items.has(inputItem1,requiredItem*excessMultiplier))return true;
             if(item==inputItem2&&!this.items.has(inputItem2,requiredItem*excessMultiplier))return true;
-            return false
+            return false;
         }
         
         @Override

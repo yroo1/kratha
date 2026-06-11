@@ -219,6 +219,15 @@ public class Root extends BioBlock {
                             }
                         }
                     }
+                    if(itemTargetBlock!=null&&itemTargetBlock instanceof BioSpawner){
+                        if(adj != null && (adj.block instanceof Root || adj.block instanceof BioSpawner)){
+                            float dist = Mathf.dst(itemTargetX, itemTargetY, adj.tile.x, adj.tile.y);
+                            if(dist<bestDist&&adj.acceptItem(this, lastItem)){
+                                target = adj;
+                                bestDist = dist;
+                            }
+                        }
+                    }
                     if(itemTargetBlock==null){
                         //if the destinated block is destroyed or null -> item is lost -> reset to default destination (nearest heart)
                         itemTargetX=-1;

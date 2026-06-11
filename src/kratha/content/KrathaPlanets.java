@@ -25,7 +25,9 @@ public class KrathaPlanets{
             ryii,njii,khethar,hitroi,
 
     //planets
-    deearth,kratha;
+    deearth,kratha,
+
+    futsuri;
 
     public static void load(){
         // regions stars
@@ -126,6 +128,24 @@ public class KrathaPlanets{
             );
             cloudMeshLoader = () -> new MultiMesh(
                 new HexSkyMesh(this, 11, 2.7f, 0.1f, 5, Color.valueOf("D696DE").a(0.4f), 7, 0.4f, 2f, 0.43f)             
+            );
+        }};
+        futsuri = new Planet("futsuri", hitroi, 0.4f, 3){{
+            accessible = false;
+            hasAtmosphere = true;
+            atmosphereRadIn = 0.25f;
+            atmosphereRadOut = 0.3f;
+            landCloudColor = Color.valueOf("A25CC3");
+            orbitTime = 60f*3f;
+            rotateTime = 60f*3f;
+            orbitSpacing = 1;
+            orbitRadius = 6f;
+            iconColor = atmosphereColor = Color.valueOf("A25CC3");
+            solarSystem = ryii;
+            alwaysUnlocked = false;
+            generator = new FutsuriPlanetGenerator();
+            meshLoader = () -> new MultiMesh(
+                new HexMesh(this, 6)
             );
         }};
         deearth = new Planet("deearth", khethar, 1f, 4){{

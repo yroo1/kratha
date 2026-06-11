@@ -32,6 +32,7 @@ public class BioSpawner extends BioBlock {
     public TextureRegion bubbleRegion;
     public TextureRegion topRegion;
     public Effect spawnEffect=KrathaFx.bulbPop;
+    public ItemStack[] inputItems;
     
     public float wscl = 10f, wmag = 1.2f, wtscl = 1f, wmag2 = 1.5f;
     
@@ -40,6 +41,7 @@ public class BioSpawner extends BioBlock {
         super(name);
         update=true;
         isRoot=false;
+        hasItems=true;
     }
     
     @Override

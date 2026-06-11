@@ -25,6 +25,7 @@ import static arc.graphics.g2d.Lines.*;
 public class KrathaUnitTypes{
     public static UnitType
     sail,
+    terrapillar,
     keris,
     rocky,
     settler;
@@ -66,6 +67,25 @@ public class KrathaUnitTypes{
                     frontColor = KrathaPal.cobaltLight;
                 }};
             }});
+        }};
+        //region terraplasm
+        terrapillar = new TerraUnitType("terrapillar"){{
+            constructor = CrawlUnit::create;
+            health = 130;
+            hitSize = 10f;
+            omniMovement = false;
+            rotateSpeed = 2f;
+            drownTimeMultiplier = 2f;
+            segments = 5;
+            drawBody = false;
+            crushDamage = 0.4f;
+            aiController = HugAI::new;
+            targetAir = false;
+
+            segmentScl = 3f;
+            segmentPhase = 5f;
+            segmentMag = 0.5f;
+            speed = 1.1f;
         }};
         //region special
         //peak name

@@ -24,7 +24,7 @@ public class KrathaPlanetGenerator extends PlanetGenerator {
 
     @Override
     public void getColor(Vec3 position, Color out) {
-        Block block = rawHeight(position) < 0.3f ? KrathaEnv.krathagenDeep : rawHeight(position) < 0.36f ? KrathaEnv.krathagenFloor : rawHeight(position) < 0.4f ? KrathaEnv.krathiteKrathagen : rawHeight(position) < 0.48f ? KrathaEnv.krathiteFloor : rawHeight(position) < 0.53f ? KrathaEnv.terrastoneFloor : KrathaEnv.terrastoneEroded;
+        Block block = rawHeight(position) < 0.3f ? KrathaEnv.krathagenDeep : rawHeight(position) < 0.36f ? KrathaEnv.krathagenFloor : rawHeight(position) < 0.4f ? KrathaEnv.krathiteKrathagen : rawHeight(position) < 0.48f ? KrathaEnv.krathiteFloor : rawHeight(position) < 0.53f ? KrathaEnv.terrastoneFloor : rawHeight(position) < 0.65f KrathaEnv.terrastoneEroded : Blocks.snow;
 
         out.set(block.mapColor).a(1f - block.albedo);
     }

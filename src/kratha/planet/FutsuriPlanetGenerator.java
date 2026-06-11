@@ -5,7 +5,7 @@ import arc.math.*;
 import arc.math.geom.*;
 import arc.util.Tmp;
 import arc.util.noise.*;
-import kratha.content.deterra.blocks.KrathaEnv;
+import kratha.content.blocks.KrathaEnv;
 import mindustry.content.Blocks;
 import mindustry.maps.generators.PlanetGenerator;
 import mindustry.world.Block;
@@ -25,7 +25,7 @@ public class FutsuriPlanetGenerator extends PlanetGenerator {
 
     @Override
     public void getColor(Vec3 position, Color out) {
-        Block block = rawHeight(position) < 0.4f ? KrathaEnv.krathagenDeep : rawHeight(position) < 0.5f ? KrathaEnv.krathagenFloor : rawHeight(position) < 0.6f ? KrathaEnv.krathiteFloor : rawHeight(position) < 0.7f ? KrathaEnv.krathiteRough : KrathaEnv.eonstoneErodedFloor;
+        Block block = rawHeight(position) < 0.4f ? KrathaEnv.krathagenDeep : rawHeight(position) < 0.5f ? KrathaEnv.krathagenFloor : rawHeight(position) < 0.6f ? KrathaEnv.krathiteFloor : rawHeight(position) < 0.7f ? KrathaEnv.krathiteRough : KrathaEnv.terrastoneEroded;
 
         out.set(block.mapColor).a(1f - block.albedo);
     }

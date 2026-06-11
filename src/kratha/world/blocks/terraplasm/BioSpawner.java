@@ -32,7 +32,8 @@ public class BioSpawner extends BioBlock {
     public TextureRegion bubbleRegion;
     public TextureRegion topRegion;
     public Effect spawnEffect=KrathaFx.bulbPop;
-    public ItemStack[] inputItems;
+    public Item inputItem1;
+    public Item inputItem2;
     
     public float wscl = 10f, wmag = 1.2f, wtscl = 1f, wmag2 = 1.5f;
     
@@ -53,6 +54,8 @@ public class BioSpawner extends BioBlock {
     
     public class BioSpawnerBuild extends BioBuilding {
         public int spawnProgress = 0;
+        public int expectedItem1 = 0;
+        public int expectedItem2 = 0;
         
         @Override
         public void updatePulse(){
@@ -83,12 +86,16 @@ public class BioSpawner extends BioBlock {
         public void write(Writes write){
             super.write(write);
             write.i(spawnProgress);
+            write.i(expectedItem1);
+            write.i(expectedItem2);
         }
 
         @Override
         public void read(Reads read, byte revision){
             super.read(read, revision);
             spawnProgress=read.i();
+            expectedItem1=read.i();
+            expectedItem2=read.i();
         }
     }
  }     

@@ -84,7 +84,7 @@ public class KrathaPlanets{
             accessible = false;
             hasAtmosphere = true;
             solarSystem = ryii;
-            orbitRadius = 140f;
+            orbitRadius = 120f;
             iconColor = Color.valueOf("D696DE");
 
             meshLoader = () -> new SunMesh(

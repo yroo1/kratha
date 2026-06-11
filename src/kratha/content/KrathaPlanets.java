@@ -133,8 +133,9 @@ public class KrathaPlanets{
         futsuri = new Planet("futsuri", hitroi, 0.4f, 3){{
             accessible = false;
             hasAtmosphere = true;
-            atmosphereRadIn = 0.25f;
-            atmosphereRadOut = 0.3f;
+            atmosphereRadIn = 0f;
+            atmosphereRadOut = 0.4f;
+            maxZoom = 4;
             landCloudColor = Color.valueOf("A25CC3");
             orbitTime = 60f*3f;
             rotateTime = 60f*3f;

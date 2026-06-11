@@ -83,8 +83,8 @@ public class KrathaUnitTypes{
             aiController = HugAI::new;
             targetAir = false;
 
-            segmentScl = 3f;
-            segmentPhase = 5f;
+            segmentScl = 5f;
+            segmentPhase = 7f;
             segmentMag = 0.5f;
             speed = 1.1f;
         }};

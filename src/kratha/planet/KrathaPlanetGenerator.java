@@ -11,7 +11,7 @@ import mindustry.world.Block;
 import kratha.content.blocks.KrathaEnv;
 
 public class KrathaPlanetGenerator extends PlanetGenerator {
-    public float heightScl = 1.2f, octaves = 9, persistence = 0.8f, heightPow = 2.5f, heightMult = 1.1f;
+    public float heightScl = 1.2f, octaves = 9, persistence = 0.8f, heightPow = 3f, heightMult = 1.1f;
 
     @Override
     public float getHeight(Vec3 position) {
@@ -19,7 +19,7 @@ public class KrathaPlanetGenerator extends PlanetGenerator {
     }
 
     float rawHeight(Vec3 position) {
-        return Simplex.noise3d(seed+12, octaves, persistence, 1f / heightScl, 10f + position.x, 10f + position.y, 10f + position.z)-Math.abs(position.y)*0.2f;
+        return Simplex.noise3d(seed+12, octaves, persistence, 1f / heightScl, 24f + position.x, 25f + position.y, 26f + position.z)-Math.abs(position.y)*0.17f;
     }
 
     @Override

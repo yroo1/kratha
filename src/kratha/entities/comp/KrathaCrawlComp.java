@@ -15,24 +15,24 @@ import mindustry.world.blocks.environment.*;
 
 import static mindustry.Vars.*;
 
-@Component
+@Annotations.Component
 abstract class CrawlComp implements Posc, Rotc, Hitboxc, Unitc{
-    @Import float x, y, speedMultiplier, rotation, hitSize;
-    @Import UnitType type;
-    @Import Team team;
+    @Annotations.Import float x, y, speedMultiplier, rotation, hitSize;
+    @Annotations.Import UnitType type;
+    @Annotations.Import Team team;
 
     transient Floor lastDeepFloor;
     transient float lastCrawlSlowdown = 1f;
     transient float segmentRot, crawlTime = Mathf.random(100f);
 
-    @Replace
+    @Annotations.Replace
     @Override
     public SolidPred solidity(){
         return ignoreSolids() ? null : EntityCollisions::legsSolid;
     }
 
     @Override
-    @Replace
+    @Annotations.Replace
     public float floorSpeedMultiplier(){
         Floor on = isFlying() ? Blocks.air.asFloor() : floorOn();
         //TODO take into account extra blocks
@@ -46,7 +46,7 @@ abstract class CrawlComp implements Posc, Rotc, Hitboxc, Unitc{
     }
 
     @Override
-    @Replace
+    @Annotations.Replace
     public Floor drownFloor(){
         return lastDeepFloor;
     }

@@ -20,7 +20,7 @@ public class KrathaFx{
     public static final Vec2 v = new Vec2();
     public static final Effect
     bulbPop = new Effect(10f, 80f, e -> {
-        color(KrathaPal.guartz, KrathaPal.guartzLight, e.fin());
+        color(KrathaPal.cobalt, KrathaPal.cobaltLight, e.fin());
         stroke(e.fout() * 3f);
         Lines.circle(e.x, e.y, e.fin() * 32f);
     }),

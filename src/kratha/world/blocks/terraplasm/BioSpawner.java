@@ -103,8 +103,8 @@ public class BioSpawner extends BioBlock {
         }
         @Override
         public boolean acceptItem(Building source, Item item){
-            if(item==inputItem1&&!this.items.has(inputItem1,requiredItem*excessMultiplier))return true;
-            if(item==inputItem2&&!this.items.has(inputItem2,requiredItem*excessMultiplier))return true;
+            if(item==inputItem1&&!this.items.has(inputItem1,requiredItem1*excessMultiplier))return true;
+            if(item==inputItem2&&!this.items.has(inputItem2,requiredItem2*excessMultiplier))return true;
             return false;
         }
         

@@ -261,3 +261,10 @@ public class BioBlock extends Block {
         }
     }
 }
+/*
+I always wanted to be in somewhere bright,
+but why, even looking at it hurts.
+Their light just make my ugly shadow clearer.
+I believed I'll never be as bright, but,
+I know I shouldn't waste this life I borrowed.
+*/

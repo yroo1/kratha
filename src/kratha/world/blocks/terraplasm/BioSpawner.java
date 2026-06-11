@@ -66,6 +66,10 @@ public class BioSpawner extends BioBlock {
             if (this.items.has(inputItem1,requiredItem1)&&this.items.has(inputItem2,requiredItem2)) {
                 spawnProgress++;
                 if(spawnProgress >= pulseToSpawn) {
+                    this.items.remove(inputItem1,requiredItem1);
+                    this.items.remove(inputItem2,requiredItem2);
+                    expectedItem1-=requiredItem1;
+                    expectedItem2-=requiredItem2;
                     spawnProgress = 0;
                     Unit unit = unitType.create(team);
                     unit.set(x, y);

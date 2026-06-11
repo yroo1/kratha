@@ -25,7 +25,7 @@ public class FutsuriPlanetGenerator extends PlanetGenerator {
 
     @Override
     public void getColor(Vec3 position, Color out) {
-        Block block = rawHeight(position) < 0.4f ? KrathaEnv.krathagenDeep : rawHeight(position) < 0.5f ? KrathaEnv.krathagenFloor : rawHeight(position) < 0.6f ? KrathaEnv.krathiteFloor : rawHeight(position) < 0.7f ? KrathaEnv.krathiteRough : KrathaEnv.terrastoneEroded;
+        Block block = rawHeight(position) < 0.4f ? KrathaEnv.krathagenDeep : rawHeight(position) < 0.5f ? KrathaEnv.krathagenFloor : rawHeight(position) < 0.6f ? KrathaEnv.krathiteFloor : rawHeight(position) < 0.7f ? KrathaEnv.krathiteRough : KrathaEnv.krathitePlated;
 
         out.set(block.mapColor).a(1f - block.albedo);
     }

@@ -228,8 +228,9 @@ public class Root extends BioBlock {
                             }
                         }
                     }
-                    if(itemTargetBlock==null){
+                    if(itemTargetBlock==null||(itemTargetBlock!=null&&itemTargetBlock instanceof Root)){
                         //if the destinated block is destroyed or null -> item is lost -> reset to default destination (nearest heart)
+                        //Or, if the destinated block isn't null but instead is a root, its not the actual target and the actual target is destroyed because root never request items.
                         itemTargetX=-1;
                         itemTargetY=-1;
                     }

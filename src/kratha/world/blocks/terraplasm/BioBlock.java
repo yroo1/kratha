@@ -32,7 +32,7 @@ public class BioBlock extends Block {
     public boolean isRoot=false;
     public float pulseScale=0.5f;
     
-    //Parameters, to be overriden by data patches
+    //Parameters, to be overriden by data patch
     public boolean allowRoot=false;
     public boolean allowDrill=false;
     public boolean allowBridge=false;

@@ -27,7 +27,10 @@ public class KrathaPlanets{
     //planets
     deearth,kratha,
 
-    futsuri;
+    futsuri,
+
+    //asteroids
+    verdara,deterra,nyle;
 
     public static void load(){
         // regions stars
@@ -170,6 +173,14 @@ public class KrathaPlanets{
                 new HexSkyMesh(this, 11, 2.7f, 0.1f, 5, Color.valueOf("BAD1D4").a(0.4f), 7, 0.4f, 2f, 0.43f)             
             );
         }};
+
+        //rip verdara
+        verdara = makeAsteroid("verdara", khethar, Blocks.stoneWall, Blocks.iceWall, -1, 0.5f, 12, 2f, gen -> {});
+        //rip deterra
+        deterra = makeAsteroid("deterra", njii, Blocks.iceWall, Blocks.water, 2025, 0.9f, 12, 2f, gen -> {});
+        //Honor
+        nyle = makeAsteroid("nyle", ryii, Blocks.iceWall, Blocks.water, 2026, 0.6f, 9, 2.6f, gen -> {});
+    
     }
     private static Planet makeAsteroid(String name, Planet parent, Block base, Block tint, int seed, float tintThresh, int pieces, float scale, Cons<AsteroidGenerator> cgen){
         return new Planet(name, parent, 0.12f){{

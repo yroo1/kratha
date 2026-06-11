@@ -36,6 +36,7 @@ public class BioSpawner extends BioBlock {
     public int requiredItem1;
     public Item inputItem2;
     public int requiredItem2;
+    public int excessMultiplier = 2
     
     public float wscl = 10f, wmag = 1.2f, wtscl = 1f, wmag2 = 1.5f;
     
@@ -62,7 +63,7 @@ public class BioSpawner extends BioBlock {
         
         @Override
         public void updatePulse(){
-            if (true) {
+            if (this.items.has(inputItem1,requiredItem1)&&this.items.has(inputItem2,requiredItem2)) {
                 spawnProgress++;
                 if(spawnProgress >= pulseToSpawn) {
                     spawnProgress = 0;
@@ -74,14 +75,14 @@ public class BioSpawner extends BioBlock {
                 }
             }
             Building heart = getNearestHeart();
-            if(expectedItem1<requiredItem1&&heart!=null&&heart instanceof BioHeart.BioHeartBuild heartbuild){
+            if(expectedItem1<requiredItem1*excessMultiplier&&heart!=null&&heart instanceof BioHeart.BioHeartBuild heartbuild){
                 boolean success = heartbuild.send(inputItem1,(int)tile.x,(int)tile.y);
                 if(success){
                     heartbuild.items.remove(inputItem1,1);
                     expectedItem1++;
                 }
             }
-            if(expectedItem2<requiredItem2&&heart!=null&&heart instanceof BioHeart.BioHeartBuild heartbuild){
+            if(expectedItem2<requiredItem2*excessMultiplier&&heart!=null&&heart instanceof BioHeart.BioHeartBuild heartbuild){
                 boolean success = heartbuild.send(inputItem2,(int)tile.x,(int)tile.y);
                 if(success){
                     heartbuild.items.remove(inputItem2,1);
@@ -99,6 +100,17 @@ public class BioSpawner extends BioBlock {
             Mathf.cos(vec.x*3 + Time.time + 8, wscl + 6f, wmag * 1.1f) + Mathf.sin(vec.y*3 - Time.time, 50 * wtscl, 0.2f * wmag2)
             ));
             Draw.rect(topRegion,x,y);
+        }
+        @Override
+        public boolean acceptItem(Building source, Item item){
+            if(item==inputItem1&&!this.items.has(inputItem1,requiredItem*excessMultiplier))return true;
+            if(item==inputItem2&&!this.items.has(inputItem2,requiredItem*excessMultiplier))return true;
+            return false
+        }
+        
+        @Override
+        public void handleItem(Building source, Item item){
+            items.add(item,1);
         }
         @Override
         public void write(Writes write){

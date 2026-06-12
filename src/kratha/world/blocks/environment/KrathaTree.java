@@ -26,6 +26,7 @@ public class KrathaTree extends TallBlock{
     public float parallaxAmount = 100f;
     public float branchParallaxAmount = parallaxAmount/2f;
     public int woodLayers = 15;
+    public float maxDist=5;
     static Rand rand = new Rand();
 
     public KrathaTree(String name){
@@ -64,7 +65,7 @@ public class KrathaTree extends TallBlock{
                 Tile adj;
                 adj = tile.nearby(i,j);
                 float dist=i*i+j*j;
-                if (dist<maxDistSquared&&adj != null && adj.block()!=null && adj.block() = KrathaEnv.woodWall) {                        
+                if (dist<maxDistSquared&&adj != null && adj.block()!=null && adj.block() == KrathaEnv.woodWall) {                        
                     for(int k=0;i<woodLayers;k++){
                         Draw.z(layer);
                         Draw.color(1f,1f,1f,tAlpha*((woodLayers-1-i)/(woodLayers-1)));

@@ -68,10 +68,10 @@ public class KrathaTree extends TallBlock{
                 if ((i==0&&j==0)||dist<maxDistSquared&&adj != null && adj.block()!=null && adj.block() == KrathaEnv.woodWall) {                        
                     for(int k=0;k<woodLayers;k++){
                         Draw.z(layer);
-                        Draw.color(1f,1f,1f,tAlpha*((woodLayers-1-k)/(woodLayers-1)));
+                        Draw.color(1f,1f,1f,tAlpha*(((float)(woodLayers-1-k))/(woodLayers-1)));
                         float camoffX=((tile.worldx()+i*8)-Core.camera.position.x)*(parallaxAmount/Core.camera.width)*((float)k/(woodLayers-1));
                         float camoffY=((tile.worldy()+j*8)-Core.camera.position.y)*(parallaxAmount/Core.camera.width)*((float)k/(woodLayers-1));
-                        Draw.rect(woodRegion,(tile.worldx()+i*8)+camoffX, (tile.worldy()+j*8)+camoffY, rot);
+                        Draw.rect(woodRegion,(tile.worldx()+i*8)+camoffX, (tile.worldy()+j*8)+camoffY);
                     }
                 }
             }

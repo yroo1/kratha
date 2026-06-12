@@ -24,7 +24,7 @@ public class KrathaTree extends TallBlock{
     public float fadeDist = 70f, fadeDistTo = 50f, fadeAmount=0.75f; //fade amount 1 means 100% 0 means no fade
     public float parallaxAmount = 100f;
     public float branchParallaxAmount = parallaxAmount/2f;
-    public int woodLayers = 1; //overriden later
+    public int woodLayers = 15;
     static Rand rand = new Rand();
 
     public KrathaTree(String name){
@@ -42,7 +42,6 @@ public class KrathaTree extends TallBlock{
       branchRegion1s=Core.atlas.find(name+"-branch1-shadow");
       branchRegion2s=Core.atlas.find(name+"-branch2-shadow");
       woodRegion=Core.atlas.find(name+"-wood");
-      woodLayers=(int)Math.ceil(parallaxAmount/20f);
     }
 
     @Override
@@ -73,7 +72,8 @@ public class KrathaTree extends TallBlock{
             float w = bReg.width * bReg.scl(), h = bReg.height * bReg.scl();
             var region = Angles.angleDist(ba, 225f) <= botAngle ? (variant>1?branchRegion1bot:branchRegion2bot) : (variant>1?branchRegion1:branchRegion2);
             var sRegion = (variant>1?branchRegion1s:branchRegion2s);
-            
+            float thisBranchParallaxAmount = (float)rand.random(branchParallaxAmount/2, branchParallaxAmount*3/4);
+                
             Draw.color(0f, 0f, 0f, shadowAlpha);
             if(sRegion!=null){
                 Draw.z(shadowLayer);
@@ -90,8 +90,8 @@ public class KrathaTree extends TallBlock{
             }
             Draw.color(1f,1f,1f,bAlpha);
             Draw.z(layer);
-            float camoffX=(tile.worldx()-Core.camera.position.x)*(branchParallaxAmount/Core.camera.width);
-            float camoffY=(tile.worldy()-Core.camera.position.y)*(branchParallaxAmount/Core.camera.width);
+            float camoffX=(tile.worldx()-Core.camera.position.x)*(thisBranchParallaxAmount/Core.camera.width);
+            float camoffY=(tile.worldy()-Core.camera.position.y)*(thisBranchParallaxAmount/Core.camera.width);
             Draw.rect(region,
                 (tile.worldx()+camoffX) - Angles.trnsx(angle, origin) + w*0.5f, (tile.worldy()+camoffY) - Angles.trnsy(angle, origin),
                 w, h,

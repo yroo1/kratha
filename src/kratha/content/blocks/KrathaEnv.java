@@ -69,7 +69,7 @@ public class KrathaEnv {
                     lobesMax = 6;
                     layer = Layer.darkness + 2;
                     clipSize = 9999;
-                    parallaxAmount = 180;
+                    parallaxAmount = 150;
                     branchParallaxAmount = 90;
                 }};
                 woodWall = new StaticWall("wood-wall");

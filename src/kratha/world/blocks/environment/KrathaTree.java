@@ -7,6 +7,7 @@ import arc.util.*;
 import mindustry.world.*;
 import mindustry.world.blocks.environment.TallBlock;
 import mindustry.Vars;
+import kratha.content.blocks.KrathaEnv;
 
 public class KrathaTree extends TallBlock{
     //dont ask why
@@ -56,12 +57,23 @@ public class KrathaTree extends TallBlock{
         if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
             tAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
         }
-        for(int i=0;i<woodLayers;i++){
-            Draw.z(layer);
-            Draw.color(1f,1f,1f,tAlpha);
-            float camoffX=(tile.worldx()-Core.camera.position.x)*(parallaxAmount/Core.camera.width)*((float)i/(woodLayers-1));
-            float camoffY=(tile.worldy()-Core.camera.position.y)*(parallaxAmount/Core.camera.width)*((float)i/(woodLayers-1));
-            Draw.rect(woodRegion,tile.worldx()+camoffX, tile.worldy()+camoffY, rot);
+        float maxDistSquared=maxDist*maxDist;
+        int ceilDist = (int)Math.ceil(maxDist);
+        for(int i=-ceilDist;i<=ceilDist;i++){
+            for(int j=-ceilDist;j<=ceilDist;j++){
+                Tile adj;
+                adj = tile.nearby(i,j);
+                float dist=i*i+j*j;
+                if (dist<maxDistSquared&&adj != null && adj.block()!=null && adj.block() = KrathaEnv.woodWall) {                        
+                    for(int k=0;i<woodLayers;k++){
+                        Draw.z(layer);
+                        Draw.color(1f,1f,1f,tAlpha*((woodLayers-1-i)/(woodLayers-1)));
+                        float camoffX=((tile.worldx()+i*8)-Core.camera.position.x)*(parallaxAmount/Core.camera.width)*((float)i/(woodLayers-1));
+                        float camoffY=((tile.worldy()+j*8)-Core.camera.position.y)*(parallaxAmount/Core.camera.width)*((float)i/(woodLayers-1));
+                        Draw.rect(woodRegion,(tile.worldx()+i*8)+camoffX, (tile.worldy()+j*8)+camoffY, rot);
+                    }
+                }
+            }
         }
     
         for(int i = 0; i < lobes; i++){

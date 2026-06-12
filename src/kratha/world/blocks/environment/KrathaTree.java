@@ -22,7 +22,8 @@ public class KrathaTree extends TallBlock{
     public float botAngle = 50f, origin = 0.1f;
     public float sclMin = 300f, sclMax = 360f, magMin = 5f, magMax = 15f, timeRange = 40f, spread = 0f;
     public float fadeDist = 70f, fadeDistTo = 50f, fadeAmount=0.75f; //fade amount 1 means 100% 0 means no fade
-    public float parallaxAmount = 0.1f;
+    public float parallaxAmount = 150f;
+    public float branchParallaxAmount = parallaxAmount/2f;
     static Rand rand = new Rand();
 
     public KrathaTree(String name){
@@ -73,9 +74,10 @@ public class KrathaTree extends TallBlock{
             }
             Draw.color(1f,1f,1f,bAlpha);
             Draw.z(layer);
+            float camoffX=(tile.worldx()-Core.camera.position.x)*(branchParallaxAmount/Core.camera.width);
+            float camoffY=(tile.worldy()-Core.camera.position.y)*(branchParallaxAmount/Core.camera.width);
             Draw.rect(region,
-                tile.worldx() - Angles.trnsx(angle, origin) + w*0.5f, tile.worldy() - Angles.trnsy(angle, origin),
-                w, h,
+                (tile.worldx()+camoffX) - Angles.trnsx(angle, origin) + w*0.5f, (tile.worldy()+camoffY) - Angles.trnsy(angle, origin),
                 origin*4f, h/2f,
                 angle
             );
@@ -97,8 +99,8 @@ public class KrathaTree extends TallBlock{
         Draw.color(1f,1f,1f,tAlpha);
 
         Draw.z(layer);
-        float camoffX=(tile.worldx()-Core.camera.position.x)*parallaxAmount;
-        float camoffY=(tile.worldy()-Core.camera.position.y)*parallaxAmount;
+        float camoffX=(tile.worldx()-Core.camera.position.x)*(parallaxAmount/Core.camera.width);
+        float camoffY=(tile.worldy()-Core.camera.position.y)*(parallaxAmount/Core.camera.width);
         Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,
             tile.worldx()+camoffX, tile.worldy()+camoffY, rot);
     }

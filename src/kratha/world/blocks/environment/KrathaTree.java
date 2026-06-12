@@ -56,12 +56,12 @@ public class KrathaTree extends TallBlock{
         if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
             tAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
         }
-        Draw.z(layer);
         for(int i=0;i<woodLayers;i++){
+            Draw.z(layer);
             Draw.color(1f,1f,1f,tAlpha);
             float camoffX=(tile.worldx()-Core.camera.position.x)*(parallaxAmount/Core.camera.width);
             float camoffY=(tile.worldy()-Core.camera.position.y)*(parallaxAmount/Core.camera.width);
-            Draw.rect(woodRegion,tile.worldx()+camoffX*(i/woodLayers), tile.worldy()+camoffY*(i/woodLayers), rot);
+            Draw.rect(woodRegion,tile.worldx()+camoffX, tile.worldy()+camoffY, rot);
         }
     
         for(int i = 0; i < lobes; i++){

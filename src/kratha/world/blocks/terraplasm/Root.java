@@ -85,6 +85,20 @@ public class Root extends BioBlock {
         int b = packed&0xFFF;
         return new int[]{a, b};
     }
+    //set a specific bit in a float. can store up to 21 booleans in one float
+    public static float setbit(float f, int bit, boolean value) {
+        int bits = Float.floatToRawIntBits(f);
+        if(valhe){
+            bits = bits | (1 << bit);
+        }else{
+            bits = bits & ~(1 << bit);
+        }
+        return Float.intBitsToFloat(bits);
+    }
+    public static float getbit(float f, int bit) {
+        int bits = Float.floatToRawIntBits(f);
+        return (bits >> bit) & 1;
+    }
     
     public class RootBuild extends BioBuilding {
         public int blending;
@@ -166,6 +180,10 @@ public class Root extends BioBlock {
             if(tile != null && tile.drop() != null && allowDrill && clear2){
                 tile.setBlock(Terraplasm.harvester,team);
             }
+
+           if(allowEye)passiveGrow(Terraplasm.eye,eyeSpacing,eyeRate);
+            if(allowSkewer&&clear3)passiveGrow(Terraplasm.skewer,skewerSpacing,skewerRate);
+            
 
             //item movement
             

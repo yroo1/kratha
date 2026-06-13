@@ -74,6 +74,11 @@ public class KrathaEnv {
                 }};
                 woodWall = new StaticWall("wood-wall");
                 woodFloor = new Floor("wood-floor", 4);
+                //misc
+                container = new EnvContainer("container"){{
+                    fadeAmount = 0f;
+                    layer = Layer.darkness + 0.99f;
+                }};
                 //krathite
                 krathiteStaticwall = new StaticWall("krathite-staticwall");
                 krathiteRough = new Floor("krathite-rough", 4);

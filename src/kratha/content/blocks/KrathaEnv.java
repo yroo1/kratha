@@ -78,7 +78,7 @@ public class KrathaEnv {
                 //misc
                 container = new EnvContainer("container"){{
                     fadeAmount = 0f;
-                    layer = Layer.darkness + 0.99f;
+                    layer = Layer.power - 1.01f;
                 }};
                 //krathite
                 krathiteStaticwall = new StaticWall("krathite-staticwall");

@@ -175,10 +175,10 @@ public class KrathaUnitTypes{
             mineSpeed = 6f;
             mineTier = 2;
             buildSpeed = 1.2f;
-            drag = 0.03f;
+            drag = 0.2f;
             speed = 4f;
             rotateSpeed = 7f;
-            accel = 0.18f;
+            accel = 0.4f;
             itemCapacity = 30;
             health = 300f;
             hitSize = 9f;

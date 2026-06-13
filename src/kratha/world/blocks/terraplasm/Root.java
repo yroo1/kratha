@@ -167,9 +167,6 @@ public class Root extends BioBlock {
                 tile.setBlock(Terraplasm.harvester,team);
             }
 
-            if(allowEye)passiveGrow(Terraplasm.eye,eyeSpacing,eyeRate);
-            if(allowSkewer&&clear3)passiveGrow(Terraplasm.skewer,skewerSpacing,skewerRate);
-            
             //item movement
             
             if(lastItem == null && items.any()){

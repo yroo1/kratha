@@ -34,7 +34,8 @@ public class KrathaItems{
         anemite = new Item("anemite", KrathaPal.anemite){{
             hardness = 3;
             cost = 1.8f;
-            radioactivity = 0.75;
+            radioactivity = 0.75f;
+            charge = 0.1f;
         }};
         
         krathaItems.addAll(

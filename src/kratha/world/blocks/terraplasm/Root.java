@@ -274,8 +274,8 @@ public class Root extends BioBlock {
                 if(target != null && target instanceof RootBuild targetr){
                     if(target.acceptItem(this, lastItem)){
                         target.handleItem(this, lastItem);
-                        targetbuild.itemTargetX = itemTargetX;
-                        targetbuild.itemTargetY = itemTargetY;
+                        targetr.itemTargetX = itemTargetX;
+                        targetr.itemTargetY = itemTargetY;
                         extraFloat2 = 0;
                         itemTargetX = -1;
                         itemTargetY = -1;
@@ -372,3 +372,4 @@ public class Root extends BioBlock {
         }
     }
 }
+//i dont know how to love.

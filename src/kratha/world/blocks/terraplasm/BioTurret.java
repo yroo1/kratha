@@ -63,7 +63,7 @@ public class BioTurret extends Turret{
         public float pulseTimer=0;
         public float resetPulseTimer=0;
         public float deathTimer=0;
-        public float deathTimerLimit=180f;
+        public float deathTimerLimit=240f;
         public boolean pulsed=false;
         public boolean fullyGrown=false;
         public float growProgress=-1;

@@ -259,8 +259,10 @@ public class Root extends BioBlock {
                     if(itemTargetBlock==null||(itemTargetBlock!=null&&itemTargetBlock instanceof Root)){
                         //if the destinated block is destroyed or null -> item is lost -> reset to default destination (nearest heart)
                         //Or, if the destinated block isn't null but instead is a root, its not the actual target and the actual target is destroyed because root never request items.
-                        itemTargetX=-1;
-                        itemTargetY=-1;
+                        if(getNearestHeart()!=null){
+                            itemTargetX = getNearestHeart().tile.x;
+                            itemTargetY = getNearestHeart().tile.y;
+                        }
                     }
                 }
                 if(target != null && randomTarget != null && target == itemFrom){
@@ -268,7 +270,36 @@ public class Root extends BioBlock {
                     //pick random target and hope to get unstuck
                     target=randomTarget;
                 }
-                if(target != null && target instanceof BioBuilding && target.acceptItem(this, lastItem)){
+                //for root
+                if(target != null && target instanceof RootBuild targetr){
+                    if(target.acceptItem(this, lastItem)){
+                        target.handleItem(this, lastItem);
+                        targetbuild.itemTargetX = itemTargetX;
+                        targetbuild.itemTargetY = itemTargetY;
+                        extraFloat2 = 0;
+                        itemTargetX = -1;
+                        itemTargetY = -1;
+                        items.remove(lastItem, 1);
+                        lastItem = null;
+                    }else{
+                        //swap item
+                        Item ti=targetr.lastItem;
+                        target.items.remove(lastItem, 1);
+                        target.handleItem(this, lastItem);
+                        int tx=targetr.itemTargetX;
+                        int ty=targetr.itemTargetY;
+                        targetr.itemTargetX = itemTargetX;
+                        targetr.itemTargetY = itemTargetY;
+                        extraFloat2 = 0;
+                        itemTargetX = tx;
+                        itemTargetY = ty;
+                        items.remove(lastItem, 1);
+                        handleItem(target,ti)
+                        lastItem = ti;
+                    }
+                }
+                //for biobuilding that is not root
+                if(target != null && !target instanceof RootBuild && target instanceof BioBuilding && target.acceptItem(this, lastItem)){
                     target.handleItem(this, lastItem);
                     if(target instanceof RootBuild targetbuild){
                         targetbuild.itemTargetX = itemTargetX;
@@ -280,6 +311,7 @@ public class Root extends BioBlock {
                     items.remove(lastItem, 1);
                     lastItem = null;
                 }
+                //for bioturret (it doesnt extend biobuilding)
                 if(target != null && target instanceof BioTurret.BioTurretBuild && target.acceptItem(this, lastItem)){
                     target.handleItem(this, lastItem);
                     items.remove(lastItem, 1);

@@ -299,7 +299,7 @@ public class Root extends BioBlock {
                     }
                 }
                 //for biobuilding that is not root
-                if(target != null && !target instanceof RootBuild && target instanceof BioBuilding && target.acceptItem(this, lastItem)){
+                if(target != null && !(target instanceof RootBuild) && target instanceof BioBuilding && target.acceptItem(this, lastItem)){
                     target.handleItem(this, lastItem);
                     if(target instanceof RootBuild targetbuild){
                         targetbuild.itemTargetX = itemTargetX;
@@ -372,4 +372,4 @@ public class Root extends BioBlock {
         }
     }
 }
-//i dont know how to love.
+//will i really need to get rid of myself?

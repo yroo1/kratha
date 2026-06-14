@@ -210,8 +210,24 @@ public class BioBlock extends Block {
             drawPulse(region,drawPulseScale);
             Draw.scl(1,1);
         }
+        public void tellDestroyed(int bit,float maxDist){
+            float maxDistSquared=maxDist*maxDist;
+            int ceilDist = (int)Math.ceil(maxDist);
+            for(int i=-ceilDist;i<=ceilDist;i++){
+                for(int j=-ceilDist;j<=ceilDist;j++){
+                    Tile adj;
+                    adj = tile.nearby(i,j);
+                    float dist=i*i+j*j;
+                    if (dist<maxDistSquared&&adj != null && adj.build!=null && adj.build instanceof Root r) {                        
+                        r.extraFloat3 = Root.setbit(r.extraFloat3,bit,0);
+                    }
+                }
+            }
+        }
         public void onDestroyed(){
             splashLiquid(KrathaLiquids.biomass,40*size);
+            if(this.block==Terraplasm.eye)tellDestroyed(0,Terraplasm.root.eyeSpacing);
+            if(this.block==Terraplasm.skewer)tellDestroyed(1,Terraplasm.root.skewerSpacing);
         }
         public Building getNearestHeart() {
             return Units.findAllyTile(team, x, y, 1000, b -> b.block instanceof BioHeart);

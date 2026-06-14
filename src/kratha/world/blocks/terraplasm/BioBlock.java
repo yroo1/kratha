@@ -220,7 +220,7 @@ public class BioBlock extends Block {
                     adj = tile.nearby(i,j);
                     float dist=i*i+j*j;
                     if (dist<maxDistSquared&&adj != null && adj.build!=null && adj.build instanceof Root.RootBuild r) {                        
-                        r.extraFloat3 = Root.setbit(r.extraFloat3,bit,0);
+                        r.extraFloat3 = Root.setbit(r.extraFloat3,bit,false);
                     }
                 }
             }

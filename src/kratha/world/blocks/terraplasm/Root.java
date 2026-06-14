@@ -189,11 +189,11 @@ public class Root extends BioBlock {
 
             if(allowEye&&getbit(extraFloat3,0)){
                 boolean sameNear = passiveGrow(Terraplasm.eye,eyeSpacing,eyeRate);
-                if(sameNear)extraFloat3=setbit(extraFloat3,0,1);
+                if(sameNear)extraFloat3=setbit(extraFloat3,0,true);
             }
             if(allowSkewer&&getbit(extraFloat3,1)&&clear3){
                 boolean sameNear = passiveGrow(Terraplasm.skewer,skewerSpacing,skewerRate);
-                if(sameNear)extraFloat3=setbit(extraFloat3,1,1);
+                if(sameNear)extraFloat3=setbit(extraFloat3,1,true);
             }
 
             //item movement

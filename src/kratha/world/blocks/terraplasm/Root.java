@@ -97,7 +97,7 @@ public class Root extends BioBlock {
     }
     public static boolean getbit(float f, int bit) {
         int bits = Float.floatToRawIntBits(f);
-        return (bits >> bit) & 1;
+        return ((bits >> bit) & 1)==1;
     }
     
     public class RootBuild extends BioBuilding {

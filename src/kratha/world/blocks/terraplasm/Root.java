@@ -290,7 +290,6 @@ public class Root extends BioBlock {
                         int ty=targetr.itemTargetY;
                         targetr.itemTargetX = itemTargetX;
                         targetr.itemTargetY = itemTargetY;
-                        extraFloat2 = 0;
                         itemTargetX = tx;
                         itemTargetY = ty;
                         items.remove(lastItem, 1);

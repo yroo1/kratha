@@ -74,8 +74,9 @@ public class BioBlock extends Block {
         public int type = 0;
         
         //traumatic result of the monarch incident
-        //extraFloat1 is item delay
-        public float extraFloat1,extraFloat2,extraFloat3,extraFloat4;
+        //extraFloat1 is both item delay and immunity timer
+        public float extraFloat1 = 300f;
+        public float ,xtraFloat2,extraFloat3,extraFloat4;
         public int extraInt,extraByte;
 
         public ArrayList<Integer> possibleGrowDir = new ArrayList<>();
@@ -115,7 +116,7 @@ public class BioBlock extends Block {
                     pulsed=false;
                 }
             }
-            if (biopulse>=0&&deathTimer<deathTimerLimit){
+            if (biopulse>=0&&deathTimer<deathTimerLimit&&extraFloat1<10f){
                 deathTimer+=delta();
             }
             if (deathTimer>=deathTimerLimit){

@@ -95,7 +95,7 @@ public class Root extends BioBlock {
         }
         return Float.intBitsToFloat(bits);
     }
-    public static float getbit(float f, int bit) {
+    public static boolean getbit(float f, int bit) {
         int bits = Float.floatToRawIntBits(f);
         return (bits >> bit) & 1;
     }
@@ -117,7 +117,7 @@ public class Root extends BioBlock {
             }
         }
         
-        public void grow(Block growBlock){
+        public boolean grow(Block growBlock){
             boolean success = false;
             if(false){
                 //absolutely not
@@ -131,7 +131,7 @@ public class Root extends BioBlock {
             }
             return success;
         }
-        public void passiveGrow(Block growBlock, float maxDist, float rate){
+        public boolean passiveGrow(Block growBlock, float maxDist, float rate){
             //try to grow a block if the same block isn't nearby
             boolean sameNear = false;
             boolean success = false;
@@ -189,11 +189,11 @@ public class Root extends BioBlock {
 
             if(allowEye&&getbit(extraFloat3,0)){
                 boolean sameNear = passiveGrow(Terraplasm.eye,eyeSpacing,eyeRate);
-                if(sameNear)setbit(extraFloat3,0,1);
+                if(sameNear)extraFloat3=setbit(extraFloat3,0,1);
             }
             if(allowSkewer&&getbit(extraFloat3,1)&&clear3){
                 boolean sameNear = passiveGrow(Terraplasm.skewer,skewerSpacing,skewerRate);
-                if(sameNear)setbit(extraFloat3,1,1);
+                if(sameNear)extraFloat3=setbit(extraFloat3,1,1);
             }
 
             //item movement

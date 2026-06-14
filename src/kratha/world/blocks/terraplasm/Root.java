@@ -88,7 +88,7 @@ public class Root extends BioBlock {
     //set a specific bit in a float. can store up to 21 booleans in one float
     public static float setbit(float f, int bit, boolean value) {
         int bits = Float.floatToRawIntBits(f);
-        if(valhe){
+        if(value){
             bits = bits | (1 << bit);
         }else{
             bits = bits & ~(1 << bit);
@@ -118,6 +118,7 @@ public class Root extends BioBlock {
         }
         
         public void grow(Block growBlock){
+            boolean success = false;
             if(false){
                 //absolutely not
             }else{
@@ -125,12 +126,15 @@ public class Root extends BioBlock {
                 if(heart!=null&&heart.items.has(growBlock.requirements)){
                     tile.setBlock(growBlock,team);
                     heart.items.remove(growBlock.requirements);
+                    success = true;
                 }
             }
+            return success;
         }
         public void passiveGrow(Block growBlock, float maxDist, float rate){
             //try to grow a block if the same block isn't nearby
             boolean sameNear = false;
+            boolean = success = false;
             float maxDistSquared=maxDist*maxDist;
             int ceilDist = (int)Math.ceil(maxDist);
             for(int i=-ceilDist;i<=ceilDist;i++){
@@ -145,8 +149,10 @@ public class Root extends BioBlock {
             }
             Random random = new Random();
             if(!sameNear&&random.nextFloat()<rate){
-                grow(growBlock);
+                boolean successgrow = grow(growBlock);
+                success = successgrow;
             }
+            return sameNear;
         }
         
         @Override
@@ -181,9 +187,14 @@ public class Root extends BioBlock {
                 tile.setBlock(Terraplasm.harvester,team);
             }
 
-           if(allowEye)passiveGrow(Terraplasm.eye,eyeSpacing,eyeRate);
-            if(allowSkewer&&clear3)passiveGrow(Terraplasm.skewer,skewerSpacing,skewerRate);
-            
+            if(allowEye&&getbit(extraFloat3,0)){
+                boolean sameNear = passiveGrow(Terraplasm.eye,eyeSpacing,eyeRate);
+                if(sameNear)setbit(extraFloat3,0,1);
+            }
+            if(allowSkewer&&getbit(extraFloat3,1)&&clear3){
+                boolean sameNear = passiveGrow(Terraplasm.skewer,skewerSpacing,skewerRate);
+                if(sameNear)setbit(extraFloat3,1,1);
+            }
 
             //item movement
             

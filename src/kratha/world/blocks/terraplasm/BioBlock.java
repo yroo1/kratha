@@ -24,6 +24,7 @@ import mindustry.world.meta.*;
 import java.util.ArrayList;
 import java.util.Random;
 import kratha.content.*;
+import kratha.content.terraplasm.Terraplasm;
 
 import static mindustry.Vars.*;
 
@@ -218,7 +219,7 @@ public class BioBlock extends Block {
                     Tile adj;
                     adj = tile.nearby(i,j);
                     float dist=i*i+j*j;
-                    if (dist<maxDistSquared&&adj != null && adj.build!=null && adj.build instanceof Root r) {                        
+                    if (dist<maxDistSquared&&adj != null && adj.build!=null && adj.build instanceof RootBuild r) {                        
                         r.extraFloat3 = Root.setbit(r.extraFloat3,bit,0);
                     }
                 }

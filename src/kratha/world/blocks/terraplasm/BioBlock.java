@@ -227,9 +227,11 @@ public class BioBlock extends Block {
         }
         public void onDestroyed(){
             splashLiquid(KrathaLiquids.biomass,40*size);
-            Terraplasm.root instanceof Root r;
-            if(this.block==Terraplasm.eye)tellDestroyed(0,r.eyeSpacing);
-            if(this.block==Terraplasm.skewer)tellDestroyed(1,r.skewerSpacing);
+            //of course its always true, i just need the r
+            if(Terraplasm.root instanceof Root r){
+                if(this.block==Terraplasm.eye)tellDestroyed(0,r.eyeSpacing);
+                if(this.block==Terraplasm.skewer)tellDestroyed(1,r.skewerSpacing);
+            }
         }
         public Building getNearestHeart() {
             return Units.findAllyTile(team, x, y, 1000, b -> b.block instanceof BioHeart);

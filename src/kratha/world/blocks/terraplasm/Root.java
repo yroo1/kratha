@@ -134,7 +134,7 @@ public class Root extends BioBlock {
         public void passiveGrow(Block growBlock, float maxDist, float rate){
             //try to grow a block if the same block isn't nearby
             boolean sameNear = false;
-            boolean = success = false;
+            boolean success = false;
             float maxDistSquared=maxDist*maxDist;
             int ceilDist = (int)Math.ceil(maxDist);
             for(int i=-ceilDist;i<=ceilDist;i++){

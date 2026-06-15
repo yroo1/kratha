@@ -96,8 +96,8 @@ public class BioSpawner extends BioBlock {
             if(heart==null)return;
             expectedItem1=0;
             expectedItem2=0;
-            int cx = (int)((tile.x()+heart.tile.x())/2f)
-            int cy = (int)((tile.y()+heart.tile.y())/2f)
+            int cx = (int)((tile.x()+heart.tile.x())/2f);
+            int cy = (int)((tile.y()+heart.tile.y())/2f);
             int ceilDist = (int)Math.ceil(Mathf.dst(tile.x(),tile.y(),heart.tile.x(),heart.tile.y())/2f)+8;
             for(int i=-ceilDist;i<=ceilDist;i++){
                 for(int j=-ceilDist;j<=ceilDist;j++){

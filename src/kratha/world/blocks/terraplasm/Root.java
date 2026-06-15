@@ -228,7 +228,7 @@ public class Root extends BioBlock {
                     Block itemTargetBlock = null;
                     boolean doJump = random.nextFloat()<0.5f;
                     if(itemTargetTile!=null&&itemTargetTile.build!=null&&itemTargetTile.build.block!=null)itemTargetBlock = itemTargetTile.build.block;
-                    adj = tile.nearby(Geometry.d4(i).x*doJump?2:1,Geometry.d4(i).y*doJump?*2:1).build;
+                    adj = tile.nearby(Geometry.d4(i).x*(doJump?2:1),Geometry.d4(i).y*(doJump?2:1)).build;
                     
                     if(i==randomDirI)randomTarget=adj;
                     if(itemTargetBlock!=null&&itemTargetBlock instanceof BioHeart){

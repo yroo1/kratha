@@ -8,9 +8,10 @@ description:'''
 A Mod that adds new campaign about Terraplasm.
 
 The Terraplasm is my very own version of Anuke's unfinished Neoplasm, a rapidly growing plant faction that you will fight.
-(Note: This is not a Neoplasm replica. It is different.)
 
-[gray[]]This an early version of KRATHA which is under heavy development. There are currently 3 playable sectors.
+Note: Lower end device might encounter lag.
+
+[gray[]]This an early version of KRATHA which is under heavy development, it may not display the final version. There are currently 3 playable sectors.
 '''
 version: 0
 minGameVersion: 154

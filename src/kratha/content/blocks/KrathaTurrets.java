@@ -53,7 +53,7 @@ public class KrathaTurrets {
                     range = 14 * Vars.tilesize;
                     rotateSpeed = 2.7f;
                     squareSprite = true;
-                    shootSound = Sounds.shootDisperse;
+                    shootSound = Sounds.shootTank;
                     minWarmup = 0.8f;
                     shootWarmupSpeed = 0.07f;
                     shootY = 1f;

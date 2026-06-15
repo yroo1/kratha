@@ -93,6 +93,25 @@ public class BioSpawner extends BioBlock {
                     expectedItem2++;
                 }
             }
+            if(heart==null)return;
+            expectedItem1=0;
+            expectedItem2=0;
+            int cx = (int)((tile.x()+heart.tile.x())/2f)
+            int cy = (int)((tile.y()+heart.tile.y())/2f)
+            int ceilDist = (int)Math.ceil(Mathf.dst(tile.x(),tile.y(),heart.tile.x(),heart.tile.y())/2f)+8;
+            for(int i=-ceilDist;i<=ceilDist;i++){
+                for(int j=-ceilDist;j<=ceilDist;j++){
+                    Tile adj;
+                    adj = tile.nearby(i,j);
+                    if (adj != null && adj.build!=null && (adj.build.block instanceof Root adjr)) {                        
+                        Item adjitem = adjr.lastItem;
+                        if(world.tile(ajdr.itemTargetX,ajdr.itemTargetY).build==null)continue;
+                        if(world.tile(ajdr.itemTargetX,ajdr.itemTargetY).build!=this)continue;
+                        if(adjitem==inputItem1)expectedItem1++;
+                        if(adjitem==inputItem2)expectedItem1++;
+                    }
+                }
+            }
         }
         @Override
         public void draw(){

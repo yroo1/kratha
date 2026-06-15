@@ -68,8 +68,7 @@ public class BioSpawner extends BioBlock {
                 if(spawnProgress >= pulseToSpawn) {
                     this.items.remove(inputItem1,requiredItem1);
                     this.items.remove(inputItem2,requiredItem2);
-                    expectedItem1-=requiredItem1;
-                    expectedItem2-=requiredItem2;
+                    
                     spawnProgress = 0;
                     Unit unit = unitType.create(team);
                     unit.set(x, y);
@@ -79,20 +78,7 @@ public class BioSpawner extends BioBlock {
                 }
             }
             Building heart = getNearestHeart();
-            if(expectedItem1<requiredItem1*excessMultiplier&&heart!=null&&heart instanceof BioHeart.BioHeartBuild heartbuild){
-                boolean success = heartbuild.send(inputItem1,(int)tile.x,(int)tile.y);
-                if(success){
-                    heartbuild.items.remove(inputItem1,1);
-                    expectedItem1++;
-                }
-            }
-            if(expectedItem2<requiredItem2*excessMultiplier&&heart!=null&&heart instanceof BioHeart.BioHeartBuild heartbuild){
-                boolean success = heartbuild.send(inputItem2,(int)tile.x,(int)tile.y);
-                if(success){
-                    heartbuild.items.remove(inputItem2,1);
-                    expectedItem2++;
-                }
-            }
+            
             if(heart==null)return;
             expectedItem1=0;
             expectedItem2=0;
@@ -109,8 +95,23 @@ public class BioSpawner extends BioBlock {
                         if(world.tile(adjr.itemTargetX,adjr.itemTargetY).build==null)continue;
                         if(world.tile(adjr.itemTargetX,adjr.itemTargetY).build!=this)continue;
                         if(adjitem==inputItem1)expectedItem1++;
-                        if(adjitem==inputItem2)expectedItem1++;
+                        if(adjitem==inputItem2)expectedItem2++;
                     }
+                }
+            }
+            expectedItem1+=items.get(inputitem1);
+            expectedItem1+=items.get(inputitem2);
+
+            if(expectedItem1<requiredItem1*excessMultiplier&&heart!=null&&heart instanceof BioHeart.BioHeartBuild heartbuild){
+                boolean success = heartbuild.send(inputItem1,(int)tile.x,(int)tile.y);
+                if(success){
+                    heartbuild.items.remove(inputItem1,1);
+                }
+            }
+            if(expectedItem2<requiredItem2*excessMultiplier&&heart!=null&&heart instanceof BioHeart.BioHeartBuild heartbuild){
+                boolean success = heartbuild.send(inputItem2,(int)tile.x,(int)tile.y);
+                if(success){
+                    heartbuild.items.remove(inputItem2,1);
                 }
             }
         }

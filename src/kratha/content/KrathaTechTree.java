@@ -23,7 +23,7 @@ public class KrathaTechTree {
                         });
                     });
                     node(KrathaItems.cobalt, Seq.with(new Objectives.Produce(KrathaItems.cobalt)), () ->{
-                    
+                        
                     });
                 });
             });
@@ -63,12 +63,16 @@ public class KrathaTechTree {
             });
 
             node(KrathaTurrets.impede, Seq.with(new Objectives.OnSector(oasis)),() -> {
+                node(KrathaTurrets.debase, Seq.with(new Objectives.OnSector(harbor)),() -> {
                 
+                });
             });
             
             node(KrathaSectorPresets.theFountain, () -> {
                 node(KrathaSectorPresets.oasis, Seq.with(new Objectives.SectorComplete(theFountain)),() -> {
+                    node(KrathaSectorPresets.harbor, Seq.with(new Objectives.SectorComplete(oasis)),() -> {
                 
+                    });
                 });
             });
 

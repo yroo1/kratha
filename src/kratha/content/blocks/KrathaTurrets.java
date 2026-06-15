@@ -34,7 +34,7 @@ import static mindustry.Vars.*;
 
 public class KrathaTurrets {
     public static Block
-            impede;
+            impede,debase;
     public static void load() {
         {
             {
@@ -80,6 +80,58 @@ public class KrathaTurrets {
                                 mirror = false;
                                 under = true;
                                 moveY = -2.5f;
+                            }}
+                        );
+                    }};
+                }};
+                debase = new ItemTurret("debase"){{
+                    requirements(Category.turret, with(KrathaItems.krathite, 30, KrathaItems.guartz, 70, KrathaItems.spurstone, 30));
+                    researchCost = with(KrathaItems.krathite, 250, KrathaItems.guartz, 300, KrathaItems.spurstone,100);
+  
+                    health = 150;
+                    fogRadiusMultiplier = 0f;
+                    maxAmmo = 5;
+                    outlineColor = KrathaPal.krathaOutline;
+                    reload = 80f;
+                    inaccuracy = 0f;
+                    size = 2;
+                    recoil = 1.5f;
+                    range = 19 * Vars.tilesize;
+                    rotateSpeed = 2.4f;
+                    squareSprite = true;
+                    shootSound = Sounds.shootDisperse;
+                    minWarmup = 0.9f;
+                    shootWarmupSpeed = 0.05f;
+                    shootY = 1f;
+
+                    ammo(
+                        KrathaItems.guartz, new BasicBulletType(3.8f, 40) {{
+                            lifetime = 50f;
+                            width = 8f;
+                            height = 14f;
+                            weaveMag = 2;
+                            hitEffect = despawnEffect = Fx.hitBulletColor;
+                            hitColor = backColor = trailColor = KrathaPal.guartzDark;
+                            frontColor = KrathaPal.guartzLight;
+                            trailWidth = 2.1f;
+                            trailLength = 7;
+                            shootEffect = new MultiEffect(Fx.shootBigColor, Fx.colorSparkBig);
+                            smokeEffect = Fx.shootBigSmoke;
+                        }}
+                    );
+                    drawer = new DrawTurret(){{
+                        parts.add(
+                            new RegionPart("-side"){{
+                                progress = PartProgress.warmup;
+                                mirror = true;
+                                under = true;
+                                moveX = 1f;
+                            }}
+                            new RegionPart("-outer"){{
+                                progress = PartProgress.warmup;
+                                mirror = true;
+                                under = true;
+                                moveX = 2f;
                             }}
                         );
                     }};

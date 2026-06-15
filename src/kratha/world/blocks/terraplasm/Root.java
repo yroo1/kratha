@@ -226,7 +226,7 @@ public class Root extends BioBlock {
                     Building adj;
                     Tile itemTargetTile = world.tile(itemTargetX,itemTargetY);
                     Block itemTargetBlock = null;
-                    boolean doJump = random.nextFloat()<0.5f;
+                    boolean doJump = random.nextFloat()<0.1f;
                     if(itemTargetTile!=null&&itemTargetTile.build!=null&&itemTargetTile.build.block!=null)itemTargetBlock = itemTargetTile.build.block;
                     adj = tile.nearby(Geometry.d4(i).x*(doJump?2:1),Geometry.d4(i).y*(doJump?2:1)).build;
                     

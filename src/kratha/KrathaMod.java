@@ -12,8 +12,9 @@ import kratha.ui.TeamsUI;
 public class KrathaMod extends Mod{
 
     public KrathaMod(){
-        Log.info("Loaded KrathaMod constructor.");
+        Log.info("They are watching."); //no reason for this lol
 
+        /*
         Events.on(ClientLoadEvent.class, e -> {
             Time.runTask(10f, () -> {
                 BaseDialog dialog = new BaseDialog("Notice");
@@ -22,6 +23,7 @@ public class KrathaMod extends Mod{
                 dialog.show();
             });
         });
+        */
         
     }
     @Override

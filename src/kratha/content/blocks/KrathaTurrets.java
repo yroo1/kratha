@@ -106,7 +106,7 @@ public class KrathaTurrets {
                     shootY = 1f;
 
                     ammo(
-                        KrathaItems.guartz, new ArtilleryBulletType(3.1f, 40, "shell") {{
+                        KrathaItems.guartz, new ArtilleryBulletType(3.1f, 28, "shell") {{
                             lifetime = 50f;
                             width = 8f;
                             height = 14f;
@@ -123,7 +123,7 @@ public class KrathaTurrets {
                             trailEffect = Fx.none;
                             despawnShake = 0.5f;
                             splashDamageRadius = 8f;
-                            splashDamage = 45f;
+                            splashDamage = 20f;
                             scaledSplashDamage = true;
                             shootEffect = KrathaFx.shootSkewer;
                             smokeEffect = KrathaFx.shootSmokeSkewer;

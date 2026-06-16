@@ -117,12 +117,11 @@ public class Root extends BioBlock {
             }
         }
         
-        public boolean grow(Block growBlock){
+        public boolean grow(Block growBlock, Building heart){
             boolean success = false;
             if(false){
                 //absolutely not
             }else{
-                Building heart=getNearestHeart();
                 if(heart!=null&&heart.items.has(growBlock.requirements)){
                     tile.setBlock(growBlock,team);
                     heart.items.remove(growBlock.requirements);
@@ -151,8 +150,10 @@ public class Root extends BioBlock {
             //try to grow a block if the same block isn't nearby
             Random random = new Random();
             boolean sameNear = sameNear(growBlock, maxDist);
+            Building heart=getNearestHeart();
+            if(heart!=null&&!heart.items.has(growBlock.requirements))return false; //immediately skip if the heart cant even afford it
             if(!sameNear&&random.nextFloat()<rate){
-                grow(growBlock);
+                grow(growBlock,heart);
             }
             return sameNear;
         }

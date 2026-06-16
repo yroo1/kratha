@@ -5,3 +5,5 @@ Plus, some part of the code is very unoptimal due to my lack of coding skill whi
 just make it even harder to understand
 
 i am not responsible of any confusion caused by these code
+
+-----> if you really want to know, ask me in discord instead

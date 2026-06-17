@@ -55,7 +55,7 @@ public class LiquidTube extends Conduit {
     }
     public class LiquidTubeBuild extends ConduitBuild {
         @Override
-        public void draw(){
+        public void draw(boolean under){
             int r = this.rotation;
 
             if(under) Draw.color(botColor);
@@ -104,8 +104,8 @@ public class LiquidTube extends Conduit {
                 Drawf.liquid(sliced(liquidr, slice), x + ox, y + oy, smoothLiquid, liquids.current().color.write(Tmp.c1).a(1f));
                 Draw.scl(xscl, yscl);
 
-                int drawrot = (blendbits==1?(blendscly!=-1?rotation:rotation-1)
-                        :blendbits==2?(blendscly!=-1?rotation:rotation-2)
+                int drawrot = (blendbits==1?(yscl!=-1?rotation:rotation-1)
+                        :blendbits==2?(xscl!=-1?rotation:rotation-2)
                         :blendbits==4?rotation-2:rotation);
                 if (blendbits==4) drawrot-=1;
                 drawrot%=4;

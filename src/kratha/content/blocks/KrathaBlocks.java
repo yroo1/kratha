@@ -8,6 +8,7 @@ public class KrathaBlocks{
         KrathaDefense.load();
         KrathaProduction.load();
         KrathaDistribution.load();
+        KrathaLiquid.load();
         KrathaPower.load();
         KrathaUnits.load();
         KrathaStorage.load();

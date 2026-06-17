@@ -78,8 +78,8 @@ public class LiquidTube extends Conduit {
             if(!under) return;
 
             if(capped && capRegion.found()) Draw.rect(capRegion, x, y, rotdeg());
-            if(backCapped && capRegion.found()) Draw.rect(capRegion, x, y, rotdeg() + 180)
-                }
+            if(backCapped && capRegion.found()) Draw.rect(capRegion, x, y, rotdeg() + 180);
+        }
         protected void drawAt(float x, float y, int bits, int rotation, SliceMode slice, boolean under){
             float angle = rotation * 90f;
             if(under){

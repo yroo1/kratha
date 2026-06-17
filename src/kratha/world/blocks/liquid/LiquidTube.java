@@ -75,7 +75,7 @@ public class LiquidTube extends Conduit {
 
             Draw.z(Layer.block);
 
-            Draw.scl(xscl, yscl);
+            Draw.scl(1, 1);
             drawAt(x, y, blendbits, r, SliceMode.none, under);
             Draw.reset();
 

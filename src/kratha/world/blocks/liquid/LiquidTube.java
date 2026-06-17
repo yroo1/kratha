@@ -116,7 +116,7 @@ public class LiquidTube extends Conduit {
                 drawrot%=4;
                 if(drawrot<0) drawrot+=4;
                 if(blendbits==3)drawrot=0;
-                int arrowbits=(blendbits==2||blendbits==3)?0:(blendbits==4?3:blendbits);
+                int arrowbits=(blendbits==2||blendbits==3)?0:(blendbits==4?2:blendbits);
 
                 //the drawing state machine sure was a great design choice with no downsides or hidden behavior!!!
                 Draw.scl(xscl, yscl);

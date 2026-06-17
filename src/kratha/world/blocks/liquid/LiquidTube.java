@@ -110,7 +110,7 @@ public class LiquidTube extends Conduit {
                         :blendbits==4?rotation-2:rotation);
                 int drawbits = blendbits==4?2:blendbits;
                 if(drawbits==2&&yscl==-1)drawrot+=2;
-                if(drawbits==4)drawrot--;
+                if(drawbits==4)drawrot-=2;
                 drawrot%=4;
                 if (drawrot<0) drawrot+=4;
                 //draw extra conveyors...conduit? facing this one for non-square tiling purposes

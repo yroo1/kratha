@@ -121,7 +121,7 @@ public class LiquidTube extends Conduit {
                 //the drawing state machine sure was a great design choice with no downsides or hidden behavior!!!
                 Draw.scl(xscl, yscl);
                 Drawf.liquid(sliced(liquidr, slice), x + ox, y + oy, smoothLiquid, liquids.current().color.write(Tmp.c1).a(1f));
-                Draw.rect(sliced(arrowRegions[arrowbits],slice),x,y,0);
+                Draw.rect(sliced(arrowRegions[arrowbits],slice),x,y,angle);
                 Draw.scl(1, 1);
 
                 //draw extra conveyors...conduit? facing this one for non-square tiling purposes

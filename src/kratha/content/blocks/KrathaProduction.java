@@ -13,6 +13,7 @@ import mindustry.content.*;
 import mindustry.world.draw.*;
 import mindustry.type.*;
 import kratha.content.KrathaItems;
+import kratha.content.KrathaLiquids;
 import kratha.graphics.KrathaPal;
 import kratha.world.blocks.production.*;
 
@@ -41,7 +42,7 @@ public class KrathaProduction {
         plasmaDrill = new Drill("plasma-drill"){{
             requirements(Category.production, with(KrathaItems.krathite, 80, KrathaItems.guartz, 75, KrathaItems.spurstone, 40, KrathaItems.cobalt, 40));
             consumePower(60/60f);
-            consumeLiquid(Liquids.watra, 4f/60);
+            consumeLiquid(KrathaLiquids.watra, 4f/60);
             consumeLiquid(Liquids.hydrogen, 0.05f).boost();
             
             drillTime = 320;

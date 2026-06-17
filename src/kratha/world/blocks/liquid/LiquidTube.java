@@ -18,6 +18,7 @@ import mindustry.entities.units.BuildPlan;
 import static mindustry.Vars.*;
 
 public class LiquidTube extends Conduit {
+    static final float[][] rotateOffsets = {{hpad, hpad}, {-hpad, hpad}, {-hpad, -hpad}, {hpad, -hpad}};
     //why shadedTopRegions and not topRegions?~
     public TextureRegion[][] shadedTopRegions = new TextureRegion[4][4];
     public LiquidTube(String name){

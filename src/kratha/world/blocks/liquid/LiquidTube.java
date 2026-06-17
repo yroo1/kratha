@@ -108,11 +108,11 @@ public class LiquidTube extends Conduit {
                 int drawrot = (blendbits==1?(yscl!=-1?rotation:rotation-1)
                         :blendbits==2?(xscl!=-1?rotation:rotation-2)
                         :blendbits==4?rotation-2:rotation);
+                int drawbits = blendbits==4?2:blendbits;
                 if(drawbits==2&&yscl==-1)drawrot+=2;
                 if(drawbits==4)drawrot--;
                 drawrot%=4;
                 if (drawrot<0) drawrot+=4;
-                int drawbits = blendbits==4?2:blendbits;
                 //draw extra conveyors...conduit? facing this one for non-square tiling purposes
                 Draw.z(Layer.blockUnder);
                 for(int i = 0; i < 4; i++){

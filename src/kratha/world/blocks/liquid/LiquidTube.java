@@ -103,10 +103,7 @@ public class LiquidTube extends Conduit {
                 }
 
                 //the drawing state machine sure was a great design choice with no downsides or hidden behavior!!!
-                float xscl = Draw.xscl, yscl = Draw.yscl;
-                Draw.scl(1f, 1f);
                 Drawf.liquid(sliced(liquidr, slice), x + ox, y + oy, smoothLiquid, liquids.current().color.write(Tmp.c1).a(1f));
-                Draw.scl(xscl, yscl);
 
                 int drawrot = (blendbits==1?(yscl!=-1?rotation:rotation-1)
                         :blendbits==2?(xscl!=-1?rotation:rotation-2)

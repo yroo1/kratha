@@ -67,8 +67,6 @@ public class LiquidTube extends Conduit {
         public void draw(boolean under){
             int r = this.rotation;
 
-            if(under) Draw.color(botColor);
-
             //draw extra conduits facing this one for tiling purposes
             Draw.z(Layer.blockUnder);
             for(int i = 0; i < 4; i++){
@@ -92,7 +90,7 @@ public class LiquidTube extends Conduit {
         protected void drawAt(float x, float y, int bits, int rotation, SliceMode slice, boolean under){
             float angle = rotation * 90f;
             if(under){
-                Draw.rect(sliced(botRegions[bits], slice), x, y, angle);
+                //anuke why did you make this if statement
             }else{
                 int offset = yscl == -1 ? 3 : 0;
 
@@ -120,18 +118,13 @@ public class LiquidTube extends Conduit {
 
                 //the drawing state machine sure was a great design choice with no downsides or hidden behavior!!!
                 Draw.scl(xscl, yscl);
+                Draw.color(botColor);
+                Draw.rect(sliced(botRegions[bits],slice),x,y,angle);
+                Draw.color(1,1,1);
                 Drawf.liquid(sliced(liquidr, slice), x + ox, y + oy, smoothLiquid, liquids.current().color.write(Tmp.c1).a(1f));
                 Draw.rect(sliced(arrowRegions[arrowbits],slice),x,y,angle);
                 Draw.scl(1, 1);
-
-                //draw extra conveyors...conduit? facing this one for non-square tiling purposes
-                Draw.z(Layer.blockUnder);
-                for(int i = 0; i < 4; i++){
-                    if((blending & (1 << i)) != 0){
-                        int dir = rotation-i;
-                        Draw.rect(sliced(shadedTopRegions[drawbits][drawrot], i != 0 ? SliceMode.bottom : SliceMode.top), x + Geometry.d4x(dir) * tilesize*0.75f, y + Geometry.d4y(dir) * tilesize*0.75f,0);
-                    }
-                }
+                
                 Draw.z(Layer.block);
                 Draw.rect(sliced(shadedTopRegions[drawbits][drawrot],slice), x, y, 0);
             }

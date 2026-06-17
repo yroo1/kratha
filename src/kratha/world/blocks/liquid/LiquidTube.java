@@ -22,6 +22,7 @@ public class LiquidTube extends Conduit {
     static final float[][] rotateOffsets = {{hpad, hpad}, {-hpad, hpad}, {-hpad, -hpad}, {hpad, -hpad}};
     //why shadedTopRegions and not topRegions?~
     public TextureRegion[][] shadedTopRegions = new TextureRegion[4][4];
+    public TextureRegion[] arrowRegions = new TextureRegion[3];
     public LiquidTube(String name){
         super(name);
     }
@@ -35,6 +36,10 @@ public class LiquidTube extends Conduit {
             for(int cx = 0; cx < 4; cx++, x+=32){
                 shadedTopRegions[cy][cx]=new TextureRegion(Core.atlas.find(name+"-top-atlas"), x, y, 32, 32);
             }
+        }
+        int x=32;
+        for(i=0;i<3;i++,x+=32){
+            arrowRegions[i]=new TextureRegion(Core.atlas.find(name+"-top-atlas"),x,96,32,32);
         }
     }
     @Override
@@ -102,9 +107,6 @@ public class LiquidTube extends Conduit {
                     oy = rotateOffsets[wrapRot][1];
                 }
 
-                //the drawing state machine sure was a great design choice with no downsides or hidden behavior!!!
-                Drawf.liquid(sliced(liquidr, slice), x + ox, y + oy, smoothLiquid, liquids.current().color.write(Tmp.c1).a(1f));
-
                 int drawrot = (blendbits==1?(yscl!=-1?rotation:rotation-1)
                         :blendbits==2?(xscl!=-1?rotation:rotation-2)
                         :blendbits==4?rotation-2:rotation);
@@ -112,7 +114,16 @@ public class LiquidTube extends Conduit {
                 if(blendbits==2&&yscl==-1)drawrot+=2;
                 if(blendbits==4)drawrot--;
                 drawrot%=4;
-                if (drawrot<0) drawrot+=4;
+                if(drawrot<0) drawrot+=4;
+                if(blendbits==3)drawrot=0;
+                int arrowbits=((blendbits==2||blendbits==3)?0):(blendbits==4?3:blendbits);
+
+                //the drawing state machine sure was a great design choice with no downsides or hidden behavior!!!
+                Draw.scl(xscl, yscl);
+                Drawf.liquid(sliced(liquidr, slice), x + ox, y + oy, smoothLiquid, liquids.current().color.write(Tmp.c1).a(1f));
+                Draw.rect(sliced(arrowRegions[arrowbits],slice),x,y,0);
+                Draw.scl(1, 1);
+
                 //draw extra conveyors...conduit? facing this one for non-square tiling purposes
                 Draw.z(Layer.blockUnder);
                 for(int i = 0; i < 4; i++){

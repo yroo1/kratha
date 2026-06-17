@@ -20,7 +20,7 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaProduction {
     public static Block
-    thermicDrill,laserBore,cliffBore,
+    thermicDrill,plasmaDrill,laserBore,cliffBore,
 
     spurstoneSmelter;
     public static void load() {
@@ -37,6 +37,20 @@ public class KrathaProduction {
             fogRadius = 0;
             squareSprite = false;
             researchCost = with(KrathaItems.krathite, 10, KrathaItems.guartz, 5);
+        }};
+        plasmaDrill = new Drill("plasma-drill"){{
+            requirements(Category.production, with(KrathaItems.krathite, 80, KrathaItems.guartz, 75, KrathaItems.spurstone, 40, KrathaItems.cobalt, 40));
+            consumePower(60/60f);
+            consumeLiquid(Liquids.watra, 4f/60)
+            consumeLiquid(Liquids.hydrogen, 0.05f).boost();
+            
+            drillTime = 320;
+            drawRim = true;
+            hasPower = true;
+            tier = 5;
+            size = 3;
+            fogRadius = 0;
+            squareSprite = false;
         }};
         laserBore = new CliffDrill("laser-bore"){{
             requirements(Category.production, with(KrathaItems.krathite, 5, KrathaItems.guartz, 10));

@@ -38,7 +38,7 @@ public class LiquidTube extends Conduit {
             }
         }
         int x=32;
-        for(i=0;i<3;i++,x+=32){
+        for(int i=0;i<3;i++,x+=32){
             arrowRegions[i]=new TextureRegion(Core.atlas.find(name+"-top-atlas"),x,96,32,32);
         }
     }

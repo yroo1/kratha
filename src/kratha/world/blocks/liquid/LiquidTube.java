@@ -104,7 +104,23 @@ public class LiquidTube extends Conduit {
                 Drawf.liquid(sliced(liquidr, slice), x + ox, y + oy, smoothLiquid, liquids.current().color.write(Tmp.c1).a(1f));
                 Draw.scl(xscl, yscl);
 
-                Draw.rect(sliced(topRegions[bits], slice), x, y, angle);
+                int drawrot = (blendbits==1?(blendscly!=-1?rotation:rotation-1)
+                        :blendbits==2?(blendscly!=-1?rotation:rotation-2)
+                        :blendbits==4?rotation-2:rotation);
+                if (blendbits==4) drawrot-=1;
+                drawrot%=4;
+                if (drawrot<0) drawrot+=4;
+                int drawbits = blendbits==4?2:blendbits;
+                //draw extra conveyors facing this one for non-square tiling purposes
+                Draw.z(Layer.blockUnder);
+                for(int i = 0; i < 4; i++){
+                    if((blending & (1 << i)) != 0){
+                        int dir = rotation-i;
+                        Draw.rect(sliced(shadedTopRegions[drawbits][drawrot], i != 0 ? SliceMode.bottom : SliceMode.top), x + Geometry.d4x(dir) * tilesize*0.75f, y + Geometry.d4y(dir) * tilesize*0.75f,0);
+                    }
+                }
+                Draw.z(Layer.block);
+                Draw.rect(sliced(shadedTopRegions[drawbits][drawrot],slice), x, y, 0);
             }
         }
     }

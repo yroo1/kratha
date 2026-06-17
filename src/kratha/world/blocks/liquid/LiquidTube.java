@@ -39,8 +39,7 @@ public class LiquidTube extends Conduit {
     }
     @Override
     public boolean blends(Tile tile, int rotation, int otherx, int othery, int otherrot, Block otherblock){
-        return (otherblock.outputsItems() || (lookingAt(tile, rotation, otherx, othery, otherblock) && otherblock.hasItems))
-        && lookingAtEither(tile, rotation, otherx, othery, otherrot, otherblock);
+        return return otherblock.hasLiquids && (otherblock.outputsLiquid || (lookingAt(tile, rotation, otherx, othery, otherblock))) && lookingAtEither(tile, rotation, otherx, othery, otherrot, otherblock);
     }
     @Override
     public TextureRegion[] icons(){

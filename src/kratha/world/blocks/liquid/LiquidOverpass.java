@@ -9,6 +9,7 @@ import arc.util.*;
 import arc.math.geom.*;
 //WHY would you put DirectionLiquidBridge in distribution??
 import mindustry.world.blocks.distribution.*;
+import mindustry.world.blocks.liquid.LiquidBlock;
 import mindustry.gen.Building;
 import mindustry.graphics.*;
 import mindustry.ui.*;

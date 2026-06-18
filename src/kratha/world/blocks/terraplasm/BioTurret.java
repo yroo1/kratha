@@ -26,7 +26,7 @@ import kratha.content.*;
 import arc.struct.*;
 import mindustry.entities.bullet.*;
 import mindustry.logic.*;
-import kratha.content.blocks.Terraplasm;
+import kratha.content.terraplasm.Terraplasm;
 
 import static mindustry.Vars.*;
 

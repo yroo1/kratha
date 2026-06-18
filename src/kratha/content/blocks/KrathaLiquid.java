@@ -28,7 +28,7 @@ public class KrathaLiquid {
                 liquidOverpass = new LiquidTube("liquid-overpass"){{
                     requirements(Category.liquid, with(KrathaItems.kitegite, 8, KrathaItems.spurstone,4));
                 }};
-                liquidCell = new LiquidBlock("liquid-cell"){{
+                liquidCell = new LiquidRouter("liquid-cell"){{
                     requirements(Category.liquid, with(KrathaItems.kitegite, 5));
                 }};
             }

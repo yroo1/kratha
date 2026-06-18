@@ -75,6 +75,9 @@ public class LiquidOverpass extends DirectionLiquidBridge {
     public class LiquidOverpassBuild extends DuctBridgeBuild {
         @Override
         public void draw(){
+            if(liquids.currentAmount() > 0.001f){
+                LiquidBlock.drawTiledFrames(size, x, y, liquidPadding, liquids.current(), liquids.currentAmount() / liquidCapacity);
+            }
             Draw.rect(region, x, y);
             if (rotation<2){
                 Draw.rect(dir1, x, y, rotation*90);

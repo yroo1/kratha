@@ -1,4 +1,4 @@
-package kratha.world.blocks.distribution;
+package kratha.world.blocks.liquid;
 
 import arc.Core;
 import arc.graphics.*;

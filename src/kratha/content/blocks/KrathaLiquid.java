@@ -17,7 +17,7 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaLiquid {
     public static Block
-            liquidTube,liquidOverpass,liquidCell
+            liquidTube,liquidOverpass,liquidCell;
     public static void load() {
         {
             {

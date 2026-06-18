@@ -17,7 +17,7 @@ public class KrathaLiquids{
             alwaysUnlocked = true;
         }};
 
-        terraplasm = new CellLiquid("terraplasm", KrathaPal.biomassLight){{
+        terraplasm = new CellLiquid("terraplasm", KrathaPal.terraplasmLight){{
             heatCapacity = 0.3f;
             temperature = 0.7f;
             viscosity = 0.4f;
@@ -29,8 +29,8 @@ public class KrathaLiquids{
             blockReactive = false;
             canStayOn.addAll(Liquids.water,muddyWatra,watra, Liquids.oil, Liquids.cryofluid);
 
-            colorFrom = KrathaPal.biomassDark;
-            colorTo = KrathaPal.biomassLight;
+            colorFrom = KrathaPal.terraplasmDark;
+            colorTo = KrathaPal.terraplasmLight;
         }};
 
         watra = new Liquid("watra", KrathaPal.watraLight){{

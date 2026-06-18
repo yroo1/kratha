@@ -14,7 +14,7 @@ import mindustry.ui.*;
 import mindustry.world.*;
 import mindustry.world.Tile;
 import mindustry.entities.units.BuildPlan;
-import kratha.content.KrathaLiquid;
+import kratha.content.blocks.KrathaLiquid;
 
 import static mindustry.Vars.*;
 

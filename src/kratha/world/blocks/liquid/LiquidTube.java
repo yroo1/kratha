@@ -14,6 +14,7 @@ import mindustry.ui.*;
 import mindustry.world.*;
 import mindustry.world.Tile;
 import mindustry.entities.units.BuildPlan;
+import kratha.content.KrathaLiquid;
 
 import static mindustry.Vars.*;
 
@@ -29,6 +30,7 @@ public class LiquidTube extends Conduit {
     @Override
     public void load(){
         super.load();
+        rotBridgeReplacement = KrathaLiquid.liquidOverpass;
         
         int y = 0;
         for(int cy = 0; cy < 4; cy++, y+=32){

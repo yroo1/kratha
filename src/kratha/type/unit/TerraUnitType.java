@@ -30,7 +30,7 @@ public class TerraUnitType extends UnitType{
         }});
 
         abilities.add(new LiquidExplodeAbility(){{
-            liquid = KrathaLiquids.biomass;
+            liquid = KrathaLiquids.terraplasm;
         }});
 
         healFlash = false;

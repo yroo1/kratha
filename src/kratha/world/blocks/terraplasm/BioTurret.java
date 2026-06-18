@@ -160,6 +160,9 @@ public class BioTurret extends Turret{
 
         public void onDestroyed(){
             splashLiquid(KrathaLiquids.terraplasm,40*size);
+            if(Terraplasm.root instanceof Root r){
+                if(this.block==Terraplasm.skewer)tellDestroyed(0,r.skewerSpacing);
+            }
         }
         public Building getNearestHeart() {
             return Units.findAllyTile(team, x, y, 1000, b -> b.block instanceof BioHeart);

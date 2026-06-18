@@ -235,7 +235,6 @@ public class BioBlock extends Block {
             //of course its always true, i just need the r
             if(Terraplasm.root instanceof Root r){
                 if(this.block==Terraplasm.eye)tellDestroyed(0,r.eyeSpacing);
-                if(this.block==Terraplasm.skewer)tellDestroyed(1,r.skewerSpacing);
             }
         }
         public Building getNearestHeart() {

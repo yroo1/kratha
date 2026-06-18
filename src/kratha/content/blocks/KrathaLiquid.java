@@ -23,7 +23,7 @@ public class KrathaLiquid {
             {
                 liquidTube = new LiquidTube("liquid-tube"){{
                     requirements(Category.liquid, with(KrathaItems.kitegite, 1));
-                    botColor = KrathaPal.krathaKitegiteDarker;
+                    botColor = KrathaPal.kitegiteDarker;
                 }};
                 liquidOverpass = new LiquidOverpass("liquid-overpass"){{
                     requirements(Category.liquid, with(KrathaItems.kitegite, 8, KrathaItems.spurstone,4));

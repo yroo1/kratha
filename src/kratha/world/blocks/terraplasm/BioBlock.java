@@ -231,7 +231,7 @@ public class BioBlock extends Block {
             }
         }
         public void onDestroyed(){
-            splashLiquid(KrathaLiquids.biomass,40*size);
+            splashLiquid(KrathaLiquids.terraplasm,40*size);
             //of course its always true, i just need the r
             if(Terraplasm.root instanceof Root r){
                 if(this.block==Terraplasm.eye)tellDestroyed(0,r.eyeSpacing);

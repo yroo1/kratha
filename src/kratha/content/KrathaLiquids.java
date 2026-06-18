@@ -6,10 +6,10 @@ import mindustry.content.*;
 import kratha.graphics.KrathaPal;
 
 public class KrathaLiquids{
-    public static Liquid krathagen, biomass, watra, muddyWatra;
+    public static Liquid krathagen, terraplasm, watra, muddyWatra;
     public static void load(){
 
-        krathagen = new Liquid("krathagen", KrathaPal.krathagen){{
+        krathagen = new Liquid("krathagen", KrathaPal.krathagenLight){{
             heatCapacity = 0.8f;
             effect = StatusEffects.wet;
             boilPoint = 1f;
@@ -17,7 +17,7 @@ public class KrathaLiquids{
             alwaysUnlocked = true;
         }};
 
-        biomass = new CellLiquid("biomass", KrathaPal.biomass){{
+        terraplasm = new CellLiquid("terraplasm", KrathaPal.biomassLight){{
             heatCapacity = 0.3f;
             temperature = 0.7f;
             viscosity = 0.4f;
@@ -33,7 +33,7 @@ public class KrathaLiquids{
             colorTo = KrathaPal.biomassLight;
         }};
 
-        watra = new Liquid("watra", KrathaPal.watra){{
+        watra = new Liquid("watra", KrathaPal.watraLight){{
             heatCapacity = 1f;
             effect = StatusEffects.wet;
             boilPoint = 0.9f;
@@ -42,7 +42,7 @@ public class KrathaLiquids{
             viscosity = 0.75f;
         }};
 
-        muddyWatra = new Liquid("muddy-watra", KrathaPal.muddyWatra){{
+        muddyWatra = new Liquid("muddy-watra", KrathaPal.muddyWatraLight){{
             heatCapacity = 0.4f;
             effect = StatusEffects.wet;
             boilPoint = 0.8f;

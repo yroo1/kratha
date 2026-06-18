@@ -158,7 +158,20 @@ public class BioTurret extends Turret{
                 Draw.rect(sprite,x,y,rotation);
             }
         }
-
+        public void tellDestroyed(int bit,float maxDist){
+            float maxDistSquared=maxDist*maxDist;
+            int ceilDist = (int)Math.ceil(maxDist);
+            for(int i=-ceilDist;i<=ceilDist;i++){
+                for(int j=-ceilDist;j<=ceilDist;j++){
+                    Tile adj;
+                    adj = tile.nearby(i,j);
+                    float dist=i*i+j*j;
+                    if (dist<maxDistSquared&&adj != null && adj.build!=null && adj.build instanceof Root.RootBuild r) {                        
+                        r.extraFloat3 = Root.setbit(r.extraFloat3,bit,false);
+                    }
+                }
+            }
+        }
         public void onDestroyed(){
             splashLiquid(KrathaLiquids.terraplasm,40*size);
             if(Terraplasm.root instanceof Root r){

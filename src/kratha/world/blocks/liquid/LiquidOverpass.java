@@ -22,7 +22,7 @@ public class LiquidOverpass extends DirectionLiquidBridge {
     public TextureRegion dir1;
     public TextureRegion dir2;
     public TextureRegion side;
-    public ItemOverpass(String name){
+    public LiquidOverpass(String name){
          super(name);
     }
     @Override

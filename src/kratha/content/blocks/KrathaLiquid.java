@@ -33,6 +33,7 @@ public class KrathaLiquid {
                     hasPower = true;
                     liquidCapacity = 20f;
                     pumpAmount = 12/60f/4+0.0001f;
+                    squareSprite = false;
                 }};
                 liquidTube = new LiquidTube("liquid-tube"){{
                     requirements(Category.liquid, with(KrathaItems.kitegite, 1));

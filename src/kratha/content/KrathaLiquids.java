@@ -6,7 +6,7 @@ import mindustry.content.*;
 import kratha.graphics.KrathaPal;
 
 public class KrathaLiquids{
-    public static Liquid krathagen, terraplasm, watra, muddyWatra;
+    public static Liquid krathagen, terraplasm, watra, muddyWatra, akacyte;
     public static void load(){
 
         krathagen = new Liquid("krathagen", KrathaPal.krathagenLight){{
@@ -49,6 +49,14 @@ public class KrathaLiquids{
             gasColor = Color.grays(0.8f);
             alwaysUnlocked = true;
             viscosity = 0.3f;
+        }};
+
+        akacyte = new Liquid("akacyte", KrathaPal.akacyteLight){{
+            heatCapacity = 0.2f;
+            boilPoint = 0.5f;
+            gasColor = Color.grays(0.8f);
+            alwaysUnlocked = true;
+            viscosity = 0.98f;
         }};
     }
 }

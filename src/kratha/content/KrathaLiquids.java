@@ -56,7 +56,7 @@ public class KrathaLiquids{
             boilPoint = 0.5f;
             gasColor = Color.grays(0.8f);
             alwaysUnlocked = true;
-            viscosity = 0.98f;
+            viscosity = 0.7f;
         }};
     }
 }

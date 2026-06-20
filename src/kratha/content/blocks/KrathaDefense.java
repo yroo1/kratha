@@ -23,25 +23,25 @@ public class KrathaDefense{
              health = 380;
          }};
          krathiteWallLarge = new Wall("krathite-wall-large"){{
-             requirements(Category.defense, with(KrathaItems.krathite, 6));
+             requirements(Category.defense, with(KrathaItems.krathite, 24));
              health = 380*4;
              size = 2;
          }};
          spurstoneWall = new Wall("spurstone-wall"){{
-             requirements(Category.defense, with(KrathaItems.krathite, 6));
+             requirements(Category.defense, with(KrathaItems.spurstone, 6));
              health = 440;
          }};
          spurstoneWallLarge = new Wall("spurstone-wall-large"){{
-             requirements(Category.defense, with(KrathaItems.krathite, 6));
+             requirements(Category.defense, with(KrathaItems.spurstone, 24));
              health = 440*4;
              size = 2;
          }};
          cobaltWall = new Wall("cobalt-wall"){{
-             requirements(Category.defense, with(KrathaItems.krathite, 6));
+             requirements(Category.defense, with(KrathaItems.cobalt, 6));
              health = 420;
          }};
          cobaltWallLarge = new Wall("cobalt-wall-large"){{
-             requirements(Category.defense, with(KrathaItems.krathite, 6));
+             requirements(Category.defense, with(KrathaItems.cobalt, 24));
              health = 420*4;
              size = 2;
          }};

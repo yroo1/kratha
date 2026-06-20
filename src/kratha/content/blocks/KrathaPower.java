@@ -44,7 +44,7 @@ public class KrathaPower{
             requirements(Category.power, with(KrathaItems.krathite, 25, KrathaItems.guartz, 40));
             size = 3;
             squareSprite = false;
-            powerProduction = 480f/60f;
+            powerProduction = 180f/60f;
             ventLiquid = KrathaLiquids.steam;
             ambientSound = Sounds.loopHum;
             ambientSoundVolume = 0.06f;

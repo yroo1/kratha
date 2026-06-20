@@ -50,6 +50,7 @@ public class KrathaPower{
             ambientSoundVolume = 0.06f;
             generateEffect = KrathaFx.turbinegenerateSteam;
             liquidCapacity = 24;
+            hasLiquids = true;
             consumeLiquid(KrathaLiquids.steam,12f/60);
             outputLiquid = new LiquidStack(KrathaLiquids.watra,4f/60);
             drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidRegion(){{drawLiquid=KrathaLiquids.watra;}}, new DrawBlurSpin("-rotator", 5), new DrawDefault(), new DrawGlowRegion());

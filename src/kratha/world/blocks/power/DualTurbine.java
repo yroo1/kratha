@@ -11,7 +11,7 @@ import mindustry.graphics.*;
 import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.meta.*;
-import mindustry.world.blocks.power.ConsumeGenerator
+import mindustry.world.blocks.power.ConsumeGenerator;
 
 //very weird naming...
 public class DualTurbine extends ConsumeGenerator{

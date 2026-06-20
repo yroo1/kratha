@@ -1,6 +1,6 @@
 package kratha.content.blocks;
 
-import mindustry.type.Category;
+import mindustry.type.*;
 import mindustry.world.Block;
 import mindustry.world.blocks.power.*;
 import mindustry.world.draw.*;

@@ -14,9 +14,14 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaDefense{
     public static Block
+    krathiteWall,krathiteWallLarge,
     radar,cutsceneRadar;
   
     public static void load(){
+         krathiteWall = new Wall("krathite-wall"){{
+             requirements(Category.defense, with(KrathaItems.krathite, 6));
+             health = 380;
+         }};
          radar = new Radar("radar"){{
             requirements(Category.effect, BuildVisibility.fogOnly, with(KrathaItems.krathite, 30, KrathaItems.guartz, 50, KrathaItems.spurstone, 15));
             outlineColor = KrathaPal.krathaOutline;

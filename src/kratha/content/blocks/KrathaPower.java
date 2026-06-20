@@ -8,13 +8,14 @@ import mindustry.world.meta.*;
 import mindustry.content.*;
 import mindustry.gen.*;
 import kratha.content.KrathaItems;
+import kratha.content.KrathaLiquids;
 import kratha.world.blocks.power.*;
 
 import static mindustry.type.ItemStack.with;
 
 public class KrathaPower{
     public static Block
-    relay, windTurbine,
+    relay, windTurbine, turbine,
     candle;
 
     public static void load(){
@@ -38,6 +39,17 @@ public class KrathaPower{
             drawer = new DrawMulti(new DrawDefault(), new DrawRegion("-rotator", 2, true));
             researchCost = with(KrathaItems.krathite,25,KrathaItems.guartz,40);
         }};
+        turbine = new DualTurbine("turbine"){{
+            requirements(Category.power, with(KrathaItems.krathite, 25, KrathaItems.guartz, 40));
+            size = 3;
+            squareSprite = false;
+            powerProduction = 480f/60f;
+            ventLiquid = KrathaLiquids.steam;
+            liquidCapacity = 36;
+            consumeLiquid(KrathaLiquids.steam,12f/60);
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawDefault(), new DrawRegion("-rotator", 5, true));
+        }};
+        
 
         //why is this here? Because electricity (i dont know)
         candle = new LightBlock("candle"){{
@@ -47,6 +59,5 @@ public class KrathaPower{
             consumePower(5/60f);
             researchCost = with(KrathaItems.krathite,100,KrathaItems.guartz,75);
         }};
-        
     }
 }

@@ -66,7 +66,7 @@ public class KrathaFx{
                 });
             });
         }
-    });
+    }),
     turbinegenerateSteam = new Effect(100, e -> {
         color(KrathaPal.steamLight);
         alpha(e.fslope() * 0.8f);
@@ -76,5 +76,5 @@ public class KrathaFx{
             v.trns(rand.random(360f), rand.random(e.finpow() * 14f)).add(e.x, e.y);
             Fill.circle(v.x, v.y, rand.random(1.4f, 3.4f));
         }
-    }).layer(Layer.bullet - 1f),
+    }).layer(Layer.bullet - 1f);
 }

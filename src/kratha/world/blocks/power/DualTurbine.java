@@ -26,7 +26,7 @@ public class DualTurbine extends ConsumeGenerator{
     public void drawPlace(int x, int y, int rotation, boolean valid){
         super.drawPlace(x, y, rotation, valid);
 
-        if(sumAttribute(attribute, x, y)>0.99f)Drawf.selected(x, y, this, Pal.accent);
+        if(sumAttribute(attribute, x, y)>(9f-0.001f))Drawf.selected(x, y, this, Pal.accent);
     }
   
     public class DualTurbineBuild extends ConsumeGeneratorBuild{
@@ -35,7 +35,7 @@ public class DualTurbine extends ConsumeGenerator{
         public void updateTile(){
             super.updateTile();
           
-            if(sumAttribute(attribute, tile.x, tile.y)>0.99f)liquids.add(ventLiquid, liquidCapacity - liquids.get(outputLiquid.liquid));
+            if(sumAttribute(attribute, tile.x, tile.y)>(9f-0.001f))liquids.add(ventLiquid, liquidCapacity - liquids.get(ventLiquid));
         }
     }
 }

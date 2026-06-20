@@ -45,9 +45,12 @@ public class KrathaPower{
             squareSprite = false;
             powerProduction = 480f/60f;
             ventLiquid = KrathaLiquids.steam;
+            ambientSound = Sounds.loopHum;
+            ambientSoundVolume = 0.06f;
+            generateEffect = Fx.turbinegenerate;
             liquidCapacity = 36;
             consumeLiquid(KrathaLiquids.steam,12f/60);
-            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawDefault(), new DrawRegion("-rotator", 5, true));
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawBlurSpin("-rotator", 5), new DrawDefault());
         }};
         
 

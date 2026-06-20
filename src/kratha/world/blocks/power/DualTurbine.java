@@ -13,6 +13,8 @@ import mindustry.world.*;
 import mindustry.world.meta.*;
 import mindustry.world.blocks.power.ConsumeGenerator;
 
+import static mindustry.Vars.*;
+
 //very weird naming...
 public class DualTurbine extends ConsumeGenerator{
     public Attribute attribute = Attribute.steam;
@@ -26,7 +28,7 @@ public class DualTurbine extends ConsumeGenerator{
     public void drawPlace(int x, int y, int rotation, boolean valid){
         super.drawPlace(x, y, rotation, valid);
 
-        if(sumAttribute(attribute, x, y)>(9f-0.001f))Drawf.selected(x, y, this, Pal.accent);
+        if(sumAttribute(attribute, x, y)>(9f-0.001f))Drawf.selected(x*tilesize, y*tilesize, this, Pal.accent);
     }
   
     public class DualTurbineBuild extends ConsumeGeneratorBuild{

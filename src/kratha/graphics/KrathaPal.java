@@ -40,6 +40,10 @@ public class KrathaPal{
     akacyteDark = Color.valueOf("621D23"),
     akacyte = Color.valueOf("A12A35"),
     akacyteLight = Color.valueOf("CB695E"),
+
+    steamDark = Color.valueOf("4B5D69"),
+    steam = Color.valueOf("92A8B0"),
+    steamLight = Color.valueOf("DAECED"),
     
     //items
     krathiteDark = Color.valueOf("51436B"),

@@ -16,7 +16,7 @@ import mindustry.world.blocks.power.ConsumeGenerator;
 //very weird naming...
 public class DualTurbine extends ConsumeGenerator{
     public Attribute attribute = Attribute.steam;
-    public LiquidStack ventLiquid;
+    public Liquid ventLiquid;
 
     public DualTurbine(String name){
         super(name);
@@ -35,7 +35,7 @@ public class DualTurbine extends ConsumeGenerator{
         public void updateTile(){
             super.updateTile();
           
-            if(sumAttribute(attribute, tile.x, tile.y)>0.99f)liquids.add(ventLiquid.liquid, liquidCapacity - liquids.get(outputLiquid.liquid));
+            if(sumAttribute(attribute, tile.x, tile.y)>0.99f)liquids.add(ventLiquid, liquidCapacity - liquids.get(outputLiquid.liquid));
         }
     }
 }

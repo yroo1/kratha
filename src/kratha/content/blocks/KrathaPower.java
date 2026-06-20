@@ -9,6 +9,7 @@ import mindustry.content.*;
 import mindustry.gen.*;
 import kratha.content.KrathaItems;
 import kratha.content.KrathaLiquids;
+import kratha.content.KrathaFx;
 import kratha.world.blocks.power.*;
 
 import static mindustry.type.ItemStack.with;
@@ -47,7 +48,7 @@ public class KrathaPower{
             ventLiquid = KrathaLiquids.steam;
             ambientSound = Sounds.loopHum;
             ambientSoundVolume = 0.06f;
-            generateEffect = Fx.turbinegenerate;
+            generateEffect = KrathaFx.turbinegenerateSteam;
             liquidCapacity = 36;
             consumeLiquid(KrathaLiquids.steam,12f/60);
             drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawBlurSpin("-rotator", 5), new DrawDefault());

@@ -25,6 +25,8 @@ public class DualTurbine extends ConsumeGenerator{
     @Override
     public void drawPlace(int x, int y, int rotation, boolean valid){
         super.drawPlace(x, y, rotation, valid);
+
+        Drawf.dashSquare(Pal.accent, x, y, size * tilesize);
     }
   
     public class DualTurbineBuild extends ConsumeGeneratorBuild{

@@ -41,11 +41,11 @@ public class KrathaProduction {
         }};
         plasmaDrill = new Drill("plasma-drill"){{
             requirements(Category.production, with(KrathaItems.krathite, 80, KrathaItems.guartz, 75, KrathaItems.spurstone, 40, KrathaItems.cobalt, 40));
-            consumePower(20/60f);
+            consumePower(15/60f);
             consumeLiquid(KrathaLiquids.watra, 4f/60);
             consumeLiquid(Liquids.hydrogen, 0.05f).boost();
             
-            drillTime = 320;
+            drillTime = 280;
             drawRim = true;
             hasPower = true;
             tier = 5;

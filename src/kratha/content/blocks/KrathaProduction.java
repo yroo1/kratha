@@ -97,14 +97,19 @@ public class KrathaProduction {
         }};
         crystallizationBasin = new GenericCrafter("crystallization-basin"){{
             requirements(Category.crafting, with(KrathaItems.krathite, 100, KrathaItems.guartz, 40, KrathaItems.spurstone, 40));
-            craftEffect = Fx.smeltsmoke;
+            craftEffect = Fx.none;
             outputItem = new ItemStack(KrathaItems.kitegite, 8);
             craftTime = 220f;
             size = 3;
             hasLiquids = true;
-            drawer = new DrawMulti(new DrawRegion("-bottom"),new DrawLiquidTile(){{drawLiquid=KrathaLiquids.akacyte;padding=1}},new DrawDefault());
-            
-            consumeItems(with(KrathaItems.krathite, 3, KrathaItems.terrasand, 5));
+            drawer = new DrawMulti(new DrawRegion("-bottom"),new DrawLiquidTile(){{drawLiquid=KrathaLiquids.akacyte;padding=1;}},new DrawCultivator(){{
+                plantColor=KrathaPal.akacyte;
+                plantColorLight=KrathaPal.akacyteLight;
+                bottomColor=KrathaPal.akacyteDark;
+            }},new DrawDefault());
+            consumeLiquid(KrathaLiquids.akacyte, 18f / 60f);
+            ambientSound = Sounds.loopCultivator;
+            ambientSoundVolume = 0.075f;
         }};
     }
 }

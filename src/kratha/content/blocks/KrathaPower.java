@@ -10,6 +10,7 @@ import mindustry.gen.*;
 import kratha.content.KrathaItems;
 import kratha.content.KrathaLiquids;
 import kratha.content.KrathaFx;
+import kratha.graphics.KrathaPal;
 import kratha.world.blocks.power.*;
 
 import static mindustry.type.ItemStack.with;

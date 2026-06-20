@@ -14,13 +14,36 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaDefense{
     public static Block
-    krathiteWall,krathiteWallLarge,
+    krathiteWall,krathiteWallLarge,spurstoneWall,spurstoneWallLarge,cobaltWall,cobaltWallLarge,
     radar,cutsceneRadar;
   
     public static void load(){
          krathiteWall = new Wall("krathite-wall"){{
              requirements(Category.defense, with(KrathaItems.krathite, 6));
              health = 380;
+         }};
+         krathiteWallLarge = new Wall("krathite-wall-large"){{
+             requirements(Category.defense, with(KrathaItems.krathite, 6));
+             health = 380*4;
+             size = 2;
+         }};
+         spurstoneWall = new Wall("spurstone-wall"){{
+             requirements(Category.defense, with(KrathaItems.krathite, 6));
+             health = 440;
+         }};
+         spurstoneWallLarge = new Wall("spurstone-wall-large"){{
+             requirements(Category.defense, with(KrathaItems.krathite, 6));
+             health = 440*4;
+             size = 2;
+         }};
+         cobaltWall = new Wall("cobalt-wall"){{
+             requirements(Category.defense, with(KrathaItems.krathite, 6));
+             health = 420;
+         }};
+         cobaltWallLarge = new Wall("cobalt-wall-large"){{
+             requirements(Category.defense, with(KrathaItems.krathite, 6));
+             health = 420*4;
+             size = 2;
          }};
          radar = new Radar("radar"){{
             requirements(Category.effect, BuildVisibility.fogOnly, with(KrathaItems.krathite, 30, KrathaItems.guartz, 50, KrathaItems.spurstone, 15));

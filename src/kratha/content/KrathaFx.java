@@ -76,5 +76,14 @@ public class KrathaFx{
             v.trns(rand.random(360f), rand.random(e.finpow() * 14f)).add(e.x, e.y);
             Fill.circle(v.x, v.y, rand.random(1.4f, 3.4f));
         }
-    }).layer(Layer.bullet - 1f);
+    }).layer(Layer.bullet - 1f),
+    //forget it ill use ParticleEffect instead
+    shootTerraSmoke = new ParticleEffect(){{
+        colorFrom = KrathaPal.terraplasmLight;
+        colorTo = KrathaPal.terraplasmDark.alpha(0.5f);
+        cone = 60;
+        sizeFrom = 8;
+        sizeTo = 0;
+        length = 50;
+    }};
 }

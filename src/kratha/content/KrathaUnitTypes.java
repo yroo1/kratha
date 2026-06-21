@@ -109,22 +109,44 @@ public class KrathaUnitTypes{
             stepSound = Sounds.walkerStepSmall;
             stepSoundPitch = 0.9f;
             stepSoundVolume = 0.35f;
-            weapons.add(new Weapon("kratha-tigaleg-weapon"){{
+            parts.add(new RegionPart("-weapon"){{
+                moveY = -2;
+                progress = PartProgress.recoil();
+                layerOffset = -0.001f;
+                mirror = false;
+            }});
+            weapons.add(new Weapon(){{
                 reload = 55f;
                 x = 0;
-                y = 0;
+                y = 3;
                 ejectEffect = Fx.none;
                 rotate = false;
                 shootSound = Sounds.shootSap;
                 mirror = false;
-                layerOffset = 0.001f;
-                shootY = 3;
                 bullet = new LiquidBulletType(KrathaLiquids.terraplasm){{
                     damage = 40;
                     speed = 6f;
-                    shootEffect = hitEffect = Fx.none;
-                    smokeEffect = KrathaFx.shootTerraSmoke;
-                    lifetime = 20f;
+                    shootEffect = Fx.none;
+                    hitEffect = new ParticleEffect(){{
+                        colorFrom = KrathaPal.terraplasmLight;
+                        colorTo = KrathaPal.terraplasmDark.a(0.1f);
+                        cone = 180;
+                        particles = 5
+                        sizeFrom = 2;
+                        sizeTo = 0;
+                        length = 20;
+                        lifetime = 180;
+                    }};
+                    smokeEffect = new ParticleEffect(){{
+                        colorFrom = KrathaPal.terraplasmLight;
+                        colorTo = KrathaPal.terraplasmDark.a(0.1f);
+                        cone = 40;
+                        sizeFrom = 3;
+                        sizeTo = 0;
+                        length = 30;
+                        lifetime = 90;
+                    }};
+                    lifetime = 30f;
                     collidesAir = false;
                 }};
             }});

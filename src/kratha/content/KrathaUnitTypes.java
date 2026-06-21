@@ -23,6 +23,7 @@ import mindustry.world.meta.*;
 import kratha.type.unit.*;
 import kratha.graphics.*;
 import kratha.content.*;
+import mindustry.content.*;
 
 import static arc.graphics.g2d.Draw.*;
 import static arc.graphics.g2d.Lines.*;
@@ -117,7 +118,7 @@ public class KrathaUnitTypes{
             stepSoundVolume = 0.35f;
             parts.add(new RegionPart("-weapon"){{
                 moveY = -2;
-                progress = PartProgress.recoil();
+                progress = PartProgress.recoil;
                 layerOffset = -0.001f;
                 mirror = false;
             }});

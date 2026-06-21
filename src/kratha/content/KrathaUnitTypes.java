@@ -26,7 +26,7 @@ import static arc.graphics.g2d.Lines.*;
 public class KrathaUnitTypes{
     public static UnitType
     sail,
-    terrapillar,
+    terrapillar,tigaleg,
     keris,
     rocky,
     settler;
@@ -87,6 +87,43 @@ public class KrathaUnitTypes{
             segmentPhase = 7f;
             segmentMag = 0.5f;
             speed = 1.1f;
+        }};
+        tigaleg = new TerraUnitType("tigaleg"){{
+            constructor = LegsUnit::create;
+            speed = 0.97f;
+            drag = 0.3f;
+            hitSize = 10f;
+            rotateSpeed = 3f;
+            health = 170;
+            legCount = 3;
+            legLength = 25f;
+            legForwardScl = 0.8f;
+            legMoveSpace = 1f;
+            legGroupSize = 1;
+            legBaseOffset = 2f;
+            hovering = true;
+
+            shadowElevation = 0.2f;
+            groundLayer = Layer.legUnit;
+
+            stepSound = Sounds.walkerStepSmall;
+            stepSoundPitch = 0.9f;
+            stepSoundVolume = 0.35f;
+            weapons.add(new Weapon("kratha-tigaleg-weapon"){{
+                reload = 55f;
+                x = 0;
+                y = 0;
+                ejectEffect = Fx.none;
+                rotate = false;
+                shootSound = Sounds.shootSap;
+                mirror = false;
+                bullet = new BasicBulletType(){{
+                    damage = 30;
+                    shootEffect = despawnEffect = smokeEffect = Fx.none;
+                    lifetime = 30f;
+                    speed = 5;
+                }};
+            }});
         }};
         //region special
         //peak name

@@ -1,27 +1,30 @@
 package kratha.content;
 
 import arc.graphics.*;
-import arc.math.Interp;
 import arc.graphics.g2d.*;
+import arc.math.*;
+import arc.math.geom.*;
+import arc.struct.*;
 import arc.util.*;
-import mindustry.ai.types.BuilderAI;
-import mindustry.content.Fx;
+import mindustry.ai.*;
+import mindustry.ai.types.*;
+import mindustry.entities.*;
+import mindustry.entities.abilities.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
-import mindustry.entities.*;
-import mindustry.graphics.Layer;
-import mindustry.graphics.Pal;
-import mindustry.graphics.*;
+import mindustry.entities.part.*;
+import mindustry.entities.pattern.*;
 import mindustry.gen.*;
+import mindustry.graphics.*;
 import mindustry.type.*;
-import mindustry.ai.types.*;
-import kratha.type.unit.*;
-import kratha.graphics.KrathaPal;
-import kratha.content.*;
+import mindustry.type.unit.*;
 import mindustry.type.weapons.*;
+import mindustry.world.meta.*;
 
 import static arc.graphics.g2d.Draw.*;
 import static arc.graphics.g2d.Lines.*;
+import static arc.math.Angles.*;
+import static mindustry.Vars.*;
 
 public class KrathaUnitTypes{
     public static UnitType

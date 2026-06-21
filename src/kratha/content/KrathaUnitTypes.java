@@ -20,6 +20,9 @@ import mindustry.type.*;
 import mindustry.type.unit.*;
 import mindustry.type.weapons.*;
 import mindustry.world.meta.*;
+import kratha.type.unit.*;
+import kratha.graphics.*;
+import kratha.content.*;
 
 import static arc.graphics.g2d.Draw.*;
 import static arc.graphics.g2d.Lines.*;
@@ -134,7 +137,7 @@ public class KrathaUnitTypes{
                         colorFrom = KrathaPal.terraplasmLight;
                         colorTo = KrathaPal.terraplasmDark.a(0.1f);
                         cone = 180;
-                        particles = 5
+                        particles = 5;
                         sizeFrom = 2;
                         sizeTo = 0;
                         length = 20;

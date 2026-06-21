@@ -152,7 +152,7 @@ public class KrathaUnitTypes{
                         colorTo = KrathaPal.terraplasmDark.a(0.1f);
                         cone = 40;
                         sizeFrom = 2;
-                        particles = 5
+                        particles = 5;
                         sizeTo = 0;
                         length = 25;
                         lifetime = 25;

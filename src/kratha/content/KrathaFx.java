@@ -16,6 +16,7 @@ import static arc.graphics.g2d.Draw.*;
 import static arc.graphics.g2d.Lines.*;
 import static arc.math.Angles.randLenVectors;
 
+//21/6/2026 i wont be using this class anymore. Will use ParticleEffect or something similar instead
 public class KrathaFx{
     public static final Rand rand = new Rand();
     public static final Vec2 v = new Vec2();
@@ -77,15 +78,5 @@ public class KrathaFx{
             v.trns(rand.random(360f), rand.random(e.finpow() * 14f)).add(e.x, e.y);
             Fill.circle(v.x, v.y, rand.random(1.4f, 3.4f));
         }
-    }).layer(Layer.bullet - 1f),
-    //forget it ill use ParticleEffect instead
-    shootTerraSmoke = new ParticleEffect(){{
-        colorFrom = KrathaPal.terraplasmLight;
-        colorTo = KrathaPal.terraplasmDark.a(0.3f);
-        cone = 60;
-        sizeFrom = 10;
-        sizeTo = 0;
-        length = 50;
-        lifetime = 90;
-    }};
+    }).layer(Layer.bullet - 1f);
 }

@@ -124,8 +124,8 @@ public class KrathaUnitTypes{
             }});
             weapons.add(new Weapon(){{
                 reload = 55f;
-                x = 0;
-                y = 3;
+                x = 1.5f;
+                y = 4;
                 ejectEffect = Fx.none;
                 rotate = false;
                 shootSound = Sounds.shootSap;
@@ -133,6 +133,9 @@ public class KrathaUnitTypes{
                 bullet = new LiquidBulletType(KrathaLiquids.terraplasm){{
                     damage = 40;
                     speed = 6f;
+                    trailLength = 20;
+                    trailWidth = 3;
+                    trailColor = KrathaPal.terraplasm;
                     shootEffect = Fx.none;
                     hitEffect = new ParticleEffect(){{
                         colorFrom = KrathaPal.terraplasmLight;

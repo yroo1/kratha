@@ -81,10 +81,11 @@ public class KrathaFx{
     //forget it ill use ParticleEffect instead
     shootTerraSmoke = new ParticleEffect(){{
         colorFrom = KrathaPal.terraplasmLight;
-        colorTo = KrathaPal.terraplasmDark.alpha(0.5f);
+        colorTo = KrathaPal.terraplasmDark.a(0.3f);
         cone = 60;
         sizeFrom = 10;
         sizeTo = 0;
         length = 50;
+        lifetime = 90;
     }};
 }

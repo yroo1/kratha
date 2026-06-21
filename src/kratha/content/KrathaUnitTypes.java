@@ -142,7 +142,7 @@ public class KrathaUnitTypes{
                         sizeFrom = 2;
                         sizeTo = 0;
                         length = 20;
-                        lifetime = 180;
+                        lifetime = 40;
                     }};
                     smokeEffect = new ParticleEffect(){{
                         colorFrom = KrathaPal.terraplasmLight;
@@ -155,6 +155,10 @@ public class KrathaUnitTypes{
                     }};
                     lifetime = 30f;
                     collidesAir = false;
+                    puddles = 3;
+                    puddleSize = 20;
+                    puddleLiquid = KrathaLiquids.terraplasm;
+                    puddleRange = 3;
                 }};
             }});
         }};

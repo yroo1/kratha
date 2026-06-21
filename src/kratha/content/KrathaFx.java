@@ -7,6 +7,7 @@ import arc.math.*;
 import arc.math.geom.Vec2;
 import arc.util.Time;
 import mindustry.entities.Effect;
+import mindustry.entities.effect.*;
 import mindustry.gen.Bullet;
 import mindustry.graphics.*;
 import kratha.graphics.KrathaPal;
@@ -82,7 +83,7 @@ public class KrathaFx{
         colorFrom = KrathaPal.terraplasmLight;
         colorTo = KrathaPal.terraplasmDark.alpha(0.5f);
         cone = 60;
-        sizeFrom = 8;
+        sizeFrom = 10;
         sizeTo = 0;
         length = 50;
     }};

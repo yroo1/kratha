@@ -119,8 +119,9 @@ public class KrathaProduction {
             requirements(Category.crafting, with(KrathaItems.spurstone, 50, KrathaItems.cobalt, 30));
             craftEffect = Fx.drillSteam;
             attribute = Attribute.steam;
-            minEfficiency = 0.999f;
+            minEfficiency = 8.999f;
             baseEfficiency = 0;
+            displayEfficiency = false;
             boostScale = 1/8.999f;
             outputItem = new ItemStack(KrathaItems.guartz, 4);
             craftTime = 96f;

@@ -121,7 +121,7 @@ public class KrathaProduction {
             attribute = Attribute.steam;
             minEfficiency = 0.999f;
             baseEfficiency = 0;
-            boostScals = 1/8.999f;
+            boostScale = 1/8.999f;
             outputItem = new ItemStack(KrathaItems.guartz, 4);
             craftTime = 96f;
             size = 3;

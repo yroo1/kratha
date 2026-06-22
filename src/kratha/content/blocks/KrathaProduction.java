@@ -123,6 +123,7 @@ public class KrathaProduction {
             baseEfficiency = 0;
             displayEfficiency = false;
             boostScale = 1/8.999f;
+            customShadow = true;
             outputItem = new ItemStack(KrathaItems.guartz, 4);
             craftTime = 96f;
             size = 3;

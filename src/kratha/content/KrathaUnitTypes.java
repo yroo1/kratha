@@ -243,15 +243,16 @@ public class KrathaUnitTypes{
             moveSoundVolume = 0.25f;
             moveSound = Sounds.shipMove;
             
-            weapons.add(new Weapon(){{
-                reload = 60f;
+            weapons.add(new RepairBeamWeapon("repair-beam-weapon-center"){{
                 x = 0f;
                 y = 0f;
-                shootCone = 180f;
+                shootY = 0f;
+                beamWidth = 0.8f;
                 mirror = false;
-                
-                bullet = new LiquidBulletType(KrathaLiquids.terraplasm){{
-                    
+                repairSpeed = 0.75f;
+
+                bullet = new BulletType(){{
+                    maxRange = 140f;
                 }};
             }});
         }};

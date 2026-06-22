@@ -131,7 +131,7 @@ public class KrathaProduction {
             ambientSound = Sounds.loopSmelter;
             ambientSoundVolume = 0.1f;
 
-            consumeItems(with(KrathaItems.krathite, 3);
+            consumeItems(with(KrathaItems.krathite, 3));
         }};
     }
 }

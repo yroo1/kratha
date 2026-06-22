@@ -33,7 +33,7 @@ import static mindustry.Vars.*;
 public class KrathaUnitTypes{
     public static UnitType
     sail,
-    terrapillar,tigaleg,renamo,
+    terrapillar,tigaleg,renamo,gabamo,
     keris,
     rocky,
     settler;
@@ -169,7 +169,7 @@ public class KrathaUnitTypes{
         renamo = new TerraUnitType("renamo"){{
             constructor = UnitWaterMove::create;
             health = 80;
-            hitSize = 11f;
+            hitSize = 9f;
             omniMovement = false;
             rotateSpeed = 4.5f;
             targetAir = false;
@@ -223,6 +223,35 @@ public class KrathaUnitTypes{
                     puddleSize = 15;
                     puddleLiquid = KrathaLiquids.terraplasm;
                     puddleRange = 3;
+                }};
+            }});
+        }};
+        gabamo = new TerraUnitType("gabamo"){{
+            constructor = UnitWaterMove::create;
+            health = 220;
+            hitSize = 11f;
+            omniMovement = false;
+            rotateSpeed = 4f;
+            targetAir = false;
+            speed = 1.4f;
+            faceTarget = false;
+            
+            trailLength = 35;
+            waveTrailX = 5f;
+            trailScl = 1.8f;
+            
+            moveSoundVolume = 0.25f;
+            moveSound = Sounds.shipMove;
+            
+            weapons.add(new Weapon(){{
+                reload = 60f;
+                x = 0f;
+                y = 0f;
+                shootCone = 180f;
+                mirror = false;
+                
+                bullet = new LiquidBulletType(KrathaLiquids.terraplasm){{
+                    
                 }};
             }});
         }};

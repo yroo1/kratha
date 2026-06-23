@@ -115,7 +115,7 @@ public class KrathaEnv {
                     variants = 4;
                     liquidDrop = KrathaLiquids.akacyte;
                     isLiquid = true;
-                    cacheLayer = CacheLayer.water;
+                    cacheLayer = CacheLayer.tar;
                     albedo = 1f;
                 }};
                 akrock = new Floor("akrock", 4);
@@ -199,7 +199,7 @@ public class KrathaEnv {
                     drownTime = 120;
                 }};
                 //extra deco
-                fallenLeaves = new Prop("fallen-leaves"){{variahts=3;}};
+                fallenLeaves = new Prop("fallen-leaves"){{variants=3;}};
                 lilypad = new Prop("lilypad"){{variants=6;}};
                 pebbles = new OverlayFloor("pebbles");
                 //ores

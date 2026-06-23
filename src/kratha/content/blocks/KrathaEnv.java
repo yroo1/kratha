@@ -115,7 +115,7 @@ public class KrathaEnv {
                     variants = 4;
                     liquidDrop = KrathaLiquids.akacyte;
                     isLiquid = true;
-                    cacheLayer = CacheLayer.tar;
+                    cacheLayer = CacheLayer.mud;
                     albedo = 1f;
                 }};
                 akrock = new Floor("akrock", 4);

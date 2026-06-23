@@ -38,6 +38,16 @@ public class KrathaTechTree {
                 });
                 node(KrathaDistribution.itemOverpass);
             });
+            node(KrathaLiquids.gyralPump, Seq.with(new Objectives.OnSector(offshore)), () -> {
+                node(KrathaLiquids.liquidTube, () -> {
+                   node(KrathaLiquids.liquidCell, () -> {
+                   
+                   });
+                   node(KrathaLiquids.liquidOverpass, () -> {
+                   
+                   });
+                });
+            });
             node(KrathaProduction.thermicDrill, () -> {
                 node(KrathaProduction.laserBore, () -> {
                         
@@ -45,15 +55,27 @@ public class KrathaTechTree {
                 node(KrathaProduction.cliffBore, () -> {
                         
                 });
+                node(KrathaProduction.plasmaBore, Seq.with(new Objectives.OnSector(offshore)),() -> {
+                        
+                });
             });
             node(KrathaProduction.spurstoneSmelter, () -> {
+                node(KrathaProduction.crystallizationBasin, Seq.with(new Objectives.OnSector(offshore)),() -> {
+                
+                });
+                node(KrathaProduction.earthenExtractor, Seq.with(new Objectives.OnSector(offshore)),() -> {
+                
+                });
             });
             
             node(KrathaPower.windTurbine, () -> {
                 node(KrathaPower.relay, () -> {
                     
                 });
-                node(KrathaPower.candle, () -> {
+                node(KrathaPower.turbine, Seq.with(new Objectives.OnSector(offshore)),() -> {
+                    
+                });
+                node(KrathaPower.relay, () -> {
                     
                 });
             });
@@ -65,6 +87,21 @@ public class KrathaTechTree {
             node(KrathaTurrets.impede, Seq.with(new Objectives.OnSector(oasis)),() -> {
                 node(KrathaTurrets.debase, Seq.with(new Objectives.OnSector(harbor)),() -> {
                 
+                });
+                node(KrathaDefense.krathiteWall, () -> {
+                    node(KrathaDefense.krathiteWallLarge, () -> {
+                    
+                    });
+                    node(KrathaDefense.spurstoneWall, () -> {
+                        node(KrathaDefense.spurstoneWallLarge, () -> {
+                        
+                        });
+                    });
+                    node(KrathaDefense.cobaltWall, () -> {
+                        node(KrathaDefense.cobaltWallLarge, () -> {
+                        
+                        });
+                    });
                 });
             });
             

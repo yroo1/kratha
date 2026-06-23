@@ -198,9 +198,9 @@ public class KrathaEnv {
                     supportsOverlay = true;
                     drownTime = 120;
                 }};
-                //overlays
-                fallenLeaves = new LargeOverlayFloor("fallen-leaves"){{needsSurface=false;}};
-                lilypad = new LargeOverlayFloor("lilypad"){{variants=6;needsSurface=false;}};
+                //extra deco
+                fallenLeaves = new Prop("fallen-leaves"){{variahts=3;}};
+                lilypad = new Prop("lilypad"){{variants=6;}};
                 pebbles = new OverlayFloor("pebbles");
                 //ores
                 krathiteOreWall = new StaticWall("krathite-ore-wall"){{

@@ -81,7 +81,7 @@ public class KrathaProduction {
         spurstoneSmelter = new GenericCrafter("spurstone-smelter"){{
             requirements(Category.crafting, with(KrathaItems.krathite, 75, KrathaItems.guartz, 60));
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(KrathaItems.spurstone, 3);
+            outputItem = new ItemStack(KrathaItems.spurstone, 4);
             craftTime = 120f;
             size = 3;
             hasPower = true;

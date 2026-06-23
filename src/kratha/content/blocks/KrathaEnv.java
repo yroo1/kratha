@@ -23,12 +23,12 @@ public class KrathaEnv {
             darkness,
             terrasporeTree,terrasporeTreeLarge,woodWall,woodFloor,terrasporeFern,terrasporeFernLarge,
             container,
-            krathiteStaticwall,krathiteRough,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,
+            krathiteStaticwall,krathiteRough,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,krathiteVent,
             akrockWall,akacyteFloor,akrock,akrockPlated,akrockBoulder,akrockBoulderLarge,
             terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneWatra,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
             krathagenFloor,krathagenDeep,krathagenWall,
             watraShallow,watraDeep,
-            fallenLeaves,pebbles,krathiteOreWall,guartzOre,cobaltOre,anemiteOre;
+            fallenLeaves,lilypad,pebbles,krathiteOreWall,guartzOre,cobaltOre,anemiteOre;
     public static void load() {
         {
             {
@@ -104,6 +104,10 @@ public class KrathaEnv {
                 krathiteBoulderLarge = new TallBlock("krathite-boulder-large"){{
                     variants = 2;
                 }};
+                krathiteVent = new SteamVent("krathite-vent"){{
+                    parent = blendGroup = krathiteFloor;
+                    attributes.set(Attribute.steam, 1f);
+                }};
                 //赤rock
                 akrockWall = new StaticWall("akrock-wall");
                 akacyteFloor = new Floor("akacyte-floor"){{
@@ -151,6 +155,7 @@ public class KrathaEnv {
                     isLiquid = true;
                     cacheLayer = CacheLayer.water;
                     albedo = 0.8f;
+                    supportsOverlay = true;
                 }};
                 //krathagen
                 krathagenWall = new StaticWall("krathagen-wall");
@@ -161,7 +166,7 @@ public class KrathaEnv {
                     isLiquid = true;
                     cacheLayer = CacheLayer.water;
                     albedo = 0.9f;
-                    supportsOverlay = false;
+                    supportsOverlay = true;
                 }};
                 krathagenDeep = new Floor("krathagen-deep"){{
                     speedMultiplier = 0.6f;
@@ -170,7 +175,7 @@ public class KrathaEnv {
                     isLiquid = true;
                     cacheLayer = CacheLayer.water;
                     albedo = 0.95f;
-                    supportsOverlay = false;
+                    supportsOverlay = true;
                     drownTime = 120;
                 }};
                 //watra
@@ -181,7 +186,7 @@ public class KrathaEnv {
                     isLiquid = true;
                     cacheLayer = CacheLayer.water;
                     albedo = 0.95f;
-                    supportsOverlay = false;
+                    supportsOverlay = true;
                 }};
                 watraDeep = new Floor("watra-deep"){{
                     speedMultiplier = 0.6f;
@@ -190,11 +195,12 @@ public class KrathaEnv {
                     isLiquid = true;
                     cacheLayer = CacheLayer.water;
                     albedo = 1f;
-                    supportsOverlay = false;
+                    supportsOverlay = true;
                     drownTime = 120;
                 }};
                 //overlays
                 fallenLeaves = new OverlayFloor("fallen-leaves");
+                lilypad = new OverlayFloor("lilypad"){{variants=6;}};
                 pebbles = new OverlayFloor("pebbles");
                 //ores
                 krathiteOreWall = new StaticWall("krathite-ore-wall"){{

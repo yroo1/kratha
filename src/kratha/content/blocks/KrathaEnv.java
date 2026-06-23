@@ -28,7 +28,7 @@ public class KrathaEnv {
             terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneWatra,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
             krathagenFloor,krathagenDeep,krathagenWall,
             watraShallow,watraDeep,
-            fallenLeaves,lilypad,pebbles,krathiteOreWall,guartzOre,cobaltOre,anemiteOre;
+            fallenLeavesLegacy,fallenLeaves,lilypad,pebbles,krathiteOreWall,guartzOre,cobaltOre,anemiteOre;
     public static void load() {
         {
             {
@@ -199,7 +199,8 @@ public class KrathaEnv {
                     drownTime = 120;
                 }};
                 //extra deco
-                fallenLeaves = new Prop("fallen-leaves"){{variants=3;hasShadow=false;}};
+                fallenLeavesLegacy = new OverlayFloor("fallen-leaves"){{variants=3}};
+                fallenLeaves = new Prop("fallen-leaves-new"){{variants=3;hasShadow=false;}};
                 lilypad = new Prop("lilypad"){{variants=6;hasShadow=false;}};
                 pebbles = new OverlayFloor("pebbles");
                 //ores

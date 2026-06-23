@@ -38,12 +38,15 @@ public class KrathaLiquid {
                 liquidTube = new LiquidTube("liquid-tube"){{
                     requirements(Category.liquid, with(KrathaItems.kitegite, 1));
                     botColor = KrathaPal.kitegiteDarker;
+                    researchCost = with(KrathaItems.kitegite, 10);
                 }};
                 liquidOverpass = new LiquidOverpass("liquid-overpass"){{
                     requirements(Category.liquid, with(KrathaItems.kitegite, 8, KrathaItems.spurstone,4));
+                    researchCost = with(KrathaItems.kitegite, 80, KrathaItems.spurstone, 40);
                 }};
                 liquidCell = new LiquidRouter("liquid-cell"){{
                     requirements(Category.liquid, with(KrathaItems.kitegite, 5));
+                    researchCost = with(KrathaItems.kitegite, 50);
                 }};
             }
         }

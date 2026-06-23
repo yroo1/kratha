@@ -199,7 +199,7 @@ public class KrathaEnv {
                     drownTime = 120;
                 }};
                 //extra deco
-                fallenLeavesLegacy = new OverlayFloor("fallen-leaves"){{variants=3}};
+                fallenLeavesLegacy = new OverlayFloor("fallen-leaves"){{variants=3;}}; //old version of fallen leaves that is OverlayFloor instead of Prop, this is kept so old files wont be corrupted
                 fallenLeaves = new Prop("fallen-leaves-new"){{variants=3;hasShadow=false;}};
                 lilypad = new Prop("lilypad"){{variants=6;hasShadow=false;}};
                 pebbles = new OverlayFloor("pebbles");

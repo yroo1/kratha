@@ -13,7 +13,7 @@ public class DPInfoBlock extends MessageBlock {
         @Override
         public void updateTile(){
             super.updateTile();
-            message.replace(0, message.length(), Core.bundle.get("empty"));
+            message.replace(0, message.length(), Core.bundle.get("kratha.dataPatchInfo"));
         }
     }
  }     

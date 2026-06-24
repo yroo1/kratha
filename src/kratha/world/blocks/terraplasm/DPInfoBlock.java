@@ -11,7 +11,7 @@ public class DPInfoBlock extends MessageBlock {
         @Override
         public void updateTile(){
             super.updateTile();
-            message.replace(0, sb.length(), "hi lol");
+            message.replace(0, message.length(), "hi lol");
         }
     }
  }     

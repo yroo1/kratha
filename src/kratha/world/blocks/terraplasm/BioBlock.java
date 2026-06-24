@@ -55,7 +55,7 @@ public class BioBlock extends Block {
         rebuildable = false;
         drawTeamOverlay = false;
         destroySound = Sounds.loopSpray;
-        buildVisibility = BuildVisibility.sandboxOnly;
+        buildVisibility = BuildVisibility.editorOnly;
     }
     public class BioBuilding extends Building {
         public Tile pulseSource=null;

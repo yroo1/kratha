@@ -47,9 +47,7 @@ public class Terraplasm {
                     privileged = true;
                     size = 1;
                 }};
-                dataPatchInfo = new DPInfoBlock("data-patch-info"){{
-                    privileged = true;
-                }};
+                dataPatchInfo = new DPInfoBlock("data-patch-info");
                 heart = new BioHeart("heart"){{
                     requirements(Category.distribution, with(KrathaItems.krathite, 10));
                     size = 3;

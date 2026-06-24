@@ -46,6 +46,7 @@ public class BioTurret extends Turret{
         outlineColor = KrathaPal.terraOutline;
         destroySound = Sounds.loopSpray;
         unitFilter = u -> u.getDuration(KrathaStatusEffects.seen)>1;
+        buildVisibility = BuildVisibility.editorOnly;
     }
 
     @Override

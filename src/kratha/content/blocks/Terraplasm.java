@@ -35,7 +35,7 @@ import static mindustry.type.ItemStack.with;
 
 public class Terraplasm {
     public static Block
-            falseCore,
+            falseCore,dataPatchInfo,
             heart, root, eye, harvester, cradle, skewer;
     public static void load() {
         {
@@ -46,6 +46,9 @@ public class Terraplasm {
                     forceDark = true;
                     privileged = true;
                     size = 1;
+                }};
+                dataPatchInfo = new DPInfoBlock("data-patch-info"){{
+                    privileged = true;
                 }};
                 heart = new BioHeart("heart"){{
                     requirements(Category.distribution, with(KrathaItems.krathite, 10));

@@ -175,7 +175,7 @@ public class Root extends BioBlock {
 
         @Override
         public void onGrown(){
-            extraFloat4=nearbyMarker(4);
+            extraByte=nearbyMarker(4);
         }
         
         @Override
@@ -210,15 +210,22 @@ public class Root extends BioBlock {
                 tile.setBlock(Terraplasm.harvester,team);
             }
 
-            Building heart=getNearestHeart();
-
-            if(((allowEye&&!getbit(extraFloat3,0))||extraFloat4==-1)&&(heart!=null&&heart.items.has(Terraplasm.eye.requirements))){
-                boolean sameNear = passiveGrow(Terraplasm.eye,eyeSpacing,eyeRate,heart);
-                if(sameNear)extraFloat3=setbit(extraFloat3,0,true);
+            if(unpack(extraFloat4)[0]==0||unpack(extraFloat4)[1]==0){
+                Building heart=getNearestHeart();
+                extraFloat4=pack(heart.tile.x,heart.tile.y);
             }
-            if(((allowSkewer&&!getbit(extraFloat3,1))||extraFloat4==1)&&clear3&&(heart!=null&&heart.items.has(Terraplasm.skewer.requirements))){
-                boolean sameNear = passiveGrow(Terraplasm.skewer,skewerSpacing,skewerRate,heart);
-                if(sameNear)extraFloat3=setbit(extraFloat3,1,true);
+            Tile heartTile=world.tile(unpack(extraFloat4)[0],unpack(extraFloat4)[1]);
+
+            if(heartTile!=null&&heartTile.build!=null){
+                Building heart = heartTile.build;
+                if(((allowEye&&!getbit(extraFloat3,0))||extraByte==-1)&&(heart!=null&&heart.items.has(Terraplasm.eye.requirements))){
+                    boolean sameNear = passiveGrow(Terraplasm.eye,eyeSpacing,eyeRate,heart);
+                    if(sameNear)extraFloat3=setbit(extraFloat3,0,true);
+                }
+                if(((allowSkewer&&!getbit(extraFloat3,1))||extraByte==1)&&clear3&&(heart!=null&&heart.items.has(Terraplasm.skewer.requirements))){
+                    boolean sameNear = passiveGrow(Terraplasm.skewer,skewerSpacing,skewerRate,heart);
+                    if(sameNear)extraFloat3=setbit(extraFloat3,1,true);
+                }
             }
 
             //item movement

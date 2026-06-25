@@ -190,11 +190,11 @@ public class Root extends BioBlock {
 
             Building heart=getNearestHeart();
 
-            if(((allowEye&&!getbit(extraFloat3,0))||unpack(extraFloat4)[0]==1)&&if(heart!=null&&heart.items.has(Terraplasm.eye.requirements))){
+            if(((allowEye&&!getbit(extraFloat3,0))||unpack(extraFloat4)[0]==1)&&(heart!=null&&heart.items.has(Terraplasm.eye.requirements))){
                 boolean sameNear = passiveGrow(Terraplasm.eye,eyeSpacing,eyeRate,heart);
                 if(sameNear)extraFloat3=setbit(extraFloat3,0,true);
             }
-            if(((allowSkewer&&!getbit(extraFloat3,1))||unpack(extraFloat4)[0]==2)&&clear3&&if(heart!=null&&heart.items.has(Terraplasm.skewer.requirements))){
+            if(((allowSkewer&&!getbit(extraFloat3,1))||unpack(extraFloat4)[0]==2)&&clear3&&(heart!=null&&heart.items.has(Terraplasm.skewer.requirements))){
                 boolean sameNear = passiveGrow(Terraplasm.skewer,skewerSpacing,skewerRate,heart);
                 if(sameNear)extraFloat3=setbit(extraFloat3,1,true);
             }

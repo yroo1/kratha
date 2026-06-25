@@ -167,6 +167,7 @@ public class Root extends BioBlock {
                     float dist=i*i+j*j;
                     if (dist<maxDistSquared&&adj != null&&adj!=null) {                        
                         if(adj.overlay()==Terraplasm.skewerMarker)mValue=1;
+                        if(adj.overlay()==Terraplasm.cradleMarker)mValue=2;
                     }
                 }
             }
@@ -225,6 +226,10 @@ public class Root extends BioBlock {
                 if(((allowSkewer&&!getbit(extraFloat3,1))||extraByte==1)&&clear3&&(heart!=null&&heart.items.has(Terraplasm.skewer.requirements))){
                     boolean sameNear = passiveGrow(Terraplasm.skewer,skewerSpacing,skewerRate,heart);
                     if(sameNear)extraFloat3=setbit(extraFloat3,1,true);
+                }
+                if(((allowCradle&&!getbit(extraFloat3,2))||extraByte==2)&&clear3&&(heart!=null&&heart.items.has(Terraplasm.cradle.requirements))){
+                    boolean sameNear = passiveGrow(Terraplasm.cradle,cradleSpacing,cradleRate,heart);
+                    if(sameNear)extraFloat3=setbit(extraFloat3,2,true);
                 }
             }
 

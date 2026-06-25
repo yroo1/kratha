@@ -138,6 +138,7 @@ public class BioBlock extends Block {
                     growProgress=0;
                     fullyGrown=true;
                     pulsed=false;
+                    onGrown();
                 }
             }
 
@@ -148,6 +149,9 @@ public class BioBlock extends Block {
             if(health<maxHealth){
                 health+=(2f*size*size)/60;
             }
+        }
+        public void onGrown(){
+            //have i been a good person?
         }
         public void updatePulse() {
             boolean pulseEnd=true;

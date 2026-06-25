@@ -157,6 +157,7 @@ public class Root extends BioBlock {
         }
 
         public int nearbyMarker(float maxDist){
+            int mValue = 0;
             float maxDistSquared=maxDist*maxDist;
             int ceilDist = (int)Math.ceil(maxDist);
             for(int i=-ceilDist;i<=ceilDist;i++){
@@ -164,12 +165,12 @@ public class Root extends BioBlock {
                     Tile adj;
                     adj = tile.nearby(i,j);
                     float dist=i*i+j*j;
-                    if (dist<maxDistSquared&&adj != null)) {                        
-                        //smth
+                    if (dist<maxDistSquared&&adj != null&&adj!=null) {                        
+                        if(adj.overlay()==Terraplasm.skewerMarker)mValue=1;
                     }
                 }
             }
-            return 0;
+            return mValue;
         }
 
         @Override
@@ -211,11 +212,11 @@ public class Root extends BioBlock {
 
             Building heart=getNearestHeart();
 
-            if(((allowEye&&!getbit(extraFloat3,0))||extraFloat4==1)&&(heart!=null&&heart.items.has(Terraplasm.eye.requirements))){
+            if(((allowEye&&!getbit(extraFloat3,0))||extraFloat4==-1)&&(heart!=null&&heart.items.has(Terraplasm.eye.requirements))){
                 boolean sameNear = passiveGrow(Terraplasm.eye,eyeSpacing,eyeRate,heart);
                 if(sameNear)extraFloat3=setbit(extraFloat3,0,true);
             }
-            if(((allowSkewer&&!getbit(extraFloat3,1))||extraFloat4==2)&&clear3&&(heart!=null&&heart.items.has(Terraplasm.skewer.requirements))){
+            if(((allowSkewer&&!getbit(extraFloat3,1))||extraFloat4==1)&&clear3&&(heart!=null&&heart.items.has(Terraplasm.skewer.requirements))){
                 boolean sameNear = passiveGrow(Terraplasm.skewer,skewerSpacing,skewerRate,heart);
                 if(sameNear)extraFloat3=setbit(extraFloat3,1,true);
             }

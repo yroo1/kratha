@@ -48,6 +48,8 @@ public class BioBlock extends Block {
     public int cradleSpacing=22;
     
     public int pulseToGrowRoot=2;
+
+    public boolean showMarkers = true;
     
     public BioBlock(String name){
         super(name);

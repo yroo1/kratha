@@ -1,5 +1,6 @@
 package kratha.world.blocks.environment;
 
+import arc.Core;
 import arc.graphics.g2d.*;
 import arc.math.*;
 import mindustry.game.*;
@@ -11,10 +12,14 @@ public class MarkerOverlay extends OverlayFloor{
     public boolean shouldDraw = true;
     public MarkerOverlay(String name){
         super(name);
-        variants = 0;
+    }
+    @Override
+    public void load(){
+        super.load();
+        region = Core.atlas.find(name);
     }
     @Override
     public void drawBase(Tile tile){
-        if(shouldDraw)Draw.rect(variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))], tile.worldx(), tile.worldy());
+        if(shouldDraw)Draw.rect(region, tile.worldx(), tile.worldy());
     }
 }

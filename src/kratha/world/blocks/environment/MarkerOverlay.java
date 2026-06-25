@@ -15,7 +15,6 @@ public class MarkerOverlay extends OverlayFloor{
     }
     @Override
     public void drawBase(Tile tile){
-        Draw.z(Layer.floor+1);
-        if(shouldDraw)Draw.rect(region, tile.worldx(), tile.worldy());
+        if(shouldDraw)Draw.rect(variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))], tile.worldx(), tile.worldy());
     }
 }

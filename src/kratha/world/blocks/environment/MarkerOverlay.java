@@ -20,6 +20,7 @@ public class MarkerOverlay extends OverlayFloor{
     }
     @Override
     public void drawBase(Tile tile){
+        Draw.z(Layer.rubble);
         if(shouldDraw)Draw.rect(region, tile.worldx(), tile.worldy());
     }
 }

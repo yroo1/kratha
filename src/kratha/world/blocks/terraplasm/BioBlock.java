@@ -43,9 +43,9 @@ public class BioBlock extends Block {
     public boolean allowSkewer=false;
     public float skewerRate=0.01f;
     public int skewerSpacing=39;
-    public boolean allowBulb=false;
-    public float bulbRate=0.01f;
-    public int bulbSpacing=22;
+    public boolean allowCradle=false;
+    public float cradleRate=0.01f;
+    public int cradleSpacing=22;
     
     public int pulseToGrowRoot=2;
     
@@ -239,6 +239,7 @@ public class BioBlock extends Block {
             //of course its always true, i just need the r
             if(Terraplasm.root instanceof Root r){
                 if(this.block==Terraplasm.eye)tellDestroyed(0,r.eyeSpacing);
+                if(this.block==Terraplasm.cradle)tellDestroyed(2,r.cradleSpacing);
             }
         }
         public Building getNearestHeart() {

@@ -7,6 +7,7 @@ import mindustry.game.*;
 import mindustry.world.*;
 import mindustry.graphics.*;
 import mindustry.world.blocks.environment.OverlayFloor;
+import kratha.content.terraplasm.Terraplasm;
 
 import static mindustry.Vars.*;
 
@@ -17,6 +18,8 @@ public class MarkerOverlay extends OverlayFloor{
     }
     @Override
     public void drawBase(Tile tile){
-        if(state.isEditor()||state.isMenu())Draw.rect(region, tile.worldx(), tile.worldy());
+        if(Terraplasm.root instanceof Root r){
+            if(r.displayMarkers)Draw.rect(region, tile.worldx(), tile.worldy());
+        }
     }
 }

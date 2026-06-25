@@ -55,7 +55,7 @@ public class Terraplasm {
                 heart = new BioHeart("heart"){{
                     requirements(Category.distribution, with(KrathaItems.krathite, 10));
                     size = 3;
-                    health = 700;
+                    health = 800;
                 }};
                 root = new Root("root"){{
                     requirements(Category.distribution, with(KrathaItems.krathite, 1));
@@ -81,6 +81,7 @@ public class Terraplasm {
                     requiredItem2 = 2;
                 }};
                 skewer = new BioTurret("skewer"){{
+                    health = 300;
                     requirements(Category.turret, with(KrathaItems.guartz, 5));
                     reload = 85f;
                     inaccuracy = 2f;

@@ -8,11 +8,12 @@ import mindustry.graphics.*;
 import mindustry.world.blocks.environment.OverlayFloor;
 
 public class MarkerOverlay extends OverlayFloor{
+    public boolean shouldDraw = true;
     public MarkerOverlay(String name){
         super(name);
     }
     @Override
     public void drawBase(Tile tile){
-        //no
+        if(shouldDraw)super(tile);
     }
 }

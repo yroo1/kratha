@@ -11,6 +11,7 @@ import mindustry.graphics.*;
 import mindustry.gen.Sounds;
 import mindustry.content.*;
 import kratha.world.blocks.terraplasm.*;
+import kratha.world.blocks.environment.MarkerOverlay;
 import kratha.content.*;
 import kratha.graphics.KrathaPal;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
@@ -35,11 +36,13 @@ import static mindustry.type.ItemStack.with;
 
 public class Terraplasm {
     public static Block
+            skewerMarker,
             falseCore,dataPatchInfo,
             heart, root, eye, harvester, cradle, skewer;
     public static void load() {
         {
             {
+                skewerMarker = new MarkerOverlay(skewer-marker);
                 falseCore = new FalseCoreBlock("false-core"){{
                     //fake core to imitate attack mode, to be destroyed by wproc
                     targetable = false;

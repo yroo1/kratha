@@ -26,7 +26,7 @@ public class KrathaEnv {
             krathiteStaticwall,krathiteRough,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,krathiteVent,
             akrockWall,akacyteFloor,akrock,akrockPlated,akrockBoulder,akrockBoulderLarge,
             terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneWatra,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
-            krathagenFloor,krathagenDeep,krathagenWall,
+            krathagenFloor,krathagenDeep,krathagenDeeper,krathagenWall,
             watraShallow,watraDeep,
             fallenLeavesLegacy,fallenLeaves,lilypad,plant,flowerGreen,flowerPink,flowerRed,pebbles,krathiteOreWall,guartzOre,cobaltOre,anemiteOre;
     public static void load() {
@@ -177,6 +177,16 @@ public class KrathaEnv {
                     albedo = 0.95f;
                     supportsOverlay = true;
                     drownTime = 120;
+                }};
+                krathagenDeeper = new Floor("krathagen-deeper"){{
+                    speedMultiplier = 0.1f;
+                    variants = 4;
+                    liquidDrop = KrathaLiquids.krathagen;
+                    isLiquid = true;
+                    cacheLayer = CacheLayer.water;
+                    albedo = 1f;
+                    supportsOverlay = true;
+                    drownTime = 45;
                 }};
                 //watra
                 watraShallow = new Floor("watra-shallow"){{

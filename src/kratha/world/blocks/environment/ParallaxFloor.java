@@ -17,8 +17,7 @@ public class ParallaxFloor extends Floor{
         super(name);
     }
     @Override
-    public void drawMain(Tile tile){
-        Draw.z(Layer.floor-0.03f);
-        super.drawMain(tile);
+    public void drawBase(Tile tile){
+        //nothing
     }
 }

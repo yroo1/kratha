@@ -177,6 +177,7 @@ public class KrathaEnv {
                     albedo = 0.95f;
                     supportsOverlay = true;
                     drownTime = 120;
+                    blendGroup = krathagenFloor;
                 }};
                 krathagenDeeper = new ParallaxFloor("krathagen-deeper"){{
                     speedMultiplier = 0.3f;
@@ -188,6 +189,7 @@ public class KrathaEnv {
                     supportsOverlay = true;
                     drownTime = 60;
                     parallaxBlock = krathagenDeeperBlock;
+                    blendGroup = krathagenFloor;
                 }};
                 krathagenDeepest = new ParallaxFloor("krathagen-deepest"){{
                     speedMultiplier = 0.2f;
@@ -199,6 +201,7 @@ public class KrathaEnv {
                     supportsOverlay = true;
                     drownTime = 30;
                     parallaxBlock = krathagenDeepestBlock;
+                    blendGroup = krathagenFloor;
                 }};
                 krathagenDeeperBlock = new ParallaxBlock("krathagen-deeper-block"){{
                     variants = 4;

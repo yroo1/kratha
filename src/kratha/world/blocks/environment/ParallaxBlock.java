@@ -14,6 +14,11 @@ import static mindustry.Vars.*;
 public class ParallaxBlock extends TallBlock{
     private static float[] verts = new float[4*6];
     public float parallaxAmount = -100;
+    public String floorName;
+    public String depthFlag; //for the wall. either void, deep, or mid. very hardcoded smh
+    
+    //mid to sur, dep to mid, dep to sur, vod to dep, vod to mid, vod to sur
+    public TextureRegion[] wallRegions = new TextureRegion[6]
     public ParallaxBlock(String name){
         super(name);
         forceDark = false;
@@ -23,6 +28,23 @@ public class ParallaxBlock extends TallBlock{
     public void init(){
         super.init();
         hasShadow = false;
+    }
+    @Override
+    public void load(){
+        super.load();
+        if(variants > 0){
+            for(int i = 0; i < variants; i++){
+                variantRegions[i] = Core.atlas.find(floorName + (i + 1));
+            }
+        }else{
+            variantRegions[0] = Core.atlas.find(floorName);
+        }
+        wallRegions[0] = Core.atlas.find("mid-to-sur");
+        wallRegions[1] = Core.atlas.find("dep-to-mid");
+        wallRegions[2] = Core.atlas.find("dep-to-sur");
+        wallRegions[3] = Core.atlas.find("vod-to-sur");
+        wallRegions[4] = Core.atlas.find("vod-to-mid");
+        wallRegions[5] = Core.atlas.find("vod-to-sur");
     }
     @Override
     public void drawBase(Tile tile){
@@ -68,12 +90,12 @@ public class ParallaxBlock extends TallBlock{
         Draw.vert(region.texture, verts, 0, verts.length);
 
         Draw.z(Layer.floor-0.01f);
-        if(tile.nearby(0,1)!=null&&tile.nearby(0,1).floor()!=f)drawSide(tile,0);
-        if(tile.nearby(-1,0)!=null&&tile.nearby(-1,0).floor()!=f)drawSide(tile,1);
-        if(tile.nearby(0,-1)!=null&&tile.nearby(0,-1).floor()!=f)drawSide(tile,2);
-        if(tile.nearby(1,0)!=null&&tile.nearby(1,0).floor()!=f)drawSide(tile,3);
+        if(tile.nearby(0,1)!=null&&tile.nearby(0,1).floor()!=f)drawSide(tile,0,tile.nearby(0,1));
+        if(tile.nearby(-1,0)!=null&&tile.nearby(-1,0).floor()!=f)drawSide(tile,1,tile.nearby(-1,0));
+        if(tile.nearby(0,-1)!=null&&tile.nearby(0,-1).floor()!=f)drawSide(tile,2,tile.nearby(0,-1));
+        if(tile.nearby(1,0)!=null&&tile.nearby(1,0).floor()!=f)drawSide(tile,3,tile.nearby(1,0));
     }
-    public void drawSide(Tile tile,int r){
+    public void drawSide(Tile tile,int r,Tile ntile){
         //rotation order : up left down right
         float p = parallaxAmount/Core.camera.width;
         float cx = Core.camera.position.x, cy = Core.camera.position.y;
@@ -82,7 +104,13 @@ public class ParallaxBlock extends TallBlock{
         float x = tile.worldx(), y = tile.worldy();
         float c = Color.white.toFloatBits();
         float mc = Color.clearFloatBits;
-        TextureRegion reg = variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region;
+        Block nfloor=ntils.floor()
+        boolean toSur = !(nfloor instanceof ParallaxFloor)
+        boolean deeper = 
+        TextureRegion reg = region;
+        if(depthFlag=="mid"){
+            reg = wallRegions[0]
+        }
 
         //i sure do love assigning everything manually
         if(r==0){
@@ -146,7 +174,7 @@ public class ParallaxBlock extends TallBlock{
         verts[22] = reg.v;
         verts[23] = mc;
 
-        Draw.vert(region.texture, verts, 0, verts.length);
+        Draw.vert(reg.texture, verts, 0, verts.length);
     }
     @Override
     public boolean synthetic(){

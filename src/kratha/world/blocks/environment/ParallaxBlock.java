@@ -29,7 +29,7 @@ public class ParallaxBlock extends TallBlock{
         float s = tilesize/2f;
         float x = tile.worldx(), y = tile.worldy();
         float c = Color.white.toFloatBits();
-        float mc = Color.clearFloatBits();
+        float mc = Color.clearFloatBits;
 
         verts[0] = x - s;
         verts[1] = y - s;

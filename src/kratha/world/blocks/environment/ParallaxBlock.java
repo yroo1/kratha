@@ -135,7 +135,7 @@ public class ParallaxBlock extends TallBlock{
             verts[0] = x - s + (x-s-cx)*p2;
             verts[1] = y - s + (y-s-cy)*p2;
             verts[6] = x - s + (x-s-cx)*p2;
-            verts[7] = y + s + (y+s-cy)"p2;
+            verts[7] = y + s + (y+s-cy)*p2;
             verts[12] = x - s + (x-s-cx)*p;
             verts[13] = y + s + (y+s-cy)*p;
             verts[18] = x - s + (x-s-cx)*p;

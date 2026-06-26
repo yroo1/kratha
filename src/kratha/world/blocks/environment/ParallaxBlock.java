@@ -34,10 +34,10 @@ public class ParallaxBlock extends TallBlock{
 
         float c = Color.toFloatBits(1,1,1,1);
         Draw.quad(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,
-            tile.worldx()-tilesize/2+camoffX1, tile.worldy()-tilesize/2+camoffY1, c,
-            tile.worldx()+tilesize/2+camoffX2, tile.worldy()-tilesize/2+camoffY2, c,
-            tile.worldx()-tilesize/2+camoffX3, tile.worldy()+tilesize/2+camoffY3, c,
-            tile.worldx()+tilesize/2+camoffX4, tile.worldy()+tilesize/2+camoffY4, c);
+            tile.worldx()-tilesize/2, tile.worldy()-tilesize/2, c,
+            tile.worldx()+tilesize/2, tile.worldy()-tilesize/2, c,
+            tile.worldx()-tilesize/2, tile.worldy()+tilesize/2, c,
+            tile.worldx()+tilesize/2, tile.worldy()+tilesize/2, c);
         
     }
     @Override

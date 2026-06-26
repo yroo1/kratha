@@ -11,7 +11,7 @@ import mindustry.world.blocks.environment.OverlayFloor;
 import static mindustry.Vars.*;
 
 public class ParallaxFloor extends Floor{
-  public float parallaxAmount = -100
+  public float parallaxAmount = -100;
     public ParallaxFloor(String name){
         super(name);
     }

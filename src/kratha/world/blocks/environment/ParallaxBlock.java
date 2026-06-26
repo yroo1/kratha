@@ -119,6 +119,7 @@ public class ParallaxBlock extends TallBlock{
         float p2 = 0;
         if(!toSur&&nblock instanceof ParallaxBlock pf)p2 = pf.parallaxAmount/Core.camera.width;
 
+        if(!deeper)return;
         //i sure do love assigning everything manually
         if(r==0){
             verts[0] = x - s + (x-s-cx)*p;

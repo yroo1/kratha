@@ -30,33 +30,34 @@ public class ParallaxBlock extends TallBlock{
         float x = tile.worldx(), y = tile.worldy();
         float c = Color.white.toFloatBits();
         float mc = Color.clearFloatBits;
+        TextureRegion reg = variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region;
 
         verts[0] = x - s;
         verts[1] = y - s;
         verts[2] = c;
-        verts[3] = region.u;
-        verts[4] = region.v2;
+        verts[3] = reg.u;
+        verts[4] = reg.v2;
         verts[5] = mc;
 
         verts[6] = x + s;
         verts[7] = y - s;
         verts[8] = c;
-        verts[9] = region.u2;
-        verts[10] = region.v2;
+        verts[9] = reg.u2;
+        verts[10] = reg.v2;
         verts[11] = mc;
 
         verts[12] = x + s;
         verts[13] = y + s;
         verts[14] = c;
-        verts[15] = region.u2;
-        verts[16] = region.v;
+        verts[15] = reg.u2;
+        verts[16] = reg.v;
         verts[17] = mc;
 
         verts[18] = x - s;
         verts[19] = y + s;
         verts[20] = c;
-        verts[21] = region.u;
-        verts[22] = region.v;
+        verts[21] = reg.u;
+        verts[22] = reg.v;
         verts[23] = mc;
 
         Draw.vert(region.texture, verts, 0, verts.length);

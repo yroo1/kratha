@@ -2,6 +2,7 @@ package kratha.world.blocks.environment;
 
 import arc.Core;
 import arc.graphics.g2d.*;
+import arc.graphics.*;
 import arc.math.*;
 import arc.util.*;
 import mindustry.world.*;
@@ -30,12 +31,13 @@ public class ParallaxBlock extends TallBlock{
         float camoffY3=(tile.worldy()+tilesize/2-Core.camera.position.y)*((parallaxAmount)/Core.camera.width);
         float camoffX4=(tile.worldx()+tilesize/2-Core.camera.position.x)*((parallaxAmount)/Core.camera.width);
         float camoffY4=(tile.worldy()+tilesize/2-Core.camera.position.y)*((parallaxAmount)/Core.camera.width);
-        
+
+        float c = Color.toFloatBits(1,1,1,1);
         Draw.quad(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,
-            tile.worldx()-tilesize/2+camoffX1, tile.worldy()-tilesize/2+camoffY1, 1,
-            tile.worldx()+tilesize/2+camoffX2, tile.worldy()-tilesize/2+camoffY2, 1,
-            tile.worldx()-tilesize/2+camoffX3, tile.worldy()+tilesize/2+camoffY3, 1,
-            tile.worldx()+tilesize/2+camoffX4, tile.worldy()+tilesize/2+camoffY4, 1);
+            tile.worldx()-tilesize/2+camoffX1, tile.worldy()-tilesize/2+camoffY1, c,
+            tile.worldx()+tilesize/2+camoffX2, tile.worldy()-tilesize/2+camoffY2, c,
+            tile.worldx()-tilesize/2+camoffX3, tile.worldy()+tilesize/2+camoffY3, c,
+            tile.worldx()+tilesize/2+camoffX4, tile.worldy()+tilesize/2+camoffY4, c);
         
     }
     @Override

@@ -12,19 +12,23 @@ import mindustry.world.blocks.environment.TallBlock;
 import static mindustry.Vars.*;
 
 public class ParallaxBlock extends TallBlock{
+    private static float[] verts = new float[4*5];
     public float parallaxAmount = -100;
     public ParallaxBlock(String name){
         super(name);
         forceDark = false;
-        hasShadow = false;
         solid = false;
+    }
+    @Override
+    public void init(){
+        super.init();
+        hasShadow = false;
     }
     @Override
     public void drawBase(Tile tile){
         //shit code
         float s = tilesize/2f;
         float x = tile.worldx(), y = tile.worldy();
-        float[] verts = new float[20];
         float c = Color.white.toFloatBits();
 
         verts[0] = x - s;

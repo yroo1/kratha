@@ -10,8 +10,9 @@ import mindustry.world.blocks.environment.Floor;
 
 import static mindustry.Vars.*;
 
+//note: this is just the floor, the real parallax is drawn by invisible block! (ParallaxBlock)
 public class ParallaxFloor extends Floor{
-    public block parallaxBlock
+    public Block parallaxBlock;
     public ParallaxFloor(String name){
         super(name);
     }

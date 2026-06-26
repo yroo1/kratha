@@ -18,6 +18,7 @@ public class ParallaxBlock extends TallBlock{
         super(name);
         forceDark = false;
         solid = false;
+        layer = Layer.floor-0.02f;
     }
     @Override
     public void init(){
@@ -26,6 +27,7 @@ public class ParallaxBlock extends TallBlock{
     }
     @Override
     public void drawBase(Tile tile){
+        Draw.z(layer);
         float p = parallaxAmount/Core.camera.width;
         float cx = Core.camera.position.x, cy = Core.camera.position.y;
         

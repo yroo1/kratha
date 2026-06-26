@@ -18,7 +18,7 @@ public class ParallaxBlock extends TallBlock{
     public String depthFlag; //for the wall. either 0, 1, or 2. very hardcoded smh
     
     //mid to sur, dep to mid, dep to sur, vod to dep, vod to mid, vod to sur
-    public TextureRegion[] wallRegions = new TextureRegion[6]
+    public TextureRegion[] wallRegions = new TextureRegion[6];
     public ParallaxBlock(String name){
         super(name);
         forceDark = false;
@@ -48,7 +48,7 @@ public class ParallaxBlock extends TallBlock{
     }
     @Override
     public void drawBase(Tile tile){
-        Draw.z(Layer.floor-0.02f);
+        Draw.z(Layer.floor-0.02f+depthFlag*0.001f);
         Block f = tile.floor();
         float p = parallaxAmount/Core.camera.width;
         float cx = Core.camera.position.x, cy = Core.camera.position.y;
@@ -89,7 +89,7 @@ public class ParallaxBlock extends TallBlock{
 
         Draw.vert(region.texture, verts, 0, verts.length);
 
-        Draw.z(Layer.floor-0.01f);
+        Draw.z(Layer.floor-0.01f+depthFlag*0.001f);
         if(tile.nearby(0,1)!=null&&tile.nearby(0,1).floor()!=f)drawSide(tile,0,tile.nearby(0,1));
         if(tile.nearby(-1,0)!=null&&tile.nearby(-1,0).floor()!=f)drawSide(tile,1,tile.nearby(-1,0));
         if(tile.nearby(0,-1)!=null&&tile.nearby(0,-1).floor()!=f)drawSide(tile,2,tile.nearby(0,-1));
@@ -104,10 +104,10 @@ public class ParallaxBlock extends TallBlock{
         float x = tile.worldx(), y = tile.worldy();
         float c = Color.white.toFloatBits();
         float mc = Color.clearFloatBits;
-        Block nfloor=ntils.floor()
+        Block nfloor=ntils.floor();
         int ndepth = -1;
         if(nfloor instanceof ParallaxFloor pf)ndepth=pf.depthFlag;
-        boolean toSur = !(nfloor instanceof ParallaxFloor)
+        boolean toSur = !(nfloor instanceof ParallaxFloor);
         boolean deeper = !(nfloor instanceof ParralaxFloor)||(nfloor instanceof ParallaxFloor pf&&pf.depthFlag>depthFlag);
         TextureRegion reg = region;
         if(depthFlag==2){

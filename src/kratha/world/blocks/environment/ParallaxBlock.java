@@ -116,49 +116,51 @@ public class ParallaxBlock extends TallBlock{
             if(!toSur&&ndepth==2) reg = wallRegions[4];
             if(toSur) reg = wallRegions[5];
         }
+        float p2 = 0;
+        if(!toSur&&nblock instanceof ParallaxBlock pf)p2 = pf.parallaxAmount/Core.camera.width;
 
         if(!deeper)return;
-
         //i sure do love assigning everything manually
         if(r==0){
             verts[0] = x - s + (x-s-cx)*p;
             verts[1] = y + s + (y+s-cy)*p;
             verts[6] = x + s + (x+s-cx)*p;
             verts[7] = y + s + (y+s-cy)*p;
-            verts[12] = x + s;
-            verts[13] = y + s;
-            verts[18] = x - s;
-            verts[19] = y + s;
+            verts[12] = x + s + (x+s-cx)*p2;
+            verts[13] = y + s + (y+s-cy)*p2;
+            verts[18] = x - s + (x-s-cx)*p2;
+            verts[19] = y + s + (y+s-cy)*p2;
         }
         if(r==1){
-            verts[0] = x - s;
-            verts[1] = y + s;
-            verts[6] = x - s;
-            verts[7] = y - s;
+            verts[0] = x - s + (x-s-cx)*p2;
+            verts[1] = y - s + (y-s-cy)*p2;
+            verts[6] = x - s + (x-s-cx)*p2;
+            verts[7] = y + s + (y+s-cy)"p2;
             verts[12] = x - s + (x-s-cx)*p;
-            verts[13] = y - s + (y-s-cy)*p;
+            verts[13] = y + s + (y+s-cy)*p;
             verts[18] = x - s + (x-s-cx)*p;
-            verts[19] = y + s + (y+s-cy)*p;
+            verts[19] = y - s + (y-s-cy)*p;
         }
         if(r==2){
             verts[0] = x + s + (x+s-cx)*p;
             verts[1] = y - s + (y-s-cy)*p;
             verts[6] = x - s + (x-s-cx)*p;
             verts[7] = y - s + (y-s-cy)*p;
-            verts[12] = x - s;
-            verts[13] = y - s;
-            verts[18] = x + s;
-            verts[19] = y - s;
+            verts[12] = x - s + (x-s-cx)*p2;
+            verts[13] = y - s + (y-s-cy)*p2;
+            verts[18] = x + s + (x+s-cx)*p2;
+            verts[19] = y - s + (y-s-cy)*p2;
         }
         if(r==3){
-            verts[0] = x + s;
-            verts[1] = y - s;
-            verts[6] = x + s;
-            verts[7] = y + s;
+            verts[0] = x + s + (x+s-cx)*p2;
+            verts[1] = y + s + (y+s-cy)*p2;
+            verts[6] = x + s + (x+s-cx)*p2;
+            verts[7] = y - s + (y-s-cy)*p2;
             verts[12] = x + s + (x+s-cx)*p;
-            verts[13] = y + s + (y+s-cy)*p;
+            verts[13] = y - s + (y-s-cy)*p;
             verts[18] = x + s + (x+s-cx)*p;
-            verts[19] = y - s + (y-s-cy)*p;
+            verts[19] = y + s + (y+s-cy)*p;
+            
         }
         
         verts[2] = c;

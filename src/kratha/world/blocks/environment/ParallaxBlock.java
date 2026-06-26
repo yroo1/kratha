@@ -22,12 +22,12 @@ public class ParallaxBlock extends TallBlock{
     public ParallaxBlock(String name){
         super(name);
         forceDark = false;
-        solid = false;
     }
     @Override
     public void init(){
         super.init();
         hasShadow = false;
+        solid = false;
     }
     @Override
     public void load(){
@@ -41,7 +41,7 @@ public class ParallaxBlock extends TallBlock{
     }
     @Override
     public void drawBase(Tile tile){
-        Draw.z(Layer.floor-0.02f+depthFlag*0.001f);
+        Draw.z(Layer.floor-0.51f+depthFlag*0.1f);
         Block f = tile.floor();
         float p = parallaxAmount/Core.camera.width;
         float cx = Core.camera.position.x, cy = Core.camera.position.y;
@@ -82,7 +82,7 @@ public class ParallaxBlock extends TallBlock{
 
         Draw.vert(region.texture, verts, 0, verts.length);
 
-        Draw.z(Layer.floor-0.01f+depthFlag*0.001f);
+        Draw.z(Layer.floor-0.5f+depthFlag*0.1f);
         if(tile.nearby(0,1)!=null&&tile.nearby(0,1).floor()!=f)drawSide(tile,0,tile.nearby(0,1));
         if(tile.nearby(-1,0)!=null&&tile.nearby(-1,0).floor()!=f)drawSide(tile,1,tile.nearby(-1,0));
         if(tile.nearby(0,-1)!=null&&tile.nearby(0,-1).floor()!=f)drawSide(tile,2,tile.nearby(0,-1));
@@ -132,14 +132,14 @@ public class ParallaxBlock extends TallBlock{
             verts[19] = y + s + (y+s-cy)*p2;
         }
         if(r==1){
-            verts[0] = x - s + (x-s-cx)*p2;
-            verts[1] = y + s + (y+s-cy)*p2;
-            verts[6] = x - s + (x-s-cx)*p2;
-            verts[7] = y - s + (y-s-cy)*p2;
-            verts[12] = x - s + (x-s-cx)*p;
-            verts[13] = y - s + (y-s-cy)*p;
-            verts[18] = x - s + (x-s-cx)*p;
-            verts[19] = y + s + (y+s-cy)*p;
+            verts[0] = x - s + (x-s-cx)*p;
+            verts[1] = y + s + (y+s-cy)*p;
+            verts[6] = x - s + (x-s-cx)*p;
+            verts[7] = y - s + (y-s-cy)*p;
+            verts[12] = x - s + (x-s-cx)*p2;
+            verts[13] = y - s + (y-s-cy)*p2;
+            verts[18] = x - s + (x-s-cx)*p2;
+            verts[19] = y + s + (y+s-cy)*p2;
         }
         if(r==2){
             verts[0] = x + s + (x+s-cx)*p;
@@ -152,14 +152,14 @@ public class ParallaxBlock extends TallBlock{
             verts[19] = y - s + (y-s-cy)*p2;
         }
         if(r==3){
-            verts[0] = x + s + (x+s-cx)*p2;
-            verts[1] = y - s + (y-s-cy)*p2;
-            verts[6] = x + s + (x+s-cx)*p2;
-            verts[7] = y + s + (y+s-cy)*p2;
-            verts[12] = x + s + (x+s-cx)*p;
-            verts[13] = y + s + (y+s-cy)*p;
-            verts[18] = x + s + (x+s-cx)*p;
-            verts[19] = y - s + (y-s-cy)*p;
+            verts[0] = x + s + (x+s-cx)*p;
+            verts[1] = y - s + (y-s-cy)*p;
+            verts[6] = x + s + (x+s-cx)*p;
+            verts[7] = y + s + (y+s-cy)*p;
+            verts[12] = x + s + (x+s-cx)*p2;
+            verts[13] = y + s + (y+s-cy)*p2;
+            verts[18] = x + s + (x+s-cx)*p2;
+            verts[19] = y - s + (y-s-cy)*p2;
             
         }
         

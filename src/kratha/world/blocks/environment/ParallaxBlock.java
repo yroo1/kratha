@@ -19,10 +19,6 @@ public class ParallaxBlock extends TallBlock{
         forceDark = false;
         hasShadow = false;
         solid = false;
-        for(int i = 0; i < 4; i++){
-            vertices[i * 6 + 2] = Color.white.toFloatBits();
-            vertices[i * 6 + 5] = Color.clearFloatBits;
-        }
     }
     @Override
     public void drawBase(Tile tile){
@@ -37,6 +33,10 @@ public class ParallaxBlock extends TallBlock{
         float camoffX4=(tile.worldx()+tilesize/2-Core.camera.position.x)*((parallaxAmount)/Core.camera.width);
         float camoffY4=(tile.worldy()+tilesize/2-Core.camera.position.y)*((parallaxAmount)/Core.camera.width);
 
+        for(int i = 0; i < 4; i++){
+            vertices[i * 6 + 2] = Color.white.toFloatBits();
+            vertices[i * 6 + 5] = Color.clearFloatBits;
+        }
         setPos(0,tile.worldx()-tilesize/2,tile.worldy()-tilesize/2);
         setPos(1,tile.worldx()+tilesize/2,tile.worldy()-tilesize/2);
         setPos(2,tile.worldx()+tilesize/2,tile.worldy()+tilesize/2);
@@ -46,8 +46,8 @@ public class ParallaxBlock extends TallBlock{
   
     private void setPos(int i, float x, float y){
         if(i >= 0 && i < 4){
-            if(!Float.isNaN(x)) vertices[i * 6] = x * tilesize;
-            if(!Float.isNaN(y)) vertices[i * 6 + 1] = y * tilesize;
+            if(!Float.isNaN(x)) vertices[i * 6] = x;
+            if(!Float.isNaN(y)) vertices[i * 6 + 1] = y;
         }
     }
   

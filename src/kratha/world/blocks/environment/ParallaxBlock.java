@@ -15,7 +15,7 @@ public class ParallaxBlock extends TallBlock{
     private static float[] verts = new float[4*6];
     public float parallaxAmount = -100;
     public String floorName;
-    public String depthFlag; //for the wall. either 0, 1, or 2. very hardcoded smh
+    public int depthFlag; //for the wall. either 0, 1, or 2. very hardcoded smh
     
     //mid to sur, dep to mid, dep to sur, vod to dep, vod to mid, vod to sur
     public TextureRegion[] wallRegions = new TextureRegion[6];
@@ -104,11 +104,12 @@ public class ParallaxBlock extends TallBlock{
         float x = tile.worldx(), y = tile.worldy();
         float c = Color.white.toFloatBits();
         float mc = Color.clearFloatBits;
-        Block nfloor=ntils.floor();
+        Block nblock=ntile.block();
+        Block nfloor=ntile.floor();
         int ndepth = -1;
-        if(nfloor instanceof ParallaxFloor pf)ndepth=pf.depthFlag;
+        if(nblock!=null&&nblock instanceof ParallaxBlock pf)ndepth=pf.depthFlag;
         boolean toSur = !(nfloor instanceof ParallaxFloor);
-        boolean deeper = !(nfloor instanceof ParralaxFloor)||(nfloor instanceof ParallaxFloor pf&&pf.depthFlag>depthFlag);
+        boolean deeper = !(nfloor instanceof ParallaxFloor)||(nblock!=null&&nblock instanceof ParallaxBlock pf&&pf.depthFlag>depthFlag);
         TextureRegion reg = region;
         if(depthFlag==2){
             reg = wallRegions[0];

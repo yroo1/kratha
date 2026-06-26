@@ -21,6 +21,6 @@ public class ParallaxFloor extends Floor{
         float camoffX=(tile.worldx()-Core.camera.position.x)*((parallaxAmount)/Core.camera.width);
         float camoffY=(tile.worldy()-Core.camera.position.y)*((parallaxAmount)/Core.camera.width);
         Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,
-            tile.worldx()+camoffX, tile.worldy()+camoffY, rot);
+            tile.worldx()+camoffX, tile.worldy()+camoffY);
     }
 }

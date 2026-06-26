@@ -36,8 +36,8 @@ public class ParallaxBlock extends TallBlock{
         Draw.quad(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,
             tile.worldx()-tilesize/2, tile.worldy()-tilesize/2, c,
             tile.worldx()+tilesize/2, tile.worldy()-tilesize/2, c,
-            tile.worldx()-tilesize/2, tile.worldy()+tilesize/2, c,
-            tile.worldx()+tilesize/2, tile.worldy()+tilesize/2, c);
+            tile.worldx()+tilesize/2, tile.worldy()+tilesize/2, c,
+            tile.worldx()-tilesize/2, tile.worldy()+tilesize/2, c);
         
     }
     @Override

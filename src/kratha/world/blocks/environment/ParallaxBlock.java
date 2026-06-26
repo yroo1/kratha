@@ -25,28 +25,29 @@ public class ParallaxBlock extends TallBlock{
         float s = Vars.tilesize/2f;
         float x = tile.worldx(), y = tile.worldy();
         float[] verts = new float[24];
+        float c = Color.white.toFloatBits;
 
         verts[0] = x - s;
         verts[1] = y - s;
-        verts[2] = sample(this, tile.x, tile.y, tile.x - 1, tile.y - 1, tile.x, tile.y - 1, tile.x - 1, tile.y);
+        verts[2] = c;
         verts[3] = region.u;
         verts[4] = region.v2;
 
         verts[5] = x + s;
         verts[6] = y - s;
-        verts[7] = sample(this, tile.x, tile.y, tile.x, tile.y - 1, tile.x + 1, tile.y - 1, tile.x + 1, tile.y);
+        verts[7] = c;
         verts[8] = region.u2;
         verts[9] = region.v2;
 
         verts[10] = x + s;
         verts[11] = y + s;
-        verts[12] = sample(this, tile.x, tile.y, tile.x + 1, tile.y + 1, tile.x, tile.y + 1, tile.x + 1, tile.y);
+        verts[12] = c;
         verts[13] = region.u2;
         verts[14] = region.v;
 
         verts[15] = x - s;
         verts[16] = y + s;
-        verts[17] = sample(this, tile.x, tile.y, tile.x - 1, tile.y + 1, tile.x, tile.y + 1, tile.x - 1, tile.y);
+        verts[17] = c;
         verts[18] = region.u;
         verts[19] = region.v;
 

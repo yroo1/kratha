@@ -178,7 +178,7 @@ public class KrathaEnv {
                     supportsOverlay = true;
                     drownTime = 120;
                 }};
-                krathagenDeeper = new Floor("krathagen-deeper"){{
+                krathagenDeeper = new ParallaxFloor("krathagen-deeper"){{
                     speedMultiplier = 0.1f;
                     variants = 4;
                     liquidDrop = KrathaLiquids.krathagen;

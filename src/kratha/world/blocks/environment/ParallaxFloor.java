@@ -23,4 +23,8 @@ public class ParallaxFloor extends Floor{
         Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,
             tile.worldx()+camoffX, tile.worldy()+camoffY);
     }
+    @Override
+    public boolean updateRender(Tile tile){
+        return true;
+    }
 }

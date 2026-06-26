@@ -49,7 +49,7 @@ public class ParallaxBlock extends TallBlock{
         verts[10] = reg.v2;
         verts[11] = mc;
 
-        verts[12] = x + s + (y+s-cx)*p;
+        verts[12] = x + s + (x+s-cx)*p;
         verts[13] = y + s + (y+s-cy)*p;
         verts[14] = c;
         verts[15] = reg.u2;

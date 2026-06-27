@@ -41,6 +41,12 @@ public class ParallaxBlock extends TallBlock{
         wallRegions[5] = Core.atlas.find(name+"-vod-to-sur");
     }
     @Override
+    public void createIcons(MultiPacker packer){
+        super.createIcons(packer);
+        PixmapRegion image = packer.get(fullIcon);
+        mapColor.set(image.get(image.width/2, image.height/2));
+    }
+    @Override
     public void drawBase(Tile tile){
         Draw.z(Layer.floor-0.51f+depthFlag*0.1f);
         Block f = tile.floor();

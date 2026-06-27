@@ -18,7 +18,7 @@ public class ParallaxBlock extends TallBlock{
     public int depthFlag;
     public TextureRegion[] wallRegions = new TextureRegion[6];
 
-    private final float parallaxMultiplier = 1f/1000;
+    private final float parallaxMultiplier = 1f/2000;
     public ParallaxBlock(String name){
         super(name);
         forceDark = false;

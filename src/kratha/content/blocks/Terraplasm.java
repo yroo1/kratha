@@ -69,6 +69,7 @@ public class Terraplasm {
                     requirements(Category.distribution, with(KrathaItems.krathite, 1));
                     health = 140;
                     size = 2;
+                    variants = 2;
                 }};
                 cradle = new BioSpawner("cradle"){{
                     requirements(Category.distribution, with(KrathaItems.guartz, 5,KrathaItems.cobalt,5));

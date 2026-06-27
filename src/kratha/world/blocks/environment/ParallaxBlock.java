@@ -43,7 +43,9 @@ public class ParallaxBlock extends TallBlock{
     @Override
     public void createIcons(MultiPacker packer){
         super.createIcons(packer);
-        PixmapRegion image = packer.get(fullIcon);
+        //this uses sketchy method to get PixmapRegion. Blame this if crash relating to ParallaxBlock ever happen
+        PixmapRegion image = fullIcon.texture.getTextureData().getPixmap();
+        
         mapColor.set(image.get(image.width/2, image.height/2));
     }
     @Override

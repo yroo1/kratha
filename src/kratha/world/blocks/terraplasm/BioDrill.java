@@ -84,10 +84,6 @@ public class BioDrill extends BioBlock {
             }
         }
         @Override
-        public void draw(){
-            drawPulse(block.region,drawPulseScale);
-        }
-        @Override
         public void write(Writes write){
             super.write(write);
             write.i(drillProgress);

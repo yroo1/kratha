@@ -41,6 +41,11 @@ public class ParallaxBlock extends TallBlock{
         wallRegions[5] = Core.atlas.find(name+"-vod-to-sur");
     }
     @Override
+    public void createIcons(MultiPacker packer){
+        super.createIcons(packer);
+        mapColor = Color.black;
+    }
+    @Override
     public void drawBase(Tile tile){
         Draw.z(Layer.floor-0.51f+depthFlag*0.1f);
         Block f = tile.floor();
@@ -132,7 +137,7 @@ public class ParallaxBlock extends TallBlock{
             verts[18] = x - s + (x-s-cx)*p2;
             verts[19] = y + s + (y+s-cy)*p2;
         }
-        if(r==1-&&(x-s+(x-s-cx)*p)>(x-s+(x-s-cx)*p2)){
+        if(r==1&&(x-s+(x-s-cx)*p)>(x-s+(x-s-cx)*p2)){
             verts[0] = x - s + (x-s-cx)*p;
             verts[1] = y + s + (y+s-cy)*p;
             verts[6] = x - s + (x-s-cx)*p;

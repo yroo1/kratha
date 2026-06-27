@@ -206,9 +206,16 @@ public class Root extends BioBlock {
                 }
             }
 
-            //growing drill
+            //growing drill for floor
             if(tile != null && tile.drop() != null && allowDrill && clear2){
                 tile.setBlock(Terraplasm.harvester,team);
+            }
+            //growing drill for wall
+            for(int i=0;i<4;i++){
+                Tile wallTile = tile.nearby(Geometry.d4(i).x*(i<2?2:1),Geometry.d4(i).y*(i<2?2:1));
+                if(allowDrill&&wallTile!=null&&wallTile.block()!=null&&wallTile.wallDrop()!=null&&clear2){
+                    tile.setBlock(Terraplasm.harvester,team);
+                }
             }
 
             if(unpack(extraFloat4)[0]==0||unpack(extraFloat4)[1]==0){

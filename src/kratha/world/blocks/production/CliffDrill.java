@@ -17,6 +17,7 @@ import mindustry.core.*;
 import mindustry.type.*;
 import mindustry.entities.units.*;
 import mindustry.content.Blocks;
+import mindustry.game.Team;
 
 import static mindustry.Vars.*;
 
@@ -210,9 +211,14 @@ public class CliffDrill extends BeamDrill {
                         }
                     }
                     int depth=0;
+                    int startDepth=999999;
                     for(int j=0;j<range;j++){
-                        if(newFacing[i*range+j]!=null)depth=Math.max(j+1,depth);
+                        if(newFacing[i*range+j]!=null){
+                            startDepth=min(j+1,startDepth);
+                            depth=Math.max(j+1,depth);
+                        }
                     }
+                    depth=depth-startDepth;
                     Draw.scl(depth/4f*warmup,1);
                     if(dir.x!=0){
                         Draw.rect(wallHeatRegion, face.worldx()+(depth*tilesize/2f*dir.x*warmup)-dir.x/2f*tilesize, face.worldy(), rotdeg());
@@ -299,8 +305,8 @@ public class CliffDrill extends BeamDrill {
                             Item drop = other.wallDrop();
                             if(drop != null && drop.hardness <= tier && (blockedItems == null || !blockedItems.contains(drop))){
                                 dest = other;
+                                break;
                             }
-                            break;
                         }
                     }
                 }

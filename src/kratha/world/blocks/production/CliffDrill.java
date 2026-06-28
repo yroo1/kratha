@@ -40,7 +40,7 @@ public class CliffDrill extends BeamDrill {
         return new TextureRegion[]{region, topRegion1};
     }
     public class CliffDrillBuild extends BeamDrillBuild {
-        facing = new Tile[size*range];
+        public Tile[] newFacing = new Tile[size*range];
         @Override
         public void draw(){
             Draw.rect(block.region, x, y);
@@ -52,7 +52,7 @@ public class CliffDrill extends BeamDrill {
             int ddx = Geometry.d4x(rotation + 1), ddy = Geometry.d4y(rotation + 1);
 
             for(int i = 0; i < size; i++){
-                Tile face = facing[i];
+                Tile face = newFacing[i];
                 if(face != null){
                     Point2 p = lasers[i];
                     float lx = face.worldx() - (dir.x/2f)*tilesize, ly = face.worldy() - (dir.y/2f)*tilesize;
@@ -151,7 +151,7 @@ public class CliffDrill extends BeamDrill {
                     }
                 }
 
-                facing[p] = dest;
+                newFacing[p] = dest;
             }
 
             //when multiple items are present, count that as no item

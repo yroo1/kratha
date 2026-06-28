@@ -40,6 +40,65 @@ public class CliffDrill extends BeamDrill {
     public TextureRegion[] icons(){
         return new TextureRegion[]{region, topRegion1};
     }
+    @Override
+    public void drawPlace(int x, int y, int rotation, boolean valid){
+        Item item = null, invalidItem = null;
+        boolean multiple = false;
+        int count = 0;
+
+        for(int i = 0; i < size; i++){
+            nearbySide(x, y, rotation, i, Tmp.p1);
+
+            int j = 0;
+            Item found = null;
+            for(; j < range; j++){
+                int rx = Tmp.p1.x + Geometry.d4x(rotation)*j, ry = Tmp.p1.y + Geometry.d4y(rotation)*j;
+                Tile other = world.tile(rx, ry);
+                if(other != null && other.solid()){
+                    Item drop = other.wallDrop();
+                    if(drop != null){
+                        if(drop.hardness <= tier && (blockedItems == null || !blockedItems.contains(drop))){
+                            found = drop;
+                            count++;
+                            Drawf.dashSquare(Pal.accent, other.worldx(), other.worldy(), tilesize);
+                        }else{
+                            invalidItem = drop;
+                        }
+                    }
+                }
+            }
+
+            if(found != null){
+                //check if multiple items will be drilled
+                if(item != found && item != null){
+                    multiple = true;
+                }
+                item = found;
+            }
+
+            int len = Math.min(j, range - 1);
+            Drawf.dashLine(found == null ? Pal.remove : Pal.placing,
+            Tmp.p1.x * tilesize,
+            Tmp.p1.y *tilesize,
+            (Tmp.p1.x + Geometry.d4x(rotation)*len) * tilesize,
+            (Tmp.p1.y + Geometry.d4y(rotation)*len) * tilesize
+            );
+        }
+
+        if(item != null){
+            float width = drawPlaceText(Core.bundle.formatFloat("bar.drillspeed", 60f / getDrillTime(item) * count, 2), x, y, valid);
+            if(!multiple){
+                float dx = x * tilesize + offset - width/2f - 4f, dy = y * tilesize + offset + size * tilesize / 2f + 5, s = iconSmall / 4f;
+                Draw.mixcol(Color.darkGray, 1f);
+                Draw.rect(item.fullIcon, dx, dy - 1, s, s);
+                Draw.reset();
+                Draw.rect(item.fullIcon, dx, dy, s, s);
+            }
+        }else if(invalidItem != null){
+            drawPlaceText(Core.bundle.get("bar.drilltierreq"), x, y, false);
+        }
+
+    }
     public class CliffDrillBuild extends BeamDrillBuild {
         public Tile[] newFacing = new Tile[size*range];
         @Override

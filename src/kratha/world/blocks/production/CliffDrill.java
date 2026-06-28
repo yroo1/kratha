@@ -47,7 +47,7 @@ public class CliffDrill extends BeamDrill {
         Item item = null, invalidItem = null;
         boolean multiple = false;
         int count = 0;
-
+        
         for(int i = 0; i < size; i++){
             nearbySide(x, y, rotation, i, Tmp.p1);
 
@@ -65,7 +65,7 @@ public class CliffDrill extends BeamDrill {
                             found = drop;
                             count++;
                             thisCount++;
-                            Drawf.selected(other.x, other.y, Blocks.router, Pal.accent);
+                            if(valid)Drawf.selected(other.x, other.y, Blocks.router, Pal.accent);
                         }else{
                             invalidItem = drop;
                         }
@@ -82,7 +82,7 @@ public class CliffDrill extends BeamDrill {
             }
 
             int len = Math.min(j, range - 1);
-            Drawf.dashLine(found == null ? Pal.remove : Pal.placing,
+            Drawf.dashLine(found == null || !valid ? Pal.remove : Pal.placing,
             Tmp.p1.x * tilesize,
             Tmp.p1.y *tilesize,
             (Tmp.p1.x + Geometry.d4x(rotation)*len) * tilesize,

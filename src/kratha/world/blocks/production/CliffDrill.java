@@ -20,7 +20,7 @@ import mindustry.entities.units.*;
 import static mindustry.Vars.*;
 
 public class CliffDrill extends BeamDrill {
-    public TextureRegion topRegion1, topRegion2;
+    public TextureRegion topRegion1, topRegion2, wallHeatRegion;
     public CliffDrill(String name){
          super(name);
     }
@@ -29,6 +29,7 @@ public class CliffDrill extends BeamDrill {
         super.load();
         topRegion1=Core.atlas.find(name+"-top1");
         topRegion2=Core.atlas.find(name+"-top2");
+        wallHeatRegion=Core.atlas.find(name+"-wall-heat");
     }
     @Override
     public void drawPlanRegion(BuildPlan plan, Eachable<BuildPlan> list){
@@ -120,6 +121,18 @@ public class CliffDrill extends BeamDrill {
                             Drawf.laser(laserBoost, laserEndBoost, lsx, lsy, lx, ly, width);
                         }
                     }
+                    int depth=0;
+                    if(int j=0;j<range;j++){
+                        if(newFacing[i*range+j]!=null)depth++;
+                    }
+                    if(dir.x!=0){
+                        Draw.scl(depth,1);
+                        Draw.rect(heatWallRegion, facing.worldx()+(depth*tilesize/2f*dir.x), facing.worldy(); rotDeg());
+                    }else{
+                        Draw.scl(1,depth);
+                        Draw.rect(heatWallRegion, facing.worldx(), facing.worldy()+(depth*tilesize/2f*dir.y); rotDeg());
+                    }
+                    Draw.scl(1,1);
                     Draw.color();
                     Draw.mixcol();
 

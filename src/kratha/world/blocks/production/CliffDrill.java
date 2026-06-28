@@ -72,7 +72,7 @@ public class CliffDrill extends BeamDrill {
                         }
                     }
                 }else{
-                    break;
+                    if(thisCount>0)break;
                 }
             }
 
@@ -118,8 +118,6 @@ public class CliffDrill extends BeamDrill {
                     if(drop != null && drop.hardness <= tier && (blockedItems == null || !blockedItems.contains(drop))){
                         return true;
                     }
-                }else{
-                    break;
                 }
             }
         }
@@ -293,7 +291,7 @@ public class CliffDrill extends BeamDrill {
                                 thisCount++;
                             }
                         }else{
-                            break;
+                            if(thisCount>0)break;
                         }
                     }
                     newFacing[p*range+i] = dest;

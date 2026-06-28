@@ -42,6 +42,38 @@ public class CliffDrill extends BeamDrill {
     public class CliffDrillBuild extends BeamDrillBuild {
         public Tile[] newFacing = new Tile[size*range];
         @Override
+        public void updateTile(){
+            super.updateTile();
+
+            if(lasers[0] == null) updateLasers();
+
+            warmup = Mathf.approachDelta(warmup, Mathf.num(efficiency > 0), 1f / 60f);
+
+            updateFacing();
+
+            float multiplier = Mathf.lerp(1f, optionalBoostIntensity, optionalEfficiency);
+            float drillTime = getDrillTime(lastItem);
+            boostWarmup = Mathf.lerpDelta(boostWarmup, optionalEfficiency, 0.1f);
+            lastDrillSpeed = (facingAmount * multiplier * timeScale) / drillTime * efficiency;
+
+            time += edelta() * multiplier;
+
+            if(time >= drillTime){
+                for(Tile tile : newFacing){
+                    Item drop = tile == null ? null : tile.wallDrop();
+                    if(items.total() < itemCapacity && drop != null){
+                        items.add(drop, 1);
+                        produced(drop);
+                    }
+                }
+                time %= drillTime;
+            }
+
+            if(timer(timerDump, dumpTime / timeScale)){
+                dump();
+            }
+        }
+        @Override
         public void draw(){
             Draw.rect(block.region, x, y);
             Draw.rect((rotation>1?topRegion2:topRegion1), x, y, rotdeg());

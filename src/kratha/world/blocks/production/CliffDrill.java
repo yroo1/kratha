@@ -14,6 +14,7 @@ import mindustry.ui.*;
 import mindustry.world.*;
 import mindustry.world.Tile;
 import mindustry.core.*;
+import mindustry.type.*;
 import mindustry.entities.units.*;
 
 import static mindustry.Vars.*;

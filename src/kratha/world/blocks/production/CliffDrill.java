@@ -107,6 +107,13 @@ public class CliffDrill extends BeamDrill {
     public class CliffDrillBuild extends BeamDrillBuild {
         public Tile[] newFacing = new Tile[size*range];
         @Override
+        public void drawSelect(){
+            for(Tile tile : newFacing){
+                Drawf.selected(tile.x, tile.y, Blocks.router, Pal.accent);
+            }
+            drawItemSelection(lastItem);
+        }
+        @Override
         public void updateTile(){
             super.updateTile();
 

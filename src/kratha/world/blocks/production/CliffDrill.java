@@ -164,8 +164,8 @@ public class CliffDrill extends BeamDrill {
             //update facing tiles
             for(int p = 0; p < size; p++){
                 Point2 l = lasers[p];
-                Tile dest = null;
                 for(int i = 0; i < range; i++){
+                    Tile dest = null;
                     int rx = l.x + dx*i, ry = l.y + dy*i;
                     Tile other = world.tile(rx, ry);
                     if(other != null){
@@ -181,9 +181,8 @@ public class CliffDrill extends BeamDrill {
                             }
                         }
                     }
+                    newFacing[p*range+range] = dest;
                 }
-
-                newFacing[p] = dest;
             }
 
             //when multiple items are present, count that as no item

@@ -40,6 +40,7 @@ public class CliffDrill extends BeamDrill {
         return new TextureRegion[]{region, topRegion1};
     }
     public class CliffDrillBuild extends BeamDrillBuild {
+        facing = new Tile[size*range];
         @Override
         public void draw(){
             Draw.rect(block.region, x, y);

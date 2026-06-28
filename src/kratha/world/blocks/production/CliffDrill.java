@@ -16,6 +16,7 @@ import mindustry.world.Tile;
 import mindustry.core.*;
 import mindustry.type.*;
 import mindustry.entities.units.*;
+import mindustry.content.Blocks;
 
 import static mindustry.Vars.*;
 
@@ -63,7 +64,7 @@ public class CliffDrill extends BeamDrill {
                             found = drop;
                             count++;
                             thisCount++;
-                            Drawf.dashSquare(Pal.accent, other.worldx(), other.worldy(), tilesize);
+                            Drawf.selected(other.worldx(), other.worldy(), Blocks.router, Pal.accent);
                         }else{
                             invalidItem = drop;
                         }
@@ -238,12 +239,13 @@ public class CliffDrill extends BeamDrill {
             //update facing tiles
             for(int p = 0; p < size; p++){
                 Point2 l = lasers[p];
+                int thisCount = 0;
                 for(int i = 0; i < range; i++){
                     Tile dest = null;
                     int rx = l.x + dx*i, ry = l.y + dy*i;
                     Tile other = world.tile(rx, ry);
                     if(other != null){
-                        if(other.solid()){
+                        if(other.solid()&&thisCount<stackLimit){
                             Item drop = other.wallDrop();
                             if(drop != null && drop.hardness <= tier && (blockedItems == null || !blockedItems.contains(drop))){
                                 facingAmount ++;
@@ -252,6 +254,7 @@ public class CliffDrill extends BeamDrill {
                                 }
                                 lastItem = drop;
                                 dest = other;
+                                thisCount++;
                             }
                         }
                     }

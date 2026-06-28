@@ -21,6 +21,7 @@ import static mindustry.Vars.*;
 
 public class CliffDrill extends BeamDrill {
     public TextureRegion topRegion1, topRegion2, wallHeatRegion;
+    public int stackLimit = 2;
     public CliffDrill(String name){
          super(name);
     }
@@ -51,15 +52,17 @@ public class CliffDrill extends BeamDrill {
 
             int j = 0;
             Item found = null;
+            int thisCount = 0;
             for(; j < range; j++){
                 int rx = Tmp.p1.x + Geometry.d4x(rotation)*j, ry = Tmp.p1.y + Geometry.d4y(rotation)*j;
                 Tile other = world.tile(rx, ry);
                 if(other != null && other.solid()){
                     Item drop = other.wallDrop();
                     if(drop != null){
-                        if(drop.hardness <= tier && (blockedItems == null || !blockedItems.contains(drop))){
+                        if(drop.hardness <= tier && thisCount < stackLimit && (blockedItems == null || !blockedItems.contains(drop))){
                             found = drop;
                             count++;
+                            thisCount++;
                             Drawf.dashSquare(Pal.accent, other.worldx(), other.worldy(), tilesize);
                         }else{
                             invalidItem = drop;

@@ -66,7 +66,7 @@ public class OreClusterDrill extends Block{
     public Color heatColor = Color.valueOf("ff5512");
     public TextureRegion rimRegion;
     public TextureRegion topRegion;
-    public extureRegion itemRegion;
+    public TextureRegion itemRegion;
 
     public OreClusterDrill(String name){
         super(name);
@@ -135,7 +135,7 @@ public class OreClusterDrill extends Block{
         public void drawConfigure(){
             Drawf.select(x, y, tile.block().size * tilesize / 2f + 2f, Pal.accent);
 
-            Drawf.dashCircle(x, y, realRange, baseColor);
+            Drawf.dashCircle(x, y, range, Pal.accent);
 
             if(link!=-1&&world.tile(link)!=null){
                 Tile linkTile = world.tile(link);
@@ -198,7 +198,7 @@ public class OreClusterDrill extends Block{
 
             float delay = getDrillTime(drillItem);
 
-            if(items.total() < itemCapacity && drilltem != null && efficiency > 0){
+            if(items.total() < itemCapacity && drillItem != null && efficiency > 0){
                 float speed = Mathf.lerp(1f, liquidBoostIntensity, optionalEfficiency) * efficiency;
 
                 lastDrillSpeed = (speed * 1 * warmup) / delay;
@@ -221,7 +221,7 @@ public class OreClusterDrill extends Block{
 
                 progress %= delay;
 
-                if(wasVisible && Mathf.chanceDelta(drillEffectChance * warmup)) drillEffect.at(x + Mathf.range(drillEffectRnd), y + Mathf.range(drillEffectRnd), dominantItem.color);
+                if(wasVisible && Mathf.chanceDelta(drillEffectChance * warmup)) drillEffect.at(x + Mathf.range(drillEffectRnd), y + Mathf.range(drillEffectRnd), drillItem.color);
             }
         }
 

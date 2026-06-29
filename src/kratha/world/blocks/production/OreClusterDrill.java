@@ -177,11 +177,19 @@ public class OreClusterDrill extends Block{
     }
 
     public class DrillBuild extends Building{
+        public int link;
         public float progress;
         public float warmup;
         public float timeDrilled;
         public float lastDrillSpeed;
         public Item drillItem;
+
+        @Override
+        public void drawConfigure(){
+            Drawf.select(x, y, tile.block().size * tilesize / 2f + 2f, Pal.accent);
+
+            
+        }
 
         @Override
         public boolean shouldConsume(){
@@ -262,7 +270,7 @@ public class OreClusterDrill extends Block{
 
         @Override
         public double sense(LAccess sensor){
-            if(sensor == LAccess.progress && dominantItem != null) return progress;
+            if(sensor == LAccess.progress && drillItem != null) return progress;
             return super.sense(sensor);
         }
 
@@ -311,6 +319,7 @@ public class OreClusterDrill extends Block{
             super.write(write);
             write.f(progress);
             write.f(warmup);
+            write.i(link);
         }
 
         @Override
@@ -319,6 +328,7 @@ public class OreClusterDrill extends Block{
             if(revision >= 1){
                 progress = read.f();
                 warmup = read.f();
+                link = read.i();
             }
         }
     }

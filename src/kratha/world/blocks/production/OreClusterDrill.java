@@ -22,6 +22,7 @@ import mindustry.world.consumers.*;
 import mindustry.world.meta.*;
 import mindustry.world.blocks.production.*;
 import kratha.world.blocks.environment.*;
+import mindustry.world.blocks.storage.*;
 
 import static mindustry.Vars.*;
 
@@ -144,7 +145,7 @@ public class OreClusterDrill extends Block{
         @Override
         public boolean onConfigureBuildTapped(Building other){
             if(block.clearOnDoubleTap){
-                if(other instanceof OreClusterBuild){
+                if(other instanceof CoreBuild){
                     deselect();
                     configure(other.pos());
                     return false;

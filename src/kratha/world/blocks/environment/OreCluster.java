@@ -1,5 +1,6 @@
 package kratha.world.blocks.environment;
 
+import arc.Core;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;

@@ -33,11 +33,19 @@ public class OreCluster extends Block{
         customShadow = true;
         size = 3;
     }
+    public OreCluster(String name, Item itemDrop){
+        super(name);
+        variants = 2;
+        solid = true;
+        clipSize = 90;
+        customShadow = true;
+        size = 3;
+        itemDrop = itemDrop;
+    }
 
     public class OreClusterBuild extends Building{
         @Override
         public void draw(){
-            if(!isCenter(tile))return;
             float rot = Mathf.randomSeedRange(tile.pos() + 1, rotationRand);
 
             Draw.z(shadowLayer);

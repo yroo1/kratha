@@ -267,21 +267,10 @@ public class KrathaEnv {
                     itemDrop = KrathaItems.krathite;
                 }};
                 guartzOre = new OreBlock("guartz-ore",KrathaItems.guartz);
-                guartzCluster = new Block("guartzCluster"){{
+                guartzCluster = new OreCluster("guartzCluster"){{
                     requirements(Category.effect, with());
-                    forceDark = true;
-                    targetable = false;
-                    solid = false;
-                    update = false;
-                    fillsTile = false;
-                    breakable = false;
-                    drawTeamOverlay = false;
-                    destructible = false;
-                    hasShadow = false;
                     buildVisibility = BuildVisibility.sandboxOnly;
-                    customShadow = true;
                     variants = 2;
-                    size = 3;
                     itemDrop = KrathaItems.guartz;
                 }};
                 cobaltOre = new OreBlock("cobalt-ore",KrathaItems.cobalt);

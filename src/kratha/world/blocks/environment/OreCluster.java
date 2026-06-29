@@ -50,23 +50,6 @@ public class OreCluster extends Block{
     }
 
     @Override
-    public void drawBase(Tile tile){
-        if(!isCenter(tile))return;
-        float rot = Mathf.randomSeedRange(tile.pos() + 1, rotationRand);
-
-        Draw.z(shadowLayer);
-        Draw.color(0f, 0f, 0f, shadowAlpha);
-        Draw.rect(variants > 0 ? variantShadowRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantShadowRegions.length - 1))] : customShadowRegion,
-            tile.worldx() + shadowOffset, tile.worldy() + shadowOffset, rot);
-
-        Draw.color();
-
-        Draw.z(layer);
-        Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,
-            tile.worldx(), tile.worldy(), rot);
-    }
-
-    @Override
     public void drawShadow(Tile tile){
 
     }
@@ -93,6 +76,22 @@ public class OreCluster extends Block{
         return true;
     }
 
-    public class OreClusterBuild extends Building{
+    public class OreClusterBuild extends Buildi ng{
+        @Override
+        public void draw(){
+            if(!isCenter(tile))return;
+            float rot = Mathf.randomSeedRange(tile.pos() + 1, rotationRand);
+
+            Draw.z(shadowLayer);
+            Draw.color(0f, 0f, 0f, shadowAlpha);
+            Draw.rect(variants > 0 ? variantShadowRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantShadowRegions.length - 1))] : customShadowRegion,
+            tile.worldx() + shadowOffset, tile.worldy() + shadowOffset, rot);
+
+            Draw.color();
+
+            Draw.z(layer);
+            Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,
+            tile.worldx(), tile.worldy(), rot);
+        }
     }
             }

@@ -28,21 +28,11 @@ import static mindustry.Vars.*;
 //i dont know what to call this. its a srill for OreCluster
 public class OreClusterDrill extends Block{
     public float hardnessDrillMultiplier = 50f;
-
-    protected final ObjectIntMap<Item> oreCount = new ObjectIntMap<>();
-    protected final Seq<Item> itemArray = new Seq<>();
-
-    /** Maximum tier of blocks this drill can mine. */
     public int tier;
-    /** Base time to drill one ore, in frames. */
     public float drillTime = 300;
-    /** How many times faster the drill will progress when boosted by liquid. */
     public float liquidBoostIntensity = 1.6f;
-    /** Speed at which the drill speeds up. */
     public float warmupSpeed = 0.015f;
-    /** Special exemption item that this drill can't mine. */
     public Item blockedItem;
-    /** Special exemption items that this drill can't mine. */
     public Seq<Item> blockedItems;
 
     //return variables for countOre

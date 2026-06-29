@@ -23,6 +23,7 @@ import mindustry.world.meta.*;
 import mindustry.world.blocks.production.*;
 import kratha.world.blocks.environment.*;
 import mindustry.world.blocks.storage.*;
+import kratha.content.*;
 
 import static mindustry.Vars.*;
 
@@ -67,7 +68,7 @@ public class OreClusterDrill extends Block{
     public TextureRegion topRegion;
     public extureRegion itemRegion;
 
-    public Drill(String name){
+    public OreClusterDrill(String name){
         super(name);
         update = true;
         solid = true;
@@ -123,7 +124,7 @@ public class OreClusterDrill extends Block{
     }
 
     public class DrillBuild extends Building{
-        public int link;
+        public int link = -1;
         public float progress;
         public float warmup;
         public float timeDrilled;
@@ -135,6 +136,11 @@ public class OreClusterDrill extends Block{
             Drawf.select(x, y, tile.block().size * tilesize / 2f + 2f, Pal.accent);
 
             Drawf.dashCircle(x, y, realRange, baseColor);
+
+            if(link!=-1&&world.tile(link!=null)){
+                Tile linkTile = world.tile(link);
+                Drawf.select(linkTile.x, linkTile.y, tilesize/2f, Pal.remove);
+            }
         }
 
         @Override
@@ -192,7 +198,11 @@ public class OreClusterDrill extends Block{
             }
 
             if(drillItem == null){
-                return;
+                if(link != -1){
+                    drillItem = KrathaItems.guartz;
+                }else{
+                    return;
+                }
             }
 
             timeDrilled += warmup * delta();

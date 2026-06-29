@@ -12,7 +12,7 @@ import mindustry.entities.*;
 import mindustry.graphics.*;
 import mindustry.world.*;
 import mindustry.world.meta.*;
-import mindustry.world.blocks.environment;
+import mindustry.world.blocks.environment.*;
 
 import static mindustry.Vars.*;
 
@@ -47,29 +47,11 @@ public class OreCluster extends Block{
         }
     }
 
-    @Override
-    public boolean updateRender(Tile tile){
-        return checkAdjacent(tile);
-    }
-
-    @Override
-    public boolean shouldIndex(Tile tile){
-        return isCenter(tile);
-    }
-
     public boolean isCenter(Tile tile){
         Tile topRight = tile.nearby(1, 1);
         return topRight != null && topRight.block() == tile.block() && checkAdjacent(topRight);
     }
-
-    @Override
-    public void renderUpdate(UpdateRenderState state){
-        if(state.tile.nearby(-1, -1) != null && state.tile.nearby(-1, -1).block() == Blocks.air && (state.data += Time.delta) >= effectSpacing){
-            effect.at(state.tile.x * tilesize - tilesize, state.tile.y * tilesize - tilesize, effectColor);
-            state.data = 0f;
-        }
-    }
-
+    
     //note that only the top right tile works for this; render order reasons.
     //yes anuke
     public boolean checkAdjacent(Tile tile){

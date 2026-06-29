@@ -15,7 +15,7 @@ import mindustry.world.*;
 import mindustry.world.meta.*;
 import mindustry.world.blocks.environment.*;
 import mindustry.gen.Building;
-import mindustry.type.Item;
+import mindustry.type.*;
 
 import static mindustry.Vars.*;
 
@@ -31,20 +31,15 @@ public class OreCluster extends Block{
         variants = 2;
         solid = true;
         clipSize = 90;
+        createRubble = false;
         customShadow = true;
         size = 3;
-    }
-    public OreCluster(String name, Item itemDrop){
-        super(name);
-        variants = 2;
-        solid = true;
-        clipSize = 90;
-        customShadow = true;
-        size = 3;
-        itemDrop = itemDrop;
+        buildVisibility = BuildVisibility.sandboxOnly;
+        clipSize = 100;
     }
 
-    public void draw(){
+    @Override
+    public void drawBase(){
         float rot = Mathf.randomSeedRange(tile.pos() + 1, rotationRand);
 
         Draw.z(shadowLayer);

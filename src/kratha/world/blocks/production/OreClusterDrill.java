@@ -148,7 +148,7 @@ public class OreClusterDrill extends Block{
         public boolean onConfigureBuildTapped(Building other){
             //is this hardcoded? Shit yes
             //do i care? Hell no
-            if(other.block() == KrathaEnv.guartzCluster){
+            if(other.block == KrathaEnv.guartzCluster){
                 link = other.pos();
                 return false;
             }

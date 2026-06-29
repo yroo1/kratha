@@ -151,6 +151,9 @@ public class OreClusterDrill extends Block{
             if(other.block == KrathaEnv.guartzCluster){
                 link = other.pos();
                 return false;
+            }else if (other == this{
+                link = -1;
+                return false;
             }
             return true;
         }

@@ -92,4 +92,7 @@ public class OreCluster extends Block{
         }
         return true;
     }
-          }
+
+    public class OreClusterBuild extends Building{
+    }
+            }

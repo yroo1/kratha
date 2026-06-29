@@ -101,7 +101,7 @@ public class OreClusterDrill extends Block{
         rimRegion = Core.atlas.find(name+"-rim");
         topRegion = Core.atlas.find(name+"-top");
         itemRegion = Core.atlas.find(name+"-item");
-        wireRegion = Core.atlas.find(name+"-wire);
+        wireRegion = Core.atlas.find(name+"-wire");
         boreRegion = Core.atlas.find(name+"-bore");
         boreBottomRegion = Core.atlas.find(name+"-bore-bottom");
     }

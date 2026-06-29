@@ -148,8 +148,9 @@ public class OreClusterDrill extends Block{
         public boolean onConfigureBuildTapped(Building other){
             if(block.clearOnDoubleTap){
                 if(other instanceof CoreBlock.CoreBuild){
-                    deselect();
                     configure(other.pos());
+                    link = other.pos();
+                    return false;
                 }
             }
             return true;

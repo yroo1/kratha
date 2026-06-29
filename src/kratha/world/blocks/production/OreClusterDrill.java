@@ -140,7 +140,7 @@ public class OreClusterDrill extends Block{
 
             if(link!=-1&&world.tile(link)!=null){
                 Tile linkTile = world.tile(link);
-                Drawf.select(linkTile.x, linkTile.y, tilesize/2f, Pal.remove);
+                Drawf.select(linkTile.x, linkTile.y, 3*tilesize/2f+2f, Pal.remove);
             }
         }
 
@@ -148,7 +148,8 @@ public class OreClusterDrill extends Block{
         public boolean onConfigureBuildTapped(Building other){
             if(other instanceof CoreBlock.CoreBuild){
                 link = other.pos();
-                return false;
+            }else{
+                link = -1;
             }
             return true;
         }

@@ -149,10 +149,9 @@ public class OreClusterDrill extends Block{
                 if(other instanceof CoreBlock.CoreBuild){
                     deselect();
                     configure(other.pos());
-                    return false;
                 }
-                return true;
             }
+            return true;
         }
 
         @Override

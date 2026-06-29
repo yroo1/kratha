@@ -36,6 +36,7 @@ public class OreCluster extends Block{
         size = 3;
         buildVisibility = BuildVisibility.sandboxOnly;
         clipSize = 100;
+        update = true;
     }
 
     @Override

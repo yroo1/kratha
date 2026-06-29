@@ -23,7 +23,7 @@ import mindustry.world.meta.*;
 import mindustry.world.blocks.production.*;
 import kratha.world.blocks.environment.*;
 import mindustry.world.blocks.storage.*;
-import kratha.content.*;
+import kratha.content.blocks.KrathaEnv;
 
 import static mindustry.Vars.*;
 
@@ -146,7 +146,9 @@ public class OreClusterDrill extends Block{
 
         @Override
         public boolean onConfigureBuildTapped(Building other){
-            if(other instanceof OreCluster.OreClusterBuild){
+            //is this hardcoded? Shit yes
+            //do i care? Hell no
+            if(other.block() == KrathaEnv.guartzCluster){
                 link = other.pos();
                 return false;
             }

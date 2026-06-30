@@ -117,9 +117,7 @@ public class OreCluster extends Block{
         @Override
         public void read(Reads read, byte revision){
             super.read(read, revision);
-            if(revision >= 1){
-                drillCount = read.i();
-            }
+            drillCount = read.i();
         }
     }
             }

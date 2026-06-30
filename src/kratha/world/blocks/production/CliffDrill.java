@@ -1,14 +1,11 @@
 package kratha.world.blocks.production;
 
-import arc.Core;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
-import arc.graphics.g2d.TextureRegion;
 import arc.math.*;
 import arc.util.*;
 import arc.math.geom.*;
 import mindustry.world.blocks.production.*;
-import mindustry.gen.Building;
 import mindustry.graphics.*;
 import mindustry.ui.*;
 import mindustry.world.*;
@@ -19,6 +16,17 @@ import mindustry.entities.units.*;
 import mindustry.content.Blocks;
 import mindustry.game.Team;
 import kratha.annotations.KrathaAnnotations.*;
+import arc.*;
+import arc.struct.*;
+import arc.util.io.*;
+import mindustry.entities.units.*;
+import mindustry.game.*;
+import mindustry.gen.*;
+import mindustry.graphics.*;
+import mindustry.world.*;
+import mindustry.world.blocks.environment.*;
+import mindustry.world.consumers.*;
+import mindustry.world.meta.*;
 
 import static mindustry.Vars.*;
 

@@ -145,9 +145,9 @@ public class OreClusterDrill extends Block{
 
             Drawf.dashCircle(x, y, range, Pal.accent);
 
-            if(link!=-1&&world.tile(link)!=null&&world.tile(link).build!=null){
+            if(link!=-1&&world.tile(link)!=null&&world.tile(link).block()!=null){
                 Tile linkTile = world.tile(link);
-                Drawf.select(linkTile.x*tilesize, linkTile.y*tilesize, linkTile.build.size*tilesize/2f+2f, Pal.remove);
+                Drawf.select(linkTile.x*tilesize, linkTile.y*tilesize, linkTile.block().size*tilesize/2f+2f, Pal.remove);
             }
         }
 
@@ -168,7 +168,7 @@ public class OreClusterDrill extends Block{
                 }
             }
 
-            int linkLimit = other.size==2?1:3;
+            int linkLimit = other.block().size==2?1:3;
             
             return dst<=range&&linkCount<linkLimit*4;
         }

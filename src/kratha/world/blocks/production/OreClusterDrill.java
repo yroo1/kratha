@@ -164,7 +164,7 @@ public class OreClusterDrill extends Block{
             if(other.block == KrathaEnv.guartzCluster&&canLink(other)){
                 link = other.pos();
                 return false;
-            }else if (other == this){
+            }else if (other == this || (world.tile(link)!=null && world.tile(link).build != null && world.tile(link).build == other)){
                 link = -1;
                 return false;
             }
@@ -292,8 +292,8 @@ public class OreClusterDrill extends Block{
                 float dx = x2-x1;
                 float dy = y2-y1;
                 float dst = Mathf.sqrt(dx*dx+dy*dy);
-                x2-=dx*dst;
-                y2-=dy*dst;
+                x2-=dx/dst;
+                y2-=dy/dst;
                 float angle1 = Angles.angle(x1, y1, x2, y2),
                 vx = Mathf.cosDeg(angle1), vy = Mathf.sinDeg(angle1),
                 len1 = tilesize / 2f - 1.5f, len2 = tilesize / 2f - 1.5f;

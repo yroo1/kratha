@@ -67,7 +67,7 @@ public class OreClusterDrill extends Block{
     public TextureRegion rimRegion;
     public TextureRegion topRegion;
     public TextureRegion itemRegion;
-    public TextureRegion wireRegion;
+    public TextureRegion wireRegion,wireEndRegion;
     public TextureRegion boreRegion;
     public TextureRegion rotatorRegion;
 
@@ -102,6 +102,7 @@ public class OreClusterDrill extends Block{
         topRegion = Core.atlas.find(name+"-top");
         itemRegion = Core.atlas.find(name+"-item");
         wireRegion = Core.atlas.find(name+"-wire");
+        wireEndRegion = Core.atlas.find(name+"-wire-end");
         boreRegion = Core.atlas.find(name+"-bore");
         rotatorRegion = Core.atlas.find(name+"-rotator");
     }
@@ -233,7 +234,7 @@ public class OreClusterDrill extends Block{
                 progress += delta() * 1 * speed * warmup;
 
                 if(Mathf.chanceDelta(updateEffectChance * warmup))
-                    updateEffect.at(x + Mathf.range(size * 2f), y + Mathf.range(size * 2f));
+                    updateEffect.at(getBorePos[0] + Mathf.range(size * 2f), getBorePos[1] + Mathf.range(size * 2f));
             }else{
                 lastDrillSpeed = 0f;
                 warmup = Mathf.approachDelta(warmup, 0f, warmupSpeed);
@@ -264,6 +265,28 @@ public class OreClusterDrill extends Block{
             super.drawCracks();
         }
 
+        public float[] getBorePos(){
+            float x1 = x;
+            float y1 = y;
+            float x2 = linkTile.worldx();
+            float y2 = linkTile.worldy();
+            float dx = x2-x1;
+            float dy = y2-y1;
+            float dst = Mathf.sqrt(dx*dx+dy*dy);
+            x2-=(dx/dst)*tilesize*2;
+            y2-=(dy/dst)*tilesize*2;
+            x2+= Mathf.cos(timeDrilled*rotateSpeed*-0.01f)*tilesize/3f;
+            y2+= Mathf.sin(timeDrilled*rotateSpeed*-0.01f)*tilesize/3f;
+            return [x2,y2,dst];
+        }
+        public void drawBeam(TextureRegion region, TextureRegion endRegion, float x, float y, float width, float angle){
+            Draw.scl(width,1);
+            Draw.rect(region,x,y,angle);
+            Draw.scl(1,1);
+            Draw.rect(endRegion,x-Mathf.cos(angle)*width, y-Mathf.sin(angle)*width, angle);
+            Draw.rect(endRegion,x+Mathf.cos(angle)*width, y+Mathf.sin(angle)*width, angle+180);
+        }
+
         @Override
         public void draw(){
             float s = 0.3f;
@@ -288,21 +311,13 @@ public class OreClusterDrill extends Block{
             if(linkTile!=null){
                 float x1 = x;
                 float y1 = y;
-                float x2 = linkTile.worldx();
-                float y2 = linkTile.worldy();
-                float dx = x2-x1;
-                float dy = y2-y1;
-                float dst = Mathf.sqrt(dx*dx+dy*dy);
-                x2-=(dx/dst)*tilesize*2;
-                y2-=(dy/dst)*tilesize*2;
-                x2+= Mathf.sin(timeDrilled*rotateSpeed*-0.1f)*tilesize/3f;
-                y2+= Mathf.cos(timeDrilled*rotateSpeed*-0.1f)*tilesize/3f;
+                float x2 = getBorePos()[0];
+                float y2 = getBorePos()[1];
+                float dst = getBorePos[2];
                 float cx = (x2+x1)/2f;
                 float cy = (y2+y1)/2f;
                 float angle1 = Angles.angle(x1, y1, x2, y2);
-                Draw.scl(dst*4,1);
-                Draw.rect(wireRegion,cx,cy,angle1);
-                Draw.scl(1,1);
+                drawBeam(wireRegion,wireEndRegion,cx,cy,dst*4,angle1);
                 Drawf.spinSprite(rotatorRegion, x2, y2, timeDrilled * rotateSpeed);
                 Draw.rect(boreRegion, x2, y2);
             }

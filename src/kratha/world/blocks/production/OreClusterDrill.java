@@ -151,7 +151,7 @@ public class OreClusterDrill extends Block{
             }
         }
 
-        public static int linkCountOf(Building other){
+        public int linkCountOf(Building other){
             //Namaka what the hell is this
             int linkCount = 0;
             int s2 = 0;

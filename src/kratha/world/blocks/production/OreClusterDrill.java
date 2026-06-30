@@ -111,7 +111,7 @@ public class OreClusterDrill extends Block{
     public void setBars(){
         super.setBars();
 
-        addBar("drillspeed", (DrillBuild e) ->
+        addBar("drillspeed", (OreClusterDrillBuild e) ->
              new Bar(() -> Core.bundle.format("bar.drillspeed", Strings.fixed(e.lastDrillSpeed * 60 * e.timeScale(), 2)), () -> Pal.ammo, () -> e.warmup));
     }
 

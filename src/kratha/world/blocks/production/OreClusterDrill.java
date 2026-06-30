@@ -176,7 +176,6 @@ public class OreClusterDrill extends Block{
             int linkCount = linkCountOf(other);
             int linkLimit = 0;
             if(other.block instanceof OreCluster o)linkLimit = o.maxDrillCount;
-            if(other instanceof OreCluster.OreClusterBuild o)o.updateDrillCount();
             return dst<=range&&linkCount<linkLimit;
         }
 

@@ -164,6 +164,7 @@ public class CliffDrill extends BeamDrill {
             time += edelta() * multiplier;
 
             int addAmount = Math.min(facingAmount,itemCapacity-items.total());
+            Log.info(addAmount);
             if(time >= drillTime){
                 items.add(lastItem, addAmount);
                 produced(lastItem, addAmount);

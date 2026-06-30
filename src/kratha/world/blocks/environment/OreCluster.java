@@ -53,6 +53,11 @@ public class OreCluster extends Block{
         Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region, tile.worldx(), tile.worldy(), rot);
     }
 
+    @Override
+    public boolean canBreak(Tile tile) {
+        return state.isEditor();
+    }
+
     public class OreClusterBuild extends Building{
         
         

@@ -153,7 +153,7 @@ public class OreClusterDrill extends Block{
 
         public int linkCountOf(Building other){
             //Namaka what the hell is this
-            int linkCount = 0
+            int linkCount = 0;
             int s2 = 0;
             int frange = (int) Math.ceil(range)+1;
             for(int xm = -frange;xm<=frange;xm++){

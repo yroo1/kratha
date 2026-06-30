@@ -158,19 +158,26 @@ public class OreClusterDrill extends Block{
             int linkCount = 0;
 
             //Namaka what the hell is this
+            int s2 = 0;
             int frange = (int) Math.ceil(range)+1;
             for(int xm = -frange;xm<=frange;xm++){
                 for(int ym = -frange;ym<=frange;ym++){
                     Tile othert = tile.nearby(xm,ym);
                     if(othert!=null&&othert.build!=null&&othert.build instanceof OreClusterDrillBuild o&&o.link!=-1&&world.tile(o.link).build==other) {
-                        linkCount++;
+                        if(othert.build.block.size==2){
+                            s2++;
+                        }
                     }
                 }
             }
+            linkCount = (int)Math.floor((float)s2/4);
 
-            int linkLimit = other.block.size==2?1:3;
-            
-            return dst<=range&&linkCount<linkLimit*4;
+            int linkLimit = 0;
+            if(other.block instanceof OreCluster o){
+                linkLimit = o.maxDrillCount;
+                o.updateDrillCount();
+            }
+            return dst<=range&&linkCount<linkLimit;
         }
 
         @Override

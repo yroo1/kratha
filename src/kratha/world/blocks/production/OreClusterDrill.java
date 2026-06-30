@@ -168,7 +168,7 @@ public class OreClusterDrill extends Block{
                 }
             }
             
-            return dst<=range&&linkCount<3;
+            return dst<=range&&linkCount<3*4;
         }
 
         @Override
@@ -234,6 +234,7 @@ public class OreClusterDrill extends Block{
 
             if(link == -1){
                 drillItem = null;
+                warmup = Mathf.approachDelta(warmup, 0f, warmupSpeed);
             }
             
             if(drillItem == null){

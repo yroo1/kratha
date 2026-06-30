@@ -83,8 +83,8 @@ public class CliffDrill extends Block{
     @Override
     public void load(){
         super.load();
-        laserEnd=Core.atlas.find(name+"-laser");
-        laserCenter=Core.atlas.find(name+"-laser");
+        laserEnd=Core.atlas.find(name+"-laser-end");
+        laserCenter=Core.atlas.find(name+"-laser-center");
         laser=Core.atlas.find(name+"-laser");
         topRegion=Core.atlas.find(name+"-top");
         glowRegion=Core.atlas.find(name+"-glow");
@@ -115,7 +115,7 @@ public class CliffDrill extends Block{
     public void setBars(){
         super.setBars();
 
-        addBar("drillspeed", (BeamDrillBuild e) ->
+        addBar("drillspeed", (CliffDrillBuild e) ->
             new Bar(() -> Core.bundle.format("bar.drillspeed", Strings.fixed(e.lastDrillSpeed*60, 2)), () -> Pal.ammo, () -> e.warmup));
     }
 

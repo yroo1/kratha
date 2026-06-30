@@ -42,6 +42,14 @@ public class OreCluster extends Block{
     }
 
     @Override
+    public void setBars(){
+        super.setBars();
+
+        addBar("drilllimit", (OreClusterBuild e) ->
+             new Bar(() -> Core.bundle.format("kratha.drilllimit", Strings.fixed(3, 2)), () -> Pal.ammo, () -> e.drillCount));
+    }
+
+    @Override
     public void drawBase(Tile tile){
         float rot = Mathf.randomSeedRange(tile.pos() + 1, rotationRand);
 
@@ -72,7 +80,7 @@ public class OreCluster extends Block{
     }
 
     public class OreClusterBuild extends Building{
-        
+        public int drillCount = 0;
         
     }
             }

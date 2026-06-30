@@ -48,7 +48,7 @@ public class OreCluster extends Block{
         super.setBars();
 
         addBar("drilllimit", (OreClusterBuild e) ->
-             new Bar(() -> Core.bundle.format("kratha.drilllimit", drillCount, maxDrillCount), () -> Pal.ammo, () -> ((float)e.drillCount)/e.maxDrillCount));
+             new Bar(() -> Core.bundle.format("kratha.drilllimit", e.drillCount, maxDrillCount), () -> Pal.ammo, () -> ((float)e.drillCount)/maxDrillCount));
     }
 
     @Override

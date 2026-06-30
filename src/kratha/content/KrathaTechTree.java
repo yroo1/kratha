@@ -51,14 +51,11 @@ public class KrathaTechTree {
                    });
                 });
             });
-            node(KrathaProduction.thermicDrill, () -> {
+            node(KrathaProduction.crusherDrill, () -> {
                 node(KrathaProduction.laserBore, () -> {
                         
                 });
                 node(KrathaProduction.cliffBore, () -> {
-                        
-                });
-                node(KrathaProduction.plasmaDrill, Seq.with(new Objectives.OnSector(offshore)),() -> {
                         
                 });
             });

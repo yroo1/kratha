@@ -16,6 +16,7 @@ import mindustry.world.meta.*;
 import mindustry.world.blocks.environment.*;
 import mindustry.gen.Building;
 import mindustry.type.*;
+import mindustry.ui.*;
 
 import static mindustry.Vars.*;
 
@@ -25,6 +26,7 @@ public class OreCluster extends Block{
     public float shadowLayer = Layer.power - 1;
     public float rotationRand = 20f;
     public float shadowAlpha = 0.6f;
+    public int maxDrillCount = 3;
 
     public OreCluster(String name){
         super(name);

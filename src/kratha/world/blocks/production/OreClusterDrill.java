@@ -210,8 +210,8 @@ public class OreClusterDrill extends Block{
             float dst = Mathf.sqrt(dx*dx+dy*dy);
             x2-=(dx/dst)*tilesize*2;
             y2-=(dy/dst)*tilesize*2;
-            x2+= Mathf.cos(timeDrilled*rotateSpeed*-0.01f)*tilesize/3f;
-            y2+= Mathf.sin(timeDrilled*rotateSpeed*-0.01f)*tilesize/3f;
+            x2+= Mathf.cos(timeDrilled*rotateSpeed*-0.01f+Mathf.randomSeed(tile.pos(),0,360))*tilesize/3f;
+            y2+= Mathf.sin(timeDrilled*rotateSpeed*-0.01f+Mathf.randomSeed(tile.pos(),0,360))*tilesize/3f;
             return new float[]{x2,y2,dst};
         }
 

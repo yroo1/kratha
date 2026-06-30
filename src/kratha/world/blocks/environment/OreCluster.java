@@ -87,7 +87,7 @@ public class OreCluster extends Block{
 
         public void updateDrillCount(){
             //this code is awesome
-            drillCount = OreClusterDrill.OreClusterDrillBuild.linkCountOf(this);
+            drillCount = new OreClusterDrill.OreClusterDrillBuild.linkCountOf(this);
         }
     }
             }

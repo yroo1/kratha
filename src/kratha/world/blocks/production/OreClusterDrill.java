@@ -286,8 +286,8 @@ public class OreClusterDrill extends Block{
             Draw.scl(width,1);
             Draw.rect(region,x,y,angle);
             Draw.scl(1,1);
-            Draw.rect(endRegion,x-Mathf.cos(angle)*width, y-Mathf.sin(angle)*width, angle);
-            Draw.rect(endRegion,x+Mathf.cos(angle)*width, y+Mathf.sin(angle)*width, angle+180);
+            Draw.rect(endRegion,x-Mathf.cosDeg(angle)*width/4f, y-Mathf.sin(angleDeg)*width/4f, angle);
+            Draw.rect(endRegion,x+Mathf.cosDeg(angle)*width/4f, y+Mathf.sin(angleDeg)*width/4f, angle+180);
         }
 
         @Override

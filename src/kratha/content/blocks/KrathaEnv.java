@@ -275,6 +275,7 @@ public class KrathaEnv {
                 guartzClusterSmall = new OreCluster("guartz-cluster-small"){{
                     requirements(Category.effect, with());
                     variants = 2;
+                    size = 2;
                     itemDrop = KrathaItems.guartz;
                 }};
                 cobaltOre = new OreBlock("cobalt-ore",KrathaItems.cobalt);

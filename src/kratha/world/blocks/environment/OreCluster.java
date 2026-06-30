@@ -86,10 +86,20 @@ public class OreCluster extends Block{
         public int drillCount = 0;
 
         public void updateDrillCount(){
-            //this code is awesome
-            OreClusterDrill awesome = new OreClusterDrill();
-            OreClusterDrill.OreClusterDrillBuild evenMoreAwesome = awesome.new OreClusterDrillBuild();
-            drillCount = evenMoreAwesome.linkCountOf(this);
+            //this code is shitty, well, it does all that i need
+            int s2 = 0;
+            int frange = (int) Math.ceil(20)+1;
+            for(int xm = -frange;xm<=frange;xm++){
+                for(int ym = -frange;ym<=frange;ym++){
+                    Tile othert = tile.nearby(xm,ym);
+                    if(othert!=null&&othert.build!=null&&othert.build instanceof OreClusterDrill.OreClusterDrillBuild o&&o.link!=-1&&world.tile(o.link).build==other) {
+                        if(othert.build.block.size==2){
+                            s2++;
+                        }
+                    }
+                }
+            }
+            drillCount = (int)Math.floor((float)s2/4);
         }
     }
             }

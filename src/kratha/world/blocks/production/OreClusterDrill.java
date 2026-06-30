@@ -277,7 +277,7 @@ public class OreClusterDrill extends Block{
             y2-=(dy/dst)*tilesize*2;
             x2+= Mathf.cos(timeDrilled*rotateSpeed*-0.01f)*tilesize/3f;
             y2+= Mathf.sin(timeDrilled*rotateSpeed*-0.01f)*tilesize/3f;
-            return [x2,y2,dst];
+            return new float[]{x2,y2,dst};
         }
         public void drawBeam(TextureRegion region, TextureRegion endRegion, float x, float y, float width, float angle){
             Draw.scl(width,1);

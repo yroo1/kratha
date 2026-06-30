@@ -155,7 +155,7 @@ public class OreClusterDrill extends Block{
             //Namaka what the hell is this
             int linkCount = 0;
             int s2 = 0;
-            int frange = (int) Math.ceil(range)+1;
+            int frange = (int) Math.ceil(range/tilesize)+1;
             for(int xm = -frange;xm<=frange;xm++){
                 for(int ym = -frange;ym<=frange;ym++){
                     Tile othert = tile.nearby(xm,ym);

@@ -103,7 +103,7 @@ public class OreClusterDrill extends Block{
         itemRegion = Core.atlas.find(name+"-item");
         wireRegion = Core.atlas.find(name+"-wire");
         boreRegion = Core.atlas.find(name+"-bore");
-        boreBottomRegion = Core.atlas.find(name+"-rotator");
+        rotatorRegion = Core.atlas.find(name+"-rotator");
     }
 
     @Override
@@ -296,7 +296,7 @@ public class OreClusterDrill extends Block{
                 x2-=dx/dst;
                 y2-=dy/dst;
                 float cx = (x2+x1)/2f;
-                float cx = (y2+y1)/2f;
+                float cy = (y2+y1)/2f;
                 float angle1 = Angles.angle(x1, y1, x2, y2);
                 Draw.scl(dst,1);
                 Draw.rect(wireRegion,cx,cy,angle1);

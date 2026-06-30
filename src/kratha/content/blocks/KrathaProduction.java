@@ -21,16 +21,16 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaProduction {
     public static Block
-    thermicDrill,plasmaDrill,crusherDrill,laserBore,cliffBore,
+    crusherDrill,laserBore,cliffBore,
 
     spurstoneSmelter,crystallizationBasin,earthenExtractor;
     public static void load() {
-        thermicDrill = new Drill("thermic-drill"){{
+        crusherDrill = new OreClusterDrill("crusher-drill"){{
             requirements(Category.production, with(KrathaItems.krathite, 10, KrathaItems.guartz, 5));
             consumePower(2/60f);
             consumeLiquid(Liquids.hydrogen, 0.05f).boost();
             
-            drillTime = 400;
+            drillTime = 20;
             drawRim = true;
             hasPower = true;
             tier = 3;
@@ -38,45 +38,17 @@ public class KrathaProduction {
             fogRadius = 0;
             squareSprite = false;
             researchCost = with(KrathaItems.krathite, 10, KrathaItems.guartz, 5);
-        }};
-        plasmaDrill = new Drill("plasma-drill"){{
-            requirements(Category.production, with(KrathaItems.krathite, 80, KrathaItems.guartz, 75, KrathaItems.spurstone, 40, KrathaItems.cobalt, 40));
-            consumePower(15/60f);
-            consumeLiquid(KrathaLiquids.watra, 4f/60);
-            consumeLiquid(Liquids.hydrogen, 0.05f).boost();
-            
-            drillTime = 280;
-            drawRim = true;
-            hasPower = true;
-            tier = 5;
-            size = 3;
-            fogRadius = 0;
-            squareSprite = false;
         }};
         laserBore = new CliffDrill("laser-bore"){{
             requirements(Category.production, with(KrathaItems.krathite, 5, KrathaItems.guartz, 10));
             consumePower(2/60f);
             consumeLiquid(Liquids.hydrogen, 0.05f).boost();
 
-            drillTime = 350;
+            drillTime = 400;
             tier = 3;
             size = 2;
             squareSprite = false;
             researchCost = with(KrathaItems.krathite, 5, KrathaItems.guartz, 10);
-        }};
-        crusherDrill = new OreClusterDrill("crusher-drill"){{
-            requirements(Category.production, with(KrathaItems.krathite, 10, KrathaItems.guartz, 5));
-            consumePower(2/60f);
-            consumeLiquid(Liquids.hydrogen, 0.05f).boost();
-            
-            drillTime = 12;
-            drawRim = true;
-            hasPower = true;
-            tier = 3;
-            size = 2;
-            fogRadius = 0;
-            squareSprite = false;
-            researchCost = with(KrathaItems.krathite, 10, KrathaItems.guartz, 5);
         }};
         cliffBore = new WallCrafter("cliff-bore"){{
             requirements(Category.production, with(KrathaItems.krathite, 25, KrathaItems.guartz, 20));

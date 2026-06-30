@@ -164,7 +164,8 @@ public class OreClusterDrill extends Block{
             if(other.block == KrathaEnv.guartzCluster&&canLink(other)){
                 link = other.pos();
                 return false;
-            }else if (other == this || (world.tile(link)!=null && world.tile(link).build != null && world.tile(link).build == other)){
+            }
+            if (other == this || (world.tile(link).build!=null&&world.tile(link).build == other)){
                 link = -1;
                 return false;
             }

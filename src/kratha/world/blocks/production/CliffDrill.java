@@ -44,6 +44,13 @@ public class CliffDrill extends BeamDrill {
         return new TextureRegion[]{region, topRegion1};
     }
     @Override
+    public void setBars(){
+        super.setBars();
+
+        addBar("drillspeed", (BeamDrillBuild e) ->
+            new Bar(() -> Core.bundle.format("bar.drillspeed", Strings.fixed(e.lastDrillSpeed, 2)), () -> Pal.ammo, () -> e.warmup));
+    }
+    @Override
     public void drawPlace(int x, int y, int rotation, boolean valid){
         Item item = null, invalidItem = null;
         boolean multiple = false;
@@ -160,12 +167,12 @@ public class CliffDrill extends BeamDrill {
             }
             float drillTime = 60f/(getDrillTime(lastItem)*count);
             boostWarmup = Mathf.lerpDelta(boostWarmup, optionalEfficiency, 0.1f);
-            lastDrillSpeed = (facingAmount * multiplier * timeScale) / drillTime * efficiency;
+            lastDrillSpeed = drillTime * efficiency;
             
             time += edelta() * multiplier;
             
-            if(time >= drillTime){
-                items.add(lastItem, 1);
+            if(time >= getDrillTime(lastItem)){
+                items.add(lastItem, count);
                 produced(lastItem);
                 time %= drillTime;
             }

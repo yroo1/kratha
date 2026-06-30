@@ -33,16 +33,11 @@ import static mindustry.Vars.*;
 public class CliffDrill extends Block{
     protected Rand rand = new Rand();
 
-    public @KrathaAnnotations.Load(value = "@-beam", fallback = "drill-laser") TextureRegion laser;
-    public @KrathaAnnotations.Load(value = "@-beam-end", fallback = "drill-laser-end") TextureRegion laserEnd;
-    public @KrathaAnnotations.Load(value = "@-beam-center", fallback = "drill-laser-center") TextureRegion laserCenter;
-
-    public @KrathaAnnotations.Load(value = "@-beam-boost", fallback = "drill-laser-boost") TextureRegion laserBoost;
-    public @KrathaAnnotations.Load(value = "@-beam-boost-end", fallback = "drill-laser-boost-end") TextureRegion laserEndBoost;
-    public @KrathaAnnotations.Load(value = "@-beam-boost-center", fallback = "drill-laser-boost-center") TextureRegion laserCenterBoost;
-
-    public @KrathaAnnotations.Load("@-top") TextureRegion topRegion;
-    public @KrathaAnnotations.Load("@-glow") TextureRegion glowRegion;
+    public TextureRegion laser;
+    public TextureRegion laserEnd;
+    public TextureRegion laserCenter;
+    public TextureRegion topRegion;
+    public TextureRegion glowRegion;
 
     public float drillTime = 200f;
     public int range = 5;
@@ -54,9 +49,9 @@ public class CliffDrill extends Block{
     /** Multipliers of drill speed for each item. Defaults to 1. */
     public ObjectFloatMap<Item> drillMultipliers = new ObjectFloatMap<>();
     /** Special exemption item that this drill can't mine. */
-    public @KrathaAnnotations.Nullable Item blockedItem;
+    public Item blockedItem;
     /** Special exemption items that this drill can't mine. */
-    public @KrathaAnnotations.Nullable Seq<Item> blockedItems;
+    public Seq<Item> blockedItems;
 
     public Color sparkColor = Color.valueOf("fd9e81"), glowColor = Color.white;
     public float glowIntensity = 0.2f, pulseIntensity = 0.07f;
@@ -88,6 +83,11 @@ public class CliffDrill extends Block{
     @Override
     public void load(){
         super.load();
+        laserEnd=Core.atlas.find(name+"-laser");
+        laserCenter=Core.atlas.find(name+"-laser");
+        laser=Core.atlas.find(name+"-laser");
+        topRegion=Core.atlas.find(name+"-top");
+        glowRegion=Core.atlas.find(name+"-glow");
         topRegion1=Core.atlas.find(name+"-top1");
         topRegion2=Core.atlas.find(name+"-top2");
         wallHeatRegion=Core.atlas.find(name+"-wall-heat");
@@ -325,7 +325,7 @@ public class CliffDrill extends Block{
 
                         if(boostWarmup > 0.01f){
                             Draw.alpha(boostWarmup);
-                            Draw.rect(laserCenterBoost, lx, ly);
+                            Draw.rect(laserCenter, lx, ly);
                         }
 
                         Draw.scl();
@@ -339,7 +339,7 @@ public class CliffDrill extends Block{
 
                         if(boostWarmup > 0.001f){
                             Draw.alpha(boostWarmup);
-                            Drawf.laser(laserBoost, laserEndBoost, lsx, lsy, lx, ly, width);
+                            Drawf.laser(laser, laserEnd, lsx, lsy, lx, ly, width);
                         }
                     }
                     int depth=0;

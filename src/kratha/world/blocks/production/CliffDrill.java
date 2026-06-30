@@ -58,6 +58,9 @@ public class CliffDrill extends BeamDrill {
             for(; j < range; j++){
                 int rx = Tmp.p1.x + Geometry.d4x(rotation)*j, ry = Tmp.p1.y + Geometry.d4y(rotation)*j;
                 Tile other = world.tile(rx, ry);
+                if(other != null && other.build != null && other.solid()){
+                    break;
+                }
                 if(other != null && other.solid()){
                     Item drop = other.wallDrop();
                     if(drop != null){
@@ -113,6 +116,9 @@ public class CliffDrill extends BeamDrill {
             nearbySide(tile.x, tile.y, rotation, i, Tmp.p1);
             for(int j = 0; j < range; j++){
                 Tile other = world.tile(Tmp.p1.x + Geometry.d4x(rotation)*j, Tmp.p1.y + Geometry.d4y(rotation)*j);
+                if(other != null && other.build != null && other.solid()){
+                    break;
+                }
                 if(other != null && other.solid()){
                     Item drop = other.wallDrop();
                     if(drop != null && drop.hardness <= tier && (blockedItems == null || !blockedItems.contains(drop))){
@@ -277,6 +283,9 @@ public class CliffDrill extends BeamDrill {
                     Tile dest = null;
                     int rx = l.x + dx*i, ry = l.y + dy*i;
                     Tile other = world.tile(rx, ry);
+                    if(other != null && other.build != null && other.solid()){
+                        break;
+                    }
                     if(other != null){
                         if(other.solid()){
                             if(thisCount>=stackLimit)break;
@@ -304,6 +313,9 @@ public class CliffDrill extends BeamDrill {
                 for(int i = 0; i < range; i++){
                     int rx = l.x + dx*i, ry = l.y + dy*i;
                     Tile other = world.tile(rx, ry);
+                    if(other != null && other.build != null && other.solid()){
+                        break;
+                    }
                     if(other != null){
                         if(other.solid()){
                             Item drop = other.wallDrop();

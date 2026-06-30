@@ -92,7 +92,7 @@ public class OreCluster extends Block{
             for(int xm = -frange;xm<=frange;xm++){
                 for(int ym = -frange;ym<=frange;ym++){
                     Tile othert = tile.nearby(xm,ym);
-                    if(othert!=null&&othert.build!=null&&othert.build instanceof OreClusterDrill.OreClusterDrillBuild o&&o.link!=-1&&world.tile(o.link).build==other) {
+                    if(othert!=null&&othert.build!=null&&othert.build instanceof OreClusterDrill.OreClusterDrillBuild o&&o.link!=-1&&world.tile(o.link).build==this) {
                         if(othert.build.block.size==2){
                             s2++;
                         }

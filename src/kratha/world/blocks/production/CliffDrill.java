@@ -29,7 +29,18 @@ import mindustry.world.consumers.*;
 import mindustry.world.meta.*;
 
 import static mindustry.Vars.*;
+/*
+i have NO idea why this can't extend BeamDrill
+Yapping alert:
 
+when it extends BeamDrill, it Mysteriously only output 2 items when its supposed to output 4 at once
+like it doesnt recognize the ores behind. EVEN IF updateTile() was overriden to ALWAYS output 4
+but when i stop extending from BeamDrill, IT WORKS
+its like Anuke is caching BeamDrill to output 2 so it doesnt check the lasers everytime
+BUT I CANT FIND ANY CODE ON THE SOURCE CODE THAT DOES THAT
+
+well. in the end, i got it working. And that's all what matters.
+*/
 public class CliffDrill extends Block{
     protected Rand rand = new Rand();
 

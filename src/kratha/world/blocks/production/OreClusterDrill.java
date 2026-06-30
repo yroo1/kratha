@@ -198,6 +198,23 @@ public class OreClusterDrill extends Block{
             drillItem = null;
         }
 
+        protected float[] getBorePos(){
+            Tile linkTile = world.tile(link);
+            if(linkTile==null)return;
+            float x1 = x;
+            float y1 = y;
+            float x2 = linkTile.worldx();
+            float y2 = linkTile.worldy();
+            float dx = x2-x1;
+            float dy = y2-y1;
+            float dst = Mathf.sqrt(dx*dx+dy*dy);
+            x2-=(dx/dst)*tilesize*2;
+            y2-=(dy/dst)*tilesize*2;
+            x2+= Mathf.cos(timeDrilled*rotateSpeed*-0.01f)*tilesize/3f;
+            y2+= Mathf.sin(timeDrilled*rotateSpeed*-0.01f)*tilesize/3f;
+            return new float[]{x2,y2,dst};
+        }
+
         @Override
         public void updateTile(){
             if(timer(timerDump, dumpTime / timeScale)){
@@ -233,7 +250,7 @@ public class OreClusterDrill extends Block{
                 warmup = Mathf.approachDelta(warmup, speed, warmupSpeed);
                 progress += delta() * 1 * speed * warmup;
 
-                if(Mathf.chanceDelta(updateEffectChance * warmup))
+                if(Mathf.chanceDelta(updateEffectChance * warmup)&&link!=-1)
                     updateEffect.at(getBorePos[0] + Mathf.range(size * 2f), getBorePos[1] + Mathf.range(size * 2f));
             }else{
                 lastDrillSpeed = 0f;
@@ -265,20 +282,6 @@ public class OreClusterDrill extends Block{
             super.drawCracks();
         }
 
-        public float[] getBorePos(){
-            float x1 = x;
-            float y1 = y;
-            float x2 = linkTile.worldx();
-            float y2 = linkTile.worldy();
-            float dx = x2-x1;
-            float dy = y2-y1;
-            float dst = Mathf.sqrt(dx*dx+dy*dy);
-            x2-=(dx/dst)*tilesize*2;
-            y2-=(dy/dst)*tilesize*2;
-            x2+= Mathf.cos(timeDrilled*rotateSpeed*-0.01f)*tilesize/3f;
-            y2+= Mathf.sin(timeDrilled*rotateSpeed*-0.01f)*tilesize/3f;
-            return new float[]{x2,y2,dst};
-        }
         public void drawBeam(TextureRegion region, TextureRegion endRegion, float x, float y, float width, float angle){
             Draw.scl(width,1);
             Draw.rect(region,x,y,angle);

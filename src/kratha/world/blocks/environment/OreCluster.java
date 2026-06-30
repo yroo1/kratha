@@ -38,6 +38,7 @@ public class OreCluster extends Block{
         update = true;
         drawTeamOverlay = false;
         targetable = false;
+        customShadow = true;
     }
 
     @Override
@@ -53,6 +54,11 @@ public class OreCluster extends Block{
 
         Draw.z(layer);
         Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region, tile.worldx(), tile.worldy(), rot);
+    }
+
+    @Override
+    public void drawShadow(Tile tile){
+        //no
     }
 
     @Override

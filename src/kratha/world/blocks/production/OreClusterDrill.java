@@ -193,6 +193,11 @@ public class OreClusterDrill extends Block{
         }
 
         @Override
+        public void onDestroyed(){
+            updateNearbyClusters();
+        }
+
+        @Override
         public boolean onConfigureBuildTapped(Building other){
             if(other.block instanceof OreCluster&&canLink(other)){
                 link = other.pos();

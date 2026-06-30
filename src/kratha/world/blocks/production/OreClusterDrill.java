@@ -150,11 +150,18 @@ public class OreClusterDrill extends Block{
             }
         }
 
+        public boolean canLink(Building other){
+            float dx=other.x-x;
+            float dy=other.y-y;
+            float dst=Mathf.sqrt(dx*dx+dy*dy);
+            return dst<=range;
+        }
+
         @Override
         public boolean onConfigureBuildTapped(Building other){
             //is this hardcoded? Shit yes
             //do i care? Hell no
-            if(other.block == KrathaEnv.guartzCluster){
+            if(other.block == KrathaEnv.guartzCluster&&canLink(other)){
                 link = other.pos();
                 return false;
             }else if (other == this){
@@ -294,7 +301,7 @@ public class OreClusterDrill extends Block{
 
                 Draw.rect(boreRegion, x, y);
             }
-            Draw.z(Layer.power+2.1);
+            Draw.z(Layer.power+2.1f);
             Draw.rect(topRegion, x, y);
             
 

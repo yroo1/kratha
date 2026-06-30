@@ -187,8 +187,10 @@ public class OreClusterDrill extends Block{
                 return false;
             }
             if (other == this || link == other.pos()){
-                link = -1;
                 if(other instanceof OreCluster.OreClusterBuild o)o.updateDrillCount();
+                Building lastOther = world.tile(link).build;
+                if(lastOther!=null&&lastOther instanceof OreCluster.OreClusterBuild o)o.updateDrillCount();
+                link = -1;
                 return false;
             }
             return true;

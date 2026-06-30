@@ -30,7 +30,7 @@ public class KrathaProduction {
             consumePower(2/60f);
             consumeLiquid(Liquids.hydrogen, 0.05f).boost();
             
-            drillTime = 20;
+            drillTime = 28;
             drawRim = true;
             hasPower = true;
             tier = 3;
@@ -44,7 +44,7 @@ public class KrathaProduction {
             consumePower(2/60f);
             consumeLiquid(Liquids.hydrogen, 0.05f).boost();
 
-            drillTime = 400;
+            drillTime = 420;
             tier = 3;
             size = 2;
             squareSprite = false;

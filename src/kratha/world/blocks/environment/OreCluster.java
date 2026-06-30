@@ -15,6 +15,7 @@ import mindustry.world.*;
 import mindustry.world.meta.*;
 import mindustry.world.blocks.environment.*;
 import mindustry.gen.Building;
+import kratha.world.blocks.production.OreClusterDrill;
 import mindustry.type.*;
 import mindustry.ui.*;
 
@@ -83,6 +84,10 @@ public class OreCluster extends Block{
 
     public class OreClusterBuild extends Building{
         public int drillCount = 0;
-        
+
+        public void updateDrillCount(){
+            //this code is awesome
+            drillCount = OreClusterDrill.OreClusterDrillBuild.linkCountOf(this);
+        }
     }
             }

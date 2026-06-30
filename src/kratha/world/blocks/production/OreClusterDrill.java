@@ -151,13 +151,9 @@ public class OreClusterDrill extends Block{
             }
         }
 
-        public boolean canLink(Building other){
-            float dx=other.x-x;
-            float dy=other.y-y;
-            float dst=Mathf.sqrt(dx*dx+dy*dy);
-            int linkCount = 0;
-
+        public int linkCountOf(Building other){
             //Namaka what the hell is this
+            int linkCount = 0
             int s2 = 0;
             int frange = (int) Math.ceil(range)+1;
             for(int xm = -frange;xm<=frange;xm++){
@@ -170,8 +166,14 @@ public class OreClusterDrill extends Block{
                     }
                 }
             }
-            linkCount = (int)Math.floor((float)s2/4);
+            return linkCount = (int)Math.floor((float)s2/4);
+        }
 
+        public boolean canLink(Building other){
+            float dx=other.x-x;
+            float dy=other.y-y;
+            float dst=Mathf.sqrt(dx*dx+dy*dy);
+            int linkCount = linkCountOf(other);
             int linkLimit = 0;
             if(other.block instanceof OreCluster o){
                 linkLimit = o.maxDrillCount;

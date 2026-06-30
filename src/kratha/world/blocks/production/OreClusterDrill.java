@@ -179,17 +179,7 @@ public class OreClusterDrill extends Block{
             return dst<=range&&linkCount<linkLimit;
         }
 
-        @Override
-        public boolean onConfigureBuildTapped(Building other){
-            if(other.block instanceof OreCluster&&canLink(other)){
-                link = other.pos();
-                if(other instanceof OreCluster.OreClusterBuild o)o.updateDrillCount();
-                return false;
-            }
-            if (world.tile(link)!=null&&(other == this || link == other.pos())){
-                link = -1;
-                return false;
-            }
+        public void updateNearbyClusters(){
             int frange = (int) Math.ceil(range/tilesize)+1;
             for(int xm = -frange;xm<=frange;xm++){
                 for(int ym = -frange;ym<=frange;ym++){
@@ -198,6 +188,21 @@ public class OreClusterDrill extends Block{
                         o.updateDrillCount();
                     }
                 }
+            }
+        }
+
+        @Override
+        public boolean onConfigureBuildTapped(Building other){
+            if(other.block instanceof OreCluster&&canLink(other)){
+                link = other.pos();
+                if(other instanceof OreCluster.OreClusterBuild o)o.updateDrillCount();
+                updateNearbyClusters();
+                return false;
+            }
+            if (world.tile(link)!=null&&(other == this || link == other.pos())){
+                link = -1;
+                updateNearbyClusters();
+                return false;
             }
             return true;
         }

@@ -161,8 +161,8 @@ public class OreClusterDrill extends Block{
             int frange = (int) Math.ceil(range)+1;
             for(int xm = -frange;xm<=frange;xm++){
                 for(int ym = -frange;ym<=frange;ym++){
-                    Tile other = tile.nearby(xm,ym);
-                    if(other!=null&&other.build!=null&&other.build instanceof OreClusterDrillBuild o&&o.link!=-1&&world.tile(o.link).build==other) {
+                    Tile othert = tile.nearby(xm,ym);
+                    if(othert!=null&&othert.build!=null&&othert.build instanceof OreClusterDrillBuild o&&o.link!=-1&&world.tile(o.link).build==other) {
                         linkCount++;
                     }
                 }

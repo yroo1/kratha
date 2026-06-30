@@ -56,15 +56,17 @@ public class OreCluster extends Block{
     public void drawBase(Tile tile){
         float rot = Mathf.randomSeedRange(tile.pos() + 1, rotationRand);
 
+        float offset = size%2!=0?0:tilesize/2
+
         Draw.z(shadowLayer);
         Draw.color(0f, 0f, 0f, shadowAlpha);
         Draw.rect(variants > 0 ? variantShadowRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantShadowRegions.length - 1))] : customShadowRegion,
-        tile.worldx() + shadowOffset, tile.worldy() + shadowOffset, rot);
+        tile.worldx() + shadowOffset + offset, tile.worldy() + shadowOffset + offset, rot);
 
         Draw.color();
 
         Draw.z(layer);
-        Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region, tile.worldx(), tile.worldy(), rot);
+        Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region, tile.worldx() + offset, tile.worldy() + offset, rot);
     }
 
     @Override

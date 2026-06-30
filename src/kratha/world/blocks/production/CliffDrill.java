@@ -18,14 +18,64 @@ import mindustry.type.*;
 import mindustry.entities.units.*;
 import mindustry.content.Blocks;
 import mindustry.game.Team;
+import kratha.annotations.KrathaAnnotations.*;
 
 import static mindustry.Vars.*;
 
-public class CliffDrill extends BeamDrill {
+public class CliffDrill extends Block{
+    protected Rand rand = new Rand();
+
+    public @KrathaAnnotations.Load(value = "@-beam", fallback = "drill-laser") TextureRegion laser;
+    public @KrathaAnnotations.Load(value = "@-beam-end", fallback = "drill-laser-end") TextureRegion laserEnd;
+    public @KrathaAnnotations.Load(value = "@-beam-center", fallback = "drill-laser-center") TextureRegion laserCenter;
+
+    public @KrathaAnnotations.Load(value = "@-beam-boost", fallback = "drill-laser-boost") TextureRegion laserBoost;
+    public @KrathaAnnotations.Load(value = "@-beam-boost-end", fallback = "drill-laser-boost-end") TextureRegion laserEndBoost;
+    public @KrathaAnnotations.Load(value = "@-beam-boost-center", fallback = "drill-laser-boost-center") TextureRegion laserCenterBoost;
+
+    public @KrathaAnnotations.Load("@-top") TextureRegion topRegion;
+    public @KrathaAnnotations.Load("@-glow") TextureRegion glowRegion;
+
+    public float drillTime = 200f;
+    public int range = 5;
+    public int tier = 1;
+    public float laserWidth = 0.65f;
+    /** How many times faster the drill will progress when boosted by an optional consumer. */
+    public float optionalBoostIntensity = 2.5f;
+
+    /** Multipliers of drill speed for each item. Defaults to 1. */
+    public ObjectFloatMap<Item> drillMultipliers = new ObjectFloatMap<>();
+    /** Special exemption item that this drill can't mine. */
+    public @KrathaAnnotations.Nullable Item blockedItem;
+    /** Special exemption items that this drill can't mine. */
+    public @KrathaAnnotations.Nullable Seq<Item> blockedItems;
+
+    public Color sparkColor = Color.valueOf("fd9e81"), glowColor = Color.white;
+    public float glowIntensity = 0.2f, pulseIntensity = 0.07f;
+    public float glowScl = 3f;
+    public int sparks = 7;
+    public float sparkRange = 10f, sparkLife = 27f, sparkRecurrence = 4f, sparkSpread = 45f, sparkSize = 3.5f;
+
+    public Color boostHeatColor = Color.sky.cpy().mul(0.87f);
+    public Color heatColor = new Color(1f, 0.35f, 0.35f, 0.9f);
+    public float heatPulse = 0.3f, heatPulseScl = 7f;
+
     public TextureRegion topRegion1, topRegion2, wallHeatRegion;
     public int stackLimit = 2;
     public CliffDrill(String name){
          super(name);
+        hasItems = true;
+        rotate = true;
+        update = true;
+        solid = true;
+        drawArrow = false;
+        regionRotated1 = 1;
+        ignoreLineRotation = true;
+        ambientSoundVolume = 0.05f;
+        ambientSound = Sounds.loopMineBeam;
+
+        envEnabled |= Env.space;
+        flags = EnumSet.of(BlockFlag.drill);
     }
     @Override
     public void load(){
@@ -39,6 +89,16 @@ public class CliffDrill extends BeamDrill {
         Draw.rect(region, plan.drawx(), plan.drawy());
         Draw.rect((plan.rotation>1?topRegion2:topRegion1), plan.drawx(), plan.drawy(), plan.rotation*90);
     }
+
+    @Override
+    public void init(){
+        updateClipRadius((range + 2) * tilesize);
+        super.init();
+        if(blockedItems == null && blockedItem != null){
+            blockedItems = Seq.with(blockedItem);
+        }
+    }
+    
     @Override
     public TextureRegion[] icons(){
         return new TextureRegion[]{region, topRegion1};
@@ -50,6 +110,36 @@ public class CliffDrill extends BeamDrill {
         addBar("drillspeed", (BeamDrillBuild e) ->
             new Bar(() -> Core.bundle.format("bar.drillspeed", Strings.fixed(e.lastDrillSpeed*60, 2)), () -> Pal.ammo, () -> e.warmup));
     }
+
+    @Override
+    public boolean outputsItems(){
+        return true;
+    }
+
+    @Override
+    public boolean rotatedOutput(int x, int y){
+        return false;
+    }
+
+    @Override
+    public void setStats(){
+        super.setStats();
+
+        stats.add(Stat.drillTier, StatValues.drillables(drillTime, 0f, size, drillMultipliers, b ->
+            (b instanceof Floor f && f.wallOre && f.itemDrop != null && f.itemDrop.hardness <= tier && (blockedItems == null || !blockedItems.contains(f.itemDrop))) ||
+            (b instanceof StaticWall w && w.itemDrop != null && w.itemDrop.hardness <= tier && (blockedItems == null || !blockedItems.contains(w.itemDrop)))
+        ));
+
+        stats.add(Stat.drillSpeed, 60f / drillTime * size, StatUnit.itemsSecond);
+
+        if(optionalBoostIntensity != 1 && findConsumer(f -> f instanceof ConsumeLiquidBase && f.booster) instanceof ConsumeLiquidBase consBase){
+            stats.replace(Stat.booster,
+                StatValues.speedBoosters("{0}" + StatUnit.timesSpeed.localized(),
+                consBase.amount, optionalBoostIntensity, false, consBase::consumes)
+            );
+        }
+    }
+
     @Override
     public void drawPlace(int x, int y, int rotation, boolean valid){
         Item item = null, invalidItem = null;
@@ -137,8 +227,24 @@ public class CliffDrill extends BeamDrill {
 
         return false;
     }
-    public class CliffDrillBuild extends BeamDrillBuild {
+
+    public float getDrillTime(Item item){
+        return drillTime / drillMultipliers.get(item, 1f);
+    }
+
+    public class CliffDrillBuild extends Building{
+        public Tile[] facing = new Tile[size];
+        public Point2[] lasers = new Point2[size];
+        public @Nullable Item lastItem;
+
+        public float time;
+        public float warmup, boostWarmup;
+        public float lastDrillSpeed;
+        public int facingAmount;
+
         public Tile[] newFacing = new Tile[size*range];
+        
+
         @Override
         public void drawSelect(){
             for(Tile tile : newFacing){
@@ -175,6 +281,12 @@ public class CliffDrill extends BeamDrill {
                 dump();
             }
         }
+
+        @Override
+        public boolean shouldConsume(){
+            return items.total() < itemCapacity && facingAmount > 0 && enabled;
+        }
+
         @Override
         public void draw(){
             Draw.rect(block.region, x, y);
@@ -270,9 +382,22 @@ public class CliffDrill extends BeamDrill {
 
             Draw.blend();
             Draw.reset();
-        }
+                           }
 
         @Override
+        public void onProximityUpdate(){
+            //when rotated.
+            updateLasers();
+            updateFacing();
+        }
+
+        protected void updateLasers(){
+            for(int i = 0; i < size; i++){
+                if(lasers[i] == null) lasers[i] = new Point2();
+                nearbySide(tileX(), tileY(), rotation, i, lasers[i]);
+            }
+        }
+
         protected void updateFacing(){
             lastItem = null;
             boolean multiple = false;
@@ -340,5 +465,26 @@ public class CliffDrill extends BeamDrill {
             }
         }
 
+
+        @Override
+        public byte version(){
+            return 1;
+        }
+
+        @Override
+        public void write(Writes write){
+            super.write(write);
+            write.f(time);
+            write.f(warmup);
+        }
+
+        @Override
+        public void read(Reads read, byte revision){
+            super.read(read, revision);
+            if(revision >= 1){
+                time = read.f();
+                warmup = read.f();
+            }
+        }
     }
-}
+                }

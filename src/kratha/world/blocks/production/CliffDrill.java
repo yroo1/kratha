@@ -151,9 +151,11 @@ public class CliffDrill extends BeamDrill {
 
             float multiplier = Mathf.lerp(1f, optionalBoostIntensity, optionalEfficiency);
             int count = 0;
-            for(int j=0;j<range;j++){
-                if(newFacing[i*range+j]!=null&&newFacing[i*range+j].drop()==lastItem){
-                    count++;
+            for(int i=0;i<size;i++){
+                for(int j=0;j<range;j++){
+                    if(newFacing[i*range+j]!=null&&newFacing[i*range+j].drop()==lastItem){
+                        count++;
+                    }
                 }
             }
             float drillTime = 60f/(getDrillTime(lastItem)*count);

@@ -200,7 +200,7 @@ public class KrathaEnv {
                     cacheLayer = CacheLayer.water;
                     albedo = 0.95f;
                     supportsOverlay = true;
-                    drownTime = 60;
+                    drownTime = 1;
                     parallaxBlock = krathagenDeeperBlock;
                     blendGroup = krathagenFloor;
                 }};
@@ -212,7 +212,7 @@ public class KrathaEnv {
                     cacheLayer = CacheLayer.water;
                     albedo = 0.95f;
                     supportsOverlay = true;
-                    drownTime = 30;
+                    drownTime = 1;
                     parallaxBlock = krathagenDeepestBlock;
                     blendGroup = krathagenFloor;
                 }};
@@ -224,7 +224,7 @@ public class KrathaEnv {
                     cacheLayer = CacheLayer.water;
                     albedo = 0.95f;
                     supportsOverlay = true;
-                    drownTime = 15;
+                    drownTime = 1;
                     parallaxBlock = krathagenVoidBlock;
                     blendGroup = krathagenFloor;
                 }};

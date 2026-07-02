@@ -48,9 +48,17 @@ public class KrathaEnv {
                     buildVisibility = BuildVisibility.sandboxOnly;
                 }};
                 arkteraWallA = new StaticWall("arktera-wall-a");
-                arkteraTileA = new Floor("arktera-tile-a", 4);
-                arkteraTileB = new Floor("arktera-tile-b", 0);
-                arkteraTileC = new Floor("arktera-tile-c", 2);
+                arkteraTileA = new Floor("arktera-tile-a", 4){{
+                    drawEdgesOut = false;
+                }};
+                arkteraTileB = new Floor("arktera-tile-b", 0){{
+                    drawEdgesOut = false;
+                    blendGroup = arkteraTileA;
+                }};
+                arkteraTileC = new Floor("arktera-tile-c", 2){{
+                    drawEdgesOut = false;
+                    blendGroup = arkteraTileA;
+                }};
                 //terraspore
                 terrasporeFern = new SeaBush("terraspore-fern"){{
                     lobesMin = 4;

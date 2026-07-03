@@ -49,7 +49,7 @@ public class KrathaEnv {
                     buildVisibility = BuildVisibility.sandboxOnly;
                 }};
                 arkteraWallA = new StaticWall("arktera-wall-a");
-                arkteraWallB = new TreeBlock("arktera-wall-b"){{
+                arkteraWallB = new StaticTree("arktera-wall-b"){{
                     emitLight = true;
                     lightRadius = 50f;
                     variants = 0;

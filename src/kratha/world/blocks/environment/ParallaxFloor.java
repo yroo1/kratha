@@ -15,6 +15,7 @@ public class ParallaxFloor extends Floor{
     public Block parallaxBlock;
     public ParallaxFloor(String name){
         super(name);
+        damageTaken = Float.POSTIVE_INFINITY; //Die
     }
     @Override
     public void drawBase(Tile tile){

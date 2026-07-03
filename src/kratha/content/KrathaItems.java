@@ -7,17 +7,17 @@ import kratha.graphics.KrathaPal;
 
 public class KrathaItems{
     public static Item
-    krathite,guartz,terrasand,spurstone,cobalt,kitegite,anemite;
+    krathite,guartz,terrasand,spurstone,cobalt,kitegite,anemite,arkscrap;
     public static final Seq<Item> krathaItems = new Seq<>();
 
     public static void load(){
         krathite = new Item("krathite", KrathaPal.krathite){{
             hardness = 1;
-            cost = 0.3f;
+            cost = 0.5f;
         }};
         guartz = new Item("guartz", KrathaPal.guartz){{
             hardness = 2;
-            cost = 1f;
+            cost = 0.8f;
         }};
         terrasand = new Item("terrasand", KrathaPal.terrasand){{
             hardness = 1;
@@ -25,7 +25,7 @@ public class KrathaItems{
         }};
         spurstone = new Item("spurstone", KrathaPal.spurstone){{
             hardness = 4;
-            cost = 1.5f;
+            cost = 1f;
         }};
         cobalt = new Item("cobalt", KrathaPal.cobalt){{
             hardness = 3;
@@ -35,15 +35,17 @@ public class KrathaItems{
             hardness = 3;
             cost = 1.2f;
         }};
-        anemite = new Item("anemite", KrathaPal.anemite){{
-            hardness = 4;
+        anemite = new Item("anemite", KrathaPal.deterraBase){{
+            hardness = 1;
             cost = 3f;
-            radioactivity = 0.75f;
-            charge = 0.1f;
+        }};
+        arkscrap = new Item("arkscrap", KrathaPal.kitegite){{
+            hardness = 3;
+            cost = 0.5f;
         }};
         
         krathaItems.addAll(
-        krathite,guartz,terrasand,spurstone,cobalt,kitegite,anemite
+        krathite,guartz,terrasand,spurstone,cobalt,kitegite,anemite,arkscrap
         );
     }
 }

@@ -15,13 +15,14 @@ import mindustry.graphics.Layer;
 import kratha.content.KrathaItems;
 import kratha.content.KrathaLiquids;
 import kratha.world.blocks.environment.*;
+import kratha.graphics.KrathaPal;
 
 import static mindustry.type.ItemStack.with;
 
 public class KrathaEnv {
     public static Block
             darkness,
-            arkteraWallA,arkteraTileA,arkteraTileB,arkteraTileC,
+            arkteraWallA,arkteraWallB,arkteraTileA,arkteraTileB,arkteraTileC,arkteraTileD,
             terrasporeTree,terrasporeTreeLarge,woodWall,woodFloor,terrasporeFern,terrasporeFernLarge,
             container,
             krathiteStaticwall,krathiteRough,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,krathiteVent,
@@ -48,6 +49,12 @@ public class KrathaEnv {
                     buildVisibility = BuildVisibility.sandboxOnly;
                 }};
                 arkteraWallA = new StaticWall("arktera-wall-a");
+                arkteraWallB = new TreeBlock("arktera-wall-b"){{
+                    emitLight = true;
+                    lightRadius = 50f;
+                    variants = 0;
+                    lightColor = KrathaPal.arkteraOrange;
+                }};
                 arkteraTileA = new Floor("arktera-tile-a", 4){{
                     drawEdgeOut = false;
                 }};
@@ -58,6 +65,9 @@ public class KrathaEnv {
                 arkteraTileC = new Floor("arktera-tile-c", 2){{
                     drawEdgeOut = false;
                     blendGroup = arkteraTileA;
+                }};
+                arkteraTileD = new Floor("arktera-tile-d", 4){{
+                    drawEdgeIn = false;
                 }};
                 //terraspore
                 terrasporeFern = new SeaBush("terraspore-fern"){{

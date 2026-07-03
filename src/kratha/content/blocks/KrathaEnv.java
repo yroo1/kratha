@@ -30,7 +30,7 @@ public class KrathaEnv {
             terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneWatra,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
             krathagenFloor,krathagenDeep,krathagenDeeper,krathagenDeepest,krathagenVoid,krathagenDeeperBlock,krathagenDeepestBlock,krathagenVoidBlock,krathagenWall,
             watraShallow,watraDeep,
-            fallenLeavesLegacy,fallenLeaves,lilypad,plant,flowerGreen,flowerPink,flowerRed,pebbles,krathiteOreWall,guartzOre,guartzCluster,guartzClusterSmall,cobaltOre,anemiteOre;
+            fallenLeavesLegacy,fallenLeaves,lilypad,plant,flowerGreen,flowerPink,flowerRed,pebbles,krathiteOreWall,guartzOre,guartzCluster,guartzClusterSmall,cobaltOre,anemiteOre,arkscrapOre;
     public static void load() {
         {
             {
@@ -320,6 +320,7 @@ public class KrathaEnv {
                 }};
                 cobaltOre = new OreBlock("cobalt-ore",KrathaItems.cobalt);
                 anemiteOre = new OreBlock("anemite-ore",KrathaItems.anemite);
+                arkscrapOre = new OreBlock("arkscrap-ore",KrathaItems.arkscrap);
             }
         }
     }

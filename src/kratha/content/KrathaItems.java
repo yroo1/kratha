@@ -15,7 +15,7 @@ public class KrathaItems{
             hardness = 1;
             cost = 0.5f;
         }};
-        guartz = new Item("guartz", KrathaPal.guartz){{
+        guartz = new Item("guartz", KrathaPal.guartzLight){{
             hardness = 2;
             cost = 0.8f;
         }};
@@ -35,11 +35,11 @@ public class KrathaItems{
             hardness = 3;
             cost = 1.2f;
         }};
-        anemite = new Item("anemite", KrathaPal.deterraBase){{
+        anemite = new Item("anemite", KrathaPal.anemite){{
             hardness = 1;
             cost = 3f;
         }};
-        arkscrap = new Item("arkscrap", KrathaPal.kitegite){{
+        arkscrap = new Item("arkscrap", KrathaPal.deearthBase){{
             hardness = 3;
             cost = 0.5f;
         }};

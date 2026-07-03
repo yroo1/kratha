@@ -22,7 +22,7 @@ import static mindustry.type.ItemStack.with;
 public class KrathaEnv {
     public static Block
             darkness,
-            arkteraWallA,arkteraWallB,arkteraTileA,arkteraTileB,arkteraTileC,arkteraTileD,
+            arkteraWallA,arkteraWallB,arkteraTileA,arkteraTileB,arkteraTileC,arkteraTileD,arkteraTileVent,
             terrasporeTree,terrasporeTreeLarge,woodWall,woodFloor,terrasporeFern,terrasporeFernLarge,
             container,
             krathiteStaticwall,krathiteRough,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,krathiteVent,
@@ -68,6 +68,12 @@ public class KrathaEnv {
                 }};
                 arkteraTileD = new Floor("arktera-tile-d", 4){{
                     drawEdgeIn = false;
+                }};
+                arkteraTileVent = new SteamVent("arktera-tile-vent"){{
+                    blendGroup = arkteraTileA;
+                    parent = arkteraTileC;
+                    attributes.set(Attribute.steam, 1f);
+                    variants = 0;
                 }};
                 //terraspore
                 terrasporeFern = new SeaBush("terraspore-fern"){{

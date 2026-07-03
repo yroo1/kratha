@@ -22,7 +22,7 @@ import static mindustry.type.ItemStack.with;
 public class KrathaEnv {
     public static Block
             darkness,
-            arkteraWallA,arkteraWallB,arkteraTileA,arkteraTileB,arkteraTileC,arkteraTileD,arkteraTileVent,
+            arkteraWallA,arkteraWallB,arkteraWallBOff,arkteraTileA,arkteraTileB,arkteraTileC,arkteraTileD,arkteraTileVent,
             terrasporeTree,terrasporeTreeLarge,woodWall,woodFloor,terrasporeFern,terrasporeFernLarge,
             container,
             krathiteStaticwall,krathiteRough,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,krathiteVent,
@@ -49,11 +49,21 @@ public class KrathaEnv {
                     buildVisibility = BuildVisibility.sandboxOnly;
                 }};
                 arkteraWallA = new StaticWall("arktera-wall-a");
-                arkteraWallB = new StaticTree("arktera-wall-b"){{
+                arkteraWallB = new Prop("arktera-wall-b"){{
                     emitLight = true;
-                    lightRadius = 50f;
+                    lightRadius = 30f;
                     variants = 0;
-                    lightColor = KrathaPal.arkteraOrange;
+                    lightColor = KrathaPal.arkteraOrange.a(0.5f);
+                    solid = true;
+                    breakable = false;
+                    alwaysReplace = false;
+                }};
+                arkteraWallBOff = new Prop("arktera-wall-b-off"){{
+                    emitLight = false;
+                    variants = 0;
+                    solid = true;
+                    breakable = false;
+                    alwaysReplace = false;
                 }};
                 arkteraTileA = new Floor("arktera-tile-a", 4){{
                     drawEdgeOut = false;

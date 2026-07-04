@@ -51,6 +51,10 @@ public class KrathaPal{
     steamDark = Color.valueOf("4B5D69"),
     steam = Color.valueOf("92A8B0"),
     steamLight = Color.valueOf("DAECED"),
+
+    teracDark = Color.valueOf("895832"),
+    terac = Color.valueOf("BF8F58"),
+    teracLight = Color.valueOf("DCCBAF"),
     
     //items
     krathiteDark = Color.valueOf("51436B"),

@@ -128,7 +128,7 @@ public class KrathaProduction {
             craftTime = 90f;
             size = 5;
             squareSprite = false;
-            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(){{drawLiquid=KrathaLiquids.terac;padding=1}}, new DrawDefault(), new DrawGlowRegion());
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(){{drawLiquid=KrathaLiquids.terac;padding=1;}}, new DrawDefault(), new DrawGlowRegion());
             ambientSound = Sounds.loopSmelter;
             ambientSoundVolume = 0.25f;
 

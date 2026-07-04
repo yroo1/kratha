@@ -22,7 +22,7 @@ import static mindustry.type.ItemStack.with;
 public class KrathaEnv {
     public static Block
             darkness,
-            arkteraWallA,arkteraWallB,arkteraWallBOff,arkteraTileA,arkteraTileB,arkteraTileC,arkteraTileD,arkteraTileVent,
+            arkteraWallA,arkteraWallACracked,arkteraWallB,arkteraWallBOff,arkteraTileA,arkteraTileB,arkteraTileC,arkteraTileD,arkteraTileVent,
             terrasporeTree,terrasporeTreeLarge,woodWall,woodFloor,terrasporeFern,terrasporeFernLarge,
             container,
             krathiteStaticwall,krathiteRough,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,krathiteVent,
@@ -304,6 +304,9 @@ public class KrathaEnv {
                 //ores
                 krathiteOreWall = new StaticWall("krathite-ore-wall"){{
                     itemDrop = KrathaItems.krathite;
+                }};
+                arkteraWallACracked = new StaticWall("arktera-wall-a-cracked"){{
+                    itemDrop = KrathaItems.arkscrap;
                 }};
                 guartzOre = new OreBlock("guartz-ore",KrathaItems.guartz);
                 guartzCluster = new OreCluster("guartz-cluster"){{

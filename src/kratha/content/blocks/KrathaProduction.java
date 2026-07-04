@@ -124,16 +124,17 @@ public class KrathaProduction {
         spurstoneForge = new GenericCrafter("spurstone-forge"){{
             requirements(Category.crafting, with(KrathaItems.krathite, 200, KrathaItems.guartz, 80, KrathaItems.cobalt, 100));
             craftEffect = Fx.drillSteam;
-            outputItem = new ItemStack(KrathaItems.spurstone, 4);
+            outputItem = new ItemStack(KrathaItems.spurstone, 3);
             craftTime = 90f;
             size = 5;
-            hasLiquids = false;
             squareSprite = false;
             drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawDefault(), new DrawGlowRegion());
             ambientSound = Sounds.loopSmelter;
             ambientSoundVolume = 0.25f;
 
-            consumeItems(with(KrathaItems.guartz, 4, KrathaItems.arkscrap, 2));
+            consumeItems(with(KrathaItems.arkscrap, 4));
+            hasLiquids = true;
+            consumeLiquid(KrathaLiquids.terac, 3f / 60f);
         }};
     }
 }

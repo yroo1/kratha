@@ -12,11 +12,23 @@ import mindustry.logic.*;
 import mindustry.ui.*;
 import mindustry.world.*;
 import mindustry.world.draw.*;
-import kratha.graphics.KrathaPal
+import kratha.graphics.KrathaPal;
+
+import static mindustry.Vars.*;
 
 public class PanelLogger extends Block{
-  public TextureRegion topRegion;
-    public HeatConductor(String name){
+    public TextureRegion topRegion;
+    public final static Point2[][] d4x2 = {{
+        new Point2(2, 0),
+        new Point2(2, 1)},{
+        new Point2(1, 2),
+        new Point2(0, 2)},{
+        new Point2(-1, 1),
+        new Point2(-1, 0)},{
+        new Point2(0, -1),
+        new Point2(1, -1)
+    }}
+    public PanelLogger(String name){
         super(name);
         update = solid = rotate = true;
         rotateDraw = false;
@@ -41,12 +53,33 @@ public class PanelLogger extends Block{
 
     public class PanelLoggerBuild extends Building implements HeatBlock, HeatConsumer{
         public float progress = 0;
+        public float hackTime = 120;
 
         @Override
         public void draw(){
             Draw.rect(region,x,y);
             Draw.rect(topRegion,x,y,rotdeg());
         }
+        @Override
+        public void updateTile(){
+            super.updateTile();
+            for(Point2[] pa in d4x2[rotation]){
+                Tile tile1=world.tile(pa[0]);
+                Tile tile2=world.tile(pa[1]);
+                //insane amount of returns
+                if(tile1==null||tile2==null)return;
+                if(tile1.build==null||tile2.build==null)return;
+                Building b=tile1.build;
+                if(!(b instanceof PanelBlock.PanelBuild p))return;
+                if(tile2.build!=b)return;
+                if(p.enabled)return;
+                if(progress<1){
+                  progress=1;
+                  p.enable();
+                  return;
+                }
+                progress += delta() / hackTime;
+            }
+        }
     }
 }
-yes

@@ -8,6 +8,7 @@ import mindustry.gen.*;
 import mindustry.world.*;
 import mindustry.world.meta.*;
 import mindustry.content.Fx;
+import mindustry.logic.*;
 
 import static mindustry.Vars.state;
 
@@ -82,6 +83,14 @@ public class PanelBlock extends Block{
         @Override
         public Boolean config(){
             return active;
+        }
+
+        @Override
+        public double sense(LAccess sensor){
+            return switch(sensor){
+                case enabled -> active;
+                default -> super.sense(sensor);
+            };
         }
 
         @Override

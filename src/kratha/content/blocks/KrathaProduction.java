@@ -23,7 +23,7 @@ public class KrathaProduction {
     public static Block
     crusherDrill,laserBore,cliffBore,
 
-    spurstoneSmelter,crystallizationBasin,earthenExtractor;
+    spurstoneSmelter,crystallizationBasin,earthenExtractor,spurstoneForge;
     public static void load() {
         crusherDrill = new OreClusterDrill("crusher-drill"){{
             requirements(Category.production, with(KrathaItems.krathite, 10, KrathaItems.guartz, 5));
@@ -120,6 +120,20 @@ public class KrathaProduction {
             ambientSoundVolume = 0.1f;
 
             consumeItems(with(KrathaItems.krathite, 3));
+        }};
+        spurstoneForge = new GenericCrafter("spurstone-forge"){{
+            requirements(Category.crafting, with(KrathaItems.krathite, 200, KrathaItems.guartz, 80, KrathaItems.cobalt, 100));
+            craftEffect = Fx.drillSteam;
+            outputItem = new ItemStack(KrathaItems.spurstone, 4);
+            craftTime = 90f;
+            size = 5;
+            hasLiquids = false;
+            squareSprite = false;
+            drawer = new DrawMulti(new DrawDefault(), new DrawGlowRegion());
+            ambientSound = Sounds.loopSmelter;
+            ambientSoundVolume = 0.25f;
+
+            consumeItems(with(KrathaItems.guartz, 4, KrathaItems.arkscrap, 2));
         }};
     }
 }

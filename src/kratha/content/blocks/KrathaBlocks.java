@@ -12,6 +12,7 @@ public class KrathaBlocks{
         KrathaPower.load();
         KrathaUnits.load();
         KrathaStorage.load();
+        KrathaLogic.load();
         Terraplasm.load();
     }
 }

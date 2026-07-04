@@ -19,7 +19,9 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaLiquid {
     public static Block
-            gyralPump,liquidTube,liquidOverpass,liquidCell;
+            gyralPump,liquidTube,liquidOverpass,liquidCell,
+
+            ancientPipeline;
     public static void load() {
         {
             {
@@ -47,6 +49,11 @@ public class KrathaLiquid {
                 liquidCell = new LiquidRouter("liquid-cell"){{
                     requirements(Category.liquid, with(KrathaItems.kitegite, 5));
                     researchCost = with(KrathaItems.kitegite, 50);
+                }};
+
+                ancientPipeline = new LiquidTube("ancient-pipeline"){{
+                    requirements(Category.liquid, with(KrathaItems.arkscrap, 1));
+                    botColor = KrathaPal.arkteraOrangeDarker;
                 }};
             }
         }

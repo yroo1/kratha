@@ -87,13 +87,13 @@ public class PanelLogger extends Block{
             Building b = connectedTo();
             if(b==null||!(b instanceof PanelBlock.PanelBuild p))return;
             if(p.active)return;
-            if(p.progress>=1){
-                p.progress=1;
+            if(p.progress>=p.hackTime){
+                p.progress=p.hackTime;
                 progress=1;
                 p.activate();
                 return;
             }
-            p.progress += delta()/p.hackTime;
+            p.progress += delta()/p.hackTime*efficiency;
             progress = p.progress/p.hackTime;
         }
 

@@ -40,7 +40,7 @@ public class PanelLogger extends Block{
     @Override
     public void setBars(){
         super.setBars(); 
-        addBar("progress", (PanelLoggerBuild entity) -> new Bar(() -> Core.bundle.format("kratha.hackprogress", Strings.fixed(entity.progress*100, 2)), () -> KrathaPal.arkteraOrange, () -> entity.progress));
+        addBar("progress", (PanelLoggerBuild entity) -> new Bar(() -> Core.bundle.format("kratha.hackprogress", Strings.fixed(entity.progress*100, 0)), () -> KrathaPal.arkteraOrange, () -> entity.progress));
     }
 
     @Override
@@ -56,7 +56,6 @@ public class PanelLogger extends Block{
 
     public class PanelLoggerBuild extends Building{
         public float progress = 0;
-        public float hackTime = 120;
 
         @Override
         public void draw(){
@@ -88,25 +87,24 @@ public class PanelLogger extends Block{
             Building b = connectedTo();
             if(b==null||!(b instanceof PanelBlock.PanelBuild p))return;
             if(p.active)return;
-            if(progress>=1){
+            if(p.progress>=1){
+                p.progress=1;
                 progress=1;
                 p.activate();
                 return;
             }
-            hackTime = p.hackTime;
-            progress += delta()/hackTime;
+            p.progress += delta()/p.hackTime;
+            progress = p.progress/p.hackTime;
         }
 
         @Override
         public void write(Writes write){
             super.write(write);
-            write.f(progress);
         }
 
         @Override
         public void read(Reads read, byte revision){
             super.read(read, revision);
-            progress = read.f();
         }
     }
 }

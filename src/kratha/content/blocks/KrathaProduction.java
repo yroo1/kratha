@@ -21,7 +21,7 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaProduction {
     public static Block
-    crusherDrill,laserBore,cliffBore,
+    crusherDrill,laserBore,cliffBore,teracExtractor,
 
     spurstoneSmelter,crystallizationBasin,earthenExtractor,spurstoneForge;
     public static void load() {
@@ -62,6 +62,19 @@ public class KrathaProduction {
             researchCost = with(KrathaItems.krathite, 30, KrathaItems.guartz, 25);
             ambientSound = Sounds.loopDrill;
             ambientSoundVolume = 0.04f;
+        }};
+        teracExtractor = new AttributeCrafter("terac-extractor"){{
+            requirements(Category.production, with(KrathaItems.krathite, 40, KrathaItems.guartz, 50));
+            craftEffect = Fx.none;
+            attribute = Attribute.steam;
+            minEfficiency = 8.999f;
+            baseEfficiency = 0;
+            displayEfficiency = false;
+            boostScale = 1/8.999f;
+            size = 3;
+            hasLiquids = true;
+            squareSprite = false;
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(){{drawLiquid=KrathaLiquids.terac;padding=2.5f;}},new DrawDefault());
         }};
 
         spurstoneSmelter = new GenericCrafter("spurstone-smelter"){{

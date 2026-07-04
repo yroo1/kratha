@@ -83,7 +83,7 @@ public class PanelLogger extends Block{
             }
         }
 
-        Override
+        @Override
         public void write(Writes write){
             super.write(write);
             write.f(progress);

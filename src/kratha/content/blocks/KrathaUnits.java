@@ -18,7 +18,7 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaUnits {
     public static Block
-            nauticAssembler,rockboredFactory;
+            nauticAssembler, ancientFactory;
     public static void load() {
         {
             {
@@ -29,7 +29,7 @@ public class KrathaUnits {
                     size = 3;
                     researchCost = with(KrathaItems.krathite,200,KrathaItems.guartz,180,KrathaItems.spurstone,100,KrathaItems.cobalt,50);
                 }};
-                rockboredFactory = new UnitFactory("rockbored-factory"){{
+                ancientFactory = new UnitFactory("ancient-factory"){{
                     requirements(Category.units, with());
                     plans.add(new UnitPlan(KrathaUnitTypes.keris, 14 * 60f, with(KrathaItems.guartz, 15,KrathaItems.spurstone, 10)));
                     consumePower(40/60f);
@@ -39,6 +39,8 @@ public class KrathaUnits {
                     breakable = false;
                     targetable = false;
                     buildTime = 20260602;
+                    hasLiquids = true;
+                    consumeLiquid(KrathaLiquids.terac, 3f / 60f);
                 }};
             }
         }

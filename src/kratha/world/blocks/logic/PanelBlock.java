@@ -28,6 +28,11 @@ public class PanelBlock extends Block{
     }
 
     @Override
+    public void setBars(){
+        //no
+    }
+
+    @Override
     public void load(){
       super.load();
       onRegion = Core.atlas.find(name+"-on");

@@ -66,8 +66,8 @@ public class PanelLogger extends Block{
         @Override
         public void updateTile(){
             super.updateTile();
-            Tile tile1=world.tile(d4x2[rotation][0]);
-            Tile tile2=world.tile(d4x2[rotation][1]);
+            Tile tile1=tile.nearby(d4x2[rotation][0]);
+            Tile tile2=tile.nearby(d4x2[rotation][1]);
             //insane amount of returns
             if(tile1==null||tile2==null)return;
             if(tile1.build==null||tile2.build==null)return;

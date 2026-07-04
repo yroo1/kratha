@@ -53,7 +53,7 @@ public class KrathaLiquid {
 
                 ancientPipeline = new LiquidTube("ancient-pipeline"){{
                     requirements(Category.liquid, with(KrathaItems.arkscrap, 1));
-                    botColor = KrathaPal.arkteraOrangeDarker;
+                    botColor = KrathaPal.arkteraBrownDarker;
                 }};
             }
         }

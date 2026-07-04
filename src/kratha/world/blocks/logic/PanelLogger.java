@@ -40,7 +40,7 @@ public class PanelLogger extends Block{
     @Override
     public void setBars(){
         super.setBars(); 
-        addBar("progress", (HeatConductorBuild entity) -> new Bar(() -> Core.bundle.format("kratha.hackprogress", (entity.progress)), () -> KrathaPal.arkteraOrange, () -> entity.progress));
+        addBar("progress", (PanelLoggerBuild entity) -> new Bar(() -> Core.bundle.format("kratha.hackprogress", (entity.progress)), () -> KrathaPal.arkteraOrange, () -> entity.progress));
     }
 
     @Override
@@ -66,23 +66,21 @@ public class PanelLogger extends Block{
         @Override
         public void updateTile(){
             super.updateTile();
-            for(Point2[] pa : d4x2[rotation]){
-                Tile tile1=world.tile(pa[0]);
-                Tile tile2=world.tile(pa[1]);
-                //insane amount of returns
-                if(tile1==null||tile2==null)return;
-                if(tile1.build==null||tile2.build==null)return;
-                Building b=tile1.build;
-                if(!(b instanceof PanelBlock.PanelBuild p))return;
-                if(tile2.build!=b)return;
-                if(p.enabled)return;
-                if(progress<1){
-                  progress=1;
-                  p.enable();
-                  return;
-                }
-                progress += delta() / hackTime;
+            Tile tile1=world.tile(d4x2[rotation][0]);
+            Tile tile2=world.tile(d4x2[rotation][1]);
+            //insane amount of returns
+            if(tile1==null||tile2==null)return;
+            if(tile1.build==null||tile2.build==null)return;
+            Building b=tile1.build;
+            if(!(b instanceof PanelBlock.PanelBuild p))return;
+            if(tile2.build!=b)return;
+            if(p.enabled)return;
+            if(progress<1){
+                progress=1;
+                p.enable();
+                return;
             }
+            progress += delta() / hackTime;
         }
 
         @Override

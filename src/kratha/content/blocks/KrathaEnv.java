@@ -80,8 +80,8 @@ public class KrathaEnv {
                     drawEdgeIn = false;
                 }};
                 arkteraTileVent = new SteamVent("arktera-tile-vent"){{
-                    blendGroup = arkteraTileA;
-                    parent = arkteraTileC;
+                    blendGroup = arkteraTileD;
+                    parent = arkteraTileD;
                     attributes.set(Attribute.steam, 1f);
                     variants = 0;
                 }};

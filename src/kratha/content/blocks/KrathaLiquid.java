@@ -21,7 +21,7 @@ public class KrathaLiquid {
     public static Block
             gyralPump,liquidTube,liquidOverpass,liquidCell,
 
-            ancientPipeline;
+            ancientPipeline, ancientPipelineRouter;
     public static void load() {
         {
             {
@@ -54,6 +54,9 @@ public class KrathaLiquid {
                 ancientPipeline = new LiquidTube("ancient-pipeline"){{
                     requirements(Category.liquid, with(KrathaItems.arkscrap, 1));
                     botColor = KrathaPal.arkteraBrownDarker;
+                }};
+                ancientPipelineRouter = new LiquidRouter("ancient-pipeline-router"){{
+                    requirements(Category.liquid, with(KrathaItems.arkscrap, 1));
                 }};
             }
         }

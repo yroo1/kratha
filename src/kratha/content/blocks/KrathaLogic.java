@@ -18,9 +18,12 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaLogic{
     public static Block
-    controlPanel;
+    logger,controlPanel;
 
     public static void load(){
+        logger = new PanelLogger("logger"){{
+            requirements(Category.logic, with(KrathaItems.krathite,50,KrathaItems.guartz,100,KrathaItems.spurstone,10));
+        }};
         controlPanel = new PanelBlock("control-panel"){{
             requirements(Category.logic, with());
             size = 4;

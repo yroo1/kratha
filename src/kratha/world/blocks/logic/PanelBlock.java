@@ -88,7 +88,7 @@ public class PanelBlock extends Block{
         @Override
         public double sense(LAccess sensor){
             return switch(sensor){
-                case enabled -> active;
+                case enabled -> active ? 1 : 0;
                 default -> super.sense(sensor);
             };
         }

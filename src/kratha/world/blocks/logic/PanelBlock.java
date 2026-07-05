@@ -3,6 +3,8 @@ package kratha.world.blocks.logic;
 import arc.Core;
 import arc.graphics.g2d.*;
 import arc.util.io.*;
+import arc.util.*;
+import mindustry.ui.*;
 import mindustry.gen.*;
 import mindustry.world.*;
 import mindustry.world.meta.*;

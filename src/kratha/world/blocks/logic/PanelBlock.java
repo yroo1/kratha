@@ -122,6 +122,7 @@ public class PanelBlock extends Block{
                     stringf+=(Core.bundle.get("item."+l.chip4.name+".name")+" : "+(int)items.get(l.chip4)+"/"+reqChip4);
                 }
                 drawPlaceText(stringf,tile.x,tile.y,true);
+            }
         }
 
         @Override

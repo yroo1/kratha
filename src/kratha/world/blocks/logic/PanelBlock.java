@@ -56,11 +56,11 @@ public class PanelBlock extends Block{
     }
 
     public class PanelBuild extends Building{
-        boolean active = false;
-        int progress = 0;
-        int hackTime = 10;
+        public boolean active = false;
+        public int progress = 0;
+        public int hackTime = 10;
 
-        int reqChip1 = 0, reqChip2 = 0, reqChip3 = 0, reqChip4 = 0;
+        public int reqChip1 = 0, reqChip2 = 0, reqChip3 = 0, reqChip4 = 0;
 
         @Override
         public void damage(float damage){

@@ -63,7 +63,7 @@ public class KrathaProduction {
             ambientSound = Sounds.loopDrill;
             ambientSoundVolume = 0.04f;
         }};
-        teracCollector = new AttributeCrafter("terac-collector"){{
+        teracCollector = new AncientAttributeCrafter("terac-collector"){{
             requirements(Category.production, with(KrathaItems.krathite, 40, KrathaItems.guartz, 50));
             craftEffect = Fx.none;
             attribute = Attribute.steam;
@@ -138,7 +138,7 @@ public class KrathaProduction {
 
             consumeItems(with(KrathaItems.krathite, 3));
         }};
-        spurstoneForge = new GenericCrafter("spurstone-forge"){{
+        spurstoneForge = new AncientGenericCrafter("spurstone-forge"){{
             requirements(Category.crafting, with(KrathaItems.krathite, 200, KrathaItems.guartz, 80, KrathaItems.cobalt, 100));
             craftEffect = Fx.drillSteam;
             outputItem = new ItemStack(KrathaItems.spurstone, 3);

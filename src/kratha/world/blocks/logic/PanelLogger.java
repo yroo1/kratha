@@ -116,6 +116,7 @@ public class PanelLogger extends Block{
             super.updateTile();
             Building b = connectedTo(tile,rotation);
             if(b==null||!(b instanceof PanelBlock.PanelBuild p))return;
+            if(b.block==null||!(b.block instanceof PanelBlock pb))return;
             progress = ((float)p.progress)/p.hackTime;
             if(p.active)return;
             if(p.progress>=p.hackTime){
@@ -124,28 +125,28 @@ public class PanelLogger extends Block{
                 p.activate();
                 return;
             }
-            if(shouldConsumeChip(p,p.block.chip1,p.block.reqChip1)){
-                if(items.get(p.block.chip1)>0){
-                    items.remove(p.block.chip1,1);
-                    p.handleItem(this,p.block.chip1);
+            if(shouldConsumeChip(p,pb.chip1,pb.reqChip1)){
+                if(items.get(pb.chip1)>0){
+                    items.remove(pb.chip1,1);
+                    p.handleItem(this,pb.chip1);
                 }else{return;}
             }
-            if(shouldConsumeChip(p,p.block.chip2,p.block.reqChip2)){
-                if(items.get(p.block.chip2)>0){
-                    items.remove(p.block.chip2,1);
-                    p.handleItem(this,p.block.chip2);
+            if(shouldConsumeChip(p,pb.chip2,pb.reqChip2)){
+                if(items.get(pb.chip2)>0){
+                    items.remove(pb.chip2,1);
+                    p.handleItem(this,pb.chip2);
                 }else{return;}
             }
-            if(shouldConsumeChip(p,p.block.chip3,p.block.reqChip3)){
-                if(items.get(p.block.chip3)>0){
-                    items.remove(p.block.chip3,1);
-                    p.handleItem(this,p.block.chip3);
+            if(shouldConsumeChip(p,pb.chip3,pb.reqChip3)){
+                if(items.get(pb.chip3)>0){
+                    items.remove(pb.chip3,1);
+                    p.handleItem(this,pb.chip3);
                 }else{return;}
             }
-            if(shouldConsumeChip(p,p.block.chip4,p.block.reqChip4)){
-                if(items.get(p.block.chip4)>0){
-                    items.remove(p.block.chip4,1);
-                    p.handleItem(this,p.block.chip4);
+            if(shouldConsumeChip(p,pb.chip4,pb.reqChip4)){
+                if(items.get(pb.chip4)>0){
+                    items.remove(pb.chip4,1);
+                    p.handleItem(this,pb.chip4);
                 }else{return;}
             }
             delay -= delta()*efficiency;
@@ -157,11 +158,11 @@ public class PanelLogger extends Block{
         }
 
         public boolean acceptChip(Building panel, Item item){
-            if(!(panel instanceof PanelBlock.PanelBuild p))return false;
-            if(item==p.chip1&&p.reqChip1>0)return true;
-            if(item==p.chip2&&p.reqChip2>0)return true;
-            if(item==p.chip3&&p.reqChip3>0)return true;
-            if(item==p.chip4&&p.reqChip4>0)return true;
+            if(!(panel.block instanceof PanelBlock pb))return false;
+            if(item==pb.chip1&&pb.reqChip1>0)return true;
+            if(item==pb.chip2&&pb.reqChip2>0)return true;
+            if(item==pb.chip3&&pb.reqChip3>0)return true;
+            if(item==pb.chip4&&pb.reqChip4>0)return true;
             return false;
         }
 

@@ -18,7 +18,7 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaLogic{
     public static Block
-    logger,controlPanel;
+    logger,analyzer,controlPanel;
 
     public static void load(){
         logger = new PanelLogger("logger"){{
@@ -26,6 +26,10 @@ public class KrathaLogic{
             researchCost = with(KrathaItems.krathite, 10, KrathaItems.guartz,10,KrathaItems.spurstone,5);
             consumePower(20/60f);
             hasPower = true;
+        }};
+        analyzer = new AnalyzerBlock("analyzer"){{
+            requirements(Category.logic, with(KrathaItems.krathite,15));
+            researchCost = with(KrathaItems.krathite, 30);
         }};
         controlPanel = new PanelBlock("control-panel"){{
             requirements(Category.logic, with());

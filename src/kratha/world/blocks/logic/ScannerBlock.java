@@ -22,9 +22,9 @@ import kratha.world.blocks.production.*;
 
 import static mindustry.Vars.*;
 
-public class AnalyzerBlock extends Block{
+public class ScannerBlock extends Block{
     public TextureRegion topRegion1,topRegion2;
-    public AnalyzerBlock(String name){
+    public ScannerBlock(String name){
         super(name);
         update = solid = rotate = true;
         rotateDraw = false;
@@ -59,14 +59,15 @@ public class AnalyzerBlock extends Block{
     }
     @Override
     public boolean canPlaceOn(Tile tile, Team team, int rotation){
-        if(connectedTo(tile,rotation)!=null)return true;
+        Building b = connectedTo(tile,rotation);
+        if(b!=null&&b.block!=null&&isAncient(b.block))return true;
         return false;
     }
     public boolean isAncient(Block bb){
         return (bb instanceof AncientCrafter||bb instanceof AncientAttributeCrafter||bb instanceof AncientLiquidTube||bb instanceof AncientLiquidRouter||bb instanceof AncientUnitFactory);
     }
 
-    public class AnalyzerBuild extends Building{
+    public class ScannerBuild extends Building{
 
         @Override
         public void draw(){

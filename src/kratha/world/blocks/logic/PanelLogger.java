@@ -103,6 +103,14 @@ public class PanelLogger extends Block{
                 Drawf.select(b.tile.x*tilesize+offset, b.tile.y*tilesize+offset, b.block.size*tilesize/2f+2f, Pal.accent);
             }
         }
+        public boolean shouldConsumeChip(Building p, Item chip, int req){
+            if(req>0&&p.items.get(chip)<req){
+                if((float)(p.items.get(chip))/req<p.progress/(float)p.hackTime+0.01f){
+                    return true;
+                }
+            }
+            return false;
+        }
         @Override
         public void updateTile(){
             super.updateTile();
@@ -116,45 +124,29 @@ public class PanelLogger extends Block{
                 p.activate();
                 return;
             }
-            if(p.reqChip1>0&&p.items.get(p.chip1)<p.reqChip1){
-                if((float)(p.items.get(p.chip1))/p.reqChip1<p.progress/(float)p.hackTime+0.01f){
-                    if(items.get(p.chip1)>0){
-                        items.remove(p.chip1,1);
-                        p.handleItem(this,p.chip1);
-                    }else{
-                        return;
-                    }
-                }
+            if(shouldConsumeChip(p,p.block.chip1,p.block.reqChip1){
+                if(items.get(p.block.chip1)>0){
+                    items.remove(p.block.chip1,1);
+                    p.handleItem(this,p.block.chip1);
+                }else{return;}
             }
-            if(p.reqChip2>0&&p.items.get(p.chip2)<p.reqChip2){
-                if((float)(p.items.get(p.chip2))/p.reqChip2<p.progress/(float)p.hackTime+0.01f){
-                    if(items.get(p.chip2)>0){
-                        items.remove(p.chip2,1);
-                        p.handleItem(this,p.chip2);
-                    }else{
-                        return;
-                    }
-                }
+            if(shouldConsumeChip(p,p.block.chip2,p.block.reqChip2){
+                if(items.get(p.block.chip2)>0){
+                    items.remove(p.block.chip2,1);
+                    p.handleItem(this,p.block.chip2);
+                }else{return;}
             }
-            if(p.reqChip3>0&&p.items.get(p.chip3)<p.reqChip3){
-                if((float)(p.items.get(p.chip3))/p.reqChip3<p.progress/(float)p.hackTime+0.01f){
-                    if(items.get(p.chip3)>0){
-                        items.remove(p.chip3,1);
-                        p.handleItem(this,p.chip3);
-                    }else{
-                        return;
-                    }
-                }
+            if(shouldConsumeChip(p,p.block.chip3,p.block.reqChip3){
+                if(items.get(p.block.chip3)>0){
+                    items.remove(p.block.chip3,1);
+                    p.handleItem(this,p.block.chip3);
+                }else{return;}
             }
-            if(p.reqChip4>0&&p.items.get(p.chip4)<p.reqChip4){
-                if((float)(p.items.get(p.chip4))/p.reqChip4<p.progress/(float)p.hackTime+0.01f){
-                    if(items.get(p.chip4)>0){
-                        items.remove(p.chip4,1);
-                        p.handleItem(this,p.chip4);
-                    }else{
-                        return;
-                    }
-                }
+            if(shouldConsumeChip(p,p.block.chip4,p.block.reqChip4){
+                if(items.get(p.block.chip4)>0){
+                    items.remove(p.block.chip4,1);
+                    p.handleItem(this,p.block.chip4);
+                }else{return;}
             }
             delay -= delta()*efficiency;
             

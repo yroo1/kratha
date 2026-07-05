@@ -36,7 +36,7 @@ public class KrathaEnv {
             {
                 //darkness
                 darkness = new Block("darkness"){{
-                    requirements(Category.effect, with());
+                    requirements(Category.effect, BuildVisibility.editorOnly, with());
                     forceDark = true;
                     targetable = false;
                     solid = false;
@@ -46,7 +46,6 @@ public class KrathaEnv {
                     drawTeamOverlay = false;
                     destructible = false;
                     hasShadow = false;
-                    buildVisibility = BuildVisibility.editorOnly;
                 }};
                 arkteraWallA = new StaticWall("arktera-wall-a");
                 arkteraWallB = new Prop("arktera-wall-b"){{
@@ -310,12 +309,12 @@ public class KrathaEnv {
                 }};
                 guartzOre = new OreBlock("guartz-ore",KrathaItems.guartz);
                 guartzCluster = new OreCluster("guartz-cluster"){{
-                    requirements(Category.effect, with());
+                    requirements(Category.effect, BuildVisibility.editorOnly, with());
                     variants = 2;
                     itemDrop = KrathaItems.guartz;
                 }};
                 guartzClusterSmall = new OreCluster("guartz-cluster-small"){{
-                    requirements(Category.effect, with());
+                    requirements(Category.effect, BuildVisibility.editorOnly, with());
                     variants = 2;
                     size = 2;
                     maxDrillCount = 1;

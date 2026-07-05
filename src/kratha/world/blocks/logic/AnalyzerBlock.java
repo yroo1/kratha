@@ -83,5 +83,12 @@ public class AnalyzerBlock extends Block{
                 Drawf.select(b.tile.x*tilesize+offset, b.tile.y*tilesize+offset, b.block.size*tilesize/2f+2f, Pal.accent);
             }
         }
+
+        @Override
+        public void tapped(){
+            Building b = connectedTo(tile,rotation);
+            if(b==null||b.block==null||!isAncient(b.block))return;
+            ui.content.show(b.block);
+        }
     }
 }

@@ -1,7 +1,6 @@
 package kratha.world.blocks.logic;
 
 import arc.Core;
-import arc.audio.*;
 import arc.graphics.g2d.*;
 import arc.util.io.*;
 import mindustry.gen.*;
@@ -13,8 +12,6 @@ import mindustry.logic.*;
 import static mindustry.Vars.state;
 
 public class PanelBlock extends Block{
-    public Sound onSound = Sounds.click;
-    
     public TextureRegion onRegion;
 
     public PanelBlock(String name){
@@ -24,6 +21,7 @@ public class PanelBlock extends Block{
         autoResetEnabled = false;
         configureSound = Sounds.none;
         envEnabled = Env.any;
+        hasItems = true;
 
         config(Boolean.class, (PanelBuild entity, Boolean b) -> entity.enabled = b);
     }
@@ -33,6 +31,10 @@ public class PanelBlock extends Block{
         //no
     }
 
+    public boolean isAccessible(){
+        return false;
+    }
+    
     @Override
     public void load(){
       super.load();
@@ -40,7 +42,7 @@ public class PanelBlock extends Block{
     }
 
     public boolean accessible(){
-        return !privileged || state.rules.editor || state.rules.allowEditWorldProcessors;
+        return state.rules.editor;
     }
 
     @Override
@@ -57,6 +59,9 @@ public class PanelBlock extends Block{
         boolean active = false;
         int progress = 0;
         int hackTime = 10;
+
+        int reqChip1 = 0, reqChip2 = 0, reqChip3 = 0, reqChip4 = 0;
+
         @Override
         public void damage(float damage){
             return; //no damage
@@ -105,6 +110,10 @@ public class PanelBlock extends Block{
             active = read.bool();
             progress = read.i();
             hackTime = read.i();
+            reqChip1 = read.i();
+            reqChip2 = read.i();
+            reqChip3 = read.i();
+            reqChip4 = read.i();
         }
 
         @Override
@@ -114,6 +123,10 @@ public class PanelBlock extends Block{
             write.bool(active);
             write.i(progress);
             write.i(hackTime);
+            write.i(reqChip1);
+            write.i(reqChip2);
+            write.i(reqChip3);
+            write.i(reqChip4);
         }
     }
               }

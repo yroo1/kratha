@@ -138,7 +138,7 @@ public class KrathaProduction {
 
             consumeItems(with(KrathaItems.krathite, 3));
         }};
-        spurstoneForge = new AncientGenericCrafter("spurstone-forge"){{
+        spurstoneForge = new AncientCrafter("spurstone-forge"){{
             requirements(Category.crafting, with(KrathaItems.krathite, 200, KrathaItems.guartz, 80, KrathaItems.cobalt, 100));
             craftEffect = Fx.drillSteam;
             outputItem = new ItemStack(KrathaItems.spurstone, 3);

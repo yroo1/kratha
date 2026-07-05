@@ -9,6 +9,7 @@ import static mindustry.Vars.state;
 public class AncientLiquidTube extends LiquidTube{
     public AncientLiquidTube(String name){
         super(name);
+        allowDerelictRepair = false;
     }
 
     @Override

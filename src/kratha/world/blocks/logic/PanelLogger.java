@@ -16,11 +16,14 @@ import mindustry.world.*;
 import mindustry.world.draw.*;
 import mindustry.game.*;
 import kratha.graphics.KrathaPal;
+import kratha.content.*;
 
 import static mindustry.Vars.*;
 
+//kratha code is bullshit pretending to be normal shit
 public class PanelLogger extends Block{
     public TextureRegion topRegion;
+    public Item chip1,chip2,chip3,chip4;
     public final static Point2[][] d4x2 = {{
         new Point2(2, 0),
         new Point2(2, 1)},{
@@ -36,6 +39,7 @@ public class PanelLogger extends Block{
         update = solid = rotate = true;
         rotateDraw = false;
         size = 2;
+        hasItems = true;
     }
 
     @Override
@@ -112,12 +116,63 @@ public class PanelLogger extends Block{
                 p.activate();
                 return;
             }
+            if(p.reqChip1>0){
+                if((float)(p.items.get(chip1))/p.reqChip1<p.progress){
+                    if(items.get(chip1)>0){
+                        items.remove(chip1);
+                        p.handleItem(this,chip1);
+                    }
+                }
+            }
+            if(p.reqChip2>0){
+                if((float)(p.items.get(chip2))/p.reqChip2<p.progress){
+                    if(items.get(chip2)>0){
+                        items.remove(chip2);
+                        p.handleItem(this,chip2);
+                    }
+                }
+            }
+            if(p.reqChip3>0){
+                if((float)(p.items.get(chip3))/p.reqChip3<p.progress){
+                    if(items.get(chip1)>0){
+                        items.remove(chip3);
+                        p.handleItem(this,chip3);
+                    }
+                }
+            }
+            if(p.reqChip4>0){
+                if((float)(p.items.get(chip4))/p.reqChip4<p.progress){
+                    if(items.get(chip1)>0){
+                        items.remove(chip4);
+                        p.handleItem(this,chip4);
+                    }
+                }
+            }
             delay -= delta()*efficiency;
             
             if(delay<=0){
                 delay=60;
                 p.progress++;
             }
+        }
+
+        public boolean acceptChip(Building panel, Item item){
+            if(!(panel instanceof PanelBlock.PanelBuild p))return false;
+            if(item==chip1&&p.reqChip1>0)return true;
+            if(item==chip2&&p.reqChip2>0)return true;
+            if(item==chip3&&p.reqChip3>0)return true;
+            if(item==chip4&&p.reqChip4>0)return true;
+            return false;
+        }
+
+        @Override
+        public void handleItem(Building source, Item item){
+            items.add(item, 1);
+        }
+
+        @Override
+        public boolean acceptItem(Building source, Item item){
+            return acceptChip(connectedTo(tile,rotation),item) && items.get(item) < getMaximumAccepted(item);
         }
 
         @Override

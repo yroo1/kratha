@@ -103,7 +103,8 @@ public class PanelLogger extends Block{
                 Drawf.select(b.tile.x*tilesize+offset, b.tile.y*tilesize+offset, b.block.size*tilesize/2f+2f, Pal.accent);
             }
         }
-        public boolean shouldConsumeChip(Building p, Item chip, int req){
+        public boolean shouldConsumeChip(Building b, Item chip, int req){
+            if(b==null||!(b instanceof PanelBlock.PanelBuild p))return false;
             if(req>0&&p.items.get(chip)<req){
                 if((float)(p.items.get(chip)-1)/req<p.progress/(float)p.hackTime){
                     return true;
@@ -125,25 +126,25 @@ public class PanelLogger extends Block{
                 p.activate();
                 return;
             }
-            if(shouldConsumeChip(p,pb.chip1,pb.reqChip1)){
+            if(shouldConsumeChip(p,pb.chip1,p.reqChip1)){
                 if(items.get(pb.chip1)>0){
                     items.remove(pb.chip1,1);
                     p.handleItem(this,pb.chip1);
                 }else{return;}
             }
-            if(shouldConsumeChip(p,pb.chip2,pb.reqChip2)){
+            if(shouldConsumeChip(p,pb.chip2,p.reqChip2)){
                 if(items.get(pb.chip2)>0){
                     items.remove(pb.chip2,1);
                     p.handleItem(this,pb.chip2);
                 }else{return;}
             }
-            if(shouldConsumeChip(p,pb.chip3,pb.reqChip3)){
+            if(shouldConsumeChip(p,pb.chip3,p.reqChip3)){
                 if(items.get(pb.chip3)>0){
                     items.remove(pb.chip3,1);
                     p.handleItem(this,pb.chip3);
                 }else{return;}
             }
-            if(shouldConsumeChip(p,pb.chip4,pb.reqChip4)){
+            if(shouldConsumeChip(p,pb.chip4,p.reqChip4)){
                 if(items.get(pb.chip4)>0){
                     items.remove(pb.chip4,1);
                     p.handleItem(this,pb.chip4);
@@ -159,10 +160,11 @@ public class PanelLogger extends Block{
 
         public boolean acceptChip(Building panel, Item item){
             if(!(panel.block instanceof PanelBlock pb))return false;
-            if(item==pb.chip1&&pb.reqChip1>0)return true;
-            if(item==pb.chip2&&pb.reqChip2>0)return true;
-            if(item==pb.chip3&&pb.reqChip3>0)return true;
-            if(item==pb.chip4&&pb.reqChip4>0)return true;
+            if(!(panel instanceof PanelBlock.PanelBuild p))return false;
+            if(item==pb.chip1&&p.reqChip1>0)return true;
+            if(item==pb.chip2&&p.reqChip2>0)return true;
+            if(item==pb.chip3&&p.reqChip3>0)return true;
+            if(item==pb.chip4&&p.reqChip4>0)return true;
             return false;
         }
 

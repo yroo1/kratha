@@ -119,7 +119,7 @@ public class KrathaProduction {
             ambientSoundVolume = 0.075f;
         }};
         earthenExtractor= new AttributeCrafter("earthen-extractor"){{
-            requirements(Category.crafting, with(KrathaItems.spurstone, 50, KrathaItems.cobalt, 30));
+            requirements(Category.crafting, BuildVisibility.sandboxOnly, with(KrathaItems.spurstone, 50, KrathaItems.cobalt, 30));
             craftEffect = Fx.drillSteam;
             attribute = Attribute.steam;
             minEfficiency = 8.999f;
@@ -139,7 +139,7 @@ public class KrathaProduction {
             consumeItems(with(KrathaItems.krathite, 3));
         }};
         spurstoneForge = new AncientCrafter("spurstone-forge"){{
-            requirements(Category.crafting, with(KrathaItems.krathite, 200, KrathaItems.guartz, 80, KrathaItems.cobalt, 100));
+            requirements(Category.crafting, BuildVisibility.sandboxOnly, with(KrathaItems.krathite, 200, KrathaItems.guartz, 80, KrathaItems.cobalt, 100));
             craftEffect = Fx.drillSteam;
             outputItem = new ItemStack(KrathaItems.spurstone, 3);
             craftTime = 180f;

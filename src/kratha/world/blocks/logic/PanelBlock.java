@@ -104,16 +104,16 @@ public class PanelBlock extends Block{
         @Override
         public void drawSelect(){
             if(KrathaLogic.logger instanceof PanelLogger l){
-                if(reqChip1>0&&items.get(l.chip1)<reqChip1){
+                if(reqChip1>0){
                     drawPlaceText((Core.bundle.get("item."+l.chip1.name+".name")+" : "+(int)items.get(l.chip1)+"/"+reqChip1),tile.x,tile.y,true);
                 }
-                if(reqChip2>0&&items.get(l.chip2)<reqChip2){
+                if(reqChip2>0){
                     drawPlaceText((Core.bundle.get("item."+l.chip2.name+".name")+" : "+(int)items.get(l.chip2)+"/"+reqChip2),tile.x,tile.y,true);
                 }
-                if(reqChip3>0&&items.get(l.chip3)<reqChip3){
+                if(reqChip3>0){
                     drawPlaceText((Core.bundle.get("item."+l.chip3.name+".name")+" : "+(int)items.get(l.chip3)+"/"+reqChip3),tile.x,tile.y,true);
                 }
-                if(reqChip4>0&&items.get(l.chip4)<reqChip4){
+                if(reqChip4>0){
                     drawPlaceText((Core.bundle.get("item."+l.chip4.name+".name")+" : "+(int)items.get(l.chip4)+"/"+reqChip4),tile.x,tile.y,true);
                 }
             }

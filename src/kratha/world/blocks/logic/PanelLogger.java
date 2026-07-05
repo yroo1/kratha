@@ -54,9 +54,9 @@ public class PanelLogger extends Block{
         return new TextureRegion[]{region,topRegion};
     }
 
-    public Building connectedTo(Tile tile){
-        Tile tile1=tile.nearby(d4x2[rotation][0]);
-        Tile tile2=tile.nearby(d4x2[rotation][1]);
+    public Building connectedTo(Tile tile, int rot){
+        Tile tile1=tile.nearby(d4x2[rot][0]);
+        Tile tile2=tile.nearby(d4x2[rot][1]);
         //insane amount of returns
         if(tile1==null||tile2==null)return null;
         if(tile1.build==null||tile2.build==null)return null;
@@ -65,6 +65,21 @@ public class PanelLogger extends Block{
         if(tile2.build!=b)return null;
         return b;
     }
+
+    @Override
+    public void drawPlace(int x, int y, int rotation, boolean valid){
+        Building b = connectedTo(world.tile(x,y),rotation);
+        if(valid&&b!=null&&b instanceof PanelBlock.PanelBuild){
+            float offset = b.block.size%2!=0?0:tilesize/2f;
+            Drawf.select(b.tile.x*tilesize+offset, b.tile.y*tilesize+offset, b.block.size*tilesize/2f+2f, Pal.accent);
+        }
+    }
+    @Override
+    public boolean canPlaceOn(Tile tile, Team team, int rotation){
+        if(connectedTo(tile,rotation)!=null)return true;
+        return false;
+    }
+    
 
     public class PanelLoggerBuild extends Building{
         public float progress = 0;
@@ -76,7 +91,7 @@ public class PanelLogger extends Block{
         }
         @Override
         public void drawSelect(){
-            Building b = connectedTo();
+            Building b = connectedTo(tile,rotation);
             if(b!=null&&b instanceof PanelBlock.PanelBuild){
                 float offset = b.block.size%2!=0?0:tilesize/2f;
                 Drawf.select(b.tile.x*tilesize+offset, b.tile.y*tilesize+offset, b.block.size*tilesize/2f+2f, Pal.accent);
@@ -85,7 +100,7 @@ public class PanelLogger extends Block{
         @Override
         public void updateTile(){
             super.updateTile();
-            Building b = connectedTo(tile);
+            Building b = connectedTo(tile,rotation);
             if(b==null||!(b instanceof PanelBlock.PanelBuild p))return;
             if(p.active)return;
             if(p.progress>=p.hackTime){

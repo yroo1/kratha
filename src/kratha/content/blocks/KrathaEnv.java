@@ -46,7 +46,7 @@ public class KrathaEnv {
                     drawTeamOverlay = false;
                     destructible = false;
                     hasShadow = false;
-                    buildVisibility = BuildVisibility.sandboxOnly;
+                    buildVisibility = BuildVisibility.editorOnly;
                 }};
                 arkteraWallA = new StaticWall("arktera-wall-a");
                 arkteraWallB = new Prop("arktera-wall-b"){{

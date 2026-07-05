@@ -13,6 +13,7 @@ import mindustry.gen.Sounds;
 import kratha.content.KrathaItems;
 import kratha.content.*;
 import mindustry.content.*;
+import kratha.world.blocks.units.*:
 
 import static mindustry.type.ItemStack.with;
 
@@ -29,7 +30,7 @@ public class KrathaUnits {
                     size = 3;
                     researchCost = with(KrathaItems.krathite,200,KrathaItems.guartz,180,KrathaItems.spurstone,100,KrathaItems.cobalt,50);
                 }};
-                ancientFactory = new UnitFactory("ancient-factory"){{
+                ancientFactory = new AncientUnitFactory("ancient-factory"){{
                     requirements(Category.units, with());
                     plans.add(new UnitPlan(KrathaUnitTypes.keris, 14 * 60f, with(KrathaItems.guartz, 15,KrathaItems.spurstone, 10)));
                     consumePower(40/60f);

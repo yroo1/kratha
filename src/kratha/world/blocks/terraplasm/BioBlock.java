@@ -70,6 +70,11 @@ public class BioBlock extends Block {
         destroySound = Sounds.loopSpray;
         buildVisibility = BuildVisibility.editorOnly;
     }
+
+    public void requirements(Category cat, ItemStack[] stacks){
+        requirements(cat, BuildVisibility.editorOnly, stacks);
+    }
+    
     public class BioBuilding extends Building {
         public Tile pulseSource=null;
         

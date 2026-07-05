@@ -10,6 +10,7 @@ import static mindustry.Vars.state;
 public class AncientLiquidRouter extends LiquidRouter{
     public AncientLiquidRouter(String name){
         super(name);
+        allowDerelictRepair = false;
     }
 
     @Override

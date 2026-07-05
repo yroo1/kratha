@@ -142,7 +142,7 @@ public class KrathaProduction {
             requirements(Category.crafting, with(KrathaItems.krathite, 200, KrathaItems.guartz, 80, KrathaItems.cobalt, 100));
             craftEffect = Fx.drillSteam;
             outputItem = new ItemStack(KrathaItems.spurstone, 3);
-            craftTime = 90f;
+            craftTime = 180f;
             size = 5;
             squareSprite = false;
             drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(){{drawLiquid=KrathaLiquids.terac;padding=1;}}, new DrawDefault(), new DrawGlowRegion());

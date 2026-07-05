@@ -8,7 +8,7 @@ import mindustry.world.*;
 import mindustry.world.meta.*;
 import mindustry.content.Fx;
 import mindustry.logic.*;
-import mindustry.graphics
+import mindustry.graphics.*;
 import kratha.content.blocks.KrathaLogic;
 
 import static mindustry.Vars.state;
@@ -67,7 +67,7 @@ public class PanelBlock extends Block{
         @Override
         public void updateTile(){
             super.updateTile();
-            pprogress=(float(progress))/hackTime;
+            pprogress=((float)(progress))/hackTime;
         }
         
         @Override

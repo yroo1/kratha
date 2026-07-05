@@ -14,7 +14,7 @@ import mindustry.gen.Building;
 import mindustry.graphics.*;
 import mindustry.ui.*;
 import mindustry.world.*;
-import mindustry.world.Tile;
+import mindustry.world.meta.*;
 import mindustry.graphics.*;
 import mindustry.content.*;
 import mindustry.entities.Units;
@@ -71,6 +71,7 @@ public class BioBlock extends Block {
         buildVisibility = BuildVisibility.editorOnly;
     }
 
+    @Override
     public void requirements(Category cat, ItemStack[] stacks){
         requirements(cat, BuildVisibility.editorOnly, stacks);
     }

@@ -105,7 +105,7 @@ public class PanelLogger extends Block{
         }
         public boolean shouldConsumeChip(Building p, Item chip, int req){
             if(req>0&&p.items.get(chip)<req){
-                if((float)(p.items.get(chip))/req<p.progress/(float)p.hackTime+0.01f){
+                if((float)(p.items.get(chip)-1)/req<p.progress/(float)p.hackTime){
                     return true;
                 }
             }
@@ -124,25 +124,25 @@ public class PanelLogger extends Block{
                 p.activate();
                 return;
             }
-            if(shouldConsumeChip(p,p.block.chip1,p.block.reqChip1){
+            if(shouldConsumeChip(p,p.block.chip1,p.block.reqChip1)){
                 if(items.get(p.block.chip1)>0){
                     items.remove(p.block.chip1,1);
                     p.handleItem(this,p.block.chip1);
                 }else{return;}
             }
-            if(shouldConsumeChip(p,p.block.chip2,p.block.reqChip2){
+            if(shouldConsumeChip(p,p.block.chip2,p.block.reqChip2)){
                 if(items.get(p.block.chip2)>0){
                     items.remove(p.block.chip2,1);
                     p.handleItem(this,p.block.chip2);
                 }else{return;}
             }
-            if(shouldConsumeChip(p,p.block.chip3,p.block.reqChip3){
+            if(shouldConsumeChip(p,p.block.chip3,p.block.reqChip3)){
                 if(items.get(p.block.chip3)>0){
                     items.remove(p.block.chip3,1);
                     p.handleItem(this,p.block.chip3);
                 }else{return;}
             }
-            if(shouldConsumeChip(p,p.block.chip4,p.block.reqChip4){
+            if(shouldConsumeChip(p,p.block.chip4,p.block.reqChip4)){
                 if(items.get(p.block.chip4)>0){
                     items.remove(p.block.chip4,1);
                     p.handleItem(this,p.block.chip4);

@@ -122,34 +122,42 @@ public class PanelLogger extends Block{
                 return;
             }
             if(p.reqChip1>0){
-                if((float)(p.items.get(chip1))/p.reqChip1<p.progress){
+                if((float)(p.items.get(chip1))/p.reqChip1<p.progress/(float)p.hackTime){
                     if(items.get(chip1)>0){
                         items.remove(chip1,1);
                         p.handleItem(this,chip1);
+                    }else{
+                        return;
                     }
                 }
             }
             if(p.reqChip2>0){
-                if((float)(p.items.get(chip2))/p.reqChip2<p.progress){
+                if((float)(p.items.get(chip2))/p.reqChip2<p.progress/(float)p.hackTime){
                     if(items.get(chip2)>0){
                         items.remove(chip2,1);
                         p.handleItem(this,chip2);
+                    }else{
+                        return;
                     }
                 }
             }
             if(p.reqChip3>0){
-                if((float)(p.items.get(chip3))/p.reqChip3<p.progress){
+                if((float)(p.items.get(chip3))/p.reqChip3<p.progress/(float)p.hackTime){
                     if(items.get(chip1)>0){
                         items.remove(chip3,1);
                         p.handleItem(this,chip3);
+                    }else{
+                        return;
                     }
                 }
             }
             if(p.reqChip4>0){
-                if((float)(p.items.get(chip4))/p.reqChip4<p.progress){
+                if((float)(p.items.get(chip4))/p.reqChip4<p.progress/(float)p.hackTime){
                     if(items.get(chip1)>0){
                         items.remove(chip4,1);
                         p.handleItem(this,chip4);
+                    }else{
+                        return;
                     }
                 }
             }

@@ -13,6 +13,7 @@ import mindustry.logic.*;
 import mindustry.graphics.*;
 import kratha.content.blocks.KrathaLogic;
 import mindustry.type.*;
+import kratha.content.KrathaItems;
 
 import static mindustry.Vars.state;
 
@@ -110,23 +111,23 @@ public class PanelBlock extends Block{
 
         @Override
         public void drawSelect(){
-            if(KrathaLogic.logger instanceof PanelLogger l){
+            if(true){
                 String stringf = "";
                 if(reqChip1>0){
                     if(stringf!="")stringf+="\n";
-                    stringf+=(Core.bundle.get("item."+l.chip1.name+".name")+" : "+(int)items.get(l.chip1)+"/"+reqChip1);
+                    stringf+=(Core.bundle.get("item."+chip1.name+".name")+" : "+(int)items.get(chip1)+"/"+reqChip1);
                 }
                 if(reqChip2>0){
                     if(stringf!="")stringf+="\n";
-                    stringf+=(Core.bundle.get("item."+l.chip2.name+".name")+" : "+(int)items.get(l.chip2)+"/"+reqChip2);
+                    stringf+=(Core.bundle.get("item."+chip2.name+".name")+" : "+(int)items.get(chip2)+"/"+reqChip2);
                 }
                 if(reqChip3>0){
                     if(stringf!="")stringf+="\n";
-                    stringf+=(Core.bundle.get("item."+l.chip3.name+".name")+" : "+(int)items.get(l.chip3)+"/"+reqChip3);
+                    stringf+=(Core.bundle.get("item."+chip3.name+".name")+" : "+(int)items.get(chip3)+"/"+reqChip3);
                 }
                 if(reqChip4>0){
                     if(stringf!="")stringf+="\n";
-                    stringf+=(Core.bundle.get("item."+l.chip4.name+".name")+" : "+(int)items.get(l.chip4)+"/"+reqChip4);
+                    stringf+=(Core.bundle.get("item."+chip4.name+".name")+" : "+(int)items.get(chip4)+"/"+reqChip4);
                 }
                 drawPlaceText(stringf,tile.x,tile.y,true);
             }

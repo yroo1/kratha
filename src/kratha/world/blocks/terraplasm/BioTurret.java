@@ -13,6 +13,7 @@ import mindustry.gen.Building;
 import mindustry.graphics.*;
 import mindustry.ui.*;
 import mindustry.world.*;
+import mindustry.world.meta.*;
 import mindustry.world.Tile;
 import mindustry.graphics.*;
 import mindustry.content.*;
@@ -48,6 +49,12 @@ public class BioTurret extends Turret{
         unitFilter = u -> u.getDuration(KrathaStatusEffects.seen)>1;
         buildVisibility = BuildVisibility.editorOnly;
     }
+
+    @Override
+    public void requirements(Category cat, ItemStack[] stacks){
+        requirements(cat, BuildVisibility.editorOnly, stacks);
+    }
+    
 
     @Override
     public void setStats(){

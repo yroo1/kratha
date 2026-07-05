@@ -36,10 +36,7 @@ public class KrathaUnits {
                     consumePower(40/60f);
                     size = 4;
                     canPickup = false;
-                    buildVisibility = BuildVisibility.sandboxOnly;
-                    breakable = false;
-                    targetable = false;
-                    buildTime = 20260602;
+                    configurable = false;
                     hasLiquids = true;
                     consumeLiquid(KrathaLiquids.terac, 3f / 60f);
                 }};

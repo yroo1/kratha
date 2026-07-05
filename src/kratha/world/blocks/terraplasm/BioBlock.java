@@ -13,6 +13,7 @@ import mindustry.world.blocks.defense.*;
 import mindustry.gen.Building;
 import mindustry.graphics.*;
 import mindustry.ui.*;
+import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.meta.*;
 import mindustry.graphics.*;

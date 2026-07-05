@@ -7,7 +7,7 @@ import mindustry.world.meta.*;
 import static mindustry.Vars.state;
 
 public class AncientLiquidTube extends LiquidTube{
-    public AncientCrafter(String name){
+    public AncientLiquidTube(String name){
         super(name);
     }
 

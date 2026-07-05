@@ -14,6 +14,7 @@ import mindustry.logic.*;
 import mindustry.ui.*;
 import mindustry.world.*;
 import mindustry.world.draw.*;
+import mindustry.game.*;
 import kratha.graphics.KrathaPal;
 
 import static mindustry.Vars.*;
@@ -83,6 +84,7 @@ public class PanelLogger extends Block{
 
     public class PanelLoggerBuild extends Building{
         public float progress = 0;
+        public float delay = 60;
 
         @Override
         public void draw(){
@@ -109,18 +111,24 @@ public class PanelLogger extends Block{
                 p.activate();
                 return;
             }
-            p.progress += delta()*efficiency;
+            delay -= delta()*efficiency;
             progress = p.progress/p.hackTime;
+            if(delay<=0){
+                delay=60;
+                p.progress++;
+            }
         }
 
         @Override
         public void write(Writes write){
             super.write(write);
+            write.f(delay);
         }
 
         @Override
         public void read(Reads read, byte revision){
             super.read(read, revision);
+            delay = read.f();
         }
     }
 }

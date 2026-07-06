@@ -5,7 +5,7 @@ import mindustry.world.*;
 import mindustry.world.meta.*;
 import mindustry.world.blocks.payloads.*;
 
-import static mindustry.Vars.state;
+import static mindustry.Vars.*;
 
 public class AncientPayloadMassDriver extends PayloadMassDriver{
     public AncientPayloadMassDriver(String name){

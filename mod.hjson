@@ -1,5 +1,5 @@
 displayName: "KRATHA"
-subtitle: "••••••"
+subtitle: "0.2"
 repo: "yroo1/kratha"
 name: "kratha"
 author: "namaka"
@@ -9,14 +9,12 @@ description:'''
 
 [white[]]The Terraplasm is my very own version of Anuke's unfinished Neoplasm, a rapidly growing plant faction that you will fight.
 
-[gray[]]Lower end device might encounter lag
-
-[accent[]]There are currently 4 playable sectors, [white[]]however, the entire campaign will get a complete rework in the next update.
+[accent[]]There is currently just 1 playable, polished sector.
 
 [gray[]]This an early version of KRATHA which is under heavy development, it may not display the final version.
 
-Current version : 0.1
+Current version : 0.2
 '''
-version: 0.1
+version: 0.2
 minGameVersion: 154
 java: true

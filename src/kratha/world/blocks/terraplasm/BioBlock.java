@@ -69,7 +69,7 @@ public class BioBlock extends Block {
         rebuildable = false;
         drawTeamOverlay = false;
         destroySound = Sounds.loopSpray;
-        buildVisibility = BuildVisibility.editorOnly;
+        buildVisibility = BuildVisibility.sandboxOnly;
     }
 
     @Override

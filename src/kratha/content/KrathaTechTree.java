@@ -104,6 +104,12 @@ public class KrathaTechTree {
                     });
                 });
             });
+
+            node(KrathaLogic.logger, () -> {
+                node(KrathaLogic.scanner, () -> {
+                
+                });
+            });
             
             node(KrathaSectorPresets.theFountain, () -> {
                 node(KrathaSectorPresets.comingSoon, Seq.with(new Objectives.SectorComplete(theFountain)),() -> {

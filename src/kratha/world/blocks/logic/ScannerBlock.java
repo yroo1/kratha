@@ -64,7 +64,7 @@ public class ScannerBlock extends Block{
         return false;
     }
     public boolean isAncient(Block bb){
-        return (bb instanceof AncientCrafter||bb instanceof AncientAttributeCrafter||bb instanceof AncientLiquidTube||bb instanceof AncientLiquidRouter||bb instanceof AncientUnitFactory);
+        return (bb instanceof AncientCrafter||bb instanceof AncientAttributeCrafter||bb instanceof AncientLiquidTube||bb instanceof AncientLiquidRouter||bb instanceof AncientUnitFactory||bb instanceof AncientPayloadMassDriver);
     }
 
     public class ScannerBuild extends Building{

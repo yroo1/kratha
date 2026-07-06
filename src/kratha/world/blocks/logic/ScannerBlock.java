@@ -19,6 +19,7 @@ import kratha.graphics.KrathaPal;
 import kratha.world.blocks.liquid.*;
 import kratha.world.blocks.units.*;
 import kratha.world.blocks.production.*;
+import kratha.world.blocks.payloads.*;
 
 import static mindustry.Vars.*;
 

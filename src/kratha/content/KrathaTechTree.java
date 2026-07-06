@@ -41,7 +41,7 @@ public class KrathaTechTree {
                 });
                 node(KrathaDistribution.itemOverpass);
             });
-            node(KrathaLiquid.gyralPump, Seq.with(new Objectives.OnSector(offshore)), () -> {
+            node(KrathaLiquid.gyralPump, Seq.with(new Objectives.SectorComplete(comingSoon)), () -> {
                 node(KrathaLiquid.liquidTube, () -> {
                    node(KrathaLiquid.liquidCell, () -> {
                    
@@ -60,10 +60,10 @@ public class KrathaTechTree {
                 });
             });
             node(KrathaProduction.spurstoneSmelter, () -> {
-                node(KrathaProduction.crystallizationBasin, Seq.with(new Objectives.OnSector(offshore)),() -> {
+                node(KrathaProduction.crystallizationBasin, Seq.with(new Objectives.SectorComplete(comingSoon)),() -> {
                 
                 });
-                node(KrathaProduction.earthenExtractor, Seq.with(new Objectives.OnSector(offshore)),() -> {
+                node(KrathaProduction.earthenExtractor, Seq.with(new Objectives.SectorComplete(comingSoon)),() -> {
                 
                 });
             });
@@ -72,7 +72,7 @@ public class KrathaTechTree {
                 node(KrathaPower.relay, () -> {
                     
                 });
-                node(KrathaPower.turbine, Seq.with(new Objectives.OnSector(offshore)),() -> {
+                node(KrathaPower.turbine, Seq.with(new Objectives.SectorComplete(comingSoon)),() -> {
                     
                 });
                 node(KrathaPower.candle, () -> {
@@ -84,8 +84,8 @@ public class KrathaTechTree {
                 
             });
 
-            node(KrathaTurrets.impede, Seq.with(new Objectives.OnSector(oasis)),() -> {
-                node(KrathaTurrets.debase, Seq.with(new Objectives.OnSector(harbor)),() -> {
+            node(KrathaTurrets.impede, Seq.with(new Objectives.SectorComplete(comingSoon)),() -> {
+                node(KrathaTurrets.debase, Seq.with(new Objectives.SectorComplete(comingSoon)),() -> {
                 
                 });
                 node(KrathaDefense.krathiteWall, () -> {
@@ -106,16 +106,12 @@ public class KrathaTechTree {
             });
             
             node(KrathaSectorPresets.theFountain, () -> {
-                node(KrathaSectorPresets.oasis, Seq.with(new Objectives.SectorComplete(theFountain)),() -> {
-                    node(KrathaSectorPresets.harbor, Seq.with(new Objectives.SectorComplete(oasis)),() -> {
-                        node(KrathaSectorPresets.offshore, Seq.with(new Objectives.SectorComplete(harbor)),() -> {
-                
-                        });
-                    });
+                node(KrathaSectorPresets.comingSoon, Seq.with(new Objectives.SectorComplete(theFountain)),() -> {
+                    
                 });
             });
 
-            node(KrathaUnits.nauticAssembler, Seq.with(new Objectives.OnSector(oasis)),() -> {
+            node(KrathaUnits.nauticAssembler, Seq.with(new Objectives.SectorComplete(comingSoon)),() -> {
                 node(KrathaUnitTypes.sail, () -> {
                 
                 });

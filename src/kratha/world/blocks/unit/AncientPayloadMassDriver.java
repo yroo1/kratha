@@ -19,6 +19,28 @@ public class AncientPayloadMassDriver extends PayloadMassDriver{
     }
 
     public class AncientPayloadDriverBuild extends PayloadDriverBuild{
+
+        @Override
+        public boolean onConfigureBuildTapped(Building other){
+
+            if(state.rules.editor) return true;
+                
+            if(this == other){
+                if(link == -1) deselect();
+                configure(-1);
+                return false;
+            }
+
+            if(link == other.pos()){
+                configure(-1);
+                return false;
+            }else if(other.block instanceof PayloadMassDriver && other.dst(tile) <= range && other.team == team){
+                configure(other.pos());
+                return false;
+            }
+
+            return true;
+        }
         
         @Override
         public void damage(float damage){

@@ -19,7 +19,7 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaUnits {
     public static Block
-            nauticAssembler, ancientFactory;
+            nauticAssembler, ancientFactory, ancientPayloadLauncher;
     public static void load() {
         {
             {
@@ -40,6 +40,15 @@ public class KrathaUnits {
                     hasLiquids = true;
                     consumeLiquid(KrathaLiquids.terac, 3f / 60f);
                 }};
+                ancientPayloadLauncher = new AncientPayloadMassDriver("ancient-payload-launcher"){{
+                    requirements(Category.units, BuildVisibility.sandboxOnly, with(KrathaItems.krathite, 150, KrathaItems.spurstone, 200, KrathaItems.cobalt, 90));
+                    size = 4;
+                    reload = 150f;
+                    chargeTime = 120f;
+                    range = 600f;
+                    maxPayloadSize = 4f;
+                    fogRadius = 0;
+        }};
             }
         }
     }

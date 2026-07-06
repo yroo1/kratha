@@ -18,7 +18,7 @@ public class AncientPayloadMassDriver extends PayloadMassDriver{
         return state.rules.editor;
     }
 
-    public class AncientPayloadMassDriverBuild extends PayloadMassDriverBuild{
+    public class AncientPayloadDriverBuild extends PayloadDriverBuild{
         
         @Override
         public void damage(float damage){

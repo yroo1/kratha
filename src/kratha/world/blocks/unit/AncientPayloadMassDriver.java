@@ -5,7 +5,7 @@ import mindustry.world.*;
 import mindustry.world.meta.*;
 import mindustry.world.blocks.payloads.*;
 
-import static mindustry.Vars.*;
+import static mindustry.Vars.state;
 
 public class AncientPayloadMassDriver extends PayloadMassDriver{
     public AncientPayloadMassDriver(String name){
@@ -23,7 +23,7 @@ public class AncientPayloadMassDriver extends PayloadMassDriver{
         @Override
         public boolean onConfigureBuildTapped(Building other){
 
-            if(!Vars.state.rules.editor) return true;
+            if(link == -1) return true;
                 
             if(this == other){
                 if(link == -1) deselect();

@@ -30,8 +30,8 @@ public class KrathaLogic{
             hasPower = true;
         }};
         scanner = new ScannerBlock("scanner"){{
-            requirements(Category.logic, with(KrathaItems.krathite,15));
-            researchCost = with(KrathaItems.krathite, 30);
+            requirements(Category.logic, with(KrathaItems.spurstone,15));
+            researchCost = with(KrathaItems.spurstone, 30);
         }};
         controlPanel = new PanelBlock("control-panel"){{
             requirements(Category.logic, BuildVisibility.editorOnly, with());

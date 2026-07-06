@@ -23,7 +23,7 @@ public class AncientPayloadMassDriver extends PayloadMassDriver{
         @Override
         public boolean onConfigureBuildTapped(Building other){
 
-            if(state.rules.editor) return true;
+            if(!Vars.state.rules.editor) return true;
                 
             if(this == other){
                 if(link == -1) deselect();

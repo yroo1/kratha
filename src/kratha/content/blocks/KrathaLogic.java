@@ -18,7 +18,9 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaLogic{
     public static Block
-    logger,scanner,controlPanel;
+    logger,scanner,controlPanel,
+
+    invisible;
 
     public static void load(){
         logger = new PanelLogger("logger"){{
@@ -34,6 +36,13 @@ public class KrathaLogic{
         controlPanel = new PanelBlock("control-panel"){{
             requirements(Category.logic, BuildVisibility.editorOnly, with());
             size = 4;
+        }};
+
+        invisible = new Block("invisible"){{
+            targetable = false;
+            forceDark = true;
+            update = false:
+            size = 1;
         }};
     }
               }

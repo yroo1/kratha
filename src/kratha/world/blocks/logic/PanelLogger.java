@@ -126,30 +126,32 @@ public class PanelLogger extends Block{
                 p.activate();
                 return;
             }
-            if(shouldConsumeChip(p,pb.chip1,p.reqChip1)){
-                if(items.get(pb.chip1)>0){
-                    items.remove(pb.chip1,1);
-                    p.handleItem(this,pb.chip1);
-                }else{return;}
+            boolean needItem=false;
+            for(int i=0;i<4;i++){
+                Item chip=pb.chip1;
+                int reqChip=p.reqChip1;
+                switch(1){
+                    case 0:
+                        chip=pb.chip1;
+                        reqChip=p.reqChip1;
+                    case 1:
+                        chip=pb.chip2;
+                        reqChip=p.reqChip2;
+                    case 2:
+                        chip=pb.chip3;
+                        reqChip=p.reqChip3;
+                    case 3:
+                        chip=pb.chip4;
+                        reqChip=p.reqChip4;
+                }
+                if(shouldConsumeChip(p,chip,reqChip)){
+                    if(items.get(chip)>0){
+                        items.remove(chip,1);
+                        p.handleItem(this,chip);
+                    }else{needItem=true;}
+                }
             }
-            if(shouldConsumeChip(p,pb.chip2,p.reqChip2)){
-                if(items.get(pb.chip2)>0){
-                    items.remove(pb.chip2,1);
-                    p.handleItem(this,pb.chip2);
-                }else{return;}
-            }
-            if(shouldConsumeChip(p,pb.chip3,p.reqChip3)){
-                if(items.get(pb.chip3)>0){
-                    items.remove(pb.chip3,1);
-                    p.handleItem(this,pb.chip3);
-                }else{return;}
-            }
-            if(shouldConsumeChip(p,pb.chip4,p.reqChip4)){
-                if(items.get(pb.chip4)>0){
-                    items.remove(pb.chip4,1);
-                    p.handleItem(this,pb.chip4);
-                }else{return;}
-            }
+            if(needItem)return;
             delay -= delta()*efficiency;
             
             if(delay<=0){

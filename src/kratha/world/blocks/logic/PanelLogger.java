@@ -149,8 +149,9 @@ public class PanelLogger extends Block{
                         break;
                 }
                 
-                reqChipAmount+=reqChip-p.items.get(chip);
+                reqChipAmount+=(reqChip-p.items.get(chip));
                 reqChipTotal+=reqChip;
+                Log.info("i: "+i+" req: "+reqChip+" a "+p.reqChip1);
             }
             boolean needChipT=false;
             if(reqChipTotal>0&&reqChipAmount/reqChipTotal<p.progress/p.hackTime+1){

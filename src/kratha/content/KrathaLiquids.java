@@ -66,5 +66,9 @@ public class KrathaLiquids{
         terac = new Liquid("terac", KrathaPal.teracLight){{
             gas = true;
         }};
+
+        krathaLiquids.addAll(
+        krathagen,watra,muddyWatra,terraplasm,akacyte,steam,terac
+        );
     }
 }

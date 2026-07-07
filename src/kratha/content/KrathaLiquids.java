@@ -4,6 +4,7 @@ import arc.graphics.*;
 import mindustry.type.*;
 import mindustry.content.*;
 import kratha.graphics.KrathaPal;
+import arc.struct.Seq;
 
 public class KrathaLiquids{
     public static Liquid krathagen, watra, muddyWatra, terraplasm, akacyte, steam, terac;

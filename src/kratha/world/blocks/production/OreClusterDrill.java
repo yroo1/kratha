@@ -202,6 +202,7 @@ public class OreClusterDrill extends Block{
             Building closest = closestCluster(tile);
             if(closest!=null){
                 link=closest.tile.pos();
+                updateNearbyClusters();
             }
         }
 

@@ -7,6 +7,8 @@ import kratha.graphics.KrathaPal;
 
 public class KrathaLiquids{
     public static Liquid krathagen, watra, muddyWatra, terraplasm, akacyte, steam, terac;
+    public static final Seq<Liquid> krathaLiquids = new Seq<>();
+    
     public static void load(){
 
         krathagen = new Liquid("krathagen", KrathaPal.krathagenLight){{

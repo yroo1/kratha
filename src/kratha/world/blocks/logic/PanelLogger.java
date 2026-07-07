@@ -131,22 +131,24 @@ public class PanelLogger extends Block{
                     case 0:
                         chip=pb.chip1;
                         reqChip=p.reqChip1;
+                        break;
                     case 1:
                         chip=pb.chip2;
                         reqChip=p.reqChip2;
+                        break;
                     case 2:
                         chip=pb.chip3;
                         reqChip=p.reqChip3;
+                        break;
                     case 3:
                         chip=pb.chip4;
                         reqChip=p.reqChip4;
+                        break;
                 }
                 
                 reqChipAmount+=reqChip-p.items.get(chip);
                 reqChipTotal+=reqChip;
-                Log.info("req: "+reqChip);
             }
-            Log.info(reqChipTotal);
             boolean needChipT=false;
             if(reqChipTotal>0&&reqChipAmount/reqChipTotal<p.progress/p.hackTime+1){
                 for(int i=0;i<4;i++){
@@ -156,15 +158,19 @@ public class PanelLogger extends Block{
                         case 0:
                             chip=pb.chip1;
                             reqChip=p.reqChip1;
+                            break;
                         case 1:
                             chip=pb.chip2;
                             reqChip=p.reqChip2;
+                            break;
                         case 2:
                             chip=pb.chip3;
                             reqChip=p.reqChip3;
+                            break;
                         case 3:
                             chip=pb.chip4;
                             reqChip=p.reqChip4;
+                            break;
                     }
                     if(reqChip-p.items.get(chip)>0){
                         if(items.get(chip)>0){

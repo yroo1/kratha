@@ -23,7 +23,7 @@ public class AncientMessageBlock extends MessageBlock{
         return state.rules.editor;
     }
 
-    @overeide
+    @Override
     public boolean accessible(){
         return state.rules.editor;
     }

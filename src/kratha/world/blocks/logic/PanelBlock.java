@@ -1,6 +1,7 @@
 package kratha.world.blocks.logic;
 
 import arc.Core;
+import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.util.io.*;
 import arc.util.*;
@@ -140,7 +141,7 @@ public class PanelBlock extends Block{
                         stringf+="[white]"+(
                                 Core.bundle.get("item."+chip.name+".name")+
                             " : ["+
-                            (items.get(chip)<(float)reqChip*0.5f?("red"):(items.get(chip)<(float)reqChip*0.75f?("yellow"):("white")))+
+                            (items.get(chip)<(float)reqChip*0.5f?("#f00"):(items.get(chip)<(float)reqChip?("accent"):("white")))+
                             "]"+(int)items.get(chip)+"[white]/"+reqChip);
                     }
                 }

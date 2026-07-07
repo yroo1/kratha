@@ -14,8 +14,8 @@ description:'''
 
 [gray[]]This an early version of KRATHA which is under heavy development, it may not display the final version.
 
-Current version : 0.2
+Current version : 0.21
 '''
-version: 0.2
-minGameVersion: 154
+version: 0.21
+minGameVersion: 159
 java: true

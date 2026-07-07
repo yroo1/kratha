@@ -18,7 +18,7 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaLogic{
     public static Block
-    logger,scanner,controlPanel,ancientMessageVault;
+    logger,scanner,controlPanel,ancientMessageVault,
 
     invisible;
 

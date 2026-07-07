@@ -89,6 +89,7 @@ public class PanelLogger extends Block{
     public class PanelLoggerBuild extends Building{
         public float progress = 0;
         public float delay = 60;
+        public boolean needChip = false;
 
         @Override
         public void draw(){
@@ -101,6 +102,9 @@ public class PanelLogger extends Block{
             if(b!=null&&b instanceof PanelBlock.PanelBuild){
                 float offset = b.block.size%2!=0?0:tilesize/2f;
                 Drawf.select(b.tile.x*tilesize+offset, b.tile.y*tilesize+offset, b.block.size*tilesize/2f+2f, Pal.accent);
+            }
+            if(needChip){
+                drawPlaceText(Core.bundle.get("kratha-needchip",x,y,false);
             }
         }
         
@@ -137,16 +141,11 @@ public class PanelLogger extends Block{
                         chip=pb.chip4;
                         reqChip=p.reqChip4;
                 }
-                if(shouldConsumeChip(p,chip,reqChip)){
-                    if(items.get(chip)>0){
-                        items.remove(chip,1);
-                        p.handleItem(this,chip);
-                    }
-                }
+                
                 reqChipAmount+=reqChip-p.items.get(chip);
                 reqChipTotal+=reqChip;
             }
-            boolean needChip=false;
+            needChipT=false;
             if(reqChipAmount/reqChipTotal<p.progress/p.hackTime+1){
                 for(int i=0;i<4;i++){
                     Item chip=pb.chip1;
@@ -170,12 +169,16 @@ public class PanelLogger extends Block{
                             items.remove(chip,1);
                             p.handleItem(this,chip);
                         }else{
-                            needChip=true;
+                            needChipT=true;
                         }
                     }
                 }
             }
-            if(needChip)return;
+            if(needChipT){
+                needChip=true;
+                return;
+            }
+            needChip=false;
             delay -= delta()*efficiency;
             
             if(delay<=0){

@@ -104,7 +104,7 @@ public class PanelLogger extends Block{
                 Drawf.select(b.tile.x*tilesize+offset, b.tile.y*tilesize+offset, b.block.size*tilesize/2f+2f, Pal.accent);
             }
             if(needChip){
-                drawPlaceText(Core.bundle.get("kratha-needchip",tile.x,tile.y,false);
+                drawPlaceText(Core.bundle.get("kratha-needchip"),tile.x,tile.y,false);
             }
         }
         

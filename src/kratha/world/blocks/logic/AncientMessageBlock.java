@@ -1,0 +1,54 @@
+package kratha.world.blocks.logic;
+
+import mindustry.gen.*;
+import mindustry.world.*;
+import mindustry.world.meta.*;
+import mindustry.world.blocks.logic.*;
+
+import static mindustry.Vars.state;
+
+public class AncientMessageBlock extends MessageBlock{
+    public AncientMessageBlock(String name){
+        super(name);
+        allowDerelictRepair = false;
+    }
+
+    @Override
+    public void setBars(){
+        //no
+    }
+
+    @Override
+    public boolean canBreak(Tile tile){
+        return state.rules.editor;
+    }
+
+    @overeide
+    public boolean accessible(){
+        return state.rules.editor;
+    }
+
+    public class AncientMessageBuild extends MessageBuild{
+
+        @Override
+        public void drawSelect(){
+            if(!accesible())return;
+            super.drawSelect();
+        }
+        
+        @Override
+        public void damage(float damage){
+            return; //no damage
+        }
+
+        @Override
+        public boolean canPickup(){
+            return false; //no
+        }
+
+        @Override
+        public boolean collide(Bullet other){
+            return false; //no
+        }
+    }
+}

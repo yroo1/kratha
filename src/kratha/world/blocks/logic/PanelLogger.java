@@ -103,15 +103,7 @@ public class PanelLogger extends Block{
                 Drawf.select(b.tile.x*tilesize+offset, b.tile.y*tilesize+offset, b.block.size*tilesize/2f+2f, Pal.accent);
             }
         }
-        public boolean shouldConsumeChip(Building b, Item chip, int req){
-            if(b==null||!(b instanceof PanelBlock.PanelBuild p))return false;
-            if(req>0&&p.items.get(chip)<req){
-                if((float)(p.items.get(chip)-1)/req<p.progress/(float)p.hackTime){
-                    return true;
-                }
-            }
-            return false;
-        }
+        
         @Override
         public void updateTile(){
             super.updateTile();
@@ -126,7 +118,8 @@ public class PanelLogger extends Block{
                 p.activate();
                 return;
             }
-            boolean needItem=false;
+            int reqChipTotal=0;
+            int reqChipAmount=0;
             for(int i=0;i<4;i++){
                 Item chip=pb.chip1;
                 int reqChip=p.reqChip1;
@@ -148,10 +141,40 @@ public class PanelLogger extends Block{
                     if(items.get(chip)>0){
                         items.remove(chip,1);
                         p.handleItem(this,chip);
-                    }else{needItem=true;}
+                    }
+                }
+                reqChipAmount+=reqChip-p.items.get(chip);
+                reqChipTotal+=reqChip;
+            }
+            boolean needChip=false;
+            if(reqChipAmount/reqChipTotal<p.progress/p.hackTime+1){
+                for(int i=0;i<4;i++){
+                    Item chip=pb.chip1;
+                    int reqChip=p.reqChip1;
+                    switch(i){
+                        case 0:
+                            chip=pb.chip1;
+                            reqChip=p.reqChip1;
+                        case 1:
+                            chip=pb.chip2;
+                            reqChip=p.reqChip2;
+                        case 2:
+                            chip=pb.chip3;
+                            reqChip=p.reqChip3;
+                        case 3:
+                            chip=pb.chip4;
+                            reqChip=p.reqChip4;
+                    if(reqChip-p.items.get(chip)>0){
+                        if(items.get(chip)>0){
+                            items.remove(chip,1);
+                            p.handleItem(this,chip);
+                        }else{
+                            needChip=true;
+                        }
+                    }
                 }
             }
-            if(needItem)return;
+            if(needChip)return;
             delay -= delta()*efficiency;
             
             if(delay<=0){

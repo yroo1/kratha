@@ -32,7 +32,7 @@ public class AncientMessageBlock extends MessageBlock{
 
         @Override
         public void drawSelect(){
-            if(!accesible())return;
+            if(!accessible())return;
             super.drawSelect();
         }
         

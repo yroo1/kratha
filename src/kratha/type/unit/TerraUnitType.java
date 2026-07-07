@@ -4,7 +4,6 @@ import arc.math.*;
 import mindustry.content.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
-import mindustry.type.ammo.*;
 import mindustry.world.meta.*;
 import kratha.content.KrathaItems;
 import kratha.*;

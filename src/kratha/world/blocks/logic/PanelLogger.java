@@ -115,7 +115,10 @@ public class PanelLogger extends Block{
             if(b==null||!(b instanceof PanelBlock.PanelBuild p))return;
             if(b.block==null||!(b.block instanceof PanelBlock pb))return;
             progress = ((float)p.progress)/p.hackTime;
-            if(p.active)return;
+            if(p.active){
+                needChip=false;
+                return;
+            }
             if(p.progress>=p.hackTime){
                 p.progress=p.hackTime;
                 progress=1;

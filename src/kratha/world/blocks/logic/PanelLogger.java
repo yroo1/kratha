@@ -164,6 +164,7 @@ public class PanelLogger extends Block{
                         case 3:
                             chip=pb.chip4;
                             reqChip=p.reqChip4;
+                    }
                     if(reqChip-p.items.get(chip)>0){
                         if(items.get(chip)>0){
                             items.remove(chip,1);

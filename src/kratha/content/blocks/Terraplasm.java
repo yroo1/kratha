@@ -151,7 +151,7 @@ public class Terraplasm {
                     requirements(Category.turret, with(KrathaItems.krathite,4));
                     range = 165f;
 
-                    shoot.firstShotDelay = 5f;
+                    shoot.firstShotDelay = 10f;
 
                     recoil = 2f;
                     reload = 25f;
@@ -173,18 +173,39 @@ public class Terraplasm {
 
             
                     shootType = new LaserBulletType(140){{
-                        colors = new Color[]{Pal.KrathaPal.krathiteLight.cpy().a(0.4f), KrathaPal.krathiteLight, Color.white};
-                        //TODO merge
-                        chargeEffect = new MultiEffect(Fx.lancerLaserCharge, Fx.lancerLaserChargeBegin);
+                        colors = new Color[]{Pal.KrathaPal.krathite.cpy().a(0.4f), KrathaPal.krathiteLight, Color.white};
+                    
+                        chargeEffect = new MultiEffect(
+                            new ParticleEffect(){{
+                                colorFrom = KrathaPal.krathiteLight;
+                                colorTo = KrathaPal.krathiteDark.a(0.1f);
+                                cone = 180;
+                                particles = 8;
+                                sizeFrom = 0;
+                                sizeTo = 3;
+                                length = 0;
+                                baseLength = 20;
+                                lifetime = 10;
+                            }};
+                        );
 
-                        hitEffect = Fx.hitLancer;
+                        hitEffect = new ParticleEffect(){{
+                            colorFrom = KrathaPal.krathiteLight;
+                            colorTo = KrathaPal.krathiteDark.a(0.1f);
+                            cone = 180;
+                            particles = 7;
+                            sizeFrom = 3;
+                            sizeTo = 0;
+                            length = 40;
+                            lifetime = 60;
+                        }};
                         hitSize = 4;
                         lifetime = 16f;
                         drawSize = 400f;
                         collidesAir = false;
                         length = 120f;
                         pierceCap = 3;
-                    }
+                    }};
                     drawer = new DrawTurret(){{
                         parts.add(
                             new RegionPart("-side-r"){{

@@ -34,7 +34,6 @@ public class OreCluster extends Block{
         super(name);
         variants = 2;
         solid = true;
-        clipSize = 100;
         createRubble = false;
         size = 3;
         buildVisibility = BuildVisibility.editorOnly;
@@ -85,11 +84,6 @@ public class OreCluster extends Block{
 
     public class OreClusterBuild extends Building{
         public int drillCount = 0;
-
-        @Override
-        public void tapped(){
-            updateDrillCount();
-        }
 
         public void updateDrillCount(){
             //this code is shitty, well, it does all that i need

@@ -59,11 +59,6 @@ public class PanelBlock extends Block{
     }
 
     @Override
-    public boolean synthetic(){
-        return false;
-    }
-
-    @Override
     public boolean canBreak(Tile tile){
         return state.rules.editor;
     }

@@ -173,7 +173,7 @@ public class Terraplasm {
 
             
                     shootType = new LaserBulletType(140){{
-                        colors = new Color[]{Pal.KrathaPal.krathite.cpy().a(0.4f), KrathaPal.krathiteLight, Color.white};
+                        colors = new Color[]{KrathaPal.krathite.cpy().a(0.4f), KrathaPal.krathiteLight, Color.white};
                     
                         chargeEffect = new MultiEffect(
                             new ParticleEffect(){{

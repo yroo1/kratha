@@ -38,7 +38,7 @@ public class Terraplasm {
     public static Block
             skewerMarker,cradleMarker,
             falseCore,dataPatchInfo,
-            heart, root, eye, harvester, cradle, skewer;
+            heart, root, eye, harvester, cradle, skewer, trim;
     public static void load() {
         {
             {
@@ -91,7 +91,7 @@ public class Terraplasm {
                     range = 26 * Vars.tilesize;
                     rotateSpeed = 1f;
                     squareSprite = false;
-                    minWarmup = 0.8f;
+                    minWarmup = 0.93f;
                     shootWarmupSpeed = 0.07f;
                     shootY = 2;
                     shake = 2f;
@@ -147,6 +147,63 @@ public class Terraplasm {
                         );
                     }};
                 }};
+                trim = new BioTurret("trim"){{
+                    requirements(Category.turret, with(KrathaItems.krathite,4));
+                    range = 165f;
+
+                    shoot.firstShotDelay = 5f;
+
+                    recoil = 2f;
+                    reload = 25f;
+                    shake = 0f;
+                    shootEffect = Fx.lancerLaserShoot;
+                    smokeEffect = Fx.none;
+                    heatColor = Color.red;
+                    size = 2;
+                    targetAir = false;
+                    moveWhileCharging = false;
+                    accurateDelay = false;
+                    shootSound = Sounds.shootLancer;
+            
+                    chargeSound = Sounds.chargeLancer;
+
+                    ammoItem = KrathaItems.krathite;
+                    maxAmmo = 5;
+                    ammoItemMultiplier = 5;
+
+            
+                    shootType = new LaserBulletType(140){{
+                        colors = new Color[]{Pal.KrathaPal.krathiteLight.cpy().a(0.4f), KrathaPal.krathiteLight, Color.white};
+                        //TODO merge
+                        chargeEffect = new MultiEffect(Fx.lancerLaserCharge, Fx.lancerLaserChargeBegin);
+
+                        hitEffect = Fx.hitLancer;
+                        hitSize = 4;
+                        lifetime = 16f;
+                        drawSize = 400f;
+                        collidesAir = false;
+                        length = 120f;
+                        pierceCap = 3;
+                    }
+                    drawer = new DrawTurret(){{
+                        parts.add(
+                            new RegionPart("-side-r"){{
+                                progress = PartProgress.warmup;
+                                under = false;
+                                moveRot = 4;
+                                moveX = -1;
+                            }}
+                        );
+                        parts.add(
+                            new RegionPart("-side-l"){{
+                                progress = PartProgress.warmup;
+                                under = false;
+                                moveRot = -4;
+                                moveX = 2;
+                            }}
+                        );
+                    }};
+                }};    
             }
         }
     }

@@ -77,11 +77,7 @@ public class OreCluster extends Block{
         return state.isEditor();
     }
 
-    @Override
-    public boolean synthetic(){
-        return false;
-    }
-
+    
     public class OreClusterBuild extends Building{
         public int drillCount = 0;
 

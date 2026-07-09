@@ -178,24 +178,37 @@ public class Terraplasm {
                         chargeEffect = new MultiEffect(
                             new ParticleEffect(){{
                                 colorFrom = KrathaPal.krathiteLight;
-                                colorTo = KrathaPal.krathiteDark.a(0.1f);
+                                colorTo = KrathaPal.krathite;
                                 cone = 180;
-                                particles = 8;
+                                particles = 7;
                                 sizeFrom = 0;
                                 sizeTo = 3;
-                                length = 0;
-                                baseLength = 20;
+                                length = 20;
+                                baseLength = 0;
                                 lifetime = 10;
+                                interp = Interp.pow2InInverse;
                             }},
                             new WaveEffect(){{
                                 colorFrom = KrathaPal.krathiteLight;
                                 colorTo = KrathaPal.krathiteLight;
-                                sizeFrom = 40;
+                                sizeFrom = 15;
                                 sizeTo = 0;
                                 lightColor = KrathaPal.krathiteLight;
                                 lightInterp = Interp.linear;
+                                lifetime = 10;
                             }}
                         );
+
+                        shootEffect = new ParticleEffect(){{
+                            colorFrom = colorTo = KrathaPal.krathiteLighg;
+                            cone = 90;
+                            particles = 7;
+                            sizeFrom = 2;
+                            sizeTo = 0;
+                            length = 30;
+                            lifetime = 60;
+                            interp = Interp.pow3Out;
+                        }};
 
                         hitEffect = new ParticleEffect(){{
                             colorFrom = KrathaPal.krathiteLight;

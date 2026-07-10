@@ -47,6 +47,8 @@ public class BioBlock extends Block {
     public boolean allowCradle=false;
     public float cradleRate=0.01f;
     public int cradleSpacing=22;
+
+    public boolean allowAll=false;
     
     public int pulseToGrowRoot=2;
 
@@ -70,6 +72,19 @@ public class BioBlock extends Block {
         drawTeamOverlay = false;
         destroySound = Sounds.loopSpray;
         buildVisibility = BuildVisibility.sandboxOnly;
+    }
+
+    @Override
+    public void postInit(){
+        super.postInit();
+        databaseTag = Core.bundle.get("kratha.terraplasm-database-tag");
+        if(allowAll){
+            allowRoot=true;
+            allowDrill=true;
+            allowEye=true;
+            allowSkewer=true;
+            allowCradle=true;
+        }
     }
 
     @Override

@@ -173,6 +173,7 @@ public class Terraplasm {
                     moveWhileCharging = false;
                     accurateDelay = false;
                     shootSound = Sounds.shootLancer;
+                    cooldownTime= 45;
             
                     chargeSound = Sounds.chargeLancer;
 

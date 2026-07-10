@@ -171,6 +171,7 @@ public class Terraplasm {
                     maxAmmo = 5;
                     ammoItemMultiplier = 5;
                     range = 80;
+                    shootY = 4;
 
             
                     shootType = new BasicBulletType(){{
@@ -232,7 +233,7 @@ public class Terraplasm {
                         trailWidth = 1.5f;
                         trailSinScl = 2.5f;
                         trailSinMag = 0.5f;
-                        trailEffect = ParticleEffect(){{
+                        trailEffect = new ParticleEffect(){{
                             colorFrom = colorTo = KrathaPal.krathite;
                             cone = 45;
                             particles = 2;

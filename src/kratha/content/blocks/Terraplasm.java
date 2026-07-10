@@ -252,7 +252,7 @@ public class Terraplasm {
                         shrinkX = 0.2f;
                         shrinkY = 0.1f;
                         buildingDamageMultiplier = 1f;
-                        pierceCap=8;
+                        pierceCap=20;
                     }};
                     drawer = new DrawTurret(){{
                         parts.add(

@@ -154,7 +154,7 @@ public class Terraplasm {
                     shoot.firstShotDelay = 30;
 
                     recoil = 2f;
-                    reload = 35f;
+                    reload = 50f;
                     shake = 0f;
                     shootEffect = Fx.none;
                     smokeEffect = Fx.none;
@@ -170,8 +170,8 @@ public class Terraplasm {
                     ammoItem = KrathaItems.krathite;
                     maxAmmo = 5;
                     ammoItemMultiplier = 5;
-                    range = 80;
-                    shootY = 4;
+                    range = 120;
+                    shootY = 8;
 
             
                     shootType = new BasicBulletType(){{
@@ -205,13 +205,13 @@ public class Terraplasm {
                             particles = 7;
                             sizeFrom = 2;
                             sizeTo = 0;
-                            length = 30;
-                            lifetime = 60;
+                            length = 50;
+                            lifetime = 80;
                             interp = Interp.pow3Out;
                         }};
                         smokeEffect = Fx.none;
 
-                        hitEffect = new ParticleEffect(){{
+                        despawnEffect = hitEffect = new ParticleEffect(){{
                             colorFrom = KrathaPal.krathiteLight;
                             colorTo = KrathaPal.krathiteDark.a(0.1f);
                             cone = 180;
@@ -225,7 +225,7 @@ public class Terraplasm {
                         height = 19f;
                         width = 5f;
                         damage = 40;
-                        speed = 16;
+                        speed = 24;
                         lifetime = 5;
                         backColor = hitColor = trailColor = KrathaPal.krathiteLight;
                         frontColor = KrathaPal.krathiteLight;
@@ -260,6 +260,7 @@ public class Terraplasm {
                                 under = false;
                                 moveRot = 4;
                                 moveX = -1;
+                                heatColor = KrathaPal.krathiteLight;
                             }}
                         );
                         parts.add(
@@ -268,6 +269,7 @@ public class Terraplasm {
                                 under = false;
                                 moveRot = -4;
                                 moveX = 2;
+                                heatColor = KrathaPal.krathiteLight;
                             }}
                         );
                     }};

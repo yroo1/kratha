@@ -228,7 +228,7 @@ public class Terraplasm {
                         speed = 16;
                         lifetime = 5;
                         backColor = hitColor = trailColor = KrathaPal.krathiteLight;
-                        frontColor = Color.krathiteLight;
+                        frontColor = KrathaPal.krathiteLight;
                         trailLength = 20;
                         trailWidth = 1.5f;
                         trailSinScl = 2.5f;

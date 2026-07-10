@@ -180,7 +180,7 @@ public class Terraplasm {
                     maxAmmo = 5;
                     ammoItemMultiplier = 5;
                     range = 120;
-                    shootY = 8;
+                    shootY = 11;
 
             
                     shootType = new BasicBulletType(){{

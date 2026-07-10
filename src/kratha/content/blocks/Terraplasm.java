@@ -156,9 +156,18 @@ public class Terraplasm {
                     recoil = 2f;
                     reload = 50f;
                     shake = 0f;
-                    shootEffect = Fx.none;
+                    shootEffect = new ParticleEffect(){{
+                        colorFrom = colorTo = KrathaPal.krathiteLight;
+                        cone = 90;
+                        particles = 7;
+                        sizeFrom = 3;
+                        sizeTo = 0;
+                        length = 50;
+                        lifetime = 80;
+                        interp = Interp.pow3Out;
+                    }};
                     smokeEffect = Fx.none;
-                    heatColor = Color.red;
+                    heatColor = KrathaPal.krathiteLight
                     size = 2;
                     targetAir = false;
                     moveWhileCharging = false;
@@ -199,16 +208,7 @@ public class Terraplasm {
                             }}
                         );
 
-                        shootEffect = new ParticleEffect(){{
-                            colorFrom = colorTo = KrathaPal.krathiteLight;
-                            cone = 90;
-                            particles = 7;
-                            sizeFrom = 2;
-                            sizeTo = 0;
-                            length = 50;
-                            lifetime = 80;
-                            interp = Interp.pow3Out;
-                        }};
+                        shootEffect = Fx.none;
                         smokeEffect = Fx.none;
 
                         despawnEffect = hitEffect = new ParticleEffect(){{
@@ -229,8 +229,8 @@ public class Terraplasm {
                         lifetime = 5;
                         backColor = hitColor = trailColor = KrathaPal.krathiteLight;
                         frontColor = KrathaPal.krathiteLight;
-                        trailLength = 20;
-                        trailWidth = 1.5f;
+                        trailLength = 30;
+                        trailWidth = 2f;
                         trailSinScl = 2.5f;
                         trailSinMag = 0.5f;
                         trailEffect = new ParticleEffect(){{

@@ -241,6 +241,10 @@ public class Root extends BioBlock {
                     boolean sameNear = passiveGrow(Terraplasm.cradle,cradleSpacing,cradleRate,heart);
                     if(sameNear)extraFloat3=setbit(extraFloat3,2,true);
                 }
+                if(((allowTrim&&!getbit(extraFloat3,3))||extraByte==3)&&clear2&&(heart!=null&&heart.items.has(Terraplasm.trim.requirements))){
+                    boolean sameNear = passiveGrow(Terraplasm.trim,trimSpacing,trimRate,heart);
+                    if(sameNear)extraFloat3=setbit(extraFloat3,3,true);
+                }
             }
 
             //item movement

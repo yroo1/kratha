@@ -47,6 +47,9 @@ public class BioBlock extends Block {
     public boolean allowCradle=false;
     public float cradleRate=0.01f;
     public int cradleSpacing=22;
+    public boolean allowTrim=false;
+    public float trimRate=0.01f;
+    public int trimSpacing=15;
 
     public boolean allowAll=false;
     

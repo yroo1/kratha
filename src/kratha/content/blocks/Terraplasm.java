@@ -36,7 +36,7 @@ import static mindustry.type.ItemStack.with;
 
 public class Terraplasm {
     public static Block
-            skewerMarker,cradleMarker,
+            skewerMarker,cradleMarker,trimMarker,
             falseCore,dataPatchInfo,
             heart, root, eye, harvester, cradle, skewer, trim;
     public static void load() {
@@ -44,6 +44,7 @@ public class Terraplasm {
             {
                 skewerMarker = new MarkerOverlay("skewer-marker");
                 cradleMarker = new MarkerOverlay("cradle-marker");
+                trimMarker = new MarkerOverlay("trim-marker");
                 falseCore = new FalseCoreBlock("false-core"){{
                     //fake core to imitate attack mode, to be destroyed by wproc
                     targetable = false;

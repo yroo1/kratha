@@ -168,6 +168,7 @@ public class Root extends BioBlock {
                     if (dist<maxDistSquared&&adj != null&&adj!=null) {                        
                         if(adj.overlay()==Terraplasm.skewerMarker)mValue=1;
                         if(adj.overlay()==Terraplasm.cradleMarker)mValue=2;
+                        if(adj.overlay()==Terraplasm.trimMarker)mValue=3;
                     }
                 }
             }

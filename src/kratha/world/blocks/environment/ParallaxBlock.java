@@ -202,7 +202,7 @@ public class ParallaxBlock extends TallBlock{
         return true;
     }
     @Override
-    public void unitOn(Unit unit({
+    public void unitOn(Unit unit){
         if(unit.isGrounded())unit.kill();
     }
 }

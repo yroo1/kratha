@@ -8,7 +8,7 @@ import arc.util.*;
 import mindustry.world.*;
 import mindustry.graphics.*;
 import mindustry.world.blocks.environment.TallBlock;
-import mindustry.entities.units.*;
+import mindustry.gen.*;
 
 import static mindustry.Vars.*;
 

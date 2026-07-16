@@ -201,8 +201,10 @@ public class ParallaxBlock extends TallBlock{
     public boolean synthetic(){
         return true;
     }
-    @Override
-    public void unitOn(Unit unit){
-        if(unit.isGrounded())unit.kill();
+    public class ParallaxBuild extends Building{
+        @Override
+        public void unitOn(Unit unit){
+            if(unit.isGrounded())unit.kill();
+        }
     }
 }

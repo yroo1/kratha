@@ -25,7 +25,8 @@ public class ParallaxBlock extends TallBlock{
         forceDark = false;
         clipSize = 9999;
         update = true;
-        drawTeamOverlay = true;
+        drawTeamOverlay = false;
+        targetable = false;
     }
     @Override
     public void init(){

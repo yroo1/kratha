@@ -9,8 +9,8 @@ import mindustry.content.*;
 import mindustry.graphics.*;
 import mindustry.gen.Sounds;
 import mindustry.content.*;
-import kratha.content.KrathaUnitTypes;
 import kratha.content.*;
+import kratha.world.blocks.storage.*;
 
 import static mindustry.type.ItemStack.with;
 
@@ -20,7 +20,7 @@ public class KrathaStorage {
     public static void load() {
         {
             {
-                coreRelic = new CoreBlock("core-relic"){{
+                coreRelic = new KrathaCoreBlock("core-relic"){{
                     requirements(Category.effect, with(KrathaItems.krathite, 700,KrathaItems.guartz, 600,KrathaItems.spurstone, 200));
                     size = 5;
                     isFirstTier = true;

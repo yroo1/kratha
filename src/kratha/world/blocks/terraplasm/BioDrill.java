@@ -52,7 +52,7 @@ public class BioDrill extends BioBlock {
             if(canMineWall(other)){
                 returnCount++;
                 returnItem = other.wallDrop();
-            }
+            thisisatestthiswillfail
         }
     }
     

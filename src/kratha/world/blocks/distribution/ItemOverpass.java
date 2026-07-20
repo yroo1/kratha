@@ -24,6 +24,7 @@ public class ItemOverpass extends DuctBridge {
     public TextureRegion side;
     public ItemOverpass(String name){
          super(name);
+         drawCached=false;
     }
     @Override
     public void load(){

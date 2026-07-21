@@ -82,7 +82,7 @@ public class AncientTunnel extends Block{
                 }
             }
             
-            for(let i=0;i<4;i++){
+            for(int i=0;i<4;i++){
                 Building near=this.nearby(i);
                 if(near!=null&&near.block==KrathaDistribution.ancientTunnelItemSorter&&near instanceof SorterBuild s){
                     tunnelItem=s.sortItem;

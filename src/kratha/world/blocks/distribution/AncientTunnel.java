@@ -49,30 +49,18 @@ public class AncientTunnel extends Block{
     public class AncientTunnelBuild extends Building{
         public int link=-1;
         public float unloadTimer=0f;
+        public Item tunnelItem;
 
         @Override
         public void updateTile(){
             if((unloadTimer += edelta()) >= speed){
-                Building front = front(), back = back();
+                Building front = front();
 
-                if(front != null && back != null && back.items != null && front.team == team && back.team == team && back.canUnload() && (allowCoreUnload || !(back instanceof CoreBuild || (back instanceof StorageBuild sb && sb.linkedCore != null)))){
-                    if(unloadItem == null){
-                        var itemseq = content.items();
-                        int itemc = itemseq.size;
-                        for(int i = 0; i < itemc; i++){
-                            Item item = itemseq.get((i + offset) % itemc);
-                            if(back.items.has(item) && front.acceptItem(this, item)){
-                                front.handleItem(this, item);
-                                back.items.remove(item, 1);
-                                back.itemTaken(item);
-                                offset = item.id + 1;
-                                break;
-                            }
-                        }
-                    }else if(back.items.has(unloadItem) && front.acceptItem(this, unloadItem)){
-                        front.handleItem(this, unloadItem);
-                        back.items.remove(unloadItem, 1);
-                        back.itemTaken(unloadItem);
+                if(tunnelItem != null && front != null){
+                    if(items.has(tunnelItem) && front.acceptItem(this, tunnelItem)){
+                        front.handleItem(this, tunnelItem);
+                        items.remove(tunnelItem, 1);
+                        itemTaken(tunnelItem);
                     }
                 }
 
@@ -108,9 +96,9 @@ public class AncientTunnel extends Block{
         public void draw(){
             Draw.rect(region,x,y);
             if (rotation<2){
-                Draw.rect(dir1, x, y, rotation*90);
+                Draw.rect(topRegion1, x, y, rotation*90);
             } else {
-                Draw.rect(dir2, x, y, rotation*90);
+                Draw.rect(topRegion2, x, y, rotation*90);
             }
         }
         
@@ -125,11 +113,11 @@ public class AncientTunnel extends Block{
         
         @Override
         public boolean acceptItem(Building source, Item item){
-            if(!isOutput){
-                return source==this.nearby(rotation)&&world.tile(link).acceptItem(this,item);
+            if(!isOutput&&world.tile(link).build!=null){
+                return source==this.nearby(rotation)&&world.tile(link).build.acceptItem(this,item);
             }
-            if(source instanceof AncientTunnelBuild&&items.get(item)<getMaximumAccepted(item)){
-                return true;
+            if(tunnelItem!=null&&source instanceof AncientTunnelBuild&&items.get(item)<getMaximumAccepted(item)){
+                return item==tunnelItem;
             }
             return false;
         }
@@ -139,12 +127,15 @@ public class AncientTunnel extends Block{
             super.write(write);
             write.i(link);
             write.f(unloadTimer);
+            write.s(tunnelItem == null ? -1 : tunnelItem.id);
         }
 
         @Override
         public void read(Reads read, byte revision){
             super.read(read, revision);
             link = read.i();
+            int id = read.s();
+            tunnelItem = id == -1 ? null : content.items().get(id);
             unloadTimer = read.f();
         }
     }

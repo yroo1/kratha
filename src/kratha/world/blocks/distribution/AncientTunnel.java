@@ -189,9 +189,9 @@ public class AncientTunnel extends Block{
         public void read(Reads read, byte revision){
             super.read(read, revision);
             link = read.i();
+            unloadTimer = read.f();
             int id = read.s();
             tunnelItem = id == -1 ? null : content.items().get(id);
-            unloadTimer = read.f();
         }
     }
 }

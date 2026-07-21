@@ -18,6 +18,7 @@ import mindustry.game.*;
 import kratha.content.*;
 import mindustry.type.*;
 import mindustry.world.blocks.distribution.*;
+import mindustry.content.Blocks;==
 import kratha.content.blocks.KrathaDistribution;
 
 import static mindustry.Vars.*;
@@ -76,16 +77,20 @@ public class AncientTunnel extends Block{
             if(isOutput){
                 Tile linkTile=world.tile(link);
                 if(linkTile.build!=null&&linkTile.build instanceof AncientTunnelBuild a&&world.tile(a.link).build!=null&&world.tile(a.link).build==this){
-                    //let it be
+                    tunnelItem=a.tunnelItem;
                 }else{
                     link=-1;
                 }
             }
-            
-            for(int i=0;i<4;i++){
-                Building near=this.nearby(i);
-                if(near!=null&&near.block==KrathaDistribution.ancientTunnelItemSorter&&near instanceof Sorter.SorterBuild s){
-                    tunnelItem=s.sortItem;
+            if(!isOutput){
+                for(int i=0;i<4;i++){
+                    Building near=this.nearby(i);
+                    if(near!=null&&near instanceof Sorter.SorterBuild s){
+                        if(s.sortItem!=null){
+                            tunnelItem=s.sortItem;
+                        }
+                        near.tile.setBlock(Blocks.air);
+                    }
                 }
             }
         }
@@ -98,8 +103,9 @@ public class AncientTunnel extends Block{
                 if(linkTile.build==null)return;
                 float offset = linkTile.block().size%2!=0?0:tilesize/2f;
                 Drawf.select(linkTile.x*tilesize+offset, linkTile.y*tilesize+offset, linkTile.block().size*tilesize/2f+2f, Pal.remove);
-                Drawf.arrow(x, y, linkTile.build.x,linkTile.build.y, size * tilesize, 4f);
+                Drawf.line(Pal.acceent,x, y, linkTile.build.x,linkTile.build.y);
             }
+            if(tunnelItem!=null)drawItemSelection(tunnelItem);
         }
         
         @Override

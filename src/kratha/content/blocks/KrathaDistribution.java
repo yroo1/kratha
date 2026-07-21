@@ -18,7 +18,7 @@ import static mindustry.type.ItemStack.with;
 public class KrathaDistribution {
     public static Block
             itemTube, itemOverpass, filter, splitter, itemGate,
-            ancientTunnelIn,ancientTunnelOut;
+            ancientTunnelIn,ancientTunnelOut,ancientTunnelItemSorter;
     public static void load() {
         {
             {
@@ -53,6 +53,9 @@ public class KrathaDistribution {
                 ancientTunnelOut = new AncientTunnel("ancient-tunnel-out"){{
                     requirements(Category.distribution, BuildVisibility.sandboxOnly, with());
                     isOutput = true;
+                }};
+                ancientTunnelItemSorter = new Sorter("ancient-tunnel-item-sorter"){{
+                    requirements(Category.distribution, BuildVisibility.sandboxOnly, with());
                 }};
             }
         }

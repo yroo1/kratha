@@ -21,6 +21,7 @@ import kratha.world.blocks.units.*;
 import kratha.world.blocks.production.*;
 import kratha.world.blocks.payloads.*;
 import kratha.world.blocks.logic.*;
+import kratha.world.blocks.distribution.*;
 
 import static mindustry.Vars.*;
 
@@ -67,7 +68,7 @@ public class ScannerBlock extends Block{
     }
     public boolean isAncient(Block bb){
         //maybe theres a better way to do this...?
-        return (bb instanceof AncientCrafter||bb instanceof AncientAttributeCrafter||bb instanceof AncientLiquidTube||bb instanceof AncientLiquidRouter||bb instanceof AncientUnitFactory||bb instanceof AncientPayloadMassDriver||bb instanceof AncientMessageBlock);
+        return (bb instanceof AncientCrafter||bb instanceof AncientAttributeCrafter||bb instanceof AncientLiquidTube||bb instanceof AncientLiquidRouter||bb instanceof AncientUnitFactory||bb instanceof AncientPayloadMassDriver||bb instanceof AncientMessageBlock||bb instanceof AncientTunnel);
     }
 
     public class ScannerBuild extends Building{

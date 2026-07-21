@@ -18,11 +18,12 @@ import mindustry.game.*;
 import kratha.content.*;
 import mindustry.type.*;
 import mindustry.world.blocks.distribution.*;
+import kratha.content.blocks.KrathaDistribution;
 
 import static mindustry.Vars.*;
 
 public class AncientTunnel extends Block{
-    public TextureRegion topRegion1, topRegion2;
+    public TextureRegion topRegion1, topRegion2, itemRegion;
     public boolean isOutput=false;
     public float speed=1;
     
@@ -39,11 +40,16 @@ public class AncientTunnel extends Block{
         super.load();
         topRegion1 = Core.atlas.find(name+"-top1");
         topRegion2 = Core.atlas.find(name+"-top2");
+        itemRegion = Core.atlas.find(name+"-item");
     }
 
     @Override
     public TextureRegion[] icons(){
         return new TextureRegion[]{region,topRegion1};
+    }
+    @Override
+    public boolean canBreak(Tile tile){
+        return state.rules.editor;
     }
     
     public class AncientTunnelBuild extends Building{
@@ -66,6 +72,21 @@ public class AncientTunnel extends Block{
 
                 unloadTimer %= speed;
             }
+            if(isOutput){
+                Tile linkTile=world.tile(link);
+                if(linkTile.build!=null&&linkTile.build instanceof AncientTunnelBuild a&&world.tile(a.link).build!=null&&world.tile(a.link).build==this){
+                    //let it be
+                }else{
+                    link=-1;
+                }
+            }
+            
+            for(let i=0;i<4;i++){
+                Building near=this.nearby(i);
+                if(near!=null&&near.block==KrathaDistribution.ancientTunnelItemSorter&&near instanceof Sorter s){
+                    tunnelItem=s.sortItem;
+                }
+            }
         }
 
         @Override
@@ -73,16 +94,19 @@ public class AncientTunnel extends Block{
             Drawf.select(x, y, tile.block().size * tilesize / 2f + 2f, Pal.accent);
             if(link!=-1&&world.tile(link)!=null&&world.tile(link).block()!=null){
                 Tile linkTile = world.tile(link);
+                if(linkTile.build==null)return;
                 float offset = linkTile.block().size%2!=0?0:tilesize/2f;
                 Drawf.select(linkTile.x*tilesize+offset, linkTile.y*tilesize+offset, linkTile.block().size*tilesize/2f+2f, Pal.remove);
+                Drawf.arrow(x, y, linkTile.build.x,linkTile.build.y, size * tilesize, 4f);
             }
         }
         
         @Override
         public boolean onConfigureBuildTapped(Building other){
-            if(isOutput)return true;
+            if(isOutput||!state.rules.editor)return true;
             if(other.block instanceof AncientTunnel){
                 link = other.pos();
+                if(other instanceof AncientTunnelBuild a)a.link=this.pos();
                 return false;
             }
             if (world.tile(link)!=null&&(other == this || link == other.pos())){
@@ -100,6 +124,9 @@ public class AncientTunnel extends Block{
             } else {
                 Draw.rect(topRegion2, x, y, rotation*90);
             }
+            Draw.color(tunnelItem.color);
+            Draw.rect(itemRegion, x, y);
+            Draw.color();
         }
         
         @Override
@@ -120,6 +147,24 @@ public class AncientTunnel extends Block{
                 return item==tunnelItem;
             }
             return false;
+        }
+        @Override
+        public void damage(float damage){
+            return; //no damage
+        }
+
+        public void activate(){
+            active = true;
+        }
+
+        @Override
+        public boolean canPickup(){
+            return false; //no
+        }
+
+        @Override
+        public boolean collide(Bullet other){
+            return false; //no
         }
 
         @Override

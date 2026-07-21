@@ -83,14 +83,12 @@ public class AncientTunnel extends Block{
                 }
             }
             if(!isOutput){
-                for(int i=0;i<4;i++){
-                    Building near=this.nearby(i);
-                    if(near!=null&&near instanceof Sorter.SorterBuild s){
-                        if(s.sortItem!=null){
-                            tunnelItem=s.sortItem;
-                        }
-                        near.tile.setBlock(Blocks.air);
+                Building near=front();
+                if(near!=null&&near instanceof Sorter.SorterBuild s){
+                    if(s.sortItem!=null){
+                        tunnelItem=s.sortItem;
                     }
+                    near.tile.setBlock(Blocks.air);
                 }
             }
         }

@@ -101,7 +101,7 @@ public class AncientTunnel extends Block{
                 if(linkTile.build==null)return;
                 float offset = linkTile.block().size%2!=0?0:tilesize/2f;
                 Drawf.select(linkTile.x*tilesize+offset, linkTile.y*tilesize+offset, linkTile.block().size*tilesize/2f+2f, Pal.remove);
-                Drawf.line(Pal.acceent,x, y, linkTile.build.x,linkTile.build.y);
+                Drawf.line(Pal.accent,x, y, linkTile.build.x,linkTile.build.y);
             }
             if(tunnelItem!=null)drawItemSelection(tunnelItem);
         }

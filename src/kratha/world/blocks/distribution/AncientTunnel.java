@@ -64,7 +64,8 @@ public class AncientTunnel extends Block{
 
         @Override
         public void updateTile(){
-            if((unloadTimer += edelta()) >= speed){
+            if(isOutput && Float.isNaN(unloadTimer))unloadTimer=0;
+            if(isOutput && (unloadTimer += edelta()) >= speed){
                 Building front = front();
 
                 if(tunnelItem != null && front != null){

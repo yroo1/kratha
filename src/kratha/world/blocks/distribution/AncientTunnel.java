@@ -44,6 +44,9 @@ public class AncientTunnel extends Block{
         topRegion2 = Core.atlas.find(name+"-top2");
         itemRegion = Core.atlas.find(name+"-item");
     }
+    
+    @Override
+    public void setBars(){}
 
     @Override
     public TextureRegion[] icons(){
@@ -95,10 +98,16 @@ public class AncientTunnel extends Block{
 
         @Override
         public void drawConfigure(){
+            if(state.rules.editor){
+                Drawf.select(tile.x*tilesize, tile.y*tilesize, tilesize/2f+2f, Pal.accent);
+            }
             if(link!=-1&&world.tile(link)!=null&&world.tile(link).block()!=null){
                 Tile linkTile = world.tile(link);
                 if(linkTile.build==null)return;
                 Drawf.line(Pal.accent,x, y, linkTile.build.x,linkTile.build.y);
+                if(state.rules.editor){
+                    Drawf.select(b.tile.x*tilesize, b.tile.y*tilesize, tilesize/2f+2f, Pal.accent);
+                }
             }
             if(tunnelItem!=null)drawItemSelection(tunnelItem);
         }

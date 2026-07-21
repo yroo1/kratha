@@ -48,10 +48,11 @@ public class KrathaDistribution {
                 }};
                 
                 ancientTunnelIn = new AncientTunnel("ancient-tunnel-in"){{
-                    requirements(Category.distribution, BuildVisibility.sandboxOnly, with())
+                    requirements(Category.distribution, BuildVisibility.sandboxOnly, with());
                 }};
                 ancientTunnelOut = new AncientTunnel("ancient-tunnel-out"){{
-                    requirements(Category.distribution, BuildVisibility.sandboxOnly, with())
+                    requirements(Category.distribution, BuildVisibility.sandboxOnly, with());
+                    isOutput = true;
                 }};
             }
         }

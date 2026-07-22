@@ -79,13 +79,8 @@ public class OreCluster extends Block{
     
     @Override
     public int minimapColor(Tile tile){
-        Texture texture = region.texture;
-        int cx = region.getX()+region.width/2;
-        int cy = region.getY()+region.height/2;
-        TextureData td = texture.getTextureData();
-        if(!td.isPrepared())td.prepare();
-        Pixmap pixmap = td.consumePixmap();
-        return pixmap.get(cx, cy);
+        if(itemDrop==null)return null;
+        return itemDrop.color.rgba();
     }
     
     public class OreClusterBuild extends Building{

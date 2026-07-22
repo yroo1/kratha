@@ -4,6 +4,8 @@ import mindustry.gen.*;
 import mindustry.world.*;
 import mindustry.world.meta.*;
 import mindustry.world.blocks.logic.*;
+import arc.graphics.g2d.*;
+import mindustry.graphics.*;
 
 import static mindustry.Vars.state;
 
@@ -26,6 +28,17 @@ public class AncientMessageBlock extends MessageBlock{
     @Override
     public boolean accessible(){
         return state.rules.editor;
+    }
+    
+    Override
+    public int minimapColor(Tile tile){
+        Texture texture = region.texture;
+        int cx = region.getX()+region.width/2;
+        int cy = region.getY()+region.height/2;
+        TextureData td = texture.getTextureData();
+        if(!td.isPrepared())td.prepare();
+        Pixmap pixmap = td.consumePixmap();
+        return pixmap.get(cx, cy);
     }
 
     public class AncientMessageBuild extends MessageBuild{

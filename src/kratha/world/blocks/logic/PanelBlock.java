@@ -62,6 +62,17 @@ public class PanelBlock extends Block{
     public boolean canBreak(Tile tile){
         return state.rules.editor;
     }
+    
+    Override
+    public int minimapColor(Tile tile){
+        Texture texture = region.texture;
+        int cx = region.getX()+region.width/2;
+        int cy = region.getY()+region.height/2;
+        TextureData td = texture.getTextureData();
+        if(!td.isPrepared())td.prepare();
+        Pixmap pixmap = td.consumePixmap();
+        return pixmap.get(cx, cy);
+    }
 
     public class PanelBuild extends Building{
         public boolean active = false;

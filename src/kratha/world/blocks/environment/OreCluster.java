@@ -76,6 +76,13 @@ public class OreCluster extends Block{
     public boolean canBreak(Tile tile) {
         return state.isEditor();
     }
+    
+    @Override
+    public void createIcons(MultiPacker packer){
+        super.createIcons(packer);
+        PixmapRegion image = packer.get(fullIcon);
+        mapColor.set(image.get(image.width/2, image.height/2));
+    }
 
     
     public class OreClusterBuild extends Building{

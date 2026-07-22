@@ -21,6 +21,7 @@ import mindustry.type.*;
 import mindustry.world.blocks.distribution.*;
 import mindustry.content.Blocks;
 import kratha.content.blocks.KrathaDistribution;
+import kratha.graphics.KrathaPal;
 
 import static mindustry.Vars.*;
 
@@ -67,13 +68,7 @@ public class AncientTunnel extends Block{
     
     @Override
     public int minimapColor(Tile tile){
-        Texture texture = region.texture;
-        int cx = region.getX()+region.width/2;
-        int cy = region.getY()+region.height/2;
-        TextureData td = texture.getTextureData();
-        if(!td.isPrepared())td.prepare();
-        Pixmap pixmap = td.consumePixmap();
-        return pixmap.get(cx, cy);
+        return KrathaPal.deearthBaseDark
     }
     
     public class AncientTunnelBuild extends Building{

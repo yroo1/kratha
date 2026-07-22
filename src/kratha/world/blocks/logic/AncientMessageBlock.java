@@ -5,6 +5,7 @@ import mindustry.world.*;
 import mindustry.world.meta.*;
 import mindustry.world.blocks.logic.*;
 import arc.graphics.g2d.*;
+import arc.graphics.*;
 import mindustry.graphics.*;
 
 import static mindustry.Vars.state;

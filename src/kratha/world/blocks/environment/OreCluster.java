@@ -79,7 +79,7 @@ public class OreCluster extends Block{
     
     @Override
     public int minimapColor(Tile tile){
-        if(itemDrop==null)return null;
+        if(itemDrop==null)return 0;
         return itemDrop.color.rgba();
     }
     

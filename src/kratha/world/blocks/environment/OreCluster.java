@@ -85,7 +85,7 @@ public class OreCluster extends Block{
         TextureData td = texture.getTextureData();
         if(!td.isPrepared())td.prepare();
         Pixmap pixmap = td.consumePixmap();
-        return pixmap.getPixel(cx, cy);
+        return pixmap.get(cx, cy);
     }
     
     public class OreClusterBuild extends Building{

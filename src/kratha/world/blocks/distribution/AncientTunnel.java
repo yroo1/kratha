@@ -1,6 +1,7 @@
 package kratha.world.blocks.distribution;
 
 import arc.*;
+import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.struct.*;
 import arc.util.*;
@@ -62,6 +63,17 @@ public class AncientTunnel extends Block{
     @Override
     public boolean canBreak(Tile tile){
         return state.rules.editor;
+    }
+    
+    @Override
+    public int minimapColor(Tile tile){
+        Texture texture = region.texture;
+        int cx = region.getX()+region.width/2;
+        int cy = region.getY()+region.height/2;
+        TextureData td = texture.getTextureData();
+        if(!td.isPrepared())td.prepare();
+        Pixmap pixmap = td.consumePixmap();
+        return pixmap.get(cx, cy);
     }
     
     public class AncientTunnelBuild extends Building{

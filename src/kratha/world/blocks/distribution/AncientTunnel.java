@@ -56,6 +56,10 @@ public class AncientTunnel extends Block{
         return new TextureRegion[]{region};
     }
     @Override
+    public void drawPlanRegion(BuildPlan plan, Eachable<BuildPlan> list){
+        Draw.rect(rotRegion[plan.rotation], plan.drawx(), plan.drawy());
+    }
+    @Override
     public boolean canBreak(Tile tile){
         return state.rules.editor;
     }

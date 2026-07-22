@@ -58,6 +58,12 @@ public class PanelLogger extends Block{
     public TextureRegion[] icons(){
         return new TextureRegion[]{region,topRegion};
     }
+    
+    @Override
+    public void drawPlanRegion(BuildPlan plan, Eachable<BuildPlan> list){
+        Draw.rect(region, plan.drawx(), plan.drawy());
+        Draw.rect(topRegion, plan.drawx(), plan.drawy(), plan.rotation*90);
+    }
 
     public Building connectedTo(Tile tile, int rot){
         Tile tile1=tile.nearby(d4x2[rot][0]);

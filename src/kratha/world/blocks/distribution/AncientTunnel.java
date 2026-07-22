@@ -43,7 +43,7 @@ public class AncientTunnel extends Block{
     public void load(){
         super.load();
         for(int i=0;i<4;i++){
-            rotRegion[i]=Core.atlas.find(name+"-atlas",i*32,0,32,32)
+            rotRegion[i]=Core.atlas.find(name+"-atlas",i*32,0,32,32);
         }
         itemRegion = Core.atlas.find(name+"-item");
     }

@@ -68,7 +68,7 @@ public class AncientTunnel extends Block{
     
     @Override
     public int minimapColor(Tile tile){
-        return KrathaPal.deearthBaseDark
+        return KrathaPal.deearthBaseDark;
     }
     
     public class AncientTunnelBuild extends Building{

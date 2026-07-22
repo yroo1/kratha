@@ -34,7 +34,7 @@ public class AncientMessageBlock extends MessageBlock{
     
     @Override
     public int minimapColor(Tile tile){
-        return KrathaPal.deearthBase;
+        return KrathaPal.deearthBasemrgba();
     }
 
     public class AncientMessageBuild extends MessageBuild{

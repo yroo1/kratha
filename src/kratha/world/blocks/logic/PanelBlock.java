@@ -66,7 +66,7 @@ public class PanelBlock extends Block{
     
     @Override
     public int minimapColor(Tile tile){
-        return KrathaPal.deearthBaseDark;
+        return KrathaPal.deearthBaseDark.rgba();
     }
 
     public class PanelBuild extends Building{

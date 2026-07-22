@@ -63,7 +63,7 @@ public class PanelBlock extends Block{
         return state.rules.editor;
     }
     
-    Override
+    @Override
     public int minimapColor(Tile tile){
         Texture texture = region.texture;
         int cx = region.getX()+region.width/2;
